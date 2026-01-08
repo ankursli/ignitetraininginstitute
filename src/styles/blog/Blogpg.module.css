@@ -1,0 +1,439 @@
+/* Custom CSS for WordPress Posts Component - CSS Module Version */
+
+/* --- General Layout & Loading --- */
+.minHeight300px {
+    min-height: 300px;
+}
+
+/* --- Search Section --- */
+.searchBox {
+    margin-top: 100px;
+}
+
+.searchBox .searchbar {
+    height: 3rem;
+    color: #161664;
+    font-weight: 700;
+    padding-left: 2rem;
+    border: 1px solid #233467;
+}
+
+.searchBox .searchbar::placeholder {
+    color: #233467;
+    opacity: 1;
+}
+
+.searchBox button {
+    background: none;
+    border: 0;
+    padding-right: 30px;
+}
+
+.searchBox svg {
+    color: #161664;
+}
+
+.searchInputHeight {
+    height: 70px;
+}
+
+.searchButtonStyle {
+    height: 70px;
+    z-index: 2;
+    background: linear-gradient(to right, #60A5FA, #3B82F6);
+    border: none;
+}
+
+/* --- Category Buttons --- */
+.categoryList {
+    margin-bottom: 100px;
+}
+
+.categoryButtonsContainer {
+    margin-left: -20px;
+    margin-top: -10px;
+}
+
+.categoryButton {
+    border-radius: 10px !important;
+    background-color: white;
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(to right, #161664, #3F88BA);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem !important;
+    color: #233467 !important;
+    padding: 0.5rem 1.2rem !important;
+    font-weight: 500 !important;
+    margin: 0;
+}
+
+.categoryButton:hover {
+    color: #233467;
+    background-image: linear-gradient(white, white), linear-gradient(to right, #161664, #3F88BA);
+}
+
+.categoryButtonSelected {
+    background-image: linear-gradient(to right, #161664, #3F88BA);
+    color: white !important;
+    border: none;
+}
+
+.categoryButtonSelected:hover {
+    color: white !important;
+    background-image: linear-gradient(to right, #161664, #3F88BA);
+}
+
+/* --- Post Cards --- */
+.postsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+.col {
+    position: relative;
+}
+
+.col svg {
+    pointer-events: none;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+}
+
+.featuredImageStyle {
+    height: 224px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.readMoreButton {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(to right, #60A5FA, #3B82F6);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Social icon hover colors */
+.socialIconHover:hover {
+    color: #0d6efd !important;
+}
+
+.socialIconHover:nth-child(2):hover {
+    color: #212529 !important;
+}
+
+.socialIconHover:nth-child(3):hover {
+    color: #dc3545 !important;
+}
+
+.socialIconHover:nth-child(4):hover {
+    color: #198754 !important;
+}
+
+/* Card Styling */
+.card {
+    border: 2px solid #dbe5ff;
+    border-radius: 30px !important;
+    overflow: visible;
+    position: relative;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    margin: 0 !important;
+}
+
+.card .cardImgTop {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.card .cardBodyText {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1vw 0 0 0;
+    color: var(--bs-card-color);
+}
+
+.card .cardSubtitle {
+    margin-top: 0;
+    font-size: 0.8rem;
+    color: #233467d9;
+}
+
+.card .cardTitle {
+    font-size: 1.3vw;
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0 0 0.8vw 0;
+    color: #233467;
+    width: 100%;
+}
+
+.card .cardText {
+    font-size: 1vw;
+    line-height: 1.2;
+    color: #233467d9;
+    width: 16vw;
+}
+
+.card a.btnPrimary {
+    position: absolute;
+    bottom: -0.5vw;
+    right: 0;
+    width: 3.5vw;
+    height: 3.5vw;
+    background: linear-gradient(to left, #E7F6FF, #A3CAF5);
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    margin: 0 !important;
+}
+
+.card a.btnPrimary svg {
+    fill: #233467;
+}
+
+/* Banner Section */
+.fullWidthImageWrapper {
+    position: relative;
+}
+
+.bannerText {
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    z-index: 10;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to left, #EDFFF4, #A6EAC7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.blogBreadcrumb {
+    position: absolute;
+    bottom: 70px;
+    left: 50px;
+    z-index: 10;
+    width: fit-content;
+}
+
+.blogBreadcrumb .breadcrumb {
+    margin-bottom: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.blogBreadcrumb .breadcrumbItem {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.blogBreadcrumb .breadcrumbItem a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.blogBreadcrumb .breadcrumbItem a:hover {
+    text-decoration: underline;
+}
+
+.blogBreadcrumb .breadcrumbItem+.breadcrumbItem::before {
+    content: "/\00a0 /\00a0";
+    color: #fff;
+}
+
+.blogBreadcrumb .breadcrumbItem.active {
+    color: #fff;
+}
+
+/* Newsletter Section */
+.blogNewsletterSection .newsletterCard {
+    background: linear-gradient(180deg, rgba(163, 202, 245, 1) 0%, rgba(231, 246, 255, 1) 53%);
+}
+
+.blogNewsletterSection .fadeInSection {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.blogNewsletterSection .fadeInSection.isInview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cardBody h2 {
+    color: var(--blue-color);
+    font-size: 1.6vw;
+    font-weight: 700;
+    max-width: 40%;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 20px auto;
+}
+
+.cardBody p,
+.cardBody form {
+    width: 40vw;
+}
+
+.cardBody p {
+    font-size: 1vw;
+    max-width: 60%;
+    margin: 0 auto;
+    color: var(--grey-text);
+    opacity: 50%;
+    line-height: 1.5vw;
+}
+
+.cardBody input {
+    width: 100%;
+    padding: 12px 60px 12px 30px;
+    border-radius: 40px;
+    border: 1px solid #161664;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    transition: border 0.2s;
+}
+
+.cardBody button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    top: 10px;
+}
+
+/* Responsive Styles */
+@media(max-width: 1200px) {
+    .card a.btnPrimary {
+        bottom: -1rem;
+        right: -1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media(max-width: 991px) {
+    .postsList {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+    }
+
+    .card .cardTitle {
+        font-size: 1.2rem;
+    }
+
+    .card .cardText {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+@media(max-width: 767px) {
+    .postsList {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0;
+    }
+
+    .card .cardText {
+        width: 80%;
+    }
+
+    .card .cardImgTop {
+        height: auto;
+    }
+
+    .card .cardTitle {
+        font-size: 20px;
+    }
+
+    .card .cardText {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .card {
+        padding: 20px 20px 16px;
+    }
+
+    .card a.btnPrimary {
+        bottom: -0.5rem;
+        right: -1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .card .cardSubtitle {
+        margin-top: 0px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 620px) {
+    /* Commented out styles preserved from original */
+}
+
+@media (max-width: 575px) {
+    .card .cardText {
+        width: 80%;
+    }
+
+    .rounded.categoryList,
+    .bgWhite.searchBox.rounded,
+    .p4.postsList {
+        padding: 0 !important;
+    }
+
+    .postsList {
+        grid-template-columns: 1fr;
+    }
+
+    .p4.postsList {
+        margin-bottom: 0 !important;
+    }
+
+    .rounded.categoryList {
+        margin: 0;
+    }
+
+    .categoryButton {
+        font-size: 14px !important;
+    }
+
+    .categoryButtonsContainer {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .categoryButtonsContainer {
+        margin-left: 0;
+    }
+}

@@ -10,7 +10,10 @@ export default function SEOHead({
         <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
-
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+            />
             {/* REMOVED: Preconnects moved to _document.js for better performance */}
 
             {/* Preload LCP image candidates with fetchpriority high */}

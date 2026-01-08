@@ -18,7 +18,7 @@ const TrainersMessage = () => {
       id: 1,
       name: "PRAKSHI\nSHARMA",
       experience: "5+ YEARS",
-      image: "/assets/person.webp",
+      image: "/assets/persont.webp",
       alt: "Woman trainer with arms crossed in office background",
       videoUrl: "#", // Add actual video URL here
     },
@@ -34,7 +34,7 @@ const TrainersMessage = () => {
       id: 3,
       name: "PRAKSHI\nSHARMA",
       experience: "5+ YEARS",
-      image: "/assets/person.webp",
+      image: "/assets/persont.webp",
       alt: "Woman trainer with arms crossed in office background",
       videoUrl: "#", // Add actual video URL here
     },

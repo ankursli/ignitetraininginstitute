@@ -43,13 +43,13 @@ const isMobileDevice = () => {
 };
 
 const loadStyles = () => {
-    import("@/styles/home-copy/Blog.css");
-    import("@/styles/blog/Blogpg.css");
-    import("@/styles/slug/slug.css");
-    import("@/styles/ibdp/Ibdp.css");
-    import("@/styles/bloginnerpage.css");
-    import("@/styles/team/team.css");
-    import("@/styles/contact/contact.css");
+    // import("@/styles/home-copy/Blog.css");
+    // import("@/styles/blog/Blogpg.css");
+    // import("@/styles/slug/slug.css");
+    // import("@/styles/ibdp/Ibdp.css");
+    // import("@/styles/bloginnerpage.css");
+    // import("@/styles/team/team.css");
+    // import("@/styles/contact/contact.css");
     import("@/styles/DelayedPopup.css");
 };
 

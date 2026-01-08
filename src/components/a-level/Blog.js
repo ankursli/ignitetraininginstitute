@@ -2,6 +2,7 @@ import React from "react";
 import he from "he";
 import { useEffect } from "react";
 import { useScroll } from "../LocomotiveScrollProvider";
+import styles from "@/styles/bloginnerpage.module.css";
 
 const fetchBlogs = async () => {
     const res = await fetch(
@@ -84,12 +85,12 @@ const Blog = () => {
     }, [blogData, scrollRef]);
 
     return (
-        <section className="blogSection">
+        <section className={styles.blogSection}>
             <div className="container">
                 <div className="row gap-5 gap-lg-0">
-                    <div className="col-12 col-lg-5 blogLeft">
+                    <div className={`col-12 col-lg-5 ${styles.blogLeft}`}>
                         <div
-                            className="fade-in-section blogHeadingRow"
+                            className={`fade-in-section ${styles.blogHeadingRow}`}
                             data-scroll
                             data-scroll-class="is-inview"
                             data-scroll-repeat="true"
@@ -101,7 +102,7 @@ const Blog = () => {
                             data-scroll
                             data-scroll-class="is-inview"
                             data-scroll-repeat="true"
-                            className="fade-in-section blogTitle"
+                            className={`fade-in-section ${styles.blogTitle}`}
                             style={{ animationDelay: "0.2s" }}
                         >
                             Study Smarter With Resources, Tips & Student Stories
@@ -111,7 +112,7 @@ const Blog = () => {
                             data-scroll
                             data-scroll-class="is-inview"
                             data-scroll-repeat="true"
-                            className="fade-in-section blogSubtitle"
+                            className={`fade-in-section ${styles.blogSubtitle}`}
                             style={{ animationDelay: "0.3s" }}
                         >
                             Dive Into Our Signature Blogs
@@ -121,7 +122,7 @@ const Blog = () => {
                                 data-scroll
                                 data-scroll-class="is-inview"
                                 data-scroll-repeat="true"
-                                className="blogAllBtn buttonBlue fade-in-section"
+                                className={`${styles.blogAllBtn} buttonBlue fade-in-section`}
                                 style={{ animationDelay: "0.4s" }}
                             >
                                 VIEW ALL BLOGS
@@ -135,7 +136,7 @@ const Blog = () => {
                         </a>
                     </div>
 
-                    <div className="col-12 col-lg-7 blogRight">
+                    <div className={`col-12 col-lg-7 ${styles.blogRight}`}>
                         {blogData &&
                             blogData.map((blog, i) => (
                                 <div
@@ -143,7 +144,7 @@ const Blog = () => {
                                     data-scroll
                                     data-scroll-class="is-inview"
                                     data-scroll-repeat="true"
-                                    className="fade-in-section blogCard"
+                                    className={`fade-in-section ${styles.blogCard}`}
                                     style={{ animationDelay: "0.2s" }}
                                 >
                                     <a href={`/blog/${blog.link}`} className="nodecoration"><img
@@ -153,16 +154,16 @@ const Blog = () => {
                                         data-scroll-class="is-clipped"
                                         data-scroll-repeat="true"
                                         data-scroll-offset="-10%"
-                                        className="blogImg"
+                                        className={styles.blogImg}
                                     /></a>
-                                    <div className="blogCardContent">
-                                        <div className="blogCardTitle">{blog.title}</div>
-                                        <div className="blogCardDesc">{blog.desc}</div>
-                                        <span className="blogCardLine"></span>
+                                    <div className={styles.blogCardContent}>
+                                        <div className={styles.blogCardTitle}>{blog.title}</div>
+                                        <div className={styles.blogCardDesc}>{blog.desc}</div>
+                                        <span className={styles.blogCardLine}></span>
                                         <a href={`/blog/${blog.link}`} className="nodecoration">
-                                            <button className="blogReadMoreBtn buttonSkyBlue">
+                                            <button className={`${styles.blogReadMoreBtn} buttonSkyBlue`}>
                                                 READ MORE
-                                                <span className="blogReadMoreArrow">
+                                                <span className={styles.blogReadMoreArrow}>
                                                     <img
                                                         src="/images/right-arrow-blue.webp"
                                                         alt="arrow"
@@ -182,7 +183,7 @@ const Blog = () => {
                             data-scroll
                             data-scroll-class="is-inview"
                             data-scroll-repeat="true"
-                            className="blogAllBtnmobile buttonBlue fade-in-section"
+                            className={`${styles.blogAllBtnmobile} buttonBlue fade-in-section`}
                             style={{ animationDelay: "0.4s" }}
                         >
                             VIEW ALL BLOGS

@@ -1,10 +1,10 @@
-/* Base styles for all screen sizes */
+/* Base styles for all screen sizes - CSS Module Version */
 
-.blog-detail-container {
+.blogDetailContainer {
     margin-top: 4vw;
 }
 
-h1.main-title {
+.mainTitle {
     font-weight: 700 !important;
     line-height: 1;
     text-transform: uppercase;
@@ -16,67 +16,65 @@ h1.main-title {
     display: block;
     text-align: center;
     font-size: 40px;
-    /* Default font size for larger screens */
 }
 
-.post-date {
+.postDate {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-.post-date span {
+.postDate span {
     font-size: 22px;
     font-weight: 600;
     color: #233467;
 }
 
-.post-author {
+.postAuthor {
     display: flex;
     justify-content: center;
 }
 
-.post-author span {
+.postAuthor span {
     font-size: 20px;
     font-weight: 600;
     color: rgba(35, 52, 103, 0.51);
     text-transform: uppercase;
 }
 
-.post-share-icons.mb-4 {
+.postShareIcons {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
 }
 
-.image-feature img {
+.imageFeature img {
     border-radius: 40px;
     overflow: hidden;
-    height: 800px;
+    /* height: 800px; */
 }
 
-.post-content img {
+/* Post Content Styles - Global because content is rendered via dangerouslySetInnerHTML */
+:global(.post-content) img {
     max-width: 100%;
 }
 
-.post-content .wp-block-list,
-.post-content p {
+:global(.post-content) .wp-block-list,
+:global(.post-content) p {
     color: #161616;
     font-weight: 500;
     font-size: 16px;
 }
 
 /* Sticky sidebar styling using native CSS */
-.sticky-sidebar-wrapper {
+.stickySidebarWrapper {
     position: -webkit-sticky;
-    /* For Safari compatibility */
     position: sticky;
     top: 5.5vw;
-    /* Adjust this value as needed, e.g., to account for a fixed header */
 }
 
-.post-content h2 {
+:global(.post-content) h2 {
     font-weight: 500 !important;
     line-height: 1;
     text-transform: uppercase;
@@ -88,13 +86,11 @@ h1.main-title {
     display: inline-block;
     text-align: left;
     font-size: 32px;
-    /* Default font size for larger screens */
 }
 
-.post-content h3 {
+:global(.post-content) h3 {
     font-weight: 500 !important;
     line-height: 1;
-    /* text-transform: uppercase; */
     background: linear-gradient(to left, var(--green-color), var(--lightgreen-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -103,10 +99,9 @@ h1.main-title {
     display: block;
     text-align: left;
     font-size: 28px;
-    /* Default font size for larger screens */
 }
 
-.toc-title {
+.tocTitle {
     font-size: 32px;
     font-weight: 700 !important;
     line-height: 1;
@@ -120,34 +115,34 @@ h1.main-title {
     text-align: center;
 }
 
-.toc-list li {
+.tocList li {
     padding: 15px 20px;
     background: linear-gradient(86deg, rgba(243, 250, 255, 1) 50%, rgba(209, 229, 250, 1) 100%);
 }
 
-.toc-list li:nth-child(odd) {
+.tocList li:nth-child(odd) {
     background: linear-gradient(86deg, rgba(209, 229, 250, 1) 50%, rgba(243, 250, 255, 1) 100%);
 }
 
-.toc-list li a {
+.tocList li a {
     color: #161616;
     font-size: 20px;
     font-weight: 600;
 }
 
-.toc-list {
+.tocList {
     width: 100%;
 }
 
-/* New form styling from your provided code */
-.form-container {
+/* Form styling */
+.formContainer {
     background: linear-gradient(115deg, rgba(163, 202, 245, 1) 45%, rgba(231, 246, 255, 1) 100%);
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 50, 0.15);
 }
 
-.form-container h2 {
+.formContainer h2 {
     text-align: center;
     font-size: 1vw;
     font-weight: bold;
@@ -157,20 +152,13 @@ h1.main-title {
     letter-spacing: 1px;
 }
 
-.form-row {
+.formRow {
     display: flex;
     justify-content: space-between;
     gap: 25px;
 }
 
-.blog-container .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.2vw;
-    flex: 1;
-}
-
-.form-group label {
+.formGroup label {
     font-size: 0.8vw;
     color: #1f2d61;
     font-weight: 500;
@@ -178,8 +166,8 @@ h1.main-title {
     text-transform: uppercase;
 }
 
-.form-group input,
-.form-group select {
+.formGroup input,
+.formGroup select {
     border: none;
     border-bottom: 1px solid #88A9C4;
     padding: 3px 0;
@@ -189,7 +177,7 @@ h1.main-title {
     width: 100%;
 }
 
-.phone-input {
+.phoneInput {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -202,7 +190,7 @@ h1.main-title {
     object-fit: cover;
 }
 
-.submit-btn {
+.submitBtn {
     display: block;
     background: transparent;
     color: #1f2d61;
@@ -219,7 +207,7 @@ h1.main-title {
     padding: 0.5vw 1.2vw;
 }
 
-.submit-btn.blog-submit-btn {
+.submitBtn.blogSubmitBtn {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -238,7 +226,7 @@ h1.main-title {
     max-width: 270px;
 }
 
-.submit-btn:hover {
+.submitBtn:hover {
     opacity: 0.9;
 }
 
@@ -257,13 +245,13 @@ h1.main-title {
     background: linear-gradient(40deg, rgba(22, 22, 100, 1) 23%, rgba(63, 136, 186, 1) 102%);
 }
 
-.helpful-block {
+.helpfulBlock {
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.helpful-block span {
+.helpfulBlock span {
     display: flex;
     line-height: 3rem;
     background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
@@ -272,8 +260,8 @@ h1.main-title {
     font-weight: 600;
 }
 
-button.like,
-button.dislike {
+:global(button.like),
+:global(button.dislike) {
     width: 3rem;
     height: 3rem;
     border: none;
@@ -283,41 +271,35 @@ button.dislike {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-
 }
 
-.author-bio-section {
+.authorBioSection {
     display: flex;
     align-items: flex-start;
     gap: 2.5vw;
-    /* 40px → vw */
     max-width: 62.5vw;
-    /* 1200px → vw */
     margin: 2vw auto;
     font-family: Arial, sans-serif;
 }
 
-.author-bio-image img {
+.authorBioImage img {
     width: 10vw;
-    /* 350px → vw */
     border-radius: 0.6vw;
     object-fit: cover;
 }
 
-.author-bio-heading {
+.authorBioHeading {
     font-size: 1.4vw;
-    /* 32px */
     font-weight: 700;
     color: #7c819c;
     margin-bottom: 1vw;
 }
 
-.author-bio-text {
+.authorBioText {
     line-height: 1.5;
-
 }
 
-.author-bio-btn {
+.authorBioBtn {
     display: inline-flex;
     align-items: center;
     gap: 1.2vw;
@@ -325,95 +307,343 @@ button.dislike {
     background: linear-gradient(90deg, #12235d, #1e5fb2);
     border-radius: 3.5vw;
     font-size: 1vw;
-    /* 28px */
     font-weight: 700;
     color: #fff;
     text-decoration: none;
 }
 
-.author-bio-btn .arrow {
+.authorBioBtn .arrow {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 3.4vw;
-    /* 65px */
     height: 3.4vw;
     background: #c7dbf9;
     border-radius: 50%;
     font-size: 2vw;
-    /* arrow size */
     color: #0f2d75;
 }
 
+:global(.blogReadMoreArrow) {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* --- Post Cards (Related Posts Section) --- */
+/* Styles imported from Blogpg.module.css for card consistency */
+
+.postsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+/* Overflow hidden wrapper for cards */
+.postsList .overflowHidden {
+    overflow: hidden;
+}
+
+/* Column wrapper */
+.col {
+    position: relative;
+}
+
+/* SVG styling within columns */
+.col svg {
+    pointer-events: none;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+
+}
+
+.featuredImageStyle {
+    height: 224px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.readMoreButton {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(to right, #60A5FA, #3B82F6);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Social icon hover colors */
+.socialIconHover:hover {
+    color: #0d6efd !important;
+}
+
+.socialIconHover:nth-child(2):hover {
+    color: #212529 !important;
+}
+
+.socialIconHover:nth-child(3):hover {
+    color: #dc3545 !important;
+}
+
+.socialIconHover:nth-child(4):hover {
+    color: #198754 !important;
+}
+
+/* Card Styling */
+.card {
+    border: 2px solid #dbe5ff;
+    border-radius: 30px !important;
+    overflow: visible;
+    position: relative;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    margin: 0 !important;
+}
+
+/* Card inner wrapper with padding and position */
+.card .p3PositionRelative {
+    padding: 1rem;
+    position: relative;
+}
+
+/* Card image styling */
+.card .cardImgTop {
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Card Body Text and Elements */
+.card .cardBodyText {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1vw 0 0 0;
+    color: var(--bs-card-color);
+}
+
+/* Gap utilities for card body */
+.card .gap2 {
+    gap: 0.5rem !important;
+}
+
+.card .gap3 {
+    gap: 1rem !important;
+}
+
+/* Card subtitle */
+.card .cardSubtitle {
+    margin-top: 0;
+    font-size: 0.8rem;
+    color: #233467d9;
+}
+
+/* Card title */
+.card .cardTitle {
+    font-size: 1.3vw;
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0 0 0.8vw 0;
+    color: #233467;
+    width: 100%;
+}
+
+/* Card text/excerpt */
+.card .cardText {
+    font-size: 1vw;
+    line-height: 1.2;
+    color: #233467d9;
+    width: 16vw;
+}
+
+/* Read more button */
+.card a.btnPrimary {
+    position: absolute;
+    bottom: -0.5vw;
+    right: 0;
+    width: 3.5vw;
+    height: 3.5vw;
+    background: linear-gradient(to left, #E7F6FF, #A3CAF5);
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    margin: 0 !important;
+}
+
+.card a.btnPrimary svg {
+    fill: #233467;
+}
+
+/* Global style for btn-primary used in related posts (using :global for the anchor part) */
+.card a:global(.btn-primary) {
+    position: absolute;
+    bottom: -0.5vw;
+    right: 0;
+    width: 3.5vw;
+    height: 3.5vw;
+    background: linear-gradient(270deg, #E7F6FF, #A3CAF5);
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    margin: 0 !important;
+}
+
+.card a:global(.btn-primary) svg {
+    fill: #233467;
+}
+
+/* --- Category Buttons --- */
+.categoryButtonsContainer {
+    margin-left: -20px;
+    /* Half of desired column-gap (40px / 2) */
+    margin-top: -10px;
+    /* Half of desired row-gap (20px / 2) */
+}
+
+.categoryButton {
+    border-radius: 10px !important;
+    background-color: white;
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(to right, #161664, #3F88BA);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem !important;
+    color: #233467 !important;
+    padding: 0.5rem 1.2rem !important;
+    font-weight: 500 !important;
+    margin: 0;
+}
+
+.categoryButton:hover {
+    color: #233467;
+    /* Keep text color consistent on hover for unselected */
+    /* Re-apply gradient border on hover to ensure it doesn't disappear */
+    background-image: linear-gradient(white, white), linear-gradient(to right, #161664, #3F88BA);
+}
+
+.categoryButtonSelected {
+    background-image: linear-gradient(to right, #161664, #3F88BA);
+    /* Fill with gradient when selected */
+    color: white !important;
+    /* White text when selected */
+    border: none;
+    /* No border when selected, gradient fills fully */
+}
+
+.categoryButtonSelected:hover {
+    color: white !important;
+    /* Keep text white on hover when selected */
+    /* Ensure gradient fill remains on hover when selected */
+    background-image: linear-gradient(to right, #161664, #3F88BA);
+}
 
 /* Media Queries for Mobile Responsiveness */
+@media (max-width: 1200px) {
+
+    .card a.btnPrimary,
+    .card a:global(.btn-primary) {
+        bottom: -1rem;
+        right: -1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .postsList {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+    }
+
+    .card .cardTitle {
+        font-size: 1.2rem;
+    }
+
+    .card .cardText {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
 @media (max-width: 768px) {
-    h1.main-title {
+    .mainTitle {
         font-size: 32px;
         padding: 0 10px;
         text-align: left;
     }
 
-    .post-date span,
-    .post-author span {
+    .postDate span,
+    .postAuthor span {
         font-size: 16px;
     }
 
-    .image-feature img {
+    .imageFeature img {
         height: auto;
         border-radius: 20px;
     }
 
-    .post-author {
+    .postAuthor {
         justify-content: flex-start;
         padding: 0 10px;
     }
 
-    .post-date {
+    .postDate {
         flex-direction: column;
         align-items: left;
         gap: 5px;
         padding: 0 10px;
     }
 
-    .post-date-separator {
+    .postDateSeparator {
         display: none;
     }
 
-    .post-content .wp-block-list,
-    .post-content p {
+    :global(.post-content) .wp-block-list,
+    :global(.post-content) p {
         font-size: 18px;
     }
 
-    .post-content h2,
-    .toc-title {
+    :global(.post-content) h2,
+    .tocTitle {
         font-size: 24px;
         padding: 10px 0;
     }
 
-    .post-content h3 {
+    :global(.post-content) h3 {
         font-size: 20px;
         padding: 10px 0;
     }
 
-    .toc-list li a {
+    .tocList li a {
         font-size: 16px;
     }
 
-    .form-row {
+    .formRow {
         flex-direction: column;
         gap: 0;
     }
 
-    .form-group {
+    .formGroup {
         margin-bottom: 1.2vw;
     }
 
-    .form-group label {
+    .formGroup label {
         font-size: 16px;
     }
 
-    .submit-btn {
+    .submitBtn {
         width: 100%;
         font-size: 20px;
         padding-left: 15px;
@@ -423,25 +653,65 @@ button.dislike {
         right: 15px;
     }
 
-    .sticky-sidebar-wrapper {
+    .stickySidebarWrapper {
         position: static;
         top: auto;
+    }
+
+    /* Card responsive styles */
+    .postsList {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0;
+    }
+
+    .card .cardText {
+        width: 80%;
+    }
+
+    .card .cardImgTop {
+        height: auto;
+    }
+
+    .card .cardTitle {
+        font-size: 20px;
+    }
+
+    .card .cardText {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .card {
+        padding: 20px 20px 16px;
+    }
+
+    .card a.btnPrimary,
+    .card a:global(.btn-primary) {
+        bottom: -0.5rem;
+        right: -1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .card .cardSubtitle {
+        margin-top: 0px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 575px) {
-    .text-center.mb-5.image-feature {
+    .textCenter.mb5.imageFeature {
         margin-bottom: 0 !important;
     }
 
-    section.post-detail-section,
-    .post-content-and-sidebar-section.py-5 {
+    .postDetailSection,
+    .postContentAndSidebarSection.py5 {
         padding-bottom: 0 !important;
     }
 
-    .author-bio-section {
+    .authorBioSection {
         max-width: 100%;
-
     }
 
     .buttonBlue {
@@ -449,12 +719,12 @@ button.dislike {
         font-size: 14px;
     }
 
-    .author-bio-heading,
-    .author-bio-text {
+    .authorBioHeading,
+    .authorBioText {
         font-size: 14px;
     }
 
-    .author-bio-image img {
+    .authorBioImage img {
         width: 100%;
     }
 
@@ -462,22 +732,20 @@ button.dislike {
         padding: 10px 0;
     }
 
-    .form-group select {
+    .formGroup select {
         font-size: 1rem;
     }
 
-    .form-group option {
+    .formGroup option {
         font-size: 24px;
     }
 
-    .form-group input,
-    .form-group select {
-
+    .formGroup input,
+    .formGroup select {
         font-size: 15px;
-
     }
 
-    .submit-btn.blog-submit-btn {
+    .submitBtn.blogSubmitBtn {
         font-size: 1rem;
         padding: 10px 15px;
         background: transparent;
@@ -487,58 +755,225 @@ button.dislike {
         margin-top: 20px;
     }
 
-    .form-container h2 {
+    .formContainer h2 {
         width: 100%;
     }
 
-    .sticky-sidebar-wrapper {
+    .stickySidebarWrapper {
         padding-bottom: 20px;
     }
 
+    /* Card responsive styles */
+    .card .cardText {
+        width: 80%;
+    }
+
+    .postsList {
+        grid-template-columns: 1fr;
+    }
+
+    /* Category button responsive styles */
+    .categoryButton {
+        font-size: 14px !important;
+    }
+
+    .categoryButtonsContainer {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .categoryButtonsContainer {
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
-    h1.main-title {
+    .mainTitle {
         font-size: 24px;
     }
 
-    .post-date span,
-    .post-author span {
+    .postDate span,
+    .postAuthor span {
         font-size: 14px;
     }
 
-    .post-content .wp-block-list,
-    .post-content p {
+    :global(.post-content) .wp-block-list,
+    :global(.post-content) p {
         font-size: 16px;
     }
 
-    .post-content h2,
-    .toc-title {
+    :global(.post-content) h2,
+    .tocTitle {
         font-size: 20px;
     }
 
-    .post-content h3 {
+    :global(.post-content) h3 {
         font-size: 18px;
     }
 
-    .toc-list li {
+    .tocList li {
         padding: 10px;
     }
 
-    .toc-list li a {
+    .tocList li a {
         font-size: 14px;
     }
 
-    .form-container {
+    .formContainer {
         padding: 20px 15px;
     }
 
-    .form-container h2 {
+    .formContainer h2 {
         font-size: 16px;
     }
 
-    .submit-btn {
+    .submitBtn {
         font-size: 18px;
         padding: 6px 15px;
     }
+}
+
+/* Global styles for HTML string templates (used in dangerouslySetInnerHTML) */
+/* These classes are used in HTML strings and cannot use CSS Modules syntax */
+:global(.toc-title) {
+    font-size: 32px;
+    font-weight: 700 !important;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px 0px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+:global(.toc-list) {
+    width: 100%;
+}
+
+:global(.toc-list li) {
+    padding: 15px 20px;
+    background: linear-gradient(86deg, rgba(243, 250, 255, 1) 50%, rgba(209, 229, 250, 1) 100%);
+}
+
+:global(.toc-list li:nth-child(odd)) {
+    background: linear-gradient(86deg, rgba(209, 229, 250, 1) 50%, rgba(243, 250, 255, 1) 100%);
+}
+
+:global(.toc-list li a) {
+    color: #161616;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+:global(.sticky-sidebar-wrapper) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5.5vw;
+}
+
+:global(.form-container) {
+    background: linear-gradient(115deg, rgba(163, 202, 245, 1) 45%, rgba(231, 246, 255, 1) 100%);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 50, 0.15);
+}
+
+:global(.form-container h2) {
+    text-align: center;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1.2vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:global(.form-row) {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+:global(.blog-container .form-group) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2vw;
+    flex: 1;
+}
+
+:global(.form-group label) {
+    font-size: 0.8vw;
+    color: #1f2d61;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+:global(.form-group input),
+:global(.form-group select) {
+    border: none;
+    border-bottom: 1px solid #88A9C4;
+    padding: 3px 0;
+    background: transparent;
+    font-size: 0.8vw;
+    outline: none;
+    width: 100%;
+}
+
+:global(.phone-input) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+:global(.flag) {
+    width: 28px;
+    height: 20px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+:global(.submit-btn) {
+    display: block;
+    background: transparent;
+    color: #1f2d61;
+    border: 1px solid #1f2d61;
+    padding: 8px;
+    font-size: 1vw;
+    font-weight: 500;
+    border-radius: 30px;
+    text-align: left;
+    width: 70%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0.5vw 1.2vw;
+}
+
+:global(.submit-btn.blog-submit-btn) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: linear-gradient(90deg, #0d1b6a, #4c84d3);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1vw;
+    padding: 0.5vw 1.2vw;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 270px;
+}
+
+:global(.blogReadMoreArrow) {
+    display: inline-flex;
+    align-items: center;
 }

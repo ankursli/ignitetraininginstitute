@@ -1,0 +1,438 @@
+.fadeInSection {
+    opacity: 1;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fadeInSection.isInview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.careersBanner {
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    max-width: 90vw;
+    width: 100%;
+    height: calc(90vw / 2.98);
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background-image: url("/images/contact/contactbanner.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.blogBanner {
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    max-width: 90vw;
+    width: 100%;
+    height: calc(90vw / 2.98);
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background-image: url("/images/blog-banner.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.darkOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    color: white;
+    z-index: 1;
+}
+
+.heading {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 70px;
+}
+
+.subHeading {
+    margin: 0;
+    font-size: 1.35vw;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.highlightBanners {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.banner {
+    padding: 25px 50px;
+    border-radius: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: left;
+    display: inline-block;
+    line-height: 1.3;
+}
+
+.banner span {
+    display: block;
+}
+
+.textNormal {
+    color: #152f63;
+    font-size: 1.8rem;
+}
+
+.textBold {
+    color: #007a6c;
+    font-size: 2.6rem;
+}
+
+.greenBanner {
+    background: linear-gradient(90deg, rgba(213, 245, 228, 1) 27%, rgba(255, 255, 255, 1) 51%);
+}
+
+.blueBanner {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 51%, rgba(209, 229, 250, 1) 73%);
+    text-align: right;
+}
+
+.contactForm {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.formRow {
+    display: flex;
+    gap: 30px;
+}
+
+.formGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.formGroup.fullWidth {
+    width: 100%;
+}
+
+.formGroup label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #152f63;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    border: none;
+    border-bottom: 1px solid #cfd6e0;
+    padding: 8px 0;
+    font-size: 15px;
+    outline: none;
+    color: #152f63;
+    background: transparent;
+}
+
+.formGroup textarea {
+    border: 1px solid #cfd6e0;
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+}
+
+.phoneInput {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flag {
+    font-size: 20px;
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: linear-gradient(90deg, #0d1b6a, #4c84d3);
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px 30px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 270px;
+}
+
+.submitBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.formActions {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.arrow {
+    font-size: 18px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.alertDanger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+}
+
+.contactContainer {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contactCard {
+    background: linear-gradient(to bottom, #eafbf3, #f8fdfd);
+    padding: 30px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.contactCard.blue {
+    background: linear-gradient(180deg, rgba(227, 239, 252, 1) 22%, rgba(254, 255, 255, 1) 77%);
+}
+
+.contactCard.green {
+    background: linear-gradient(180deg, rgba(215, 245, 229, 1) 22%, rgba(254, 255, 255, 1) 77%);
+}
+
+.contactCard img,
+.contactVisit img {
+    max-width: 80px;
+    margin-bottom: 15px;
+}
+
+.contactCard h3,
+.contactVisit h3 {
+    margin: 10px 0;
+    font-size: 1.7rem;
+    color: #002b5c;
+    font-weight: 700;
+}
+
+.contactCard p,
+.contactVisit p {
+    font-size: 1.2rem;
+    color: #8D98B0;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.3;
+}
+
+.contactCard a,
+.contactCard span {
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(2, 163, 144, 1) 38%, rgba(0, 85, 75, 1) 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+}
+
+.contactVisit {
+    margin-top: 20px;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(to bottom, #edf6ff, #f9fcff);
+    border-radius: 30px;
+}
+
+.contactVisit address {
+    font-style: normal;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(2, 163, 144, 1) 38%, rgba(0, 85, 75, 1) 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    max-width: 59%;
+    font-size: 1.25rem;
+    margin: 35px auto 0;
+}
+
+@media (max-width: 768px) {
+
+    .careersBanner,
+    .blogBanner {
+        height: 90vw;
+    }
+
+    .careersBanner h2 {
+        font-size: 6.33vw !important;
+        font-weight: 800 !important;
+        line-height: 36px !important;
+    }
+
+    .contactContainer p {
+        margin: 0 !important;
+        font-size: 4.08vw !important;
+        font-weight: 800 !important;
+        opacity: 0.8 !important;
+    }
+
+    .contactContainer {
+        max-width: 100%;
+        padding: 80px 10px;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactCard {
+        padding: 20px 0;
+    }
+
+    .contactCard h3,
+    .contactCard p,
+    .contactCard a,
+    .contactVisit h3,
+    .contactVisit p,
+    .contactVisit a {
+        max-width: 90% !important;
+        margin: 0 auto !important;
+    }
+
+    .contactCard a,
+    .contactCard span,
+    .contactVisit address {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 0;
+        max-width: 100%;
+    }
+
+    .contactVisit address {
+        font-size: 15px;
+    }
+
+    .contactCard img,
+    .contactVisit img {
+        max-width: 50px;
+    }
+
+    .contactCard h3,
+    .contactVisit h3 {
+        padding-top: 0;
+        font-size: 20px;
+    }
+
+    .contactCard p,
+    .contactVisit p {
+        padding: 20px 0;
+        font-weight: 400 !important;
+    }
+
+    .contactVisit {
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .careersBanner {
+        background-image: url("/images/contact/banner.webp");
+    }
+
+    .subHeading {
+        font-size: 15px;
+    }
+
+    .highlightBanners {
+        padding: 0 20px;
+    }
+
+    .banner {
+        font-size: 22px;
+        padding: 20px 30px;
+        text-align: center;
+        margin: 0 20px;
+    }
+
+    .textNormal {
+        font-size: 1.5rem;
+    }
+
+    .textBold {
+        font-size: 2rem;
+    }
+
+    .blueBanner,
+    .greenBanner {
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .formRow {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contactForm {
+        padding: 20px;
+    }
+
+    .submitBtn {
+        font-size: 20px;
+        padding: 15px 20px;
+        max-width: 220px;
+    }
+
+    .submitBtn img {
+        width: 40px;
+    }
+}

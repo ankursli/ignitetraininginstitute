@@ -1,0 +1,137 @@
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popupContent {
+    padding: 35px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    background: linear-gradient(113.96deg, #E7F6FF 20.79%, #A3CAF5 71.19%);
+    border-radius: 41px;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupContent label {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 1.14rem;
+    font-weight: 600;
+    color: #152f63;
+}
+
+.popupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.popupContent h3 {
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    background: linear-gradient(285.71deg, #3f88ba -4.32%, #161664 106.53%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.popupContent p {
+    max-width: 600px;
+    font-size: 1.14rem;
+    margin: 0px auto;
+    color: #152f63;
+}
+
+.formInput {
+    padding: 0.8rem;
+    border: 1px solid #152f63;
+    border-radius: 2rem;
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+    color: #152f63;
+    background: transparent;
+    display: block;
+}
+
+.formInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(63, 136, 186, 0.2);
+    border-color: #3f88ba;
+}
+
+.formInput::placeholder {
+    color: #152f63;
+    opacity: 0.6;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #152f63;
+    z-index: 10;
+}
+
+.errorText {
+    color: #d93025;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.popupCustText {
+    padding: 12px 14px 12px 20px;
+}
+
+.popupCustomHeight {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+@media(max-width: 575px) {
+    .popupContent h3 {
+        font-size: 1.5rem;
+    }
+
+    .popupContent p,
+    .popupContent label,
+    .formInput {
+        font-size: 0.85rem;
+    }
+
+    .formInput {
+        padding: 0.5rem 1rem;
+    }
+
+    .popupContent {
+        padding: 25px;
+        border-radius: 30px;
+    }
+
+    .popupCustText {
+        padding: 8px 12px 8px 18px;
+    }
+
+    .popupCustomHeight {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}

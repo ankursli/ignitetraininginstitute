@@ -8,6 +8,7 @@ import Head from 'next/head';
 import SidebarForm from '@/components/SidebarForm';
 import { useMemo } from "react";
 import { PopupContext } from '../../pages/_app';
+import styles from '@/styles/slug/slug.module.css';
 
 
 // You must add 'import "locomotive-scroll/dist/locomotive-scroll.css";'
@@ -572,21 +573,21 @@ export default function PostDetail() {
                 </Head>
             )}
 
-            <section className="post-detail-section py-5" data-scroll data-scroll-section>
-                <div className="container blog-detail-container" >
-                    <h1 className="mb-4 display-4 main-title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                    <div className="mb-2 post-date">
+            <section className={`${styles.postDetailSection} py-5`} data-scroll data-scroll-section>
+                <div className={`container ${styles.blogDetailContainer}`} >
+                    <h1 className={`mb-4 display-4 ${styles.mainTitle}`} dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                    <div className={`mb-2 ${styles.postDate}`}>
                         <span>Published on {publishedDate} </span>
-                        <span className="post-date-separator">|</span>
+                        <span className={styles.postDateSeparator}>|</span>
                         {updatedDate && (
                             <span>Updated on {updatedDate}</span>
                         )}
                     </div>
-                    <div className="mb-2 post-author">
+                    <div className={`mb-2 ${styles.postAuthor}`}>
                         <span>By {authorName}</span>
                     </div>
 
-                    <div className="post-share-icons mb-4">
+                    <div className={`${styles.postShareIcons} mb-4`}>
                         {/* ... (Existing share icons) ... */}
                         <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener noreferrer">
 
@@ -628,7 +629,7 @@ export default function PostDetail() {
                     </div>
 
                     {featuredImage && (
-                        <div className="text-center mb-5 image-feature">
+                        <div className={`text-center mb-5 ${styles.imageFeature}`}>
                             <img
                                 src={featuredImage}
                                 alt={post.title.rendered}
@@ -641,7 +642,7 @@ export default function PostDetail() {
             </section>
 
             <section
-                className="post-content-and-sidebar-section py-5"
+                className={`${styles.postContentAndSidebarSection} py-5`}
                 data-scroll
                 data-scroll-section
             >
@@ -651,7 +652,7 @@ export default function PostDetail() {
                             <TOCPostContent content={post.content.rendered} toc={toc} />
 
                             {/* --- UPDATED: Like/Dislike Block --- */}
-                            <div className="helpful-block">
+                            <div className={styles.helpfulBlock}>
                                 <span className="">
                                     Was This Page Helpful
                                 </span>
@@ -703,15 +704,15 @@ export default function PostDetail() {
 
                             </div>
                             {/* --- END UPDATED: Like/Dislike Block --- */}
-                            <div className="author-bio-section">
-                                <div className="author-bio-image">
+                            <div className={styles.authorBioSection}>
+                                <div className={styles.authorBioImage}>
                                     <img src="/images/Sumit.webp" alt="Author image" />
                                 </div>
 
-                                <div className="author-bio-content">
-                                    <h3 className="author-bio-heading">WRITTEN BY SUMIT ADVANI</h3>
+                                <div className={styles.authorBioContent}>
+                                    <h3 className={styles.authorBioHeading}>WRITTEN BY SUMIT ADVANI</h3>
 
-                                    <p className="author-bio-text">
+                                    <p className={styles.authorBioText}>
                                         Sumit Advani, Co-Founder of Ignite Training Institute, brings over 10 years of education expertise in the UAE. With a B.Sc. in IT and a Diploma in Advertising & PR, he designs personalised academic programs that empower students to achieve their goals.
                                     </p>
 
@@ -745,7 +746,7 @@ export default function PostDetail() {
                                                 key={category.id}
                                                 // Note: 'link' property is available on embedded terms
                                                 href={`/category/${category.slug}`}
-                                                className="btn category-button "
+                                                className={`btn ${styles.categoryButton}`}
                                             >
                                                 {category.name}
                                             </a>
@@ -795,7 +796,7 @@ export default function PostDetail() {
                                         </div>
                                     </div>
 
-                                    <div className="mb-4 p-4 postsList">
+                                    <div className={`mb-4 p-4 ${styles.postsList}`}>
                                         {relatedPosts.map((post) => {
                                             const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
                                             const postSlug = post.slug;
@@ -803,15 +804,15 @@ export default function PostDetail() {
                                             const postLink = post.link;
 
                                             return (
-                                                <div className="col" key={post.id}>
-                                                    <div className="card border-0 position-relative">
+                                                <div className={styles.col} key={post.id}>
+                                                    <div className={`${styles.card} border-0 position-relative`}>
                                                         <div className="p-3 position-relative">
 
                                                             {featuredImage && (
                                                                 <a href={`/blog/${postSlug}`} rel="noopener noreferrer">
                                                                     <img
                                                                         src={featuredImage}
-                                                                        className="card-img-top"
+                                                                        className={styles.cardImgTop}
                                                                         alt={post.title.rendered}
                                                                         style={{ objectFit: "cover", objectPosition: "center" }}
                                                                         onError={(e) => {
@@ -823,10 +824,10 @@ export default function PostDetail() {
                                                                 </a>
                                                             )}
 
-                                                            <div className="card-body-text d-flex flex-column">
+                                                            <div className={`${styles.cardBodyText} d-flex flex-column`}>
 
                                                                 <div className="d-flex justify-content-between align-items-center mb-3">
-                                                                    <p className="card-subtitle">
+                                                                    <p className={styles.cardSubtitle}>
                                                                         {new Date(post.date).toLocaleDateString("en-US", {
                                                                             month: "long",
                                                                             day: "numeric",
@@ -838,7 +839,7 @@ export default function PostDetail() {
                                                                             href={`https://www.facebook.com/sharer/sharer.php?u=${postLink}`}
                                                                             target="_blank"
                                                                             rel="noopener noreferrer"
-                                                                            className="text-muted social-icon-hover"
+                                                                            className={`text-muted ${styles.socialIconHover}`}
                                                                         >
                                                                             <img src="/images/facebk.webp" width="18" height="18" alt="Facebook" />
                                                                         </a>
@@ -847,14 +848,14 @@ export default function PostDetail() {
                                                                             href={`https://twitter.com/intent/tweet?url=${postLink}&text=${postTitle}`}
                                                                             target="_blank"
                                                                             rel="noopener noreferrer"
-                                                                            className="text-muted social-icon-hover"
+                                                                            className={`text-muted ${styles.socialIconHover}`}
                                                                         >
                                                                             <img src="/images/x.webp" width="18" height="18" alt="Twitter/X" />
                                                                         </a>
 
                                                                         <a
                                                                             href={`mailto:?subject=${postTitle}&body=${postLink}`}
-                                                                            className="text-muted social-icon-hover"
+                                                                            className={`text-muted ${styles.socialIconHover}`}
                                                                         >
                                                                             <img src="/images/mail.webp" width="18" height="18" alt="Email" />
                                                                         </a>
@@ -863,13 +864,13 @@ export default function PostDetail() {
 
                                                                 <a href={`/blog/${postSlug}`} rel="noopener noreferrer">
                                                                     <h5
-                                                                        className="card-title"
+                                                                        className={styles.cardTitle}
                                                                         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                                                                     />
                                                                 </a>
 
                                                                 <div
-                                                                    className="card-text"
+                                                                    className={styles.cardText}
                                                                     dangerouslySetInnerHTML={{
                                                                         __html: post.excerpt.rendered.replace(/<[^>]*>/g, "").slice(0, 90) + '...',
                                                                     }}
