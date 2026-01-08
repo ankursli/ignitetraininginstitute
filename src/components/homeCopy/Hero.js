@@ -46,8 +46,9 @@ const Hero = () => {
     return (
         <>
             <Head>
+                <link rel="preload" as="image" href="/images/video-cover.webp" />
                 {/* Responsive Preload: Helps mobile fetch the SMALL image immediately */}
-                <link
+                {/* <link
                     rel="preload"
                     as="image"
                     href="/images/banner-image-right.webp"
@@ -60,7 +61,7 @@ const Hero = () => {
                     href="/images/banner-image-right-m.webp"
                     fetchPriority="high"
                     media="(max-width: 575px)"
-                />
+                /> */}
             </Head>
 
             <section className={`${styles.hero} ${styles.homeherosection}`}>
@@ -98,9 +99,7 @@ const Hero = () => {
 
                             <div className={`col-12 col-lg-5 col-xl-5 ${styles.heroRight}`}>
                                 <div className={styles.videoContainer}>
-                                    {/* CRITICAL CHANGE: 'poster' removed. 
-                                        Your CSS background-image will now show immediately. 
-                                    */}
+
                                     <video
                                         ref={videoRef}
                                         className={styles.heroVideo}
@@ -108,9 +107,10 @@ const Hero = () => {
                                         muted
                                         loop
                                         playsInline
-                                        preload="none"
+                                        preload="metadata"
+                                        poster="/images/video-cover.webp"
                                     >
-                                        {/* Source added via JS */}
+
                                     </video>
                                 </div>
 
