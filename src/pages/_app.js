@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState, createContext, useEffect } from "react";
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import "@/styles/critical.css";
 import "@/styles/globals.css";
@@ -150,6 +151,7 @@ export default function MyApp({ Component, pageProps }) {
                         <Component {...pageProps} headerHeight={headerHeight} />
                         <Footer />
                         <DelayedPopup />
+                        <SpeedInsights />
                     </div>
                     {showButton && (
                         <Link href="/join-free-demo-class" passHref legacyBehavior>
@@ -167,6 +169,7 @@ export default function MyApp({ Component, pageProps }) {
                         <Component {...pageProps} headerHeight={headerHeight} />
                         <Footer />
                         <DelayedPopup />
+                        <SpeedInsights />
                     </div>
                     {showButton && (
                         <Link href="/join-free-demo-class" passHref legacyBehavior>
