@@ -26,49 +26,44 @@ const Hero = () => {
   };
 
   return (
-    <section className={styles.hero}>
-      <div className={styles.videoContainer}>
-       <img
-  src="/images/hero-poster.webp"
-  alt="Ignite Training Institute - Best Tutors in UAE"
-  width="375"
-  height="620"
-  fetchpriority="high"
-  decoding="async"
-  className={styles.heroPoster}
-  style={{
-    width: "100%",
-    height: "620px",
-    objectFit: "cover"
-  }}
-/>
+   <section className={styles.hero}>
+  
+  <img
+    src="/images/hero-poster.webp"
+    alt="Ignite Training Institute - Best Tutors in UAE"
+    width="375"
+    height="620"
+    fetchpriority="high"
+    decoding="async"
+    className={styles.heroPoster}
+  />
 
+  <video
+    ref={videoRef}
+    className={styles.heroVideo}
+    muted
+    loop
+    playsInline
+    poster="/images/hero-poster.webp"
+    onLoadedData={handleVideoLoad}
+    preload="none"
+    style={{ opacity: videoLoaded ? 1 : 0 }}
+  />
 
-        <video
-          ref={videoRef}
-          className={styles.heroVideo}
-          muted
-          loop
-          playsInline
-          poster="/images/hero-poster.webp"
-          onLoadedData={handleVideoLoad}
-          preload="none"
-          style={{ opacity: videoLoaded ? 1 : 0 }}
-        />
-      </div>
+  
+  <div className={styles.heroOverlay}>
+    <div className="container">
+      <h1 className={styles.heroTitle}>BEST TUTORS IN UAE</h1>
+      <p className={styles.heroSubtitle}>
+        EMPOWER YOUR ACADEMIC GOALS WITH IGNITE&apos;S TUTORS
+      </p>
+      <a href="/join-free-demo-class" className={styles.heroButton}>
+        Get a Free Demo
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div className={styles.heroContent}>
-        <div className="container">
-          <h1 className={styles.heroTitle}>BEST TUTORS IN UAE</h1>
-          <p className={styles.heroSubtitle}>
-            EMPOWER YOUR ACADEMIC GOALS WITH IGNITE'S TUTORS
-          </p>
-          <a href="/join-free-demo-class" className={styles.heroButton}>
-            Get a Free Demo
-          </a>
-        </div>
-      </div>
-    </section>
   );
 };
 
