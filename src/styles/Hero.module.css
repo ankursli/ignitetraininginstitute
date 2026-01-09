@@ -20,3 +20,15 @@
   position: relative;
   z-index: 2;
 }
+
+.lcpWrapper {
+  width: 100%;
+  max-width: 100vw;
+  height: 620px; /* mobile LCP anchor */
+}
+
+@media (max-width: 575px) {
+  .lcpWrapper {
+    height: 520px;
+  }
+}
