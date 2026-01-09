@@ -43,6 +43,33 @@ export default function Document() {
 
         {/* Performance hints */}
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
+
+          <style
+  dangerouslySetInnerHTML={{
+    __html: `
+      /* CRITICAL HERO LCP CSS */
+      .hero {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .heroPoster {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+
+      @media (min-width: 992px) {
+        .heroPoster {
+          display: none;
+        }
+      }
+    `,
+  }}
+/>
+
       </Head>
 
       <body>
