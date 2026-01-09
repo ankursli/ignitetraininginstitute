@@ -1,4 +1,4 @@
-import Image from "@/components/CustomImageWrapper";
+import Image from "next/image"; // Changed to standard next/image for better LCP control
 import styles from "@/styles/home-copy/Hero.module.css";
 
 const Hero = () => {
@@ -42,18 +42,19 @@ const Hero = () => {
           {/* RIGHT CONTENT */}
           <div className={`col-12 col-lg-5 col-xl-5 ${styles.heroRight}`}>
             <div className={styles.videoContainer}>
-              {/* ✅ LCP IMAGE — ALWAYS IN HTML */}
-              <img
+              {/* ✅ OPTIMIZED LCP IMAGE */}
+              <Image
                 src="/images/video-cover.webp"
                 alt="Ignite Tutoring Hero"
-                width="800"
-                height="600"
-                fetchpriority="high"
-                decoding="async"
+                width={800}
+                height={600}
+                priority={true} // Tells Next.js to load this immediately
+                fetchPriority="high" // Critical for LCP
                 className={styles.heroPoster}
+                style={{ objectFit: 'cover' }}
               />
 
-              {/* 🎥 VIDEO — CSS CONTROLLED (DESKTOP ONLY) */}
+              {/* 🎥 VIDEO (DESKTOP ONLY) */}
               <video
                 className={styles.heroVideo}
                 autoPlay
@@ -75,10 +76,9 @@ const Hero = () => {
                 Get A Free Demo{" "}
                 <Image
                   src="/images/right-arrow-skyblue.webp"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   alt="Right arrow"
-                  priority
                 />
               </a>
 
@@ -86,8 +86,8 @@ const Hero = () => {
                 Explore Classes{" "}
                 <Image
                   src="/images/right-arrow-blue.webp"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   alt="Right arrow"
                 />
               </a>
