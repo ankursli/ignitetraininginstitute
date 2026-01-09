@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
+// 1. STYLES MUST BE IMPORTED BEFORE SWIPER MODULES IN SOME NEXT.JS VERSIONS
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import Image from 'next/image';
 import styles from '@/styles/home-copy/Test.module.css';
-
-// Swiper styles loaded here to prevent blocking Hero render
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 const testData = [
   {
@@ -41,7 +41,8 @@ const testData = [
 
 const Test = ({ isMobileSwiper, active, setActive }) => {
   useEffect(() => {
-    if (isMobileSwiper && setActive) {
+    // 2. SAFETY CHECK: Ensure setActive exists before calling it
+    if (isMobileSwiper && typeof setActive === 'function') {
       setActive(1); 
     }
   }, [isMobileSwiper, setActive]);
@@ -64,7 +65,9 @@ const Test = ({ isMobileSwiper, active, setActive }) => {
           centeredSlides={true}
           modules={[Pagination, Navigation, Autoplay]}
           initialSlide={1}
-          onSlideChange={(swiper) => setActive && setActive(swiper.realIndex)}
+          onSlideChange={(swiper) => {
+             if (typeof setActive === 'function') setActive(swiper.realIndex);
+          }}
           breakpoints={{
             0: { slidesPerView: 1.1, spaceBetween: 20 },
             575: { slidesPerView: 1.2, spaceBetween: 25 },
@@ -108,8 +111,8 @@ const Test = ({ isMobileSwiper, active, setActive }) => {
               <div
                 key={idx}
                 className={`col-4 px-3 ${styles.testCard}`}
-                onMouseEnter={() => setActive(idx)}
-                onMouseLeave={() => setActive(1)}
+                onMouseEnter={() => { if (typeof setActive === 'function') setActive(idx); }}
+                onMouseLeave={() => { if (typeof setActive === 'function') setActive(1); }}
               >
                 <div className={`${styles.cardImageArea} ${active === idx ? styles.activeImageArea : ""}`}>
                   <Image 
