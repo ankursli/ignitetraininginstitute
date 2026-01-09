@@ -4,7 +4,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import Image from 'next/image';
 import styles from '@/styles/home-copy/Test.module.css';
 
-// Import Swiper styles here so they only load when this dynamic component loads
+// Swiper styles loaded here to prevent blocking Hero render
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -41,7 +41,7 @@ const testData = [
 
 const Test = ({ isMobileSwiper, active, setActive }) => {
   useEffect(() => {
-    if (setActive) {
+    if (isMobileSwiper && setActive) {
       setActive(1); 
     }
   }, [isMobileSwiper, setActive]);
