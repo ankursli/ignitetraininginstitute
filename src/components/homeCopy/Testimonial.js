@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import styles from '@/styles/home-copy/Testimonial.module.css';
 
-// Swiper styles only load when this dynamic component loads
+// Only load CSS for this module to reduce global CSS size
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -44,9 +44,10 @@ export default function Testimonial() {
       </div>
 
       <div className={styles.testimonialBgBox}>
-        {/* LAZY LOADED DECORATIVE ELEMENTS */}
-        <div className={styles.testimonialRect}><Image src="/images/rectangle-bg4.webp" alt="bg" width={100} height={100} loading="lazy" /></div>
-        <div className={styles.testimonialRect}><Image src="/images/rectangle-bg4.webp" alt="bg" width={100} height={100} loading="lazy" /></div>
+        {/* Decorative elements as lazy-loaded Images instead of CSS backgrounds */}
+        <div className={styles.testimonialRect}>
+          <Image src="/images/rectangle-bg4.webp" alt="bg" width={100} height={100} loading="lazy" />
+        </div>
         
         <Image
           src="/images/google-logo.webp"
