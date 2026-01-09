@@ -65,3 +65,11 @@
     display: none;
   }
 }
+
+
+@media (max-width: 767px) {
+  .hero {
+    animation: none !important;
+    clip-path: none !important;
+  }
+}
