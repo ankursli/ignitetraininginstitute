@@ -724,3 +724,41 @@
   }
 }
 
+/* ================================
+   🚨 MOBILE LCP MODE (FINAL)
+   ================================ */
+@media (max-width: 767px) {
+  .hero {
+    background: none !important;
+    padding: 0 !important;
+  }
+
+  /* Kill ALL decorative layers */
+  .homeherosection > div::after,
+  .SubHeading::before,
+  .SubHeading::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Only allow ONE heading + image */
+  .heroParagraph,
+  .SubHeading,
+  .buttonGroup {
+    display: none !important;
+  }
+
+  /* Lock layout to avoid reflow */
+  .heroMain,
+  .heroLeft,
+  .heroRight {
+    position: static !important;
+    transform: none !important;
+  }
+
+  /* Prevent layout recalculation */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
