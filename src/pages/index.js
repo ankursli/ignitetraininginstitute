@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import SEO from "@/components/SEO";
 import SEOHead from "@/components/SEOHead";
-import Hero from "@/components/homeCopy/Hero";
+// import Hero from "@/components/homeCopy/Hero";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -52,9 +52,9 @@ const HomeCopy = ({ headerHeight }) => {
                 description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
             />
             <div className="homeCopy" style={{ paddingTop: `${headerHeight}px` }}>
-                <div className={isMobile ? "hero-section-mobile" : "hero-section-desktop"}>
+                {/* <div className={isMobile ? "hero-section-mobile" : "hero-section-desktop"}>
                     <Hero />
-                </div>
+                </div> */}
 
                 <Course />
                 <section data-scroll-section>
