@@ -12,11 +12,12 @@
    ===================================== */
 .heroPoster {
   width: 100%;
-  height: auto;
-  display: block;
-   position: relative;
-   z-index: 2;
-   aspect-ratio: 600 / 620;
+  height: 620px; /* Match video height to prevent layout shift */
+  object-fit: cover;
+  display: block; 
+  position: absolute; /* Layer it behind the text but above/below video */
+  inset: 0;
+  z-index: 1; /* Poster stays at base */
 }
 
 /* =====================================
@@ -28,7 +29,8 @@
   width: 100%;
   height: 620px;
   object-fit: cover;
-  z-index: 1;
+  z-index: 2; /* Sits above poster */
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* =====================================
@@ -59,12 +61,7 @@
   }
 }
 
-/* Hide poster on desktop */
-@media (min-width: 992px) {
-  .heroPoster {
-    display: none;
-  }
-}
+
 
 
 @media (max-width: 767px) {
