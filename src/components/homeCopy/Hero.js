@@ -89,7 +89,6 @@ const Hero = () => {
                   width={40}
                   height={40}
                   alt="Right arrow"
-                  priority
                 />
               </a>
             </div>
