@@ -10,10 +10,13 @@
 /* =====================================
    LCP IMAGE (MUST DOMINATE)
    ===================================== */
-heroPoster {
+.heroPoster {
   width: 100%;
   height: auto;
   display: block;
+   position: relative;
+   z-index: 2;
+   aspect-ratio: 600 / 620;
 }
 
 /* =====================================
@@ -43,8 +46,7 @@ heroPoster {
    MOBILE TUNING
    ===================================== */
 @media (max-width: 575px) {
-  .heroPoster,
-  .heroVideo {
+  .heroPoster {
     height: 520px;
   }
 }
