@@ -61,12 +61,33 @@
   }
 }
 
-
-
-
 @media (max-width: 767px) {
   .hero {
     animation: none !important;
     clip-path: none !important;
   }
+}
+
+
+
+/* Handle padding without waiting for JS */
+.homeCopy {
+    padding-top: var(--header-height);
+}
+
+@media (max-width: 767px) {
+    .homeCopy {
+        padding-top: 0px !important;
+    }
+}
+
+/* Ensure the hero container doesn't cause a layout shift */
+.hero-container {
+    min-height: 520px; /* Mobile height */
+}
+
+@media (min-width: 992px) {
+    .hero-container {
+        min-height: 620px; /* Desktop height */
+    }
 }
