@@ -21,12 +21,12 @@ const Hero = () => {
     return (
         <>
             <Head>
-                {/* Preload poster image for mobile (LCP element) */}
+                {/* Preload the actual image file for mobile (LCP element) */}
                 <link
                     rel="preload"
                     as="image"
                     href="/images/video-cover.webp"
-                    fetchPriority="high"
+                    fetchpriority="high"
                 />
 
                 {/* Preconnect to Bunny CDN for faster video loading */}
@@ -80,14 +80,14 @@ const Hero = () => {
                                 <div className={styles.videoContainer}>
                                     {/* Show image on mobile for better LCP, video on desktop */}
                                     {isMobile ? (
-                                        <Image
+                                        <img
                                             src="/images/video-cover.webp"
                                             alt="Ignite Tutoring Hero"
-                                            width={800}
-                                            height={600}
-                                            priority
-                                            fetchPriority="high"
+                                            width="800"
+                                            height="600"
+                                            fetchpriority="high"
                                             className={styles.heroVideo}
+                                            style={{ width: '100%', height: 'auto' }}
                                         />
                                     ) : (
                                         <video
