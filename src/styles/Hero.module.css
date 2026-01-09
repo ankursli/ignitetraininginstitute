@@ -10,11 +10,10 @@
 /* =====================================
    LCP IMAGE (MUST DOMINATE)
    ===================================== */
-.heroPoster {
-  display: block;
+heroPoster {
   width: 100%;
-  height: 620px; /* LCP anchor height */
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 /* =====================================
@@ -47,5 +46,20 @@
   .heroPoster,
   .heroVideo {
     height: 520px;
+  }
+}
+
+
+/* Hide video on mobile */
+@media (max-width: 991px) {
+  .heroVideo {
+    display: none;
+  }
+}
+
+/* Hide poster on desktop */
+@media (min-width: 992px) {
+  .heroPoster {
+    display: none;
   }
 }
