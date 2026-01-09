@@ -44,15 +44,21 @@ const Hero = () => {
             <div className={styles.videoContainer}>
               {/* ✅ OPTIMIZED LCP IMAGE */}
               <Image
-                src="/images/video-cover.webp"
-                alt="Ignite Tutoring Hero"
-                width={800}
-                height={600}
-                priority={true} // Tells Next.js to load this immediately
-                fetchPriority="high" // Critical for LCP
-                className={styles.heroPoster}
-                style={{ objectFit: 'cover' }}
-              />
+  src="/images/video-cover.webp"
+  alt="Ignite Tutoring Hero"
+  width={800}
+  height={600}
+  priority={true}
+  fetchPriority="high"
+  loading="eager"
+  className={styles.heroPoster}
+  sizes="(max-width: 768px) 100vw, 50vw" // Helps browser choose the right resolution
+  style={{
+    objectFit: "cover",
+    width: "100%",
+    height: "auto",
+  }}
+/>
 
               {/* 🎥 VIDEO (DESKTOP ONLY) */}
               <video
