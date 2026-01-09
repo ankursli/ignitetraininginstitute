@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import SEO from "@/components/SEO";
 import SEOHead from "@/components/SEOHead";
 import Hero from "@/components/homeCopy/Hero";
-import styles from "../styles/Hero.module.css"; // We will use this for the padding
 
-// Dynamic imports - Kept as they help with TBT
+// Dynamic imports
 const Course = dynamic(() => import("@/components/homeCopy/Course"), { loading: () => null });
 const MarqueeBanner = dynamic(() => import("@/components/homeCopy/MarqueeBanner"), { loading: () => null });
 const About = dynamic(() => import("@/components/homeCopy/About"), { loading: () => null });
@@ -17,7 +16,16 @@ const Testimonial = dynamic(() => import("@/components/homeCopy/Testimonial"), {
 const Blog = dynamic(() => import("@/components/homeCopy/Blog"), { loading: () => null });
 
 const HomeCopy = ({ headerHeight }) => {
-    // REMOVED: isMobile state. Use CSS Media Queries instead for 0ms delay.
+    const [isMobile, setIsMobile] = useState(false);
+    const [active, setActive] = useState(1);
+
+    useEffect(() => {
+        // This only runs on the client after the first paint
+        const checkMobile = () => setIsMobile(window.innerWidth <= 991);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     return (
         <>
@@ -30,16 +38,11 @@ const HomeCopy = ({ headerHeight }) => {
                 description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
             />
             
-            {/* CRITICAL FIX: We move the dynamic padding to a CSS variable 
-               or a standard class to avoid JS execution delays.
-            */}
             <div 
                 className="homeCopy"
                 style={{ "--header-height": `${headerHeight}px` }}
             >
-                {/* Wrap Hero in a standard div. 
-                   Use CSS (shown below) to handle mobile vs desktop styles.
-                */}
+                {/* Hero is loaded immediately without waiting for isMobile state */}
                 <div className="hero-container">
                     <Hero />
                 </div>
@@ -49,7 +52,14 @@ const HomeCopy = ({ headerHeight }) => {
                     <MarqueeBanner />
                 </section>
                 <About />
-                <Test />
+                
+                {/* We pass isMobile here to trigger the Swiper version of the Test component */}
+                <Test 
+                    isMobileSwiper={isMobile} 
+                    active={active} 
+                    setActive={setActive} 
+                />
+
                 <Subjects />
                 <section data-scroll-section>
                     <Usps />
@@ -57,6 +67,7 @@ const HomeCopy = ({ headerHeight }) => {
                 <section data-scroll-section>
                     <Trainers />
                 </section>
+                
                 <Testimonial />
                 <Blog />
             </div>
