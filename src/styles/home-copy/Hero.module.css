@@ -703,37 +703,20 @@
 @media (max-width: 767px) {
   .hero,
   .homeherosection > div::after {
-    background: none !important;
+   
     background-image: none !important;
   }
 }
 
-@media (max-width: 767px) {
-  .homeherosection > div::after {
-    content: none !important;
-    display: none !important;
-  }
-}
 
-/* Reduce LCP text complexity */
-@media (max-width: 767px) {
-  .heroParagraph,
-  .SubHeading,
-  .buttonGroup {
-    display: none !important;
-  }
-}
 
-/* ================================
-   🚨 MOBILE LCP MODE (FINAL)
-   ================================ */
+
 @media (max-width: 767px) {
   .hero {
     background: none !important;
     padding: 0 !important;
   }
 
-  /* Kill ALL decorative layers */
   .homeherosection > div::after,
   .SubHeading::before,
   .SubHeading::after {
@@ -741,14 +724,12 @@
     content: none !important;
   }
 
-  /* Only allow ONE heading + image */
   .heroParagraph,
   .SubHeading,
   .buttonGroup {
     display: none !important;
   }
 
-  /* Lock layout to avoid reflow */
   .heroMain,
   .heroLeft,
   .heroRight {
@@ -756,7 +737,6 @@
     transform: none !important;
   }
 
-  /* Prevent layout recalculation */
   * {
     animation: none !important;
     transition: none !important;
