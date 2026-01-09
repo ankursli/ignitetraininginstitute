@@ -31,7 +31,7 @@ const testimonialData = [
   // },
   {
     type: "text",
-    text: "One of the best Business and Economics teachers for the IB. They know exactly what is coming on the syllabu nd do an amazing job at helping students. I have been working with them for the best part of my DP course s far, and I can say that whatever was hard to understand in school was explained to me within seconds. My grades have gone right up and I am on track for a great DP score all thanks to this guidance.",
+    text: "One of the best bigBusiness and Economics teachers for the IB. They know exactly what is coming on the syllabu nd do an amazing job at helping students. I have been working with them for the best part of my DP course s far, and I can say that whatever was hard to understand in school was explained to me within seconds. My grades have gone right up and I am on track for a great DP score all thanks to this guidance.",
     name: "Kabir Kochhar",
     subtitle: "",
   },
