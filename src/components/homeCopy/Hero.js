@@ -22,7 +22,7 @@ const Hero = () => {
             <div className="d-none d-lg-block">
               <h1 className={styles.heroTitleDesktop}>
                 Ignite Your Path To Top{" "}
-                <span className="highlight">Academic</span> Performance
+                <span className="highlight">Academics</span> Performance
               </h1>
             </div>
 
