@@ -18,7 +18,7 @@ const testimonialData = [
   },
   {
     type: "text",
-    text: "YeOne of the best Business and Economics teachers for the IB. They know exactly what is coming on the syllabus...",
+    text: "One of the best Business and Economics teachers for the IB. They know exactly what is coming on the syllabus...",
     name: "Kabir Kochhar",
     subtitle: "",
   },
