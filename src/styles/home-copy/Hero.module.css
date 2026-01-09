@@ -688,3 +688,13 @@
 
 
 }
+/* MOBILE: SYSTEM FONT FOR LCP */
+@media (max-width: 767px) {
+  .hero,
+  .hero h1,
+  .hero h2,
+  .hero h3 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+}
