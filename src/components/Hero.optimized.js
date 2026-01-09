@@ -15,8 +15,7 @@ const Hero = () => {
         videoRef.current.appendChild(source);
         videoRef.current.load();
       }
-    }, 3000); // after LCP
-
+    }, 4000); // Increased to 4s to give mobile LCP more breathing room
     return () => clearTimeout(timeout);
   }, []);
 
@@ -27,22 +26,19 @@ const Hero = () => {
 
   return (
     <section className={styles.hero}>
-      {/* 1. THE LCP ELEMENT: Always present, high priority */}
-      import Image from 'next/image';
+      {/* NEXT.JS OPTIMIZED IMAGE */}
+      <Image
+        src="/images/hero-poster.webp"
+        alt="Ignite Training Institute - Best Tutors in UAE"
+        fill
+        priority // This triggers the high-priority preload automatically
+        quality={75} // Lowering quality slightly for faster mobile loading
+        sizes="(max-width: 768px) 100vw, 100vw"
+        className={styles.heroPoster}
+        style={{ objectFit: 'cover' }}
+      />
 
-// Inside your Hero component:
-<Image
-  src="/images/hero-poster.webp"
-  alt="Ignite Training Institute - Best Tutors in UAE"
-  fill // Uses the parent container's size
-  priority // Tells Next.js to preload this automatically
-  quality={85} // Balance between file size and quality
-  sizes="(max-width: 768px) 100vw, 100vw" // Crucial for "Properly size images" warning
-  className={styles.heroPoster}
-  style={{ objectFit: 'cover' }}
-/>
-
-  <video
+      <video
         ref={videoRef}
         className={styles.heroVideo}
         muted
@@ -50,23 +46,21 @@ const Hero = () => {
         playsInline
         onLoadedData={handleVideoLoad}
         preload="none"
-        style={{ opacity: videoLoaded ? 1 : 0 }}
+        style={{ opacity: videoLoaded ? 1 : 0, zIndex: 2 }}
       />
 
-  
-  <div className={styles.heroOverlay}>
-    <div className="container">
-      <h1 className={styles.heroTitle}>BEST TUTORS IN UAE</h1>
-      <p className={styles.heroSubtitle}>
-        EMPOWER YOUR ACADEMIC GOALS WITH IGNITE&apos;S TUTORS
-      </p>
-      <a href="/join-free-demo-class" className={styles.heroButton}>
-        Get a Free Demo
-      </a>
-    </div>
-  </div>
-</section>
-
+      <div className={styles.heroOverlay}>
+        <div className="container">
+          <h1 className={styles.heroTitle}>BEST TUTORS IN UAE</h1>
+          <p className={styles.heroSubtitle}>
+            EMPOWER YOUR ACADEMIC GOALS WITH IGNITE&apos;S TUTORS
+          </p>
+          <a href="/join-free-demo-class" className={styles.heroButton}>
+            Get a Free Demo
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
