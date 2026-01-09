@@ -28,15 +28,21 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.videoContainer}>
-        <Image
-          src="/images/hero-poster.webp"
-          alt="Ignite Training Institute - Best Tutors in UAE"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className={styles.heroPoster}
-        />
+       <img
+  src="/images/hero-poster.webp"
+  alt="Ignite Training Institute - Best Tutors in UAE"
+  width="375"
+  height="620"
+  fetchpriority="high"
+  decoding="async"
+  className={styles.heroPoster}
+  style={{
+    width: "100%",
+    height: "620px",
+    objectFit: "cover"
+  }}
+/>
+
 
         <video
           ref={videoRef}
