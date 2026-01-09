@@ -28,15 +28,19 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       {/* 1. THE LCP ELEMENT: Always present, high priority */}
-      <img
-        src="/images/hero-poster.webp"
-        alt="Ignite Training Institute"
-        width="1920" // Use desktop dimensions, CSS will scale it
-        height="620"
-        fetchpriority="high"
-        decoding="sync" // Changed from async for faster paint
-        className={styles.heroPoster}
-      />
+      import Image from 'next/image';
+
+// Inside your Hero component:
+<Image
+  src="/images/hero-poster.webp"
+  alt="Ignite Training Institute - Best Tutors in UAE"
+  fill // Uses the parent container's size
+  priority // Tells Next.js to preload this automatically
+  quality={85} // Balance between file size and quality
+  sizes="(max-width: 768px) 100vw, 100vw" // Crucial for "Properly size images" warning
+  className={styles.heroPoster}
+  style={{ objectFit: 'cover' }}
+/>
 
   <video
         ref={videoRef}
