@@ -26,29 +26,28 @@ const Hero = () => {
   };
 
   return (
-   <section className={styles.hero}>
-  
-  <img
-    src="/images/hero-poster.webp"
-    alt="Ignite Training Institute - Best Tutors in UAE"
-    width="375"
-    height="620"
-    fetchpriority="high"
-    decoding="async"
-    className={styles.heroPoster}
-  />
+    <section className={styles.hero}>
+      {/* 1. THE LCP ELEMENT: Always present, high priority */}
+      <img
+        src="/images/hero-poster.webp"
+        alt="Ignite Training Institute"
+        width="1920" // Use desktop dimensions, CSS will scale it
+        height="620"
+        fetchpriority="high"
+        decoding="sync" // Changed from async for faster paint
+        className={styles.heroPoster}
+      />
 
   <video
-    ref={videoRef}
-    className={styles.heroVideo}
-    muted
-    loop
-    playsInline
-    poster="/images/hero-poster.webp"
-    onLoadedData={handleVideoLoad}
-    preload="none"
-    style={{ opacity: videoLoaded ? 1 : 0 }}
-  />
+        ref={videoRef}
+        className={styles.heroVideo}
+        muted
+        loop
+        playsInline
+        onLoadedData={handleVideoLoad}
+        preload="none"
+        style={{ opacity: videoLoaded ? 1 : 0 }}
+      />
 
   
   <div className={styles.heroOverlay}>
