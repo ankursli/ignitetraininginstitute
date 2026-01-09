@@ -9,7 +9,7 @@ export default function Document() {
         
         {/* Only preload the logo if it's small; otherwise, let the Hero Image take priority */}
         <link rel="preload" href="/images/logo.svg" as="image" type="image/svg+xml" />
-
+        <link rel="preload" as="image" href="/images/video-cover.webp" fetchpriority="high" type="image/webp" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
