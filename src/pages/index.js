@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import SEO from "@/components/SEO";
 import SEOHead from "@/components/SEOHead";
 import Hero from "@/components/homeCopy/Hero";
+import styles from "../styles/Hero.module.css"; // We will use this for the padding
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-coverflow";
-import "swiper/css/scrollbar";
-
-// Dynamic imports
+// Dynamic imports - Kept as they help with TBT
 const Course = dynamic(() => import("@/components/homeCopy/Course"), { loading: () => null });
 const MarqueeBanner = dynamic(() => import("@/components/homeCopy/MarqueeBanner"), { loading: () => null });
 const About = dynamic(() => import("@/components/homeCopy/About"), { loading: () => null });
@@ -22,46 +17,30 @@ const Testimonial = dynamic(() => import("@/components/homeCopy/Testimonial"), {
 const Blog = dynamic(() => import("@/components/homeCopy/Blog"), { loading: () => null });
 
 const HomeCopy = ({ headerHeight }) => {
-    const [active, setActive] = useState(1);
-    const [isMobile, setIsMobile] = useState(false);
-    const [isMobileSwiper, setIsMobileSwiper] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            const mobile = window.innerWidth <= 991;
-            setIsMobile(mobile);
-            setIsMobileSwiper(mobile);
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    // REMOVED: isMobile state. Use CSS Media Queries instead for 0ms delay.
 
     return (
         <>
             <SEOHead
                 title="Ignite Training Institute - Tutors In UAE For Exam Success"
                 description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
-            /* CRITICAL CHANGE: preloadImages prop REMOVED. 
-               We now rely on Hero.js <Head> for responsive preloading. 
-            */
             />
             <SEO
                 title="Ignite Training Institute - Tutors In UAE For Exam Success"
                 description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
             />
-            <div
-  className="homeCopy"
-  style={{
-    paddingTop:
-      typeof window !== "undefined" && window.innerWidth <= 767
-        ? "0px"
-        : `${headerHeight}px`,
-  }}
->
-
-                <div className={isMobile ? "hero-section-mobile" : "hero-section-desktop"}>
+            
+            {/* CRITICAL FIX: We move the dynamic padding to a CSS variable 
+               or a standard class to avoid JS execution delays.
+            */}
+            <div 
+                className="homeCopy"
+                style={{ "--header-height": `${headerHeight}px` }}
+            >
+                {/* Wrap Hero in a standard div. 
+                   Use CSS (shown below) to handle mobile vs desktop styles.
+                */}
+                <div className="hero-container">
                     <Hero />
                 </div>
 
@@ -70,11 +49,7 @@ const HomeCopy = ({ headerHeight }) => {
                     <MarqueeBanner />
                 </section>
                 <About />
-                <Test
-                    setActive={setActive}
-                    isMobileSwiper={isMobileSwiper}
-                    active={active}
-                />
+                <Test />
                 <Subjects />
                 <section data-scroll-section>
                     <Usps />
@@ -88,6 +63,5 @@ const HomeCopy = ({ headerHeight }) => {
         </>
     );
 };
-
 
 export default HomeCopy;
