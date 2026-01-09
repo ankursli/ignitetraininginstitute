@@ -1,67 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import Head from "next/head";
 import Image from '@/components/CustomImageWrapper';
 import styles from '@/styles/home-copy/Hero.module.css';
 
 const Hero = () => {
-    const videoRef = useRef(null);
-    const [videoLoaded, setVideoLoaded] = useState(false);
-
-    useEffect(() => {
-        const loadVideo = () => {
-            if (videoRef.current && !videoLoaded) {
-                const source = document.createElement('source');
-                source.src = '/videos/hero-banner-video2.mp4';
-                source.type = 'video/mp4';
-                videoRef.current.appendChild(source);
-                videoRef.current.load();
-                setVideoLoaded(true);
-            }
-        };
-
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadVideo, { timeout: 2000 });
-        } else {
-            setTimeout(loadVideo, 1000);
-        }
-
-        const handleInteraction = () => {
-            loadVideo();
-            document.removeEventListener('scroll', handleInteraction);
-            document.removeEventListener('touchstart', handleInteraction);
-            document.removeEventListener('mousedown', handleInteraction);
-        };
-
-        document.addEventListener('scroll', handleInteraction, { passive: true, once: true });
-        document.addEventListener('touchstart', handleInteraction, { passive: true, once: true });
-        document.addEventListener('mousedown', handleInteraction, { passive: true, once: true });
-
-        return () => {
-            document.removeEventListener('scroll', handleInteraction);
-            document.removeEventListener('touchstart', handleInteraction);
-            document.removeEventListener('mousedown', handleInteraction);
-        };
-    }, [videoLoaded]);
-
     return (
         <>
             <Head>
-                <link rel="preload" as="image" href="/images/video-cover.webp" />
-                {/* Responsive Preload: Helps mobile fetch the SMALL image immediately */}
-                {/* <link
-                    rel="preload"
-                    as="image"
-                    href="/images/banner-image-right.webp"
-                    fetchPriority="high"
-                    media="(min-width: 576px)"
-                />
-                <link
-                    rel="preload"
-                    as="image"
-                    href="/images/banner-image-right-m.webp"
-                    fetchPriority="high"
-                    media="(max-width: 575px)"
-                /> */}
+                {/* Preload the poster image with high priority */}
+                <link rel="preload" as="image" href="/images/video-cover.webp" fetchPriority="high" />
+
+                {/* Preload the video for faster LCP */}
+                <link rel="preload" as="video" href="/videos/hero-banner-video2.mp4" />
             </Head>
 
             <section className={`${styles.hero} ${styles.homeherosection}`}>
@@ -99,18 +49,17 @@ const Hero = () => {
 
                             <div className={`col-12 col-lg-5 col-xl-5 ${styles.heroRight}`}>
                                 <div className={styles.videoContainer}>
-
                                     <video
-                                        ref={videoRef}
                                         className={styles.heroVideo}
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
-                                        preload="metadata"
+                                        preload="auto"
                                         poster="/images/video-cover.webp"
+                                        fetchpriority="high"
                                     >
-
+                                        <source src="/videos/hero-banner-video2.mp4" type="video/mp4" />
                                     </video>
                                 </div>
 
