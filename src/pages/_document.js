@@ -7,18 +7,18 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Only preload the logo if it's small; otherwise, let the Hero Image take priority */}
-        <link rel="preload" href="/images/logo.svg" as="image" type="image/svg+xml" />
+     
         <link rel="preload" as="image" href="/images/video-cover.webp" fetchpriority="high" type="image/webp" />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              .hero { position: relative; width: 100%; height: 520px; overflow: hidden; background: #000; }
-              .heroPoster { width: 100%; height: 520px; object-fit: cover; display: block; }
-              @media (min-width: 992px) { .hero, .heroPoster { height: 620px; } }
-            `,
-          }}
-        />
+       <style
+    dangerouslySetInnerHTML={{
+      __html: `
+        .hero { position: relative; width: 100%; height: 520px; overflow: hidden; background: #000; }
+        /* Ensure the poster fills the space immediately so LCP isn't delayed by layout */
+        .heroPoster { width: 100%; height: 520px; object-fit: cover; display: block; }
+        @media (min-width: 992px) { .hero, .heroPoster { height: 620px; } }
+      `,
+    }}
+  />
       </Head>
       <body>
         <Main />
