@@ -698,3 +698,29 @@
       "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 }
+
+/* 🚀 LCP HARD STOP — MOBILE */
+@media (max-width: 767px) {
+  .hero,
+  .homeherosection > div::after {
+    background: none !important;
+    background-image: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .homeherosection > div::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+/* Reduce LCP text complexity */
+@media (max-width: 767px) {
+  .heroParagraph,
+  .SubHeading,
+  .buttonGroup {
+    display: none !important;
+  }
+}
+
