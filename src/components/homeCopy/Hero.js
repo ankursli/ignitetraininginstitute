@@ -56,19 +56,16 @@ const Hero = () => {
 
               {/* 🎥 VIDEO (DESKTOP ONLY) */}
               <video
-                className={styles.heroVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="none"
-                poster="/images/video-cover.webp"
-              >
-                <source
-                  src="https://ignitetraininginstitute.b-cdn.net/hero-banner-video2.mp4"
-                  type="video/mp4"
-                />
-              </video>
+  className={styles.heroVideo}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="none" // <--- Critical: Stops video from stealing bandwidth from the image
+  poster="/images/video-cover.webp"
+>
+  <source src="https://ignitetraininginstitute.b-cdn.net/hero-banner-video2.mp4" type="video/mp4" />
+</video>
             </div>
 
             <div className={styles.buttonGroup}>
