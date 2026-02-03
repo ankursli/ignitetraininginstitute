@@ -1,0 +1,889 @@
+/* Team Banner*/
+.fade-in-section {
+    opacity: 0;
+    /* transform: translateY(20px); */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in-section.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.careers-banner {
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    max-width: 90vw;
+    width: 100%;
+    height: calc(90vw / 2.98);
+    /* desktop aspect ratio */
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background-image: url("/assets/ourteam.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Dark overlay */
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    color: white;
+    z-index: 1;
+}
+
+.heading {
+    margin: 0;
+    font-size: 3.33vw;
+    font-weight: 700;
+    line-height: 70px;
+}
+
+.subHeading {
+    margin: 0;
+    font-size: 1.35vw;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .careers-banner {
+        height: 90vw;
+        /* square card on mobile */
+    }
+
+    .careers-banner h2 {
+        font-size: 6.33vw !important;
+        font-weight: 800 !important;
+        line-height: 36px !important;
+    }
+
+    .careers-banner p {
+        /* margin: 0 !important;
+        font-size: 4.08vw !important;
+        font-weight: 800 !important;
+        opacity: 0.8 !important; */
+    }
+}
+
+
+.meet-out-team {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.meet-team-Headings {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.meet-team-Headings .meetTitle {
+    padding: 40px 0;
+    ;
+}
+
+.meet-team-Headings .cofounderTitle {
+    text-decoration: underline;
+}
+
+.meet-team-Headings .meetTitle,
+.meet-team-Headings .cofounderTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--blue-color);
+    max-width: 80%;
+    margin: auto;
+}
+
+.meet-team-Headings .meetTitle .highlight {
+    background: linear-gradient(to right, var(--lightgreen-color), var(--green-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.meet-team-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 80px;
+    flex-direction: row;
+}
+
+.team-card-info {
+    padding-top: 20px;
+}
+
+.team-card {
+    display: flex;
+    max-width: 40rem;
+    flex-direction: column;
+}
+
+.team-card-name h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--blue-color);
+    background: linear-gradient(90deg, rgba(166, 234, 199, 1) 9%, rgba(255, 255, 255, 1) 110%);
+    text-transform: uppercase;
+    width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.meet-team-cards img {
+    max-width: 40vw;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.team-card-content p {
+    font-size: 1.2rem !important;
+    line-height: 1.4;
+    color: var(--dark-color);
+    text-align: left;
+    padding-top: 30px !important;
+    display: block;
+    font-weight: normal !important;
+}
+
+.team-card-content a {
+    color: var(--blue-color);
+    text-decoration: underline !important;
+    font-weight: 600;
+}
+
+.team-card-content {
+    padding: 0 30px;
+}
+
+/* Responsive styles for Meet Our Team & Admin Staff */
+
+/* Tablet (<= 1024px) */
+@media (max-width: 1024px) {
+
+    .meet-team-cards,
+    .admin-staff-cards {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .team-card,
+    .admin-card {
+        width: 45%;
+        /* 2 cards per row */
+        max-width: 100%;
+    }
+
+    .team-card-name h3 {
+        font-size: 1.6rem;
+        width: auto;
+        padding: 8px 15px;
+    }
+
+    .team-card-content,
+    .admin-card-info {
+        padding: 0 20px;
+    }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+    .meet-out-team {
+        padding: 60px 0;
+    }
+
+    .meet-team-Headings {
+        margin-bottom: 30px;
+    }
+
+    .meet-team-Headings .meetTitle,
+    .meet-team-Headings .cofounderTitle {
+        font-size: 2rem;
+        max-width: 100%;
+    }
+
+    /* Co-founders: always 1 per row */
+    .meet-team-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        width: 100%;
+        max-width: 32rem;
+    }
+
+    .team-card-name h3 {
+        font-size: 1.4rem;
+    }
+
+    .team-card-content p {
+        font-size: 0.95rem;
+        padding-top: 20px;
+    }
+
+    /* Admin staff: 1 per row */
+    .admin-staff-cards {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .admin-card {
+        width: 100%;
+        max-width: 28rem;
+    }
+
+    .admin-card-info p {
+        padding-left: 20px;
+    }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+    .meet-out-team {
+        padding: 80px 0;
+    }
+
+    .meet-team-Headings .meetTitle,
+    .meet-team-Headings .cofounderTitle {
+        font-size: 1.6rem;
+    }
+
+    .team-card-name h3 {
+        font-size: 1.2rem;
+    }
+
+    .meet-team-cards img {
+        max-width: 60vw;
+    }
+
+    .meet-team-cards,
+    .admin-staff-cards {
+        gap: 80px;
+    }
+
+    .team-card-content p,
+    .admin-card-info p {
+        font-size: 15px !important;
+    }
+}
+
+
+
+/*  Admin Staff Section */
+.admin-staff-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10rem;
+    flex-direction: row;
+    margin-top: 80px;
+    justify-content: center;
+}
+
+.admin-card {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+}
+
+.admin-card-image img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.admin-card-info p {
+    font-size: 1rem;
+    line-height: 1.2;
+    color: var(--dark-color);
+    text-align: left;
+    padding-top: 20px;
+
+}
+
+.admin-card-content {
+    padding-left: 60px;
+}
+
+.admin-card-info a {
+    color: var(--blue-color);
+    text-decoration: underline !important;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .admin-card-content {
+        padding-left: 30px;
+    }
+
+    .admin-staff-cards {
+        gap: 5rem;
+    }
+
+    .admin-card-info p {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-staff-cards {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-card-content {
+        padding-left: 0px;
+    }
+}
+
+/*  Trainer Section */
+.trainer-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3vw;
+    padding: 20px;
+}
+
+.trainer-card {
+    background: #fff;
+    border-radius: 12px;
+
+    text-align: center;
+    padding-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Name styling */
+.trainer-name h3 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    color: #008060;
+    /* green */
+    margin: 15px 0;
+}
+
+.trainer-card:nth-child(even) .trainer-name h3 {
+    color: #1a2a66;
+    /* blue */
+}
+
+/* Image */
+.trainer-image {
+    position: relative;
+}
+
+.trainer-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Existing experience div styled */
+.trainer-exp {
+    position: absolute;
+    bottom: -20px;
+    /* overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-exp span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #008060;
+}
+
+.trainer-card:nth-child(even) .trainer-exp span {
+    color: #1a2a66;
+}
+
+.trainer-exp p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Info text */
+.trainer-info {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+}
+
+.trainer-info a {
+    color: #1a2a66;
+    font-weight: 600;
+    text-decoration: underline !important;
+}
+
+.trainer-info a:hover {
+    text-decoration: underline;
+}
+
+.trainer-card .description {
+    max-height: 4.5em;
+    /* ~3 lines */
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    opacity: 0.9;
+}
+
+.trainer-card .description.expanded {
+    max-height: 1000px;
+    /* big enough to fit long text */
+    opacity: 1;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    .trainer-cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        /* 2 cards per row */
+    }
+
+    .trainer-exp {
+        bottom: -15px;
+        padding: 8px 16px;
+    }
+
+    .trainer-exp span {
+        font-size: 20px;
+    }
+
+    .admin-staff-cards {
+        justify-content: space-around;
+        /* gap: 10px; */
+    }
+
+    .admin-card {
+        width: 45%;
+        max-width: none;
+    }
+
+    .admin-card-info p {
+        padding-left: 5px;
+        padding-top: 0;
+        font-size: 4.08vw !important;
+        font-weight: 400 !important;
+        color: #555 !important;
+    }
+
+    .team-card-content,
+    .admin-card-info {
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 575px) {
+
+    .admin-card-info p,
+    .trainer-card .description {
+        font-size: 15px !important;
+    }
+
+    .trainer-name h3 {
+        margin-bottom: 0;
+    }
+
+    .trainer-card .description {
+        width: 97%;
+    }
+
+    .meet-team-Headings {
+        margin-bottom: 10px;
+    }
+
+    .admin-staff-cards {
+        margin-top: 40px;
+    }
+
+    .trainer-info {
+        margin-top: 10px;
+    }
+
+    .trainer-cards {
+        padding-bottom: 0px;
+    }
+
+    .call-to-action {
+        margin-top: 0;
+    }
+}
+
+
+
+
+/* Main section */
+.trainer-message-section {
+    padding: 60px 0;
+    background: #fff;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+}
+
+.trainer-message-section .cofounderTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+/* Container holding all cards */
+.trainer-message-section .trainer-message-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 85vw;
+    margin: 0 auto;
+}
+
+/* Individual card */
+.trainer-message-section .trainer-card {
+    position: relative;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.trainer-message-section .trainer-card:hover {
+    transform: translateY(-6px);
+
+}
+
+
+
+/* Trainer Image */
+.trainer-message-section .trainer-card .trainer-image {
+    width: 100%;
+    /* aspect-ratio: 3 / 4; */
+    /* keeps portrait aspect */
+    overflow: hidden;
+}
+
+.trainer-message-section .trainer-card .trainer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Experience Tag */
+.trainer-message-section .trainer-card .trainer-experience {
+    position: relative;
+    max-width: 12vw;
+    padding: 0.8vw 2vw;
+    border-radius: 10px;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin-top: 1vw;
+    text-transform: uppercase;
+}
+
+.grbg {
+    background: linear-gradient(90deg,
+            rgba(237, 255, 244, 0) 3%,
+            rgba(166, 234, 199, 1) 69%);
+}
+
+.blbg {
+    background: linear-gradient(90deg,
+            rgba(231, 246, 255, 0) 0%,
+            rgba(163, 202, 245, 1) 95%);
+}
+
+.bltx {
+    background: linear-gradient(90deg, #3F88BA 1%, #161664 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* For Firefox */
+    color: transparent;
+}
+
+span.grtx {
+    background: linear-gradient(90deg, #00A491 0%, #003E37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* For Firefox */
+    color: transparent;
+    /* fallback */
+}
+
+.cta-section {
+    padding: 4vw 0;
+}
+
+.call-to-action {
+    background: url('/images/cta-bg.webp') no-repeat;
+    background-size: cover;
+    padding: 5vw;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    padding: 3vw auto;
+    aspect-ratio: 16 / 5.7;
+    overflow: hidden;
+
+}
+
+.cta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* Left Content */
+.teams .cta-content {
+    max-width: 40vw;
+    padding: 4vw 0 0 3vw;
+}
+
+.teams .cta-content h2 {
+    font-size: 2vw;
+    font-weight: 700;
+    margin-bottom: 1vw;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.teams .cta-content p {
+    font-size: 1.1vw;
+    margin-bottom: 2vw;
+    color: #d9e3f2;
+    line-height: 1.6;
+}
+
+
+.cta-button {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.7rem 0.6rem 0.7rem 1.8rem;
+    border-radius: 9999px;
+    font-size: 1.30rem;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 15vw;
+    transition: 0.3s;
+    outline: none;
+}
+
+.buttonIcon {
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+
+.cta-buttons {
+    display: flex;
+    gap: 1.3vw;
+
+}
+
+/* .cta-buttons .btn span {
+    margin-left: 1vw;
+    font-size: 1.3vw;
+    transition: transform 0.3s;
+} */
+
+/* .cta-buttons .btn:hover {
+    background: #fff;
+    color: #123b7a;
+}
+
+.cta-buttons .btn:hover span {
+    transform: translateX(5px);
+} */
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 2vw;
+    }
+
+    .call-to-action {
+        background: url('/images/cta-bg-m.webp') no-repeat;
+        background-size: contain;
+        padding: 5vw;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        padding: 3vw auto;
+        aspect-ratio: 16 / 19;
+        overflow: hidden;
+
+    }
+
+
+    .teams .cta-content {
+        padding: 0;
+    }
+
+    .teams .cta-content h2 {
+        font-size: 5vw !important;
+        font-weight: 700 !important;
+        margin-bottom: 1vw !important;
+        line-height: 1.4 !important;
+        text-align: center;
+    }
+
+    .teams .cta-content {
+        max-width: 95% !important;
+        padding-top: 45vw;
+        padding-bottom: 10vw;
+    }
+
+    .cta-container {
+        justify-content: center;
+    }
+
+    .teams .cta-content p {
+        font-size: 3vw !important;
+        text-align: center;
+        font-weight: normal !important;
+        margin: 4vw auto !important;
+    }
+
+    .buttonIcon {
+        background: black;
+        color: white;
+        border-radius: 50%;
+        padding: 0.5rem;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button {
+        gap: 0;
+        min-width: auto
+    }
+
+    /* 
+    .cta-buttons .btn {
+        font-size: 3vw;
+        padding: 2vw 1.5vw;
+        font-weight: normal;
+        gap: 7vw;
+        justify-content: space-around;
+    }
+
+    .cta-buttons .btn span {
+        font-size: 3vw;
+    } */
+
+    .cta-images {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .cta-images img {
+        max-width: 100%;
+        height: auto;
+    }
+
+}
+
+@media (max-width:575px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px
+    }
+
+    .cta-button {
+        padding: 5px 20px;
+        font-size: 1rem;
+        gap: 10px;
+    }
+
+    .call-to-action.teams:before {
+        background: url(/images/team-footer.webp);
+        content: '';
+        display: block;
+        position: absolute;
+        height: 52vw;
+        width: 90%;
+        background-size: cover;
+        top: -60px;
+        overflow: visible;
+        left: 30px;
+    }
+
+    .call-to-action {
+        background-size: contain;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        width: 95% !important;
+        background: -webkit-linear-gradient(top, #102040, #184282);
+        background: -o-linear-gradient(top, #102040, #184282);
+        background: -moz-linear-gradient(top, #102040, #184282);
+        background: linear-gradient(to bottom, #102040, #184282);
+        margin-top: 60px;
+        border-radius: 3%;
+        aspect-ratio: auto;
+        display: block;
+        position: relative;
+        overflow: visible;
+    }
+}

@@ -1,0 +1,329 @@
+@import "../../node_modules/locomotive-scroll/dist/locomotive-scroll.css";
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: var(--font-monstserrat) !important;
+}
+
+:root {
+  --blue-color: #161664;
+  --skyblue-color: #0091d0;
+  --green-color: #003e37;
+  --lightgreen-color: #00a491;
+  --border-color: #a3caf5;
+  --green-text: #a6eac7;
+  --blue-text: #262e46;
+  --grey-text: #233467;
+  --white-color: #f8fbff;
+  --white-bg: #ffffff;
+  --black-color: #000000;
+  --font-monstserrat: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.headerContainer {
+  width: 100%;
+  background: #fff;
+}
+
+/* Global Container - Use this in all pages */
+.container {
+  max-width: 90vw !important;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    max-width: 90vw !important;
+  }
+}
+
+@media (max-width: 1124px) {
+  .container {
+    max-width: 90vw !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 95vw !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 100% !important;
+  }
+}
+
+.SubHeading {
+  font-size: 1.2vw;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  padding: 0 40px;
+  display: inline-block;
+}
+
+.SubHeading:before {
+  content: "";
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/images/heading-icon.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.SubHeading:after {
+  content: "";
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(/images/heading-icon.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nodecoration {
+  text-decoration: none !important;
+}
+
+.vh-100vh {
+  height: 100vh;
+
+}
+
+@media (max-width: 1024px) {
+  .SubHeading {
+    font-size: 24px;
+  }
+
+  .SubHeading:before,
+  .SubHeading:after {
+    width: 12px;
+  }
+}
+
+@media (max-width: 575px) {
+  .SubHeading {
+    font-size: 22px;
+    padding: 0 20px;
+  }
+
+  .SubHeading:before,
+  .SubHeading:after {
+    width: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .SubHeading {
+    font-size: 4vw !important;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .buttonBlue,
+  .buttonSkyBlue {
+    font-size: 10px;
+  }
+}
+
+/* Buttons  */
+
+/* .buttonBlue,
+.buttonSkyBlue {
+  position: relative;
+  overflow: hidden;
+  padding: 15px 30px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.buttonBlue {
+  color: var(--white-color);
+  background: linear-gradient(to right, var(--blue-color), #3f88ba);
+}
+
+.buttonSkyBlue {
+  color: var(--blue-color);
+  background: linear-gradient(to right, var(--border-color), #e7f6ff);
+}
+
+.buttonBlue::before,
+.buttonSkyBlue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 40vw;
+  height: 3.5vw;
+  z-index: -1;
+  transition: 0.4s ease-in-out;
+}
+
+.buttonBlue::before {
+  background: linear-gradient(to right, var(--blue-color), #3f88ba 55%, var(--blue-color) 85%, var(--blue-color));
+}
+
+.buttonSkyBlue::before {
+  background: linear-gradient(to right, var(--border-color), #e7f6ff 55%, var(--border-color) 85%, var(--border-color));
+}
+
+.buttonBlue:hover::before,
+.buttonSkyBlue:hover::before {
+  transform: translateX(-50%);
+}
+
+.buttonBlue:hover,
+.buttonSkyBlue:hover {
+  scale: 1.05;
+} */
+
+.buttonBlue,
+.buttonSkyBlue {
+  position: relative;
+  overflow: hidden;
+  padding: 0.7vw 1.5vw;
+  border-radius: 2vw;
+  text-transform: uppercase;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2vw;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 1;
+  text-decoration: none;
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+.buttonBlue {
+  color: var(--white-color);
+  background: linear-gradient(to right, var(--blue-color), #3f88ba);
+}
+
+.buttonSkyBlue {
+  color: var(--blue-color);
+  background: linear-gradient(to right, var(--border-color), #e7f6ff);
+}
+
+.buttonBlue::before,
+.buttonSkyBlue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  /* ensures smooth sliding regardless of button width */
+  height: 100%;
+  z-index: -1;
+  transition: transform 0.6s ease;
+  transform: translateX(0);
+}
+
+.buttonBlue::before {
+  background: linear-gradient(to right,
+      var(--blue-color),
+      #3f88ba 55%,
+      var(--blue-color) 85%);
+}
+
+.buttonSkyBlue::before {
+  background: linear-gradient(to right,
+      var(--border-color),
+      #e7f6ff 55%,
+      var(--border-color) 85%);
+}
+
+.buttonBlue:hover::before,
+.buttonSkyBlue:hover::before {
+  transform: translateX(50%);
+}
+
+.buttonBlue:hover,
+.buttonSkyBlue:hover {
+  scale: 1.05;
+}
+
+.buttonBlue img,
+.buttonSkyBlue img {
+  width: 2vw;
+}
+
+.buttonBlue img,
+.buttonSkyBlue img {
+  width: 30px;
+  height: auto;
+}
+
+
+/* Fade-In Animation */
+.fade-in-section {
+  opacity: 0;
+}
+
+.is-inview {
+  animation: fadeInUp 0.8s 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Clip Path Animation */
+
+.is-clipped {
+  clip-path: inset(0 100% 0 0);
+  animation: revealImageClip 1.2s 0.6s cubic-bezier(0.4, 0, 0.2, 1.4) forwards;
+}
+
+@keyframes revealImageClip {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}

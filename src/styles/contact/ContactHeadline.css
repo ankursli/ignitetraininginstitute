@@ -1,0 +1,40 @@
+/* Contact page animated headline styles */
+.contactAnimatedHeadline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.contactAnimatedHeadline .headlineBox {
+  border-radius: 24px;
+  padding: 20px 36px;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #003366;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  width: fit-content;
+  background: linear-gradient(90deg, #B6FFE6 0%, #fff 100%);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUpContact 0.8s forwards;
+}
+
+.contactAnimatedHeadline .headlineBox.secondary {
+  background: linear-gradient(90deg, #E6F2FF 0%, #B6FFE6 100%);
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUpContact {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .contactAnimatedHeadline .headlineBox {
+    font-size: 1.2rem;
+    padding: 14px 16px;
+  }
+}

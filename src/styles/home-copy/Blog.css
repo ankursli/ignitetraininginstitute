@@ -1,0 +1,274 @@
+/* Blogs Section  */
+.homeCopy .blogSection {
+  padding: 80px 0 40px 0;
+  background: #fff;
+  width: 100%;
+}
+
+/* .homeCopy .blogSection .blogHeadingRow span {
+  font-size: 22px;
+} */
+
+/* .homeCopy .blogSection .blogHeadingRow span:before,
+.homeCopy .blogSection .blogHeadingRow span:after {
+  height: 20px;
+} */
+
+.homeCopy .blogSection .blogsLabel {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.homeCopy .blogSection .blogTitle {
+
+  font-weight: 700;
+  color: var(--blue-color);
+  text-transform: uppercase;
+  margin: 35px 0 18px 0;
+  line-height: 1.1;
+}
+
+.homeCopy .blogSection .blogTitle .blogHighlight {
+  background: linear-gradient(to left,
+      var(--green-color),
+      var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.homeCopy .blogSection .blogSubtitle {
+  font-size: 1vw;
+  color: var(--blue-color);
+  letter-spacing: 2px;
+  margin: 25px 0;
+  text-transform: uppercase;
+}
+
+.homeCopy .blogSection .blogAllBtn,
+.homeCopy .blogSection .blogAllBtnmobile {
+  font-size: 1rem;
+  font-weight: 700;
+  width: max-content;
+}
+
+.homeCopy .blogSection .blogAllBtnmobile {
+  display: none;
+}
+
+.homeCopy .blogSection .blogLeft h3 {
+  width: 80%;
+  font-size: 2rem;
+}
+
+.homeCopy .blogSection .blogRight {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.homeCopy .blogSection .blogCard {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: none;
+  box-shadow: none;
+}
+
+.homeCopy .blogSection .blogImg {
+  max-width: 15vw;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.homeCopy .blogSection .blogCardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.homeCopy .blogSection .blogCardTitle {
+  font-size: 1vw;
+  font-weight: 700;
+  color: var(--blue-color);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.homeCopy .blogSection .blogCardDesc {
+  font-size: 0.8vw;
+  color: #7a8ca3;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+.homeCopy .blogSection .blogCardLine {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, var(--border-color), transparent);
+  margin: 8px 0;
+}
+
+.homeCopy .blogSection .blogReadMoreBtn {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 5px 20px;
+}
+
+.homeCopy .blogSection .blogReadMoreBtn:hover {
+  transform: scale(1.05);
+}
+
+.homeCopy .blogSection .blogReadMoreArrow {
+  width: 25px;
+  height: 25px;
+}
+
+.homeCopy .blogSection .blogReadMoreArrow img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1100px) {
+  .homeCopy .blogSection .blogTitle {
+    font-size: 1.4rem;
+  }
+
+  .homeCopy .blogSection .blogSubtitle {
+    font-size: 14px;
+  }
+
+  .homeCopy .blogSection .blogAllBtn {
+    font-size: 1rem;
+  }
+
+  .homeCopy .blogSection .blogCardTitle {
+    font-size: 1rem;
+  }
+
+  .homeCopy .blogSection .blogCardDesc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .homeCopy .blogSection .blogLeft {
+    text-align: center;
+  }
+
+  .homeCopy .blogSection .blogTitle {
+    max-width: 500px;
+    margin: 20px auto;
+    font-size: 20.4px !important;
+    line-height: 23px !important;
+  }
+
+  .homeCopy .blogSection .blogAllBtn {
+    display: none;
+  }
+
+  .homeCopy .blogSection .blogCard {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #dedede;
+  }
+
+  .homeCopy .blogSection .blogCardTitle {
+    /* font-size: 1.2rem;
+    line-height: 1.2;
+    text-transform: uppercase; */
+  }
+
+  .homeCopy .blogSection .blogCardContent {
+    padding-right: 30px;
+  }
+
+  .homeCopy .blogSection .blogCardDesc {
+    margin-bottom: 10px;
+  }
+
+  .homeCopy .blogSection .blogReadMoreBtn {
+    padding: 10px 20px;
+    letter-spacing: 2px;
+  }
+
+  .homeCopy .blogSection .blogCardLine {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .homeCopy .blogSection .blogSubtitle {
+    display: block;
+  }
+
+  .homeCopy .blogSection .blogImg {
+    /* width: 200px; */
+    max-width: 30vw;
+  }
+
+  .homeCopy .blogSection .blogAllBtnmobile {
+    display: flex;
+    margin: 0 auto;
+    gap: 15px;
+  }
+
+  .homeCopy .blogSection .blogCard {
+    gap: 7vw;
+  }
+
+  .homeCopy .blogSection .blogCardDesc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 575px) {
+
+
+  .homeCopy .blogSection .blogAllBtnmobile {
+    max-width: 100vw;
+  }
+
+  .homeCopy .blogSection .blogImg {
+    max-width: 95vw;
+  }
+
+  .homeCopy .blogSection .blogCard {
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .homeCopy .blogSection .blogLeft h3 {
+    width: 100%;
+  }
+
+  .homeCopy .blogSection .blogRight {
+    gap: 5px;
+  }
+
+  /* .homeCopy .blogSection .blogImg {
+    width: 150px;
+    height: 200px;
+  } */
+  .mobile-hide {
+    display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  .homeCopy .blogSection .blogCard {
+    flex-direction: column;
+  }
+
+  /* .homeCopy .blogSection .blogImg {
+    width: 100%;
+    height: 200px;
+  } */
+}

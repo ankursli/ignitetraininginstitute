@@ -1,0 +1,709 @@
+.heroSectionWrapper {
+  padding: 10vh 0;
+}
+
+@media (max-width: 991px) {
+  .heroSectionWrapper {
+    padding: 0;
+  }
+
+  .heroSectionWrapper .hero {
+    padding-top: 20px !important;
+  }
+}
+
+/* Removed redundant .homeCopy prefix */
+.hero {
+  padding: 3rem 0;
+  /* LCP FIX: Desktop Background - Loads instantly */
+  background: url(/images/banner-bg.webp);
+  background-repeat: no-repeat;
+  background-size: 30vw;
+  background-position: 6.5vw 1vw;
+
+  /* --- LCP FIX: DISABLE ANIMATION --- */
+  /* This ensures the banner is visible immediately on page load */
+  /* -webkit-clip-path: inset(0 100% 0 0); */
+  /* clip-path: inset(0 100% 0 0); */
+  /* animation: revealClipLeftToRight 2s 1s cubic-bezier(0.4, 0, 0.8, 1) forwards; */
+
+  /* Force visibility */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  clip-path: none !important;
+}
+
+.homeherosection>div {
+  position: relative;
+}
+
+.homeherosection>div::after {
+  content: "";
+  z-index: 1;
+  background: url(/images/hero-bg-1.webp) no-repeat;
+  width: 13%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  aspect-ratio: 81 / 32;
+  background-size: cover;
+}
+
+/* Keyframes kept in case used elsewhere, but disabled on Hero */
+@keyframes revealClipLeftToRight {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.heroMain {
+  display: flex;
+  align-items: center;
+}
+
+.heroLeft {
+  margin-top: -1vw;
+}
+
+.heroTitle {
+  margin: 40px 0 50px 0;
+}
+
+.heroTitleDesktop {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--blue-color);
+}
+
+.heroTitleMobile {
+  display: none;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--blue-color);
+}
+
+.heroParagraph {
+  padding-top: 30px;
+  font-size: 1vw;
+  font-weight: 400;
+  color: var(--blue-color);
+  line-height: 1.5;
+}
+
+/* Use :global() for global elements inside a module class */
+.heroParagraph :global(b),
+.heroParagraph :global(strong) {
+  font-weight: 400;
+}
+
+.heroParagraph :global(strong) {
+  display: none;
+}
+
+.heroParagraph :global(h3) {
+  text-transform: uppercase;
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.heroRight {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.videoContainer {
+  position: relative;
+  width: 30vw;
+  height: 33vw;
+  overflow: hidden;
+}
+
+.heroVideo {
+  width: 30vw;
+  height: 33vw;
+  /* max-height: 700px;
+  object-fit: cover;
+  object-position: right;
+  border-radius: 10px; */
+
+  /* MASKING: Keeps the student shape */
+  /* mask: url("/images/banner-image-right.webp") no-repeat center;
+  mask-size: contain;
+  -webkit-mask: url("/images/banner-image-right.webp") no-repeat center;
+  -webkit-mask-size: contain; */
+
+  /* --- LCP FIX: DESKTOP BACKGROUND IMAGE --- */
+  /* The image appears instantly behind the video, respecting the mask */
+  /* background-image: url("/images/banner-image-right.webp");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat; */
+}
+
+.videoMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  display: none;
+}
+
+.maskImage {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  object-position: right;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  object-position: right;
+}
+
+.buttonGroup {
+  position: absolute;
+  top: 0vw;
+  bottom: 1vw;
+  right: 2vw;
+  z-index: 9;
+  display: flex;
+  gap: 1vw;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 17.5vw;
+}
+
+/* Use :global() for child elements and utility classes */
+.buttonGroup :global(img) {
+  width: 1.7vw;
+  height: auto;
+}
+
+/* Use :global() for global classes used inside a module class */
+.buttonGroup :global(.buttonBlue),
+.buttonGroup :global(.buttonSkyBlue) {
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 1;
+  border: 0;
+  /* border-radius: 2vw; */
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+  padding: 1vw 1.5vw;
+  font-size: 1.1vw;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .3s;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttonGroup :global(button) {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 16px;
+  padding: 25px 30px;
+}
+
+.buttonGroup :global(button) :global(img) {
+  width: 40px;
+}
+
+.SubHeading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  background: linear-gradient(285.71deg, #3f88ba -4.32%, #161664 106.53%), linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  padding: 0 40px;
+  display: inline-block;
+}
+
+.SubHeading:before,
+.SubHeading:after {
+  content: "";
+  width: 14px;
+  height: 100%;
+  /* full height on desktop */
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/images/heading-icon.webp) center no-repeat;
+  background-size: contain;
+}
+
+.SubHeading:before {
+  left: 0;
+}
+
+.SubHeading:after {
+  right: 0;
+}
+
+@media (max-width: 1024px) {
+  .SubHeading {
+    font-size: 24px;
+  }
+}
+
+/* Mobile (No changes needed for SubHeading) */
+@media (max-width: 575px) {
+  .SubHeading {
+    font-size: 15px;
+    padding: 0 24px;
+  }
+
+  .SubHeading:before,
+  .SubHeading:after {
+    width: 14px;
+    /* fixed size on mobile */
+    height: 24px;
+    /* instead of 100% */
+    top: 50%;
+    transform: translateY(-50%);
+    /* center vertically */
+  }
+}
+
+/* --- Media Queries --- */
+
+/* Removed .homeCopy prefix */
+@media (max-width: 1800px) {
+  .hero {
+    background-size: 28vw;
+    background-position: 6.5vw 1vw;
+  }
+}
+
+/* Removed .homeCopy prefix */
+@media (max-width: 1500px) {
+  .hero {
+    background-position: top 10% left;
+  }
+
+  .heroLeft .heroParagraph {
+    font-size: 1.3vw;
+  }
+}
+
+/* Removed .homeCopy prefix */
+@media (max-width: 1280px) {
+  .heroRight .buttonGroup {
+    gap: 0.8vw;
+  }
+
+  .heroRight .buttonGroup :global(button) {
+    padding: 5px 20px;
+    gap: 10px;
+    font-size: 16px;
+  }
+}
+
+/* Removed .homeCopy prefix */
+@media (max-width: 1024px) {
+  .heroLeft .heroTitle {
+    font-size: 35px;
+  }
+
+  .heroLeft .heroParagraph {
+    font-size: 18px;
+  }
+
+  .heroLeft .heroParagraph :global(span) {
+    font-size: 16px;
+  }
+}
+
+/* Removed .homeCopy prefix */
+@media (max-width: 991px) {
+  .hero {
+    padding-bottom: 30px;
+  }
+
+  .mobileHeroVisible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    /* Ensure the clip-path animation still runs */
+    transition: opacity 0.5s ease-in !important;
+  }
+
+  .videoContainer {
+    position: relative;
+    width: 100vw;
+    height: 48vw;
+    overflow: hidden;
+  }
+
+  .heroRight {
+    justify-content: center;
+  }
+
+  .heroRight .buttonGroup {
+    top: 0vw;
+    bottom: 1vw;
+    right: 19vw;
+    width: 31vw;
+  }
+
+  .heroLeft :global(div) {
+    text-align: center;
+  }
+
+  .heroParagraph :global(b) {
+    display: none;
+  }
+
+
+  .heroParagraph :global(strong) {
+    display: block;
+    opacity: 0.6;
+    font-weight: 500;
+  }
+
+  .heroRight .heroImage,
+  .heroVideo {
+    object-position: center;
+    width: 100vw;
+    height: 50vw;
+  }
+}
+
+/* Mobile Fixes - use :global() for Bootstrap utility classes */
+@media (max-width: 767px) {
+  .heroLeft {
+    padding: inherit !important;
+  }
+
+  :global(.p) .hero {
+    background: url(/images/banner-bg-mobile.webp);
+    background-repeat: no-repeat;
+    background-size: 85%;
+    background-position: top right;
+    padding: 20px 0 0 0;
+
+    /* --- LCP FIX: Ensure animations are OFF on mobile too --- */
+    clip-path: none !important;
+    animation: none !important;
+  }
+
+  /* @keyframes revealClipRightToLeft {
+    from {
+      clip-path: inset(0 0 0 100%);
+    }
+
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  } */
+
+  .heroRight .buttonGroup {
+    left: 40%;
+    right: 15%;
+  }
+
+  .heroTitle {
+    margin: 0 auto;
+    padding: 20px 0;
+    border-bottom: 1px solid #CCCCCC;
+    max-width: 90vw;
+  }
+
+  .heroTitleDesktop {
+    display: none;
+  }
+
+  .heroTitleMobile {
+    display: block;
+    line-height: 23px;
+    font-size: 20.4px;
+    text-align: center;
+  }
+
+  .heroLeft .heroTitleMobile :global(span) {
+    display: inline-block;
+  }
+
+  .heroLeft .heroParagraph {
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .heroLeft .heroParagraph :global(span) {
+    margin-bottom: 5px;
+  }
+
+  .heroRight .mobileContent {
+    font-size: 22px;
+    margin: 0;
+    line-height: 30px;
+  }
+}
+
+/* Continued mobile fixes */
+@media (max-width: 700px) {
+  .hero {
+    background-position: top -1% right;
+    background-size: 460px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero {
+    padding: 10px 0 0 0;
+    background: url(/images/banner-bg-mobile.webp) no-repeat;
+    background-size: 50vh 16vh;
+    background-position: top 0vh right -2vh;
+  }
+
+
+
+  .videoContainer {
+    height: 95vw;
+  }
+
+  /* .videoContainer, */
+  .heroVideo {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+
+
+  .heroRight .buttonGroup :global(.buttonBlue),
+  .heroRight .buttonGroup :global(.buttonSkyBlue) {
+    justify-content: space-around;
+  }
+
+  .heroRight .buttonGroup :global(img) {
+    width: 7vw;
+  }
+
+  .heroLeft .heroTitle {
+    /* Assuming this refers to desktop or mobile title */
+    font-size: 25px;
+    margin: 15px auto;
+    max-width: 85%;
+    line-height: 1.2;
+  }
+
+  .heroRight .mobileContent {
+    left: 38%;
+    max-width: 55%;
+    font-size: 18px;
+    margin: 0;
+    line-height: 25px;
+  }
+
+  .heroLeft .heroParagraph :global(span) {
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  .heroParagraph :global(strong) {
+    font-size: 15px;
+    max-width: 95vw;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  .heroRight .buttonGroup {
+    justify-content: flex-end;
+    gap: 3vw;
+    width: 55vw;
+    bottom: 0;
+    left: auto;
+    right: 5vw;
+  }
+
+  .heroRight .buttonGroup :global(button) {
+    padding: 10px 25px;
+  }
+
+  .heroRight .buttonGroup :global(.buttonBlue),
+  .heroRight .buttonGroup :global(.buttonSkyBlue) {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 15px;
+  }
+
+  .heroLeft :global(div) {
+    padding-top: 0px;
+  }
+}
+
+/* @media (max-width: 430px) {
+  .heroRight .buttonGroup {
+    width: 55vw;
+    right: 7vw;
+    padding-bottom: 40px;
+    gap: 1vw;
+  }
+} */
+
+
+
+@media (max-width: 425px) {
+  .hero {
+    padding: 20px 0 0 0 !important;
+    background-size: 90%;
+  }
+
+  .heroRight {
+    padding-top: 20px;
+  }
+
+  .heroRight .buttonGroup :global(button) {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .heroRight .buttonGroup :global(button) :global(img) {
+    width: 25px;
+    height: 25px;
+  }
+
+  .heroMain :global(h3) {
+    font-size: 0.9rem;
+  }
+
+  .heroLeft .heroTitleMobile {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .heroLeft .heroTitleMobile :global(span) {
+    display: inline-block;
+  }
+
+  .heroRight .mobileContent {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .heroLeft .heroParagraph :global(span) {
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  .heroParagraph :global(strong) {
+    font-size: 15px;
+    max-width: 95%;
+    display: inline-block;
+  }
+
+  .videoContainer {
+    height: 88vw;
+  }
+
+  .heroRight .buttonGroup {
+    justify-content: flex-end;
+    gap: 1vw;
+    width: 53vw;
+    bottom: 0;
+    left: auto;
+    right: 8vw;
+  }
+
+  /* .heroRight .buttonGroup {
+    gap: 5vw;
+    padding-bottom: 50px;
+  } */
+
+  .heroRight .buttonGroup :global(button) {
+    padding: 10px 25px;
+  }
+
+  .heroLeft :global(div) {
+    padding-top: 7px;
+  }
+
+  .heroRight .buttonGroup :global(.buttonBlue),
+  .heroRight .buttonGroup :global(.buttonSkyBlue) {
+    font-size: 0.8rem;
+  }
+
+  .courseSection .mainCard .mainCardTitle {
+    max-width: 100%;
+  }
+
+  .heroLeft {
+    margin-top: -1vw;
+  }
+
+  .buttonGroup :global(.buttonBlue),
+  .buttonGroup :global(.buttonSkyBlue) {
+    border-radius: 5vw;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    background: url(/images/banner-bg-mobile.webp) right -7vh top 1% / 50vh 16vh no-repeat;
+  }
+
+  .heroLeft {
+    margin-top: -3vw;
+  }
+
+  .videoContainer {
+    height: 85vw;
+  }
+
+  /* .videoContainer,
+  .heroVideo {
+    height: 65vw;
+  } */
+
+  /* .heroRight .buttonGroup {
+    justify-content: flex-end;
+        gap: 1vw;
+        width: 53vw;
+        bottom: 0;
+        left: auto;
+        right: 8vw;
+  } */
+
+  .heroLeft :global(div) {
+    padding-top: 0px;
+  }
+
+  .heroRight .buttonGroup :global(.buttonBlue),
+  .heroRight .buttonGroup :global(.buttonSkyBlue) {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+
+
+}

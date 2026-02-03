@@ -1,0 +1,251 @@
+/* Alumni Section  */
+.home .alumniSection {
+  padding: 50px 0 0 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.home .alumniSection .alumniSubSection {
+  text-align: center;
+  position: relative;
+  padding: 30px 0;
+}
+
+.home .alumniSection .alumniSubSection:before {
+  content: "";
+  width: 130%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50%;
+  border: 3px solid black;
+  border-radius: 30px;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+  border: 2px solid transparent;
+  z-index: -1;
+}
+
+.home .alumniSection .alumniSubHeading {
+  font-size: 1.6vw;
+}
+
+.home .alumniSection .alumniTitle {
+  font-size: 2vw;
+  font-weight: 700;
+  max-width: 50%;
+  margin: 30px auto 0 !important;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #1a2a49;
+}
+
+.home .alumniSection .alumniHighlight {
+  background: linear-gradient(to left,
+      var(--green-color),
+      var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home .alumniSection .alumniSwiper {
+  margin-top: 40px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 3;
+}
+
+.home .alumniSection .alumniSwiper :global(.swiper-slide) {
+  opacity: 0.6;
+}
+
+.home .alumniSection .alumniSwiper :global(.swiper-slide-active) {
+  opacity: 1;
+}
+
+.home .alumniSection :global(.swiper-wrapper) {
+  align-items: end;
+}
+
+.home .alumniSection .alumniSwiper:nth-child(2):before {
+  content: "";
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 90px;
+  right: -30%;
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff 40%) border-box;
+  border: 2px solid transparent;
+  z-index: -1;
+}
+
+.home .alumniSection .alumniBg {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 260px;
+  height: 300px;
+  border-radius: 32px;
+  background: linear-gradient(180deg,
+      var(--green-text) 0%,
+      var(--white-color) 60%);
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.home .alumniSection .activeBg.alumniBg {
+  background: linear-gradient(to top, var(--white-color) 0%, #b6d6f6 100%);
+}
+
+.home .alumniSection .alumniImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  max-height: 450px;
+}
+
+.home .alumniSection .alumniLogoBox {
+  position: absolute;
+  top: 50px;
+  left: 75%;
+  transform: translate(-50%);
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px 30px 20px 50px;
+  z-index: -1;
+  border: 1.5px solid #b6d6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home .alumniSection .alumniLogoBox img {
+  width: 80px;
+  height: 100%;
+}
+
+.home .alumniSection .alumniName {
+  margin-top: 45px;
+  line-height: 0.8;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7a8ca3;
+  text-align: center;
+  letter-spacing: 0.04em;
+  background: none;
+  border: none;
+  border-radius: 18px;
+  padding: 0;
+  min-width: 0;
+  box-shadow: none;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.home .alumniSection .activeBg~.alumniName {
+  font-size: 1.5vw;
+  background: linear-gradient(to right,
+      var(--lightgreen-color),
+      var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home .alumniSection .swiper-button-next:after,
+.home .alumniSection .swiper-button-prev:after {
+  display: none !important;
+}
+
+.home .alumniSection .swiperNavWrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  z-index: 10;
+}
+
+.home .alumniSection .customNavBtn {
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.1);
+  transition: background 0.2s;
+}
+
+.home .alumniSection .customNavBtn:after {
+  display: none;
+}
+
+.home .alumniSection .swiper-button-prev,
+.home .alumniSection .swiper-button-next {
+  background-color: transparent !important;
+}
+
+@media (max-width: 1199px) {
+  .home .alumniSection .alumniSubHeading {
+    font-size: 1.5rem;
+  }
+
+  .home .alumniSection .alumniLogoBox {
+    top: 15px;
+    left: 85%;
+    padding: 20px 30px;
+  }
+
+  .home .alumniSection .alumniLogoBox img {
+    width: 80px;
+  }
+
+  .home .alumniSection .alumniTitle {
+    font-size: 1.8rem;
+  }
+
+  .home .alumniSection .activeBg~.alumniName {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .home .alumniSection .alumniSubSection:before {
+    right: -30%;
+    border-radius: 20px;
+  }
+
+  .home .alumniSection .alumniTitle {
+    max-width: 100%;
+  }
+
+  .home .alumniSection .alumniSwiper:nth-child(2):before {
+    right: -15%;
+    height: 70px;
+  }
+}
+
+@media (max-width: 575px) {
+  .home .alumniSection .alumniSubHeading {
+    font-size: 1.2rem;
+  }
+
+  .home .alumniSection .alumniTitle {
+    font-size: 1.6rem;
+  }
+}

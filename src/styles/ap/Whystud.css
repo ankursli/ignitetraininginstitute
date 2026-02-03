@@ -1,0 +1,127 @@
+/* Whystud Section  */
+
+.whystudSection {
+  padding: 100px 0 40px 0;
+  background: var(--white-bg);
+  text-align: center;
+}
+
+
+
+.whystudSection .whystudTitle {
+  font-size: 1.6vw;
+  font-weight: 700;
+  max-width: 95%;
+  margin: 70px auto;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--blue-color);
+  text-align: left;
+}
+
+.whystudSection .whystudHighlight {
+  background: linear-gradient(to left,
+      var(--green-color),
+      var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.whystudSection .whystudGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 24px;
+  justify-items: center;
+  margin-bottom: 36px;
+  margin: 40px auto;
+}
+
+.whystudSection .whystudCard {
+  padding: 20px 25px 30px 25px;
+  border-radius: 40px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.whystudSection .whystudCard[data-color="blue"] {
+  background: linear-gradient(var(--border-color) 0%, transparent 90%);
+}
+
+.whystudSection .whystudCard[data-color="green"] {
+  background: linear-gradient(to top, var(--green-text) 0%, transparent 90%);
+}
+
+.whystudSection .whystudIcon {
+  height: 79px;
+  width: 100%;
+  margin: 40px auto;
+  text-align: left;
+}
+
+
+.whystudSection .whystudDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.whystudSection .whystudSeeMore {
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 5px 40px;
+  border-radius: 40px;
+  border: 3px solid transparent;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+  color: var(--blue-color);
+  font-size: 1vw;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.whystudSection .whystudSeeMore:hover {
+  color: var(--black-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 1100px) {
+  .whystudSection .whystudGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 12px;
+  }
+
+  .whystudSection .whystudSubheading {
+    font-size: 1.4rem;
+  }
+
+  .whystudSection .whystudTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .whystudSection .whystudGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .whystudSection .whystudSubheading {
+    font-size: 1.2rem;
+  }
+
+  .whystudSection .whystudTitle {
+    font-size: 1.4rem;
+    max-width: 100%;
+    margin: 20px 0;
+  }
+}

@@ -1,0 +1,418 @@
+/* USPs Section  */
+
+.uspSection-ib {
+  display: flex;
+  align-items: center;
+  /* background: linear-gradient(to right,
+      var(--green-color) 0%,
+      var(--lightgreen-color) 100%); */
+  border-radius: 32px;
+  padding: 50px 40px;
+  color: var(--white-color);
+  margin: 20px auto;
+  max-width: 85vw;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+  gap: 80px;
+}
+
+.uspSection-ib-sec {
+  padding: 0px 40px !important;
+
+}
+.uspSection-ib .uspLeft {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 25px;
+  margin-top: 40px;
+  /* min-width: 320px; */
+  /* max-width: 460px;   */
+}
+
+.uspSection-ib .uspLeft span {
+  -webkit-text-fill-color: var(--white-color);
+
+  width: max-content;
+  font-size: 25px;
+  margin-bottom: 20px;
+  background: linear-gradient(to right,
+      var(--lightgreen-color),
+      var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Optional for cross-browser support */
+  background-clip: text;
+  color: transparent;
+}
+
+.usp-blue {
+
+  background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  /* Optional for cross-browser support */
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+
+
+
+.uspSection-ib .uspLeft span:before,
+.uspSection-ib .uspLeft span:after {
+  width: 16px;
+  filter: contrast(0) brightness(2);
+}
+
+.uspSection-ib .uspTitle {
+  font-size: 1.6vw;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  /* color: var(--white-color); */
+  -webkit-text-fill-color: #19245E;
+
+}
+
+.uspSection-ib .uspSubtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  color: var(--white-color);
+}
+
+.uspSection-ib .uspDesc {
+  font-size: 0.8vw;
+  /* margin-bottom: 32px; */
+  /* color: var(--white-color); */
+  color: #233467;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  padding-bottom: 10px;
+  /* border-bottom: 1px solid; */
+}
+
+.uspSection-ib .uspBtn {
+  width: max-content;
+  font-weight: 700;
+  font-size: 1.1rem;
+background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+  position: relative;
+  overflow: hidden;
+  padding: 10px 30px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 1;
+  /* background: linear-gradient(90deg, #00A491 0%, #003E37 127.82%); */
+  color: #fff;
+}
+
+.ups-right-col {
+  background: linear-gradient(280.06deg, rgba(237, 255, 244, 0) -5.67%, #A6EAC7 121.47%);
+  padding: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.uspSection-ib .uspRight {
+  flex: 2;
+  position: relative;
+  user-select: none;
+}
+
+.uspSection-ib .uspSwiper {
+  width: 100%;
+  height: 500px;
+  padding: 25px 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uspSection-ib .uspSlide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  height: auto !important;
+  flex-wrap: wrap;
+}
+
+.uspSection-ib .uspItem {
+  background: transparent;
+  border-radius: 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--white-color);
+  min-width: 0;
+  flex: 1;
+  position: relative;
+  margin: 10px;
+}
+
+.uspItem-sec{
+margin-top: 30px !important;
+}
+.uspSection-ib .uspNumber {
+  /* position: absolute; */
+  /* top: -40px; */
+  /* left: -30px; */
+  font-size: 3rem;
+  font-weight: 700;
+  color: #b2e6d4;
+  opacity: 0.7;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #00A491 0%, #003E37 127.82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Optional for cross-browser support */
+  background-clip: text;
+  color: transparent;
+
+}
+.usp-number-sec{
+  position: absolute; 
+  top: 40px;
+  left: 80px;
+  z-index: -1;
+  background: linear-gradient(90deg, #00A491 0%, #003E37 127.82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff !important;
+
+  /* Optional for cross-browser support */
+  background-clip: text;
+  color: #fff;
+    -webkit-text-stroke: 1px #00A491; 
+}
+
+.usp-title-sec{
+margin-top: 20px;
+}
+
+.uspSection-ib .uspIconCircle {
+  /* background: #baefd4; */
+  background: linear-gradient(226.41deg, #00A491 3.82%, #003E37 110.23%);
+
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+
+.uspSection-ib .uspIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.uspSection-ib .uspItemTitle {
+  font-size: 1vw;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #233467;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.uspSection-ib .uspItemDesc {
+  letter-spacing: 1px;
+  font-size: 0.98rem;
+  color: #233467;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.uspSection-ib .uspScrollbar {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.uspSection-ib .uspScrollbar :global(.swiper-scrollbar-drag) {
+  background: #fff;
+}
+
+@media (max-width: 1280px) {
+  .uspSection-ib .uspDesc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .uspSection-ib {
+    max-width: 100vw;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .uspSection-ib .uspLeft {
+    flex: none;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    min-width: 100%;
+  }
+
+  .uspSection-ib .uspTitle {
+    font-size: 1.2rem;
+  }
+
+  .uspSection-ib .uspSubtitle,
+  .uspSection-ib .uspNumber {
+    /* display: none; */
+  }
+
+  .uspSection-ib .uspDesc {
+    font-size: 1rem;
+    border: none;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    opacity: 0.8 !important;
+  }
+
+  .uspSection-ib .uspGrid {
+    gap: 30px 40px;
+  }
+
+  .uspSection-ib .uspItem {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding-bottom: 30px;
+  }
+
+  .uspSection-ib .uspIconCircle {
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+
+  .uspSection-ib .uspIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .uspSection-ib .uspContent {
+    width: 80%;
+  }
+
+  .uspSection-ib .uspItemTitle {
+    font-size: 0.7rem;
+  }
+  .uspSection-ib .uspItemDesc{
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .uspSection-ib {
+    max-width: 100vw;
+  }
+  .uspSection-ib-sec {
+  padding: 0px 10px !important;
+
+}
+
+.uspSection-ib .uspItem{
+  margin: 0;
+}
+
+  .uspSection-ib .uspLeft span:before,
+  .uspSection-ib .uspLeft span:after {
+    width: 10px;
+  }
+  .uspSection-ib .uspLeft{
+    margin-bottom: 20px;
+  }
+
+  .uspSection-ib .uspSwiper {
+    padding: 20px;
+  }
+
+  .uspSection-ib .uspGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .uspSection-ib .uspSlide:last-child .uspItem:last-child {
+    border: none;
+  }
+
+  .uspSwiper {
+    height: 400px;
+  }
+
+  .uspSection-ib .uspSlide {
+    margin-bottom: 20px !important;
+  }
+
+  .uspSection-ib .uspItem {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .uspSection-ib .uspSlide {
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .uspSection-ib .uspSwiper {
+    padding: 0;
+  }
+
+  .uspRight {
+    padding-top: 30px;
+    ;
+  }
+  .ups-right-col{
+    padding: 0px;
+  }
+
+  .uspSection-ib .uspItem {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding-bottom: 30px;
+  }
+
+  /* This is good for the very last item: */
+  .uspSection-ib .uspSlide:last-child .uspItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    /* Make sure the very last item doesn't have excess padding */
+  }
+}

@@ -1,0 +1,467 @@
+@import "../../node_modules/locomotive-scroll/dist/locomotive-scroll.css";
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  /* font-family: var(--font-montserrat) !important; */
+}
+
+body.is-bot-detected * {
+  /* Immediately stop all transitions and animations */
+  transition: none !important;
+  animation-duration: 0s !important;
+  /* Ensure elements are fully visible without transformation effects */
+  transform: none !important;
+  opacity: 1 !important;
+  /* Prevent Locomotive Scroll classes from hiding elements */
+  visibility: inherit !important;
+}
+
+body a {
+  text-decoration: none;
+}
+
+:root {
+  --blue-color: #161664;
+  --skyblue-color: #0091d0;
+  --green-color: #003e37;
+  --lightgreen-color: #00a491;
+  --border-color: #a3caf5;
+  --green-text: #a6eac7;
+  --blue-text: #262e46;
+  --grey-text: #233467;
+  --white-color: #f8fbff;
+  --white-bg: #ffffff;
+  --black-color: #000000;
+  /* --font-montserrat: "Montserrat", sans-serif; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Container - Use this in all pages */
+.container {
+  max-width: 85vw !important;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.innerpage>section:nth-child(1) {
+  padding: 0 0 70px 0 !important;
+}
+
+section:not(section section) {
+  padding: 70px 0 !important;
+}
+
+section.padding-0 {
+  padding-bottom: 0 !important;
+}
+
+option {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+@media (max-width: 991px) {
+  .testTitle {
+    max-width: 600px;
+    font-size: 1.5rem;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .testTitle {
+    font-size: 20.4px !important;
+    line-height: 23px;
+
+  }
+}
+
+.react-phone-input-2 .country-list {
+  z-index: 99999 !important;
+  /* Reset pointer events to ensure it's interactive */
+  pointer-events: all !important;
+  overflow-y: auto !important;
+}
+
+/* Optional: Style the search field if you enable it */
+.react-phone-input-2 .search-box {
+  color: #333 !important;
+}
+
+
+/* Add this to your global CSS file for positioning and styling */
+
+.sticky-demo-button {
+  /* Positioning */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  /* Styling (Customize these colors/fonts) */
+  padding: 12px 20px;
+  background: #161d58;
+  /* Example color matching your banner's primary blue */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  /* Crucial for links */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sticky-demo-button:hover {
+  background-color: #2f648e;
+  /* Example darker hover color */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .sticky-demo-button {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1124px) {
+  .container {
+    max-width: 90vw !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 95vw !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 100% !important;
+  }
+
+  .innerpage>section:nth-child(1) {
+    padding: 0 0 50px 0 !important;
+  }
+
+  section:not(section section) {
+    padding: 50px 0 !important;
+  }
+}
+
+/* --- FIX: FADE-IN START STATE --- */
+/* Default Desktop State */
+.fade-in-section {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+}
+
+/* Your existing Mobile Override */
+@media (max-width: 575px) {
+  .fade-in-section {
+    transform: translateY(10px);
+  }
+}
+
+/* --- FALLBACK FOR MOBILE (No Locomotive Scroll) --- */
+@media (max-width: 768px) {
+  .fade-in-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+/* --- TRIGGER STATE --- */
+.is-inview.fade-in-section {
+  opacity: 1;
+  visibility: visible;
+  /* <--- Shows the element once Locomotive confirms it's in view */
+  transform: translateY(0);
+}
+
+
+
+/* SUB-HEADING STYLES (No changes needed) */
+.SubHeading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  background: linear-gradient(285.71deg, #3f88ba -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  padding: 0 40px;
+  display: inline-block;
+}
+
+.SubHeading:before,
+.SubHeading:after {
+  content: "";
+  width: 14px;
+  height: 100%;
+  /* full height on desktop */
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/images/heading-icon.webp) center no-repeat;
+  background-size: contain;
+}
+
+.subjectLeft h2 {
+  -webkit-text-fill-color: white;
+  margin-bottom: 30px;
+}
+
+.subjectLeft h2::before,
+.subjectLeft h2:after {
+  filter: contrast(0) brightness(2);
+}
+
+
+
+.testTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue-color);
+  margin: 40px auto;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .testTitle {
+    max-width: 600px;
+    font-size: 1.5rem;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .testTitle {
+    font-size: 20.4px !important;
+    line-height: 23px;
+
+  }
+}
+
+.SubHeading:before {
+  left: 0;
+}
+
+.SubHeading:after {
+  right: 0;
+}
+
+.highlight {
+  background: linear-gradient(to left,
+      var(--green-color),
+      var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Home Subject Section */
+.sp-container {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.usp-section.sp-container {
+  padding: 0;
+}
+
+@media (max-width: 1500px) {
+  .sp-container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
+
+/* Home Subject Section */
+/* Home blog*/
+@media (max-width: 575px) {
+  .mobile-hide {
+    display: none;
+  }
+}
+
+/* Home blog*/
+
+/* Tablet (No changes needed) */
+@media (max-width: 1024px) {
+  .SubHeading {
+    font-size: 24px;
+  }
+}
+
+/* Mobile (No changes needed for SubHeading) */
+@media (max-width: 575px) {
+  .SubHeading {
+    font-size: 15px;
+    padding: 0 24px;
+  }
+
+  .SubHeading:before,
+  .SubHeading:after {
+    width: 14px;
+    /* fixed size on mobile */
+    height: 24px;
+    /* instead of 100% */
+    top: 50%;
+    transform: translateY(-50%);
+    /* center vertically */
+  }
+}
+
+
+/* Buttons (No changes needed) */
+
+.buttonBlue,
+.buttonSkyBlue {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 10px 10px 15px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.buttonBlue {
+  color: var(--white-color);
+  background: linear-gradient(to right, var(--blue-color), #3f88ba);
+}
+
+.buttonSkyBlue {
+  color: var(--blue-color);
+  background: linear-gradient(to right, var(--border-color), #e7f6ff);
+}
+
+.buttonBlue::before,
+.buttonSkyBlue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 200%;
+  height: 100%;
+  z-index: -1;
+  transition: 0.4s ease-in-out;
+}
+
+.buttonBlue::before {
+  background: linear-gradient(to right,
+      var(--blue-color),
+      #3f88ba 55%,
+      var(--blue-color) 85%,
+      var(--blue-color));
+}
+
+.buttonSkyBlue::before {
+  background: linear-gradient(to right,
+      var(--border-color),
+      #e7f6ff 55%,
+      var(--border-color) 85%,
+      var(--border-color));
+}
+
+.buttonBlue:hover::before,
+.buttonSkyBlue:hover::before {
+  transform: translateX(-50%);
+}
+
+.buttonBlue:hover,
+.buttonSkyBlue:hover {
+  scale: 1.05;
+}
+
+.buttonBlue img,
+.buttonSkyBlue img {
+  width: 30px;
+  height: auto;
+}
+
+/* Fade-In Animation */
+
+/* When Locomotive Scroll adds the is-inview class, the animation starts */
+.is-inview.fade-in-section {
+  animation: fadeInUp 0.6s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+    /* Desktop keyframe start position */
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* FIX: Mobile Keyframe Override (Must match the 20px start position) */
+@media (max-width: 575px) {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      /* Mobile keyframe start position */
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Clip Path Animation (No changes needed) */
+
+.is-clipped {
+  clip-path: inset(0 100% 0 0);
+  animation: revealImageClip 0.3s 0.2s cubic-bezier(0.4, 0, 0.2, 1.4) forwards;
+}
+
+@keyframes revealImageClip {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}

@@ -1,0 +1,720 @@
+/* .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  padding: 1.5vw 0;
+  max-width: 70vw;
+  margin: 0 auto;
+  background: #fff;
+  z-index: 99 !important;
+  position: relative;
+} */
+
+
+.headerWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  z-index: 99 !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  padding: 0.5vw 20px;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+/* Rest of your CSS remains the same */
+
+header .header_left_content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex: 1 0 70%;
+}
+
+header .header_left_content .logo img,
+header .header_left_content .logo svg {
+  width: 6.5vw;
+  object-fit: contain;
+}
+
+header .header_left_content .nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+
+header .header_left_content .link {
+  color: #161664;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  transition: 0.2s all;
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease-in-out;
+}
+
+header .header_left_content .link:hover {
+  background: linear-gradient(to left, var(--green-color), var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+header .header_left_content .link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--green-text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header .header_left_content .link:hover {
+  color: var(--skyblue-color);
+}
+
+header .header_left_content .link:hover::after {
+  transform: scaleX(1);
+}
+
+header .header_right_content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+
+
+header .header_right_content button {
+  font-size: 1vw;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  padding: 0.3vw 0.7vw;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+  border-radius: 40px;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.7vw;
+  cursor: pointer;
+  transition: 0.4s all;
+}
+
+header .header_right_content button:hover {
+  color: var(--skyblue-color);
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header .header_right_content button img {
+  width: 15px;
+  height: 15px;
+}
+
+header .megaMenuWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+header .megaMenuWrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  /* max-width: 150px; */
+  height: 25px;
+  background: transparent;
+  pointer-events: none;
+  z-index: 99;
+}
+
+header .megaMenuWrapper:hover::before {
+  pointer-events: all;
+}
+
+header .megaMenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 25px);
+  width: 25vw;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to top, var(--green-text), transparent) border-box;
+  border-radius: 35px;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1vw;
+  z-index: 100;
+  animation: megaMenuFadeIn 0.3s;
+}
+
+@keyframes megaMenuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header .megaMenuWrapper:hover .megaMenu,
+header .megaMenuWrapper:focus-within .megaMenu {
+  display: block;
+}
+
+header .megaMenuContent h3 {
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(to right,
+      var(--lightgreen-color),
+      var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes arrowWiggle {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Apply animation on hover */
+header .megaMenuContent h3:hover img {
+  animation: arrowWiggle 1s ease-in-out infinite;
+}
+
+header a.sub1 {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #A7AEC2;
+}
+
+header .megaMenuContent h3 span {
+  -webkit-text-fill-color: #a8abb5;
+  opacity: 0.4;
+  font-size: 16px;
+  display: block;
+  line-height: 30px;
+}
+
+header .megaMenuContent h3 div img {
+  width: 15px;
+
+}
+
+header .megaMenuContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header .megaMenuContent li {
+  margin-bottom: 12px;
+}
+
+header .megaMenuContent a {
+  color: var(--blue-text);
+  text-decoration: none;
+  font-size: 1vw;
+  transition: 0.2s all;
+}
+
+header .megaMenuContent a:hover {
+  color: var(--skyblue-color);
+}
+
+header .megaMenuWrapper:hover .link {
+  color: var(--skyblue-color);
+}
+
+header .megaMenuWrapper:hover .link::after {
+  transform: scaleX(1);
+}
+
+header .megaMenuContent {
+  display: flex;
+  gap: 1vw;
+  flex-wrap: wrap;
+}
+
+header .megaMenuLeft {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  align-items: center;
+  grid-gap: 15px;
+  width: 100%;
+}
+
+header .megaMenuLeft h3 {
+  margin-bottom: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blue-text);
+  cursor: pointer;
+  transition: 0.2s all;
+  display: flex;
+  flex-direction: column;
+}
+
+header .megaMenuLeft h3:hover {
+  color: var(--skyblue-color);
+}
+
+header .megaMenuRight {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+header .megaMenuBox {
+  padding: 0.8vw;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+header .megaMenuBox:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+header .megaMenuBox img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+header .megaMenuBox h4 {
+  font-size: 1vw;
+  font-weight: 600;
+  color: var(--blue-color);
+  margin: 0;
+  text-wrap: nowrap;
+}
+
+header .toggleButton {
+  padding: 0 !important;
+}
+
+header .toggleButton:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+header .toggleButton img {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+@keyframes headerSlideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headerAnimated {
+  animation: headerSlideDownFade 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+.headerHidden {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+.navMobileClosed {
+  display: none;
+}
+
+/* ... other styles ... */
+
+@media (min-width: 992px) {
+  .navMobileClosed {
+    display: flex;
+    /* Always visible on large screens */
+  }
+}
+
+
+/* MacBook Pro 16" M4 (~1728px wide) */
+@media (max-width: 1728px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+    max-width: 90vw;
+
+  }
+
+  header .header_left_content .link {
+    font-size: 1vw;
+  }
+
+  /* Styles for MacBook Pro 16" and larger laptops */
+  header .header_left_content .nav {
+    gap: 25px;
+    /* Reduced gap between links */
+  }
+
+  header .header_left_content {
+    gap: 30px;
+    display: flex
+  }
+
+  header .header_right_content button {
+    font-size: 1vw;
+    padding: 0.2vw 0.6vw;
+  }
+}
+
+/* MacBook Pro 14" M4 (~1512px wide) */
+@media (max-width: 1535px) {
+  /* .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 10px;
+    max-width: 85vw;
+
+  } */
+
+  header .header_left_content .link {
+    font-size: 1rem;
+  }
+
+  header .header_right_content {
+
+    gap: 15px;
+  }
+
+  header .header_left_content {
+    gap: 30px;
+    display: flex
+  }
+
+  /* Styles for MacBook Pro 14" and similar screens */
+  header .header_left_content .nav {
+    gap: 20px;
+    /* Reduced gap between links */
+  }
+
+  header .header_right_content button {
+    font-size: 1vw;
+    padding: 5px 10px
+  }
+}
+
+
+
+@media (max-width: 1280px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 10px;
+    max-width: 95vw;
+
+  }
+
+  header .header_left_content .nav {
+    align-items: baseline;
+  }
+
+
+  header .header_left_content {
+    gap: 30px;
+  }
+
+  header .header_left_content .logo img,
+  header .header_left_content .logo svg {
+    width: 120px;
+  }
+
+  header .header_left_content .link {
+    font-size: 15px;
+    /* Reduced font size to prevent wrapping */
+  }
+
+  header .header_left_content .nav {
+    gap: 16px;
+    /* Reduced gap between links */
+  }
+
+  header .header_right_content button {
+    font-size: 1.2vw;
+    padding: 5px 10px
+  }
+
+
+  header .header_right_content button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  header .header_right_content {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  header .header_left_content {
+    flex: auto;
+  }
+
+  .header {
+    max-width: 95vw;
+    padding: 20px 0;
+    justify-content: space-around;
+  }
+
+  .header .nav .link {
+    width: max-content;
+  }
+
+  .header .nav .link:after {
+    bottom: -10px;
+    height: 3px;
+  }
+
+  header .megaMenu {
+    max-width: 100%;
+    top: calc(100% + 15px);
+    pointer-events: all;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  header .megaMenuContent {
+    gap: 20px;
+  }
+
+  header .megaMenuLeft h3 {
+    text-align: left;
+    font-size: 14px;
+    padding-left: 20px;
+  }
+
+  header .megaMenuWrapper {
+    width: 100%;
+    text-align: center;
+  }
+
+  header .megaMenuWrapper {
+    pointer-events: none;
+  }
+
+  header .header_left_content .nav {
+    gap: 15px;
+    background: linear-gradient(white, white) padding-box, linear-gradient(to top, var(--green-text), transparent) border-box;
+    border-radius: 35px;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    width: 95vw;
+    padding: 0 !important
+  }
+
+  header .header_left_content .link {
+    font-size: 1rem;
+    pointer-events: all;
+    margin: 0 auto;
+  }
+
+  header .header_right_content button {
+    font-size: 16px;
+  }
+
+  .headerAnimated {
+    animation: none !important;
+  }
+
+  .headerHidden {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  header .header_left_content .logo img,
+  header .header_left_content .logo svg {
+    width: 100px;
+  }
+
+  header .megaMenuRight,
+  header .megaMenuLeft {
+    flex: 1;
+  }
+
+  header .megaMenu {
+    width: 95vw;
+  }
+
+  header .megaMenuContent a {
+    padding: 2vw;
+  }
+
+  header .megaMenuContent a,
+  header .megaMenuContent h4 {
+    font-size: 14px;
+  }
+
+  header .header_right_content button {
+    font-size: 14px;
+    border: 2px solid transparent;
+    padding: 8px 15px;
+  }
+
+  header .header_right_content button img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+
+  header .header_left_content .logo img,
+  header .header_left_content .logo svg {
+    width: 100px;
+    height: auto;
+  }
+
+  header .header_right_content button img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .header,
+  header .nav {
+    padding: 20px 0 !important;
+  }
+
+  header .megaMenu {
+    border-radius: 20px;
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  header .header_right_content {
+    gap: 10px;
+  }
+
+  header .header_right_content button {
+    font-size: 12px;
+    padding: 6px 10px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    gap: 10px;
+  }
+
+  header .header_left_content .logo img,
+  header .header_left_content .logo svg {
+    width: 80px;
+  }
+
+  header .header_right_content {
+    gap: 5px;
+  }
+
+  header .header_right_content button {
+    padding: 3px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    gap: 5px;
+  }
+
+  header .header_right_content button img {
+    width: 12px;
+    height: 12px;
+  }
+
+  header .megaMenuLeft h3 {
+    font-size: 130px;
+  }
+
+  header .megaMenuBox h4 {
+    font-size: 13px;
+  }
+
+  header .megaMenuBox img {
+    width: 25px;
+  }
+}
+
+@media (max-width: 330px) {
+  header .header_right_content {
+    gap: 5px;
+  }
+
+  header .header_right_content button img {
+    display: none;
+  }
+
+  header .header_right_content .toggleButton img {
+    display: block;
+  }
+}

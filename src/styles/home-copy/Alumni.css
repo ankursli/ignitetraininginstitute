@@ -1,0 +1,233 @@
+/* Swiper wrapper alignment to ensure all slides are on the same base line */
+.homeCopy .alumniSection .swiper-wrapper {
+  align-items: flex-end;
+}
+
+/* Base styling for all Swiper slides, with a smooth transition */
+.homeCopy .alumniSection .alumniSwiper .swiper-slide {
+  /* Apply the scale and opacity directly to the slide container */
+  transform: scale(0.65) translateY(-50px);
+  opacity: 0.8;
+  transition: all 0.6s ease;
+
+  /* THIS IS THE NEW RULE */
+  transform-origin: bottom;
+}
+
+/* Styles for the active slide (center slide) */
+.homeCopy .alumniSection .alumniSwiper .swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+
+/* Adjust font size for the active slide's name */
+.homeCopy .alumniSection .alumniSwiper .swiper-slide-active .alumniName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2a49;
+}
+
+/* --- General Section Styles --- */
+
+.homeCopy .alumniSection {
+  padding: 50px 0 0 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.homeCopy .alumniSection .alumniSwiper {
+  max-width: 80vw !important;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 3;
+}
+
+.homeCopy .alumniSection .alumniSubSection {
+  text-align: center;
+  position: relative;
+  padding: 30px 0;
+}
+
+.homeCopy .alumniSection .alumniSubSection:before {
+  content: "";
+  width: 130%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50%;
+  border: 3px solid black;
+  border-radius: 30px;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+  border: 2px solid transparent;
+  z-index: -1;
+}
+
+.homeCopy .alumniSection .alumniSubHeading {
+  font-size: 1.3vw;
+}
+
+.homeCopy .alumniSection .alumniTitle {
+  font-size: 1.8vw;
+  font-weight: 700;
+  max-width: 50%;
+  margin: 30px auto 0 !important;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #1a2a49;
+}
+
+.homeCopy .alumniSection .alumniHighlight {
+  background: linear-gradient(to left, var(--green-color), var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.homeCopy .alumniSection .alumniSwiper:nth-child(2):before {
+  content: "";
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 90px;
+  right: -30%;
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff 40%) border-box;
+  border: 2px solid transparent;
+  z-index: -1;
+}
+
+.homeCopy .alumniSection .alumniImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  max-height: 20vw;
+}
+
+.homeCopy .alumniSection .alumniName {
+  margin-top: 45px;
+  line-height: 0.8;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7a8ca3;
+  text-align: center;
+  letter-spacing: 0.04em;
+  background: none;
+  border: none;
+  border-radius: 18px;
+  padding: 0;
+  min-width: 0;
+  box-shadow: none;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.homeCopy .alumniSection .swiper-button-next:after,
+.homeCopy .alumniSection .swiper-button-prev:after {
+  display: none !important;
+}
+
+.homeCopy .alumniSection .customNavBtn {
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.1);
+  transition: background 0.2s;
+}
+
+.homeCopy .alumniSection .customNavBtn:after {
+  display: none;
+}
+
+.homeCopy .alumniSection .swiper-button-prev,
+.homeCopy .alumniSection .swiper-button-next {
+  background-color: transparent !important;
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 1199px) {
+  .homeCopy .alumniSection .alumniSubHeading {
+    font-size: 1.5rem;
+  }
+
+  .homeCopy .alumniSection .alumniTitle {
+    font-size: 1.8rem;
+  }
+
+  .homeCopy .alumniSection .activeBg~.alumniName {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .homeCopy .alumniSection .alumniSubSection:before {
+    right: -30%;
+    border-radius: 20px;
+  }
+
+  .homeCopy .alumniSection .alumniTitle {
+    max-width: 100%;
+  }
+
+  .homeCopy .alumniSection .alumniSwiper:nth-child(2):before {
+    right: 0;
+    height: 50px;
+    bottom: 18vw;
+  }
+
+  .homeCopy .alumniSection .alumniSwiper {
+
+    padding-bottom: 11vw;
+
+  }
+
+  .homeCopy .alumniSection .alumniSwiper .swiper-slide-active .alumniName {
+    margin-top: 5vw;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .homeCopy .alumniSection .alumniSubHeading {
+    font-size: 1.2rem;
+  }
+
+  .homeCopy .alumniSection .alumniTitle {
+    font-size: 1.6rem;
+  }
+
+  .homeCopy .alumniSection .alumniSwiper .swiper-slide-active .alumniName {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .homeCopy .alumniSection .alumniSwiper .swiper-slide-next,
+  .homeCopy .alumniSection .alumniSwiper .swiper-slide-prev {
+    opacity: 0;
+  }
+
+  .homeCopy .alumniSection .alumniImage {
+    max-height: 60vw;
+  }
+}

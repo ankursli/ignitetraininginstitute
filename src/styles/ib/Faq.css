@@ -1,0 +1,170 @@
+.faq-container {
+  background: linear-gradient(237.21deg, #E7F6FF 54.23%, #A3CAF5 103.75%);
+
+  padding: 50px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.faq-left {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+
+.faqTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 40px 0 30px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--blue-color);
+}
+
+.faqTitle .highlight {
+  background: linear-gradient(to right, var(--lightgreen-color), var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-desc {
+  color: #233467;
+
+}
+
+.faq-container .accordion {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0
+}
+
+.faq-container .accordion-item {
+  background: transparent !important;
+  border: 0;
+  border-bottom: 1px solid;
+
+}
+
+.faq-container .accordion-item:last-of-type>.accordion-header .accordion-button.collapsed {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0
+}
+
+.faq-container .accordion-button {
+  background: transparent !important;
+  border-image-source: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+}
+
+
+.faq-container .accordion-button:not(.collapsed)::after {
+  background-image: url(/images/-.webp);
+  background-size: 15px;
+}
+
+.faq-container .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+
+.faq-container .accordion-button::after {
+  background-image: url(/images/+.webp);
+  background-size: 15px;
+
+}
+
+.faq-container .accordion-button:focus {
+  box-shadow: none;
+}
+
+
+.faq-container .accordion-button {
+  font-weight: 700;
+  background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
+
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  /* Optional for cross-browser support */
+  background-clip: text;
+  color: transparent;
+  padding: 25px;
+}
+
+.faq-container .accordion-body {
+  color: #233467;
+}
+
+
+.faq-secondary-container {}
+
+.faq-secondary-container .accordion-item {
+  /* background: transparent !important; */
+  background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+  border: 0;
+  border-bottom: 1px solid;
+
+}
+
+.faq-secondary-container .accordion-button {
+  background: transparent !important;
+  border-image-source: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+}
+
+
+.faq-secondary-container .accordion-button:not(.collapsed)::after {
+  background-image: url(/images/-.webp);
+  background-size: 15px;
+}
+
+
+
+.faq-secondary-container .accordion-button::after {
+  background-image: url(/images/+.webp);
+  background-size: 15px;
+
+}
+
+.faq-secondary-container .accordion-button:focus {
+  box-shadow: none;
+}
+
+
+.faq-secondary-container .accordion-button {
+  font-weight: 700;
+  /* background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
+
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  background-clip: text;
+  color: transparent; */
+  color: #fff !important;
+  padding: 25px;
+}
+
+.faq-secondary-container .accordion-body {
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .faq-left {
+    text-align: center;
+  }
+
+  .faqTitle {
+    text-align: center;
+
+  }
+}

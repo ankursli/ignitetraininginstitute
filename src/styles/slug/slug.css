@@ -1,0 +1,544 @@
+/* Base styles for all screen sizes */
+
+.blog-detail-container {
+    margin-top: 4vw;
+}
+
+h1.main-title {
+    font-weight: 700 !important;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding: 0 40px;
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    /* Default font size for larger screens */
+}
+
+.post-date {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.post-date span {
+    font-size: 22px;
+    font-weight: 600;
+    color: #233467;
+}
+
+.post-author {
+    display: flex;
+    justify-content: center;
+}
+
+.post-author span {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(35, 52, 103, 0.51);
+    text-transform: uppercase;
+}
+
+.post-share-icons.mb-4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-feature img {
+    border-radius: 40px;
+    overflow: hidden;
+    height: 800px;
+}
+
+.post-content img {
+    max-width: 100%;
+}
+
+.post-content .wp-block-list,
+.post-content p {
+    color: #161616;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Sticky sidebar styling using native CSS */
+.sticky-sidebar-wrapper {
+    position: -webkit-sticky;
+    /* For Safari compatibility */
+    position: sticky;
+    top: 5.5vw;
+    /* Adjust this value as needed, e.g., to account for a fixed header */
+}
+
+.post-content h2 {
+    font-weight: 500 !important;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 20px 0px;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    font-size: 32px;
+    /* Default font size for larger screens */
+}
+
+.post-content h3 {
+    font-weight: 500 !important;
+    line-height: 1;
+    /* text-transform: uppercase; */
+    background: linear-gradient(to left, var(--green-color), var(--lightgreen-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 20px 0px;
+    position: relative;
+    display: block;
+    text-align: left;
+    font-size: 28px;
+    /* Default font size for larger screens */
+}
+
+.toc-title {
+    font-size: 32px;
+    font-weight: 700 !important;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px 0px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.toc-list li {
+    padding: 15px 20px;
+    background: linear-gradient(86deg, rgba(243, 250, 255, 1) 50%, rgba(209, 229, 250, 1) 100%);
+}
+
+.toc-list li:nth-child(odd) {
+    background: linear-gradient(86deg, rgba(209, 229, 250, 1) 50%, rgba(243, 250, 255, 1) 100%);
+}
+
+.toc-list li a {
+    color: #161616;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.toc-list {
+    width: 100%;
+}
+
+/* New form styling from your provided code */
+.form-container {
+    background: linear-gradient(115deg, rgba(163, 202, 245, 1) 45%, rgba(231, 246, 255, 1) 100%);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 50, 0.15);
+}
+
+.form-container h2 {
+    text-align: center;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1.2vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.blog-container .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2vw;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 0.8vw;
+    color: #1f2d61;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select {
+    border: none;
+    border-bottom: 1px solid #88A9C4;
+    padding: 3px 0;
+    background: transparent;
+    font-size: 0.8vw;
+    outline: none;
+    width: 100%;
+}
+
+.phone-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.flag {
+    width: 28px;
+    height: 20px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.submit-btn {
+    display: block;
+    background: transparent;
+    color: #1f2d61;
+    border: 1px solid #1f2d61;
+    padding: 8px;
+    font-size: 1vw;
+    font-weight: 500;
+    border-radius: 30px;
+    text-align: left;
+    width: 70%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0.5vw 1.2vw;
+}
+
+.submit-btn.blog-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: linear-gradient(90deg, #0d1b6a, #4c84d3);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1vw;
+    padding: 0.5vw 1.2vw;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 270px;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.arrow {
+    color: #FFF;
+    border-radius: 50%;
+    padding: 4px 9px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg, rgba(22, 22, 100, 1) 23%, rgba(63, 136, 186, 1) 102%);
+}
+
+.helpful-block {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.helpful-block span {
+    display: flex;
+    line-height: 3rem;
+    background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+button.like,
+button.dislike {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+
+.author-bio-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5vw;
+    /* 40px → vw */
+    max-width: 62.5vw;
+    /* 1200px → vw */
+    margin: 2vw auto;
+    font-family: Arial, sans-serif;
+}
+
+.author-bio-image img {
+    width: 10vw;
+    /* 350px → vw */
+    border-radius: 0.6vw;
+    object-fit: cover;
+}
+
+.author-bio-heading {
+    font-size: 1.4vw;
+    /* 32px */
+    font-weight: 700;
+    color: #7c819c;
+    margin-bottom: 1vw;
+}
+
+.author-bio-text {
+    line-height: 1.5;
+
+}
+
+.author-bio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2vw;
+    padding: 1vw 1.2vw;
+    background: linear-gradient(90deg, #12235d, #1e5fb2);
+    border-radius: 3.5vw;
+    font-size: 1vw;
+    /* 28px */
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.author-bio-btn .arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.4vw;
+    /* 65px */
+    height: 3.4vw;
+    background: #c7dbf9;
+    border-radius: 50%;
+    font-size: 2vw;
+    /* arrow size */
+    color: #0f2d75;
+}
+
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1.main-title {
+        font-size: 32px;
+        padding: 0 10px;
+        text-align: left;
+    }
+
+    .post-date span,
+    .post-author span {
+        font-size: 16px;
+    }
+
+    .image-feature img {
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .post-author {
+        justify-content: flex-start;
+        padding: 0 10px;
+    }
+
+    .post-date {
+        flex-direction: column;
+        align-items: left;
+        gap: 5px;
+        padding: 0 10px;
+    }
+
+    .post-date-separator {
+        display: none;
+    }
+
+    .post-content .wp-block-list,
+    .post-content p {
+        font-size: 18px;
+    }
+
+    .post-content h2,
+    .toc-title {
+        font-size: 24px;
+        padding: 10px 0;
+    }
+
+    .post-content h3 {
+        font-size: 20px;
+        padding: 10px 0;
+    }
+
+    .toc-list li a {
+        font-size: 16px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 1.2vw;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        font-size: 20px;
+        padding-left: 15px;
+    }
+
+    .arrow {
+        right: 15px;
+    }
+
+    .sticky-sidebar-wrapper {
+        position: static;
+        top: auto;
+    }
+}
+
+@media (max-width: 575px) {
+    .text-center.mb-5.image-feature {
+        margin-bottom: 0 !important;
+    }
+
+    section.post-detail-section,
+    .post-content-and-sidebar-section.py-5 {
+        padding-bottom: 0 !important;
+    }
+
+    .author-bio-section {
+        max-width: 100%;
+
+    }
+
+    .buttonBlue {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .author-bio-heading,
+    .author-bio-text {
+        font-size: 14px;
+    }
+
+    .author-bio-image img {
+        width: 100%;
+    }
+
+    .card {
+        padding: 10px 0;
+    }
+
+    .form-group select {
+        font-size: 1rem;
+    }
+
+    .form-group option {
+        font-size: 24px;
+    }
+
+    .form-group input,
+    .form-group select {
+
+        font-size: 15px;
+
+    }
+
+    .submit-btn.blog-submit-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+        background: transparent;
+        border: 1px solid #1f2d61;
+        color: #1f2d61;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .form-container h2 {
+        width: 100%;
+    }
+
+    .sticky-sidebar-wrapper {
+        padding-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    h1.main-title {
+        font-size: 24px;
+    }
+
+    .post-date span,
+    .post-author span {
+        font-size: 14px;
+    }
+
+    .post-content .wp-block-list,
+    .post-content p {
+        font-size: 16px;
+    }
+
+    .post-content h2,
+    .toc-title {
+        font-size: 20px;
+    }
+
+    .post-content h3 {
+        font-size: 18px;
+    }
+
+    .toc-list li {
+        padding: 10px;
+    }
+
+    .toc-list li a {
+        font-size: 14px;
+    }
+
+    .form-container {
+        padding: 20px 15px;
+    }
+
+    .form-container h2 {
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        font-size: 18px;
+        padding: 6px 15px;
+    }
+}

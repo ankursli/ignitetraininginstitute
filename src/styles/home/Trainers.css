@@ -1,0 +1,328 @@
+/* Trainer Section  */
+
+.home .trainersSection {
+  padding: 100px 0 40px 0;
+  background: var(--white-bg);
+  text-align: center;
+}
+
+.home .trainersSection .trainersHeader {
+  margin-bottom: 32px;
+}
+
+.home .trainersSection .trainersSubheading {
+  font-size: 1.8vw;
+}
+
+.home .trainersSection .trainersIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.home .trainersSection .trainersTitle {
+  font-size: 2vw;
+  font-weight: 700;
+  max-width: 60%;
+  margin: 40px auto;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--blue-color);
+}
+
+.home .trainersSection .trainersHighlight {
+  background: linear-gradient(to left,
+      var(--green-color),
+      var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home .trainersSection .trainersGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px 24px;
+  justify-items: center;
+  margin-bottom: 36px;
+}
+
+.home .trainersSection .trainerCard {
+  padding: 20px 0 30px 0;
+  border-radius: 40px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.home .trainersSection .trainerCard:nth-child(7),
+.home .trainersSection .trainerCard:nth-child(9) {
+  translate: 0 20px;
+}
+
+.home .trainersSection .trainerCard[data-color="blue"] {
+  background: linear-gradient(var(--border-color) 0%, transparent 50%);
+}
+
+.home .trainersSection .trainerCard[data-color="green"] {
+  background: linear-gradient(to top, var(--green-text) 0%, transparent 70%);
+}
+
+.home .trainersSection .trainerCard[data-color="blue"]:before {
+  content: "";
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, var(--white-bg) 50%, transparent);
+}
+
+.home .trainersSection .trainerCard[data-color="green"]:before {
+  content: "";
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, #d7f6e6 50%, transparent);
+}
+
+.home .trainersSection .trainerName {
+  font-size: 1vw;
+  font-weight: 500;
+  color: var(--black-color);
+  margin-bottom: 8px;
+  padding: 0 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.home .trainersSection .trainerImgWrap {
+  width: 100%;
+  height: 100%;
+}
+
+.home .trainersSection .trainerImg {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.home .trainersSection .trainerSubtitle {
+  font-size: 1vw;
+  color: var(--black-color);
+  opacity: 0.5;
+  margin-bottom: 10px;
+  position: absolute;
+  z-index: 9;
+}
+
+.home .trainersSection .trainerCard:nth-child(odd) .trainerSubtitle {
+  bottom: 70px;
+}
+
+.home .trainersSection .trainerCard:nth-child(even) .trainerSubtitle {
+  bottom: 50px;
+}
+
+.home .trainersSection .trainerExp {
+  background: linear-gradient(to left, #3f88ba, var(--blue-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  width: 80%;
+  font-size: 1.2vw;
+  padding-top: 5px;
+  position: absolute;
+  bottom: 35px;
+  z-index: 9;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* .home .trainersSection .trainerCard:nth-child(odd) .trainerExp {
+  transform: translateY(-10px);
+} */
+.home .trainersSection .trainerCard:nth-child(even) .trainerExp {
+  transform: translateY(20px);
+  background: linear-gradient(to left,
+      var(--green-color),
+      var(--lightgreen-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home .trainersSection .trainersSeeMore {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 5px 40px;
+  border-radius: 40px;
+  border: 3px solid transparent;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+  color: var(--blue-color);
+  font-size: 1vw;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 1;
+}
+
+.home .trainersSection .trainersSeeMore::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to right,
+      transparent,
+      #e7f6ff 60%,
+      var(--border-color) 85%,
+      var(--border-color));
+  z-index: -1;
+  transition: transform 0.6s ease-in-out;
+}
+
+.home .trainersSection .trainersSeeMore:hover::before {
+  transform: translateX(-50%);
+}
+
+.home .trainersSection .trainersSeeMore * {
+  position: relative;
+  z-index: 1;
+}
+
+.home .trainersSection .trainersSeeMore:hover {
+  color: var(--black-color);
+  transform: scale(1.05);
+}
+
+.home .trainersSection .trainersPagination {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 24px;
+}
+
+.home .trainersSection .trainersPagination span {
+  width: 10px;
+  height: 5px;
+  border-radius: 4px;
+}
+
+.home .trainersSection .customNavBtn {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  transition: none;
+  padding: 0;
+}
+
+.home .trainersSection .customNavBtn img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: none;
+}
+
+.home .trainersSection .customNavBtn:after,
+.home .trainersSection .customNavBtn:after {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .home .trainersSection .trainerImg {
+    height: 300px;
+  }
+
+  .home .trainersSection .trainerCard[data-color="green"] {
+    margin-bottom: 20px;
+  }
+
+  .home .trainersSection .trainerCard[data-color="green"] .trainerExp {
+    font-size: 20px;
+    background: linear-gradient(to right,
+        var(--lightgreen-color),
+        var(--green-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    bottom: 20px;
+    padding-top: 10px;
+  }
+
+  .home .trainersSection .trainerCard:nth-child(odd) .trainerSubtitle {
+    bottom: 60px;
+  }
+
+  .home .trainersSection .trainerCard[data-color="green"]:before {
+    background: linear-gradient(to top, #d7f6e6 60%, transparent);
+  }
+}
+
+@media (max-width: 1100px) {
+  .home .trainersSection .trainersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 12px;
+  }
+
+  .home .trainersSection .trainersSubheading {
+    font-size: 1.4rem;
+  }
+
+  .home .trainersSection .trainersTitle {
+    font-size: 2rem;
+  }
+
+  .home .trainersSection .trainerName,
+  .home .trainersSection .trainerExp,
+  .home .trainersSection .trainersSeeMore {
+    font-size: 1rem;
+  }
+
+  .home .trainersSection .trainerSubtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .home .trainersSection .trainersGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .home .trainersSection .trainersSubheading {
+    font-size: 1.2rem;
+  }
+
+  .home .trainersSection .trainersTitle {
+    font-size: 1.4rem;
+    max-width: 100%;
+    margin: 20px 0;
+  }
+
+  .home .trainersSection .customNavBtn {
+    width: 32px;
+    height: 32px;
+  }
+}

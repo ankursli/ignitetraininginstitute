@@ -1,0 +1,37 @@
+{
+  "name": "ignite",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
+    "start": "next start",
+    "lint": "next lint",
+    "update-categories": "node scripts/update-categories.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "extract-poster": "bash scripts/extract-poster.sh",
+    "optimize-all": "npm run optimize-images && npm run extract-poster",
+    "test-production": "npm run build && npm run start"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.13.2",
+    "bootstrap": "^5.3.7",
+    "form-data": "^4.0.5",
+    "formidable": "^3.5.4",
+    "he": "^1.2.0",
+    "locomotive-scroll": "^5.0.0-beta.9",
+    "lucide-react": "^0.544.0",
+    "next": "^16.0.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-phone-input-2": "^2.15.1",
+    "swiper": "^11.2.8",
+    "swr": "^2.2.4"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "@next/bundle-analyzer": "^16.0.7"
+  }
+}

@@ -1,0 +1,364 @@
+/* Usps.module.css (Corrected for Purity) */
+
+.uspSection {
+  background: linear-gradient(to right,
+      var(--green-color) 0%,
+      var(--lightgreen-color) 100%);
+  border-radius: 3.2vw;
+  padding: 3.47vw 2.78vw;
+  color: var(--white-color);
+  margin: 0 auto;
+  max-width: 90vw;
+  box-shadow: 0 0.28vw 2.22vw rgba(0, 0, 0, 0.08);
+}
+
+.uspLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.39vw;
+  min-width: 22.22vw;
+  max-width: 31.94vw;
+  position: sticky;
+  top: 10vw;
+}
+
+/* Use :global(h2) for the global element tag */
+.uspLeft h2 {
+  -webkit-text-fill-color: var(--white-color);
+  width: max-content;
+  margin-bottom: 20px;
+}
+
+/* Use :global(h2:before) for pseudo-elements on global tag */
+.uspLeft h2::before,
+.uspLeft h2::after {
+  width: 16px;
+  filter: contrast(0) brightness(2);
+}
+
+.uspTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
+.uspSubtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  color: var(--white-color);
+}
+
+.uspDesc {
+  font-size: 0.8vw;
+  margin-bottom: 32px;
+  color: var(--white-color);
+  opacity: 0.7;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  padding-bottom: 40px;
+  border-bottom: 1px solid;
+}
+
+.uspBtn {
+  width: max-content;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.uspRight {
+  position: relative;
+  padding-top: 1vw;
+}
+
+.uspSwiper {
+  width: 100%;
+  height: 500px;
+  padding: 25px 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uspSlide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  height: auto !important;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.uspItem {
+  background: transparent;
+  border-radius: 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--white-color);
+  min-width: 0;
+  flex: 1;
+  position: relative;
+}
+
+.uspNumber {
+  position: absolute;
+  top: -2.5vw;
+  left: -1.5vw;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #b2e6d4;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.uspIconCircle {
+  background: #baefd4;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.uspIcon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.uspItemTitle {
+  font-size: 1vw;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: var(--white-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.uspItemDesc {
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  color: var(--white-color);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.uspScrollbar {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.uspScrollbar :global(.swiper-scrollbar-drag) {
+  /* Use :global() for Swiper classes */
+  background: #fff;
+}
+
+@media (max-width: 1280px) {
+  .uspDesc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .uspSection {
+    max-width: 90vw;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .uspLeft {
+    flex: none;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    min-width: 100%;
+    position: static;
+    top: auto;
+  }
+
+  .uspTitle {
+    font-size: 1.4rem;
+  }
+
+  .uspSubtitle,
+  .uspNumber {
+    display: none;
+  }
+
+  /* Purity check: removed !important from opacity */
+  .uspDesc {
+    font-size: 1rem;
+    border: none;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+
+  .uspGrid {
+    gap: 30px 40px;
+  }
+
+  .uspItem {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding-bottom: 30px;
+  }
+
+  .uspIconCircle {
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+
+  .uspIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .uspContent {
+    width: 80%;
+  }
+
+  .uspItemTitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .uspSection {
+    max-width: 95vw;
+  }
+
+  .uspLeft :global(h2::before),
+  .uspLeft :global(h2::after) {
+    width: 10px;
+  }
+
+  .uspSwiper {
+    padding: 20px;
+  }
+
+  .uspGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .uspSlide:last-child .uspItem:last-child {
+    border: none;
+  }
+
+  .uspSwiper {
+    height: 400px;
+  }
+
+  .uspSlide {
+    margin-bottom: 20px !important;
+  }
+
+  .uspItem {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .uspSlide {
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  /* Purity check: removed !important from font-size/line-height */
+  .uspLeft :global(h2),
+  .uspTitle {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  .uspBtn {
+    margin: 5vw 0;
+  }
+
+  .uspIcon {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* Purity check: removed !important from font-size/line-height */
+  .uspTitle,
+  .uspItemTitle {
+    font-size: 20.4px;
+    line-height: 23px;
+  }
+
+  /* Purity check: removed !important from font-size/line-height */
+  .uspDesc {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .uspBtn {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .uspTitle,
+  .uspItemTitle {
+    font-size: 16px !important;
+    line-height: 18px !important;
+  }
+
+  .uspIconCircle {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .uspSwiper,
+  .uspDesc {
+    padding: 0;
+  }
+
+  .uspRight {
+    padding-top: 3rem;
+  }
+
+  .uspBtn {
+    margin: 0 0 5vw 0;
+  }
+
+  .uspRight {
+    padding-top: 30px;
+  }
+
+  .uspItem {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding-bottom: 30px;
+  }
+
+  .uspSlide:last-child .uspItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}

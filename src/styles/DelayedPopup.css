@@ -1,0 +1,188 @@
+/* styles/DelayedPopup.module.css */
+
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    /* Ensure it is on top of everything */
+}
+
+.popupContent {
+    padding: 35px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    /* background-color: #defffd; */
+    background: linear-gradient(113.96deg, #E7F6FF 20.79%, #A3CAF5 71.19%);
+    border-radius: 41px;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupContent label {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 1.14rem;
+}
+
+.formSubmitBtn {
+    margin-top: 20px;
+    max-width: 15rem;
+}
+
+.selectWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.selectWrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    padding-right: 3rem;
+    /* space for arrow */
+}
+
+/* Custom arrow */
+.selectWrapper::after {
+    content: "";
+    position: absolute;
+    right: 1.2rem;
+    /* horizontal position */
+    top: 50%;
+    /* vertical centering */
+    transform: translateY(-50%);
+    width: 10px;
+    height: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23152f63'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+
+.popupContent h3 {
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    background: linear-gradient(285.71deg, #3f88ba -4.32%, #161664 106.53%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.popupContent p {
+    max-width: 600px;
+    font-size: 1.14rem;
+    margin: 0px auto;
+    color: var(--blue-color);
+}
+
+
+.popupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.popupContent .formInput {
+    padding: 0.8rem;
+    border: 1px solid #152f63;
+    border-radius: 2rem;
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+    color: #152f63;
+}
+
+.popupContent .formInput:focus {
+    outline: inherit;
+    border-color: inherit;
+    box-shadow: none;
+}
+
+.popupContent .formSubmitBtn {
+    margin-top: 20px;
+    max-width: 15rem;
+}
+
+.popupContent form .formInput::placeholder {
+    color: #152f63;
+    letter-spacing: 0;
+}
+
+button.popup-cust-text {
+    padding: 12px 14px 12px 20px;
+}
+
+.popup-custom-height {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+@media(max-width:575px) {
+    .popupContent h3 {
+        font-size: 1.1rem;
+    }
+
+    .popupContent p {
+        font-size: 0.8rem;
+    }
+
+    .popupContent label {
+        font-size: 0.8rem;
+    }
+
+    .popupContent .formInput {
+        font-size: 0.8rem;
+        padding: 0.4rem .8rem;
+    }
+
+    .popupContent {
+        padding: 28px;
+    }
+
+    button.popup-cust-text {
+        padding: 6px 10px 6px 15px;
+    }
+
+    .popup-custom-height {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}

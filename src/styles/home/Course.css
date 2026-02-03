@@ -1,0 +1,547 @@
+/* Course Section  */
+.home .courseSection {
+    padding: 70px 0;
+}
+
+.home .courseSection .courseHeadings {
+    text-align: center;
+    background-color: var(--white-color);
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 30px;
+}
+
+.home .courseSection .courseHeadings .courseTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 40px 0 30px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--blue-color);
+}
+
+.home .courseSection .courseHeadings .courseTitle .highlight {
+    background: linear-gradient(to right,
+            var(--lightgreen-color),
+            var(--green-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.home .courseSection .courseHeadings p {
+    font-size: 1.4rem;
+    max-width: 60%;
+    margin: 0 auto;
+    color: var(--grey-text);
+    opacity: 50%;
+    line-height: 30px;
+}
+
+.home .courseSection .courseInner {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 40px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home .courseSection .sideCard,
+.home .inactiveCard,
+.home .mainCard,
+.home .activeCard {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 180px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    background: rgba(255, 255, 255, 0.7);
+    flex-shrink: 0;
+    height: 718px;
+    transition: flex-basis 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.8s,
+        box-shadow 0.8s, background 0.8s;
+}
+
+.home .courseSection .sideCard,
+.home .inactiveCard {
+    flex-basis: 10%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.home .courseSection .mainCard,
+.home .activeCard {
+    flex-basis: 640px;
+    z-index: 2;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.home .courseSection .mainCard .cardTitle {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.home .courseSection .sideCard .cardTitle,
+.home .courseSection .sideCard .cardNumber {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.home .courseSection .activeOverlay {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home .courseSection .inactiveOverlay {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home .courseSection .sideCardContent,
+.home .mainCardContent {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 18px;
+    color: #fff;
+    padding: 40px;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.01) 0%,
+            rgba(0, 0, 0, 0.6) 100%);
+    border-radius: 25px;
+    transition: 0.4s all;
+}
+
+.home .courseSection .cardNumber {
+    position: absolute;
+    top: 30px;
+    left: 20%;
+    right: 20%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--blue-color);
+    z-index: 3;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--grey-text);
+}
+
+.home .courseSection .cardTitle {
+    writing-mode: vertical-rl;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--blue-color);
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    z-index: 3;
+}
+
+.home .courseSection .cardBg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    border-radius: 30px;
+    transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home .courseSection .cardBg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home .courseSection .sideCard .cardBg::before {
+    background: linear-gradient(to top, #a3cbf5bb, #e7f6ffc4);
+}
+
+.home .courseSection .mainCard .cardBg::before {
+    background: linear-gradient(to top, #a6eac769, rgba(0, 0, 0, 0.336));
+}
+
+.home .courseSection .sideCard .cardBg {
+    filter: blur(2px) brightness(0.9);
+    opacity: 0.8;
+}
+
+.home .courseSection .mainCard .cardBg {
+    filter: blur(0) brightness(1);
+    opacity: 1;
+}
+
+.home .courseSection .mainCard .cardNumber {
+    color: #fff;
+    border: none;
+    padding-bottom: 0;
+    line-height: 2;
+    text-align: start;
+    left: 30px;
+    font-size: 2.4rem;
+}
+
+.home .courseSection .mainCardLabel {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.home .courseSection .mainCardTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+    max-width: 500px;
+    line-height: 1.2;
+}
+
+.home .courseSection .mainCardDetails {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+}
+
+.home .courseSection .mainCardBtn {
+    width: max-content;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 15px 20px;
+}
+
+.home .courseSection .mainCardBtn img {
+    width: 40px;
+}
+
+.home .courseSection .arrow {
+    font-size: 1.2em;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.home .marqueeBanner {
+    width: 100vw;
+    overflow: hidden;
+    background: linear-gradient(90deg, #1a2656 0%, #3a7bbd 100%);
+    padding: 0;
+    margin: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.home .marqueeBanner marquee {
+    width: 100%;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #e6f6ff;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    outline: none;
+    line-height: 60px;
+}
+
+.home .dot {
+    color: #caffd0;
+    font-size: 2.2rem;
+    vertical-align: middle;
+    margin: 0 36px;
+}
+
+@media (max-width: 1440px) {
+
+    .home .courseSection .sideCard,
+    .home .courseSection .inactiveCard,
+    .home .courseSection .mainCard,
+    .home .courseSection .activeCard {
+        height: 561px;
+        border-radius: 30px;
+    }
+
+    .home .courseSection .mainCard,
+    .home .courseSection .activeCard {
+        flex-basis: 500px;
+    }
+}
+
+@media (max-width: 1124px) {
+    .home .courseSection .courseInner {
+        max-width: 100%;
+    }
+
+    .home .courseSection .sideCard,
+    .home .courseSection .inactiveCard,
+    .home .courseSection .mainCard,
+    .home .courseSection .activeCard {
+        height: 400px;
+        padding-top: 120px;
+    }
+
+    .home .courseSection .mainCard,
+    .home .courseSection .activeCard {
+        flex-basis: 400px;
+    }
+
+    .home .courseSection .sideCard,
+    .home .courseSection .inactiveCard {
+        flex-basis: 100px;
+    }
+
+    .home .courseSection .mainCardContent {
+        gap: 10px;
+    }
+
+    .home .courseSection .cardTitle {
+        font-size: 22px;
+    }
+
+    .home .courseSection .cardNumber {
+        font-size: 35px;
+        padding-bottom: 20px;
+    }
+
+    .home .courseSection .mainCardTitle {
+        font-size: 18px;
+    }
+
+    .home .courseSection .mainCardLabel {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .home .courseSection .courseHeadings .courseTitle {
+        font-size: 35px;
+    }
+
+    .home .courseSection .courseHeadings p {
+        font-size: 20px;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .home .courseSection .mainCard,
+    .home .courseSection .activeCard {
+        flex-basis: 380px;
+    }
+
+    .home .courseSection .courseHeadings .courseTitle {
+        font-size: 30px;
+    }
+
+    .home .courseSection .courseInner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .home .courseSection .mainCard {
+        width: 100%;
+        height: 360px;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    .home .courseSection .sideCard {
+        width: 100%;
+        height: 120px;
+        border-radius: 20px;
+        padding: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+    }
+
+    .home .courseSection .sideCard .cardNumber {
+        position: static;
+        font-size: 2em;
+        width: max-content;
+        padding-bottom: 0;
+        padding: 0 30px 0 20px;
+        border-bottom: none;
+        border-right: 1px solid;
+    }
+
+    .home .courseSection .mainCard .cardTitle,
+    .home .courseSection .sideCard .cardTitle {
+        position: static;
+        writing-mode: horizontal-tb;
+        font-size: 2rem;
+        margin-bottom: 0;
+        margin-left: 30px;
+    }
+
+    .home .courseSection .mainCardContent,
+    .home .courseSection .sideCardContent {
+        padding: 20px;
+        border-radius: 18px;
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.01) 0%,
+                rgba(0, 0, 0, 0.5) 100%);
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 10px;
+        color: #fff;
+        transition: 0.4s all;
+    }
+
+    .home .courseSection .sideCardContent {
+        font-size: 0.95em;
+        gap: 6px;
+        padding: 10px 8px 8px 8px;
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.01) 0%,
+                rgba(0, 0, 0, 0.35) 100%);
+    }
+
+    .home .courseSection .mainCard .mainCardLabel,
+    .home .courseSection .sideCard .mainCardLabel {
+        font-size: 2.5rem;
+    }
+
+    .home .courseSection .mainCard .mainCardTitle,
+    .home .courseSection .sideCard .mainCardTitle {
+        font-size: 1.6rem;
+    }
+
+    .home .courseSection .mainCard .mainCardDetails,
+    .home .courseSection .sideCard .mainCardDetails {
+        font-size: 1.2rem;
+        gap: 6px;
+        padding-top: 4px;
+    }
+
+    .home .courseSection .mainCard .mainCardBtn,
+    .home .courseSection .sideCard .mainCardBtn {
+        margin-top: 8px;
+        padding: 8px 18px;
+        border-radius: 22px;
+    }
+
+    .home .courseSection .mainCard .cardBg,
+    .home .courseSection .sideCard .cardBg {
+        border-radius: 0;
+    }
+
+    .home .courseSection .sideCard .cardBg::before {
+        background: #e7f6ff7a;
+    }
+
+    .home .courseSection .mainCard .cardBg::before {
+        background: rgba(166, 234, 199, 0.123);
+    }
+}
+
+@media (max-width: 575px) {
+
+    .home .courseSection .sideCard,
+    .home .courseSection .inactiveCard {
+        flex-basis: 80px;
+        border-radius: 15px;
+    }
+
+    .home .courseSection .courseHeadings .courseTitle {
+        font-size: 25px;
+    }
+
+    .home .courseSection .courseHeadings p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .home .courseSection .sideCard .cardNumber {
+        font-size: 1.6rem;
+        padding: 0 20px 0 10px;
+    }
+
+    .home .courseSection .sideCard .cardTitle {
+        font-size: 1.6rem;
+        margin-left: 20px;
+    }
+
+    .home .courseSection .mainCard .mainCardLabel,
+    .home .courseSection .sideCard .mainCardLabel {
+        font-size: 2rem;
+        line-height: 30px;
+    }
+
+    .home .courseSection .mainCard .mainCardTitle,
+    .home .courseSection .sideCard .mainCardTitle {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        margin: 12px 0 0 0;
+        padding-bottom: 5px;
+    }
+
+    .home .courseSection .mainCard .cardBg::before {
+        background: rgba(0, 0, 0, 0.493);
+    }
+
+    .home .courseSection .mainCard .mainCardDetails,
+    .home .courseSection .sideCard .mainCardDetails {
+        font-size: 0.9rem;
+        padding-top: 10px;
+    }
+
+
+    .home .courseSection .mainCard .cardNumber {
+        left: 20px;
+        font-size: 22px;
+        opacity: 0.5;
+    }
+
+    .home .courseSection .mainCardDetails {
+        justify-content: start;
+        gap: 30px !important;
+        font-weight: 500;
+    }
+}
+
+@media (max-width:440px) {
+    .home .courseSection .mainCard {
+        flex-basis: 360px;
+    }
+}

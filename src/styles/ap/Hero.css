@@ -1,0 +1,512 @@
+.apBanner {
+    /* padding: 50px; */
+    width: 95vw;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+    /* background: linear-gradient(270deg, rgba(0, 0, 0, 0) 9.03%, rgba(0, 0, 0, 0.8) 98.82%); */
+    /* background: url(/images/ib-hero2.webp); */
+    background-image:
+        linear-gradient(270deg, rgba(0, 0, 0, 0) 9.03%, rgba(0, 0, 0, 0.8) 98.82%),
+        url(/images/ib-hero2.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.universityRow {
+    display: flex;
+    justify-content: space-evenly
+}
+
+.leftContent {
+    width: 75vw;
+    position: relative;
+    overflow: hidden;
+    min-height: 780px;
+}
+
+
+
+.contentInner {
+    position: absolute;
+    top: 0;
+    padding: 50px 25% 50px 70px;
+    color: #ffffff;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.mainHeading {
+    font-size: 3vw;
+    font-weight: 700;
+    line-height: 1.05;
+    max-width: 80%;
+    padding-bottom: 25px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.subHeading {
+    font-size: 1vw;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding-top: 20px;
+
+    margin: 0;
+    display: inline-block;
+}
+
+.featureCards {
+    display: flex;
+    gap: 40px;
+    margin: 30px 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.1) 50%, transparent);
+    padding: 20px 40px 20px 0;
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+}
+
+.featureCardInner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    border-right: 2px solid #615f60;
+    width: 100%;
+}
+
+.featureCardInnerLast {
+    border: 0
+}
+
+.cardImage {
+    width: 60px;
+    min-width: 60px;
+    max-width: 25%;
+    height: auto;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.featureText {
+    margin: 0;
+    font-size: 1vw;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.descriptionText {
+    font-size: 1.5vw;
+    max-width: 90%;
+    margin: 0;
+    line-height: 1.3;
+    position: relative;
+    z-index: 2;
+}
+
+.ctaButtons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 30px;
+    left: 5%;
+    right: 45%;
+    z-index: 2;
+}
+
+.ctaButton {
+    padding: 12px 35px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    text-transform: uppercase;
+    border: none;
+    color: linear-gradient(180deg, #3F88BA 0%, #161664 100%);
+    background: linear-gradient(180deg, #E7F6FF 0%, #A3CAF5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.ctaButton:hover {
+    transform: scale(1.05);
+}
+
+.arrowWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #3F88BA 0%, #161664 100%);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.formContainer {
+    background: rgba(143, 143, 143, 0.533);
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 0 50px 70px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px);
+    height: fit-content;
+    margin: 20px;
+    position: relative;
+}
+
+.formHeading {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.formInput {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.736);
+    border-radius: 20px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.formInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.21em;
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+.formTextarea {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.736);
+    border-radius: 30px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.formTextarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.21em;
+}
+
+.formTextarea:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+.submitButton {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 70%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+}
+
+.submitText {
+    flex: 1;
+    text-align: center;
+}
+
+.submitArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+@media (max-width: 1024px) {
+    .mainHeading {
+        font-size: 4.5vw;
+    }
+
+    .descriptionText {
+        font-size: 1.8vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .apBanner {
+        /* padding: 50px; */
+        width: 95vw;
+        margin: 0 auto;
+        position: relative;
+        overflow: visible;
+        /* background: linear-gradient(270deg, rgba(0, 0, 0, 0) 9.03%, rgba(0, 0, 0, 0.8) 98.82%); */
+        /* background: url(/images/ib-hero2.webp); */
+        background-image:
+            linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.8) 73.82%),
+            url(/images/ib-hero2.webp);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .contentInner {
+        position: absolute;
+        top: 0;
+        padding: 0;
+        color: #ffffff;
+        z-index: 2;
+        max-width: 100%;
+    }
+
+    .mainHeading {
+        font-weight: 700;
+        font-style: normal;
+        font-size: 80px;
+        line-height: 30px;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        margin-top: 40px;
+    }
+
+    .subHeading {
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        padding-top: 20px;
+        border-top: 0;
+        margin: 0;
+        display: inline-block;
+    }
+
+    .mainHeading {
+        font-size: 1.5rem;
+        max-width: 100%;
+    }
+
+    .leftContent {
+        width: 85vw;
+        margin: auto;
+        padding: 25px;
+        min-height: 700px;
+    }
+
+    .university-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .formContainer {
+        margin: 10px;
+        padding: 25px;
+    }
+
+    .cardImage {
+        width: 30px;
+        min-width: 30px;
+        max-width: 25%;
+        height: auto;
+        object-fit: contain;
+        padding: 0px;
+    }
+
+    .featureCards {
+        /* flex-direction: column; */
+        padding: 15px;
+    }
+
+    .featureText {
+        margin: 0;
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+    }
+
+    .ctaButtons {
+        /* flex-direction: column; */
+        width: 85%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .ctaButton {
+        width: 100%;
+    }
+
+    .descriptionText {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .universityRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 50px 0px;
+    }
+
+    .section-heading {
+        font-size: 1.5rem !important;
+    }
+}
+
+
+/*Table*/
+.apTestHeadings {
+    text-align: center;
+    padding-bottom: 30px
+}
+
+.ap-exam-overview {
+    padding: 60px 0;
+}
+
+.ap-table-container {
+    margin-top: 40px;
+    overflow-x: auto;
+}
+
+.ap-exam-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    /* No background-color here, as rows will handle it */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    border: 1px solid #161664;
+}
+
+.ap-exam-table th,
+.ap-exam-table td {
+    padding: 15px 20px;
+    text-align: left;
+
+    color: #495057;
+}
+
+.ap-exam-table td {
+    border-right: 1px solid #161664;
+}
+
+/* Header row background with gradient */
+.ap-exam-table thead tr {
+    background: linear-gradient(to right, #A3CAF5, #E7F6FF);
+    /* Remove direct color here, as th will handle text color */
+    font-weight: 500;
+}
+
+/* Text color for each heading (th) with "gradient" */
+.ap-exam-table thead th {
+    background: linear-gradient(to right, #161F5A, #E7F6FF);
+    /* The requested text "gradient" */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    border-right: 1px solid #161664;
+}
+
+
+/* Even body rows background with gradient */
+.ap-exam-table tbody tr:nth-of-type(even) {
+    background: linear-gradient(to right, #E3EFFC, #F8FCFF);
+}
+
+/* Odd body rows (optional, keeps default or can set a single color) */
+.ap-exam-table tbody tr:nth-of-type(odd) {
+    background-color: #ffffff;
+    /* Default white background for odd rows */
+}
+
+
+.ap-exam-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ap-exam-table th:last-child,
+.ap-exam-table td:last-child {
+    border-right: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .ap-exam-table th,
+    .ap-exam-table td {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .achievementsTitle {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .ap-exam-table th,
+    .ap-exam-table td {
+        padding: 8px 10px;
+        font-size: 0.8em;
+    }
+
+    .achievementsTitle {
+        font-size: 1.5em;
+    }
+
+    .SubHeading {
+        font-size: 0.9em;
+    }
+}

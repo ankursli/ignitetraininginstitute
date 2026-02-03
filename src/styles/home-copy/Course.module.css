@@ -1,0 +1,639 @@
+/* Course Section - Local Class: .courseSection */
+.courseSection {
+  padding: 70px 0 0 0;
+}
+
+/* Local Class: .courseHeadings. Uses global elements and background rules */
+.courseHeadings {
+  text-align: center;
+  background-color: var(--white-color);
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, var(--border-color), #e7f6ff) border-box;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 30px;
+}
+
+/* Local Class: .courseTitle */
+.courseHeadings .courseTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 40px 0 30px 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--blue-color);
+}
+
+/* This is a Global utility, but must be anchored to a local class if it stays here. 
+   It's safer to move .highlight to globals.css (as we did for Hero), but if it stays: */
+.courseTitle :global(.highlight) {
+  background: linear-gradient(to right,
+      var(--lightgreen-color),
+      var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Use :global(p) for the global element tag */
+.courseHeadings :global(p) {
+  font-size: 1vw;
+  max-width: 60%;
+  margin: 0 auto;
+  color: var(--grey-text);
+  opacity: 50%;
+  line-height: 1.5vw;
+}
+
+.courseInner {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 40px;
+  max-width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* All card styles are combined and separated by commas. */
+.sideCard,
+.inactiveCard,
+.mainCard,
+.activeCard {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 120px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+  height: 25vw;
+  /* ORIGINAL TRANSITION */
+  transition: flex-basis 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.8s,
+    box-shadow 0.8s, background 0.8s;
+  /* MOBILE PERFORMANCE HINT */
+  will-change: flex-basis, height, box-shadow;
+}
+
+.sideCard,
+.inactiveCard {
+  flex-basis: 10%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.mainCard,
+.activeCard {
+  flex-basis: 23vw;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  border-radius: 2vw;
+}
+
+.mainCard .cardTitle {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.sideCard .cardTitle,
+.sideCard .cardNumber {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.activeOverlay {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  /* ORIGINAL TRANSITION */
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  /* MOBILE PERFORMANCE HINT */
+  will-change: transform, opacity;
+}
+
+.inactiveOverlay {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.98);
+  /* ORIGINAL TRANSITION */
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  /* MOBILE PERFORMANCE HINT */
+  will-change: transform, opacity;
+}
+
+.sideCardContent,
+.mainCardContent {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1vw;
+  color: #fff;
+  padding: 2vw;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.01) 0%,
+      rgba(0, 0, 0, 0.6) 100%);
+  border-radius: 25px;
+  transition: 0.4s all;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  text-align: center;
+  font-size: 1.7vw;
+  font-weight: 600;
+  color: var(--blue-color);
+  z-index: 3;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--grey-text);
+}
+
+.cardTitle {
+  writing-mode: vertical-rl;
+  font-size: 1.7vw;
+  font-weight: 600;
+  color: var(--blue-color);
+  letter-spacing: 2px;
+  margin-bottom: 2vw;
+  z-index: 3;
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+/* .cardBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  border-radius: 30px;
+  transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+.cardBg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sideCard .cardBg::before {
+  background: #a3cbf583;
+}
+
+.mainCard .cardBg::before {
+  background: #2f534161;
+}
+
+.sideCard .cardBg {
+  filter: blur(2px) brightness(0.9);
+  opacity: 0.8;
+}
+
+.mainCard .cardBg {
+  filter: blur(0) brightness(1);
+  opacity: 1;
+}
+
+.mainCard .cardNumber {
+  color: #fff;
+  border: none;
+  padding-bottom: 0;
+  line-height: 2;
+  text-align: start;
+  left: 1.5vw;
+  font-size: 1.7vw;
+  transition: 0.4s all;
+}
+
+.mainCardLabel {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 1vw;
+  width: 10ch;
+}
+
+.mainCardTitle {
+  font-size: 1vw;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+  max-width: 27ch;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin: 0;
+  min-width: 27ch;
+}
+
+.mainCardDetails {
+  font-size: 0.9vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 10px;
+  min-width: 33ch;
+}
+
+.mainCardBtn {
+  width: max-content;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mainCardBtn :global(img) {
+  /* Use :global() for the global element tag */
+}
+
+.arrow {
+  font-size: 1.2em;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+/* Marquee Banner Section (Should likely be in its own module, 
+   but cleaned up here for simplicity) */
+.marqueeBanner {
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(90deg, #1a2656 0%, #3a7bbd 100%);
+  padding: 0;
+  margin: 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.marqueeBanner :global(marquee) {
+  /* Use :global() for the global element tag */
+  width: 100%;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #e6f6ff;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  outline: none;
+  line-height: 60px;
+}
+
+/* Media Queries - Removing global prefix and using :global() for utility classes */
+
+@media (max-width: 1440px) {
+
+  .sideCard,
+  .inactiveCard,
+  .mainCard,
+  .activeCard {
+    height: 500px;
+    border-radius: 30px;
+  }
+
+  .mainCard,
+  .activeCard {
+    flex-basis: 500px;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  .sideCard,
+  .inactiveCard,
+  .mainCard,
+  .activeCard {
+    height: 550px;
+  }
+
+  .mainCardLabel {
+    font-size: 3rem;
+  }
+
+  .mainCardDetails {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1124px) {
+  .courseInner {
+    max-width: 100%;
+  }
+
+  .sideCard,
+  .inactiveCard,
+  .mainCard,
+  .activeCard {
+    height: 450px;
+    padding-top: 120px;
+  }
+
+  .mainCard,
+  .activeCard {
+    flex-basis: 400px;
+  }
+
+  .sideCard,
+  .inactiveCard {
+    flex-basis: 100px;
+  }
+
+  .mainCardContent {
+    gap: 10px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+
+  .cardNumber {
+    font-size: 35px;
+    padding-bottom: 20px;
+  }
+
+  .mainCardTitle {
+    font-size: 18px;
+  }
+
+  .mainCardLabel {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .courseHeadings .courseTitle {
+    font-size: 35px;
+  }
+
+  .courseHeadings :global(p) {
+    font-size: 20px;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 991px) {
+
+  .mainCard,
+  .activeCard {
+    flex-basis: 380px;
+  }
+
+  .courseHeadings .courseTitle {
+    font-size: 30px;
+  }
+
+  .courseInner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .mainCard {
+    width: 100%;
+    height: 360px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    /* OPTIMIZED MOBILE TRANSITION */
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sideCard {
+    width: 100%;
+    height: 120px;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    /* OPTIMIZED MOBILE TRANSITION */
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sideCard .cardNumber {
+    position: static;
+    font-size: 2em;
+    width: max-content;
+    padding-bottom: 0;
+    padding: 0 30px 0 20px;
+    border-bottom: none;
+    border-right: 1px solid;
+  }
+
+  .mainCard .cardTitle,
+  .sideCard .cardTitle {
+    position: static;
+    writing-mode: horizontal-tb;
+    font-size: 2rem;
+    margin-bottom: 0;
+    margin-left: 30px;
+  }
+
+  .mainCardContent,
+  .sideCardContent {
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.01) 0%,
+        rgba(0, 0, 0, 0.5) 100%);
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    color: #fff;
+    /* SYNCHRONIZED MOBILE TRANSITION */
+    transition: 0.3s all;
+  }
+
+  .sideCardContent {
+    font-size: 0.95em;
+    gap: 6px;
+    padding: 10px 8px 8px 8px;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.01) 0%,
+        rgba(0, 0, 0, 0.35) 100%);
+  }
+
+  /* SYNCHRONIZING OVERLAY TRANSITIONS */
+  .activeOverlay {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .inactiveOverlay {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+  .mainCard .mainCardLabel,
+  .sideCard .mainCardLabel {
+    font-size: 2.5rem;
+  }
+
+  .mainCard .mainCardTitle,
+  .sideCard .mainCardTitle {
+    font-size: 1.6rem;
+  }
+
+  .mainCard .mainCardDetails,
+  .sideCard .mainCardDetails {
+    font-size: 1.2rem;
+    gap: 6px;
+    padding-top: 4px;
+  }
+
+  .mainCard .mainCardBtn,
+  .sideCard .mainCardBtn {
+    margin-top: 8px;
+    padding: 8px 18px;
+    border-radius: 22px;
+  }
+
+  .mainCard .cardBg,
+  .sideCard .cardBg {
+    border-radius: 0;
+  }
+
+  .mainCardDetails {
+    justify-content: start;
+    gap: 30px !important;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .sideCard,
+  .inactiveCard {
+    flex-basis: 80px;
+    border-radius: 15px;
+  }
+
+  .mainCardContent,
+  .sideCardContent {
+    justify-content: center;
+  }
+
+  .mainCard {
+    flex-basis: 350px;
+  }
+
+  .courseHeadings .courseTitle {
+    font-size: 20.4px;
+    line-height: 23px;
+    margin: 20px 0px;
+  }
+
+  .courseHeadings :global(p) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .sideCard .cardNumber {
+    font-size: 1.6rem;
+    padding: 0 20px 0 10px;
+  }
+
+  .sideCard .cardTitle {
+    font-size: 1.6rem;
+    margin-left: 20px;
+  }
+
+  .mainCard .mainCardLabel,
+  .sideCard .mainCardLabel {
+    font-size: 1.3rem;
+    line-height: 30px;
+  }
+
+  .mainCard .mainCardTitle,
+  .sideCard .mainCardTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 12px 0 0 0;
+    padding-bottom: 5px;
+  }
+
+  .mainCard .cardBg::before {
+    background: rgba(0, 0, 0, 0.493);
+  }
+
+  .mainCard .mainCardDetails,
+  .sideCard .mainCardDetails {
+    font-size: 0.9rem;
+    padding-top: 10px;
+  }
+
+  .mainCard .cardNumber {
+    left: 20px;
+    font-size: 22px;
+    opacity: 0.5;
+  }
+
+}
+
+@media (max-width: 440px) {
+  .mainCard {
+    flex-basis: 360px;
+  }
+
+  .sideCard .cardNumber {
+    font-size: 1.2rem;
+    padding: 0 10px 0 0;
+  }
+
+  .sideCard .cardTitle {
+    font-size: 1.2rem;
+    margin-left: 20px;
+  }
+
+  .mainCard .mainCardDetails,
+  .sideCard .mainCardDetails {
+    gap: 10px !important;
+  }
+
+  .mainCardTitle {
+    max-width: 24ch;
+    min-width: 24ch;
+  }
+}

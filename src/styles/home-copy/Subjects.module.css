@@ -1,0 +1,355 @@
+/* Subjects.module.css (Final Corrected Code) */
+
+/* Subject Section - Local Class: .subjectSection */
+.subjectSection {
+  width: 100%;
+  padding: 160px 0 80px 0;
+}
+
+.desktopView {
+  display: block;
+  width: 100%;
+}
+
+.mobileView {
+  display: none;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+}
+
+/* Global utility classes successfully removed/commented out for purity */
+
+.subjectSectionInner.blue {
+  background: url(/images/subject-bg.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+.subjectSectionInner {
+  padding: 6vw 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bgRect {
+  position: absolute;
+  width: auto;
+  height: 70px;
+  object-fit: contain;
+  z-index: 0;
+}
+
+.bgRect:nth-child(1) {
+  width: 16vw;
+  top: 1vw;
+  left: 0;
+}
+
+.bgRect:nth-child(2) {
+  top: 22%;
+  left: 20px;
+}
+
+.bgRect:nth-child(3) {
+  width: 150px;
+  object-fit: fill;
+  object-position: left;
+  border-radius: 0 20px 20px 0;
+  bottom: 8%;
+  left: 20px;
+}
+
+.subjectLeft {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 40px;
+  gap: 18px;
+  padding-left: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Use :global(h2) for the global element tag */
+.subjectLeft h2 {
+  -webkit-text-fill-color: white;
+  margin-bottom: 30px;
+}
+
+/* Use :global(h2:before) for pseudo-elements on global tag */
+.subjectLeft h2::before,
+.subjectLeft h2:after {
+  filter: contrast(0) brightness(2);
+}
+
+.subjectTitle {
+  color: var(--white-color);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  max-width: 500px;
+}
+
+/* Targetting the local span class */
+.subjectTitle .subjectHighlight {
+  font-size: 1.8vw;
+  background: linear-gradient(to right, #A6EAC7 0%, #A6EAC7 60%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subjectDesc {
+  color: #c4cad5;
+  font-size: 1vw;
+  max-width: 100vw;
+  line-height: 1.2;
+  opacity: 0.4;
+}
+
+.subjectRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.subjectBubblesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ADDED MISSING MOBILE CLASS: This ensures the 'bubbleClass' variable resolves correctly in JS */
+.subjectBubblesSingleColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+
+.subjectBubbleRow {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Subject Bubble: Nested in JSX inside <h3> then <a> (global tags) */
+.subjectBubble {
+  border: 2px solid var(--border-color);
+  border-radius: 40px;
+  color: var(--green-text);
+  font-size: 1.3vw;
+  font-weight: 400;
+  padding: 1vw 1.5vw;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  margin-bottom: 0;
+  user-select: none;
+  min-width: 7vw;
+  text-align: center;
+  letter-spacing: 0.02em;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.subjectBubble:hover {
+  color: var(--white-color);
+  background-color: #ffffff4d;
+  box-shadow: 2px 2px 5px 0 var(--blue-text);
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 1280px) {
+  .subjectBubble {
+    padding: 10px 45px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .subjectLeft h2 {
+    font-size: 18px;
+  }
+
+  .subjectTitle,
+  .subjectTitle .subjectHighlight {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .subjectSectionInner {
+    padding: 140px 30px;
+  }
+
+  .subjectLeft {
+    gap: 5px;
+  }
+
+  .subjectRight .subjectBubblesGrid {
+    gap: 10px;
+  }
+
+  .subjectRight .subjectBubblesGrid .subjectBubbleRow {
+    gap: 10px;
+  }
+
+  .subjectRight .subjectBubblesGrid .subjectBubbleRow .subjectBubble {
+    padding: 12px 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .subjectSectionInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 70px 20px;
+  }
+
+  .subjectLeft h2 {
+    margin-bottom: 10px;
+  }
+
+  .subjectDesc {
+    font-size: 1rem;
+  }
+
+  .subjectBubble {
+    font-size: 1rem;
+  }
+
+  .bgRect:nth-child(1) {
+    width: 100%;
+    top: 40px;
+    left: 0;
+  }
+
+  .subjectLeft {
+    margin-left: 0;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 0 !important;
+  }
+
+  .subjectRight {
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  .subjectBubblesGrid {
+    width: 100%;
+    gap: 14px;
+  }
+
+  .subjectBubbleRow {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .subjectBubbleRow .subjectBubble {
+    padding: 5px 15px 5px 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .subjectSection {
+    padding: 80px 0 80px 0;
+  }
+
+  .bgRect:nth-child(2) {
+    top: 35%;
+    left: 0;
+    width: 15%;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 0 20px 20px 0;
+  }
+
+  .bgRect:nth-child(3) {
+    bottom: 2%;
+    left: auto;
+    right: 0;
+    width: 30%;
+    height: 50px;
+    transform: rotate(180deg);
+  }
+
+  .subjectLeft h2 {
+    font-size: 15px;
+  }
+
+  .subjectTitle,
+  .subjectTitle .subjectHighlight {
+    font-size: 20.4px;
+    line-height: 23px;
+  }
+
+  .subjectDesc {
+    font-size: 14px;
+  }
+
+  .subjectLeft {
+    min-width: auto;
+  }
+
+  .subjectBubbleRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .subjectRight .subjectBubblesGrid {
+    margin-bottom: 15px;
+  }
+
+  .subjectRight .subjectBubblesGrid .subjectBubbleRow .subjectBubble {
+    padding: 12px 40px;
+    display: block;
+  }
+}
+
+@media (max-width: 420px) {
+  .subjectRight .subjectBubblesGrid .subjectBubbleRow .subjectBubble {
+    padding: 7px 15px;
+  }
+
+  .bgRect:nth-child(2) {
+    top: 40%;
+  }
+}

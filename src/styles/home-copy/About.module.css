@@ -1,0 +1,445 @@
+/* About.module.css (Corrected) */
+
+/* About Us Section - Local Class: .aboutSection */
+.aboutSection {
+  margin: 0;
+}
+
+/* Local Class: .SubHeading1 */
+.SubHeading1 {
+  font-size: 1.5rem;
+}
+
+.aboutSectionInner {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap !important;
+}
+
+.aboutLeft {
+  display: flex;
+  align-items: flex-end;
+  min-width: 340px;
+  position: relative;
+  justify-content: space-evenly;
+}
+
+.aboutImageWrap {
+  padding-right: 50px;
+  position: relative;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Use :global() for the tag or class that is global (a.aboutBtn is local here) */
+a.aboutBtn {
+  width: 16vw;
+  padding: 0.8vw 1vw;
+  gap: 1vw;
+  font-size: 1vw;
+}
+
+.aboutImageWrap .rectangleBG {
+  position: absolute;
+  z-index: -1;
+  width: auto;
+  height: 12%;
+}
+
+.aboutImageWrap .rectangleBG:nth-child(1) {
+  top: 20px;
+  left: -20px;
+}
+
+.aboutImageWrap .rectangleBG:nth-child(2) {
+  bottom: 45%;
+  right: 20px;
+}
+
+.aboutImageWrap .rectangleBG:nth-child(3) {
+  bottom: 30%;
+  right: -20px;
+}
+
+.aboutImageWrap .rectangleBG:nth-child(4) {
+  bottom: 15%;
+  right: 20px;
+}
+
+.aboutImage {
+  width: 75%;
+  height: 100%;
+  border-radius: 32px;
+  object-fit: contain;
+}
+
+.statCard {
+  position: absolute;
+  background: linear-gradient(to right, var(--border-color), #e7f6ff);
+  border: 4px solid var(--white-color);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  padding: 30px 20px;
+  width: 46%;
+  height: 33%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.statCardYears {
+  top: 10%;
+  right: -30px;
+  width: max-content;
+}
+
+.statCardResources {
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, var(--green-text), #e7f6ff);
+}
+
+.statBig {
+  font-size: 1.8vw;
+  font-weight: 700;
+  color: var(--blue-color);
+}
+
+.statSmall {
+  color: var(--blue-color);
+  font-size: 0.7vw;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.verticalLabel {
+  position: absolute;
+  right: 30vw;
+  bottom: 12vw;
+  color: var(--blue-color);
+  writing-mode: sideways-lr;
+  transform: rotate(180deg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: revert-layer;
+}
+
+/* Use :global(span) for the global element tag */
+.verticalLabel :global(span) {
+  color: var(--lightgreen-color);
+}
+
+.aboutRight {
+  flex: 1.2;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.aboutHeading {
+  display: none;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.aboutHeadingRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.aboutTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue-color);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* Global utility class 'aboutHighlight' must be defined globally, 
+   but since it's used inside a local h3, we anchor it to the local title.
+   A better approach is to move this to globals.css and use the global name. 
+   Assuming you want to keep it local: */
+.aboutTitle :global(.aboutHighlight) {
+  background: linear-gradient(to right,
+      var(--lightgreen-color),
+      var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.aboutDesc {
+  font-size: 1vw;
+  color: #7a8ca3;
+  margin-bottom: 18px;
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+.aboutStatsRow {
+  display: flex;
+  gap: 48px;
+  border-top: 2px solid #e6f6ff;
+  padding-top: 18px;
+}
+
+.aboutStatsRow .aboutStatBorder {
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(var(--border-color), #e7f6ff);
+  border-radius: 5px;
+  opacity: 0.5;
+  display: none;
+}
+
+.aboutStatBlock {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.aboutStatBig {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right,
+      var(--lightgreen-color),
+      var(--green-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.04em;
+}
+
+.aboutStatLabel {
+  font-size: 0.9vw;
+  color: var(--blue-color);
+  font-weight: 600;
+  opacity: 0.8;
+  max-width: 250px;
+}
+
+.aboutBtn {
+  margin-top: 30px;
+  width: max-content;
+}
+
+/* Global classes used as string: .aboutRight .mainCardBtn */
+/* We define it simply, assuming mainCardBtn is defined globally */
+
+/* --- Media Queries --- */
+
+@media (max-width: 1199px) {
+  .statSmall {}
+
+  .aboutTitle {
+    font-size: 1.8rem;
+  }
+
+  .aboutDesc {
+    font-size: 14px;
+  }
+
+  .aboutStatLabel {
+    font-size: 0.8rem;
+  }
+
+  .aboutBtn {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .aboutSectionInner {
+    gap: 30px;
+    flex-wrap: wrap !important;
+  }
+
+  .aboutImageWrap {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .aboutImage {
+    height: 100%;
+  }
+
+  .statCard {
+    height: 25%;
+  }
+
+  .verticalLabel {
+    font-size: 1rem;
+  }
+
+  .statBig {
+    font-size: 1.5rem;
+  }
+
+  .aboutHeading {
+    display: block;
+  }
+
+  /* Use :global(span) for the global element tag */
+  .aboutHeadingRow :global(span) {
+    display: none;
+  }
+
+  .mobilePaddingTop {
+    padding-top: 20px !important;
+  }
+
+  .aboutRight,
+  .aboutStatsRow,
+  .aboutStatBlock {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .aboutTitle,
+  .aboutDesc,
+  .aboutStatLabel {
+    text-align: center;
+  }
+
+  .aboutStatsRow {
+    gap: 20px;
+  }
+
+  .aboutStatBig {
+    font-size: 2.5rem;
+  }
+
+  .aboutStatLabel {
+    font-size: 1rem;
+  }
+
+  .aboutStatsRow .aboutStatBorder {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .aboutLeft {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 575px) {
+  .aboutSection {
+    margin: 0 0;
+  }
+
+  .statCard {
+    height: max-content;
+    padding: 30px;
+  }
+
+  .statCardYears {
+    width: 45%;
+    right: 0;
+  }
+
+  .aboutImageWrap {
+    padding-right: 20px;
+  }
+
+  .verticalLabel {
+    font-size: 0.8rem;
+    top: 0;
+    bottom: 42%;
+  }
+
+  .aboutRight {
+    gap: 10px;
+  }
+
+  .aboutTitle {
+    font-size: 20.4px;
+    line-height: 23px;
+  }
+
+  .statBig {
+    font-size: 25px;
+  }
+
+  .aboutStatBig {
+    font-size: 1.5rem;
+  }
+
+  .aboutStatLabel {
+    font-size: 0.8rem;
+  }
+
+  /* Global utility class mobile-mt-2 must be defined globally */
+}
+
+@media (max-width:500px) {
+  .verticalLabel {
+    right: 66vw;
+  }
+
+  .statCard {
+    padding: 1.2vw 4vw;
+  }
+
+  .statBig {
+    font-size: 22px;
+  }
+
+  .statSmall {
+    font-size: 0.7rem;
+  }
+
+  a.aboutBtn {
+    width: fit-content;
+    padding: inherit;
+    gap: inherit;
+    font-size: inherit;
+    padding: 1vw 2vw;
+  }
+}
+
+@media (max-width:425px) {
+  .aboutSectionInner {
+    gap: 20px;
+  }
+
+  .statCard {
+    padding: 1.2vw 4vw;
+  }
+
+  .statBig {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .aboutSectionInner {
+    overflow: hidden;
+  }
+
+  .statCard {
+    padding: 1.2vw 4vw;
+  }
+
+  .statBig {
+    font-size: 18px;
+  }
+}

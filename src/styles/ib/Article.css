@@ -1,0 +1,132 @@
+.article-tab-heading {
+    color: #19245E;
+    background-color: transparent;
+    border: 0;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.article-active-tab {
+    background: linear-gradient(90deg, #00A491 0%, #003E37 127.82%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Optional for cross-browser support */
+    background-clip: text;
+    color: transparent;
+    border-bottom: 1px solid #00A491;
+
+
+}
+
+
+.article-title {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 40px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #233467;
+}
+
+.article-description {
+    font-weight: 400;
+    font-style: ☞;
+    font-size: 1rem;
+    line-height: 36px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #233467;
+
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article-card button {
+    width: 250px;
+
+
+}
+
+.articleBtn {
+    width: max-content;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+    position: relative;
+    overflow: hidden;
+    padding: 10px 30px;
+    border-radius: 40px;
+    text-transform: uppercase;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 1;
+    /* background: linear-gradient(90deg, #00A491 0%, #003E37 127.82%); */
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+
+    .article-swapper .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .article-swapper .row>* {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+    }
+
+    .article-swapper .swiper-slide {
+        margin-right: 10 !important;
+    }
+
+    .article-title {
+        font-weight: 700;
+        font-size: 0.9rem;
+        line-height: 20px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: #233467;
+    }
+
+    .article-description {
+        font-size: 0.8rem;
+        line-height: 20px;
+
+    }
+
+    .article-card button {
+        width: 150px;
+        padding: 5px;
+    }
+
+    .article-swapper .buttonSkyBlue {
+        gap: 0;
+        font-size: 0.8rem;
+    }
+
+    .article-section .achievements-next {
+        right: -40px;
+        display: none;
+    }
+
+    .article-section .achievements-prev {
+        left: -40px;
+        display: none;
+    
+    }
+}

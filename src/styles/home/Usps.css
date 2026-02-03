@@ -1,0 +1,315 @@
+/* USPs Section  */
+
+/* USPs Section  */
+
+.uspSection {
+  background: linear-gradient(to right,
+      var(--green-color) 0%,
+      var(--lightgreen-color) 100%);
+  border-radius: 3.2vw;
+  padding: 3.47vw 2.78vw;
+  color: var(--white-color);
+  margin: 1.39vw auto;
+  max-width: 90vw;
+  box-shadow: 0 0.28vw 2.22vw rgba(0, 0, 0, 0.08);
+}
+
+.uspSection .uspLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.39vw;
+  min-width: 22.22vw;
+  max-width: 31.94vw;
+  position: sticky;
+  top: 10vw;
+}
+
+.uspSection .uspLeft span {
+  -webkit-text-fill-color: var(--white-color);
+  width: max-content;
+  font-size: 1.3vw;
+  margin-bottom: 1.39vw;
+}
+
+
+
+.uspSection .uspLeft span {
+  -webkit-text-fill-color: var(--white-color);
+  width: max-content;
+  font-size: 1.3vw;
+  margin-bottom: 20px;
+}
+
+.uspSection .uspLeft span:before,
+.uspSection .uspLeft span:after {
+  width: 16px;
+  filter: contrast(0) brightness(2);
+}
+
+.uspSection .uspTitle {
+  font-size: 1.6vw;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
+.uspSection .uspSubtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  color: var(--white-color);
+}
+
+.uspSection .uspDesc {
+  font-size: 0.8vw;
+  margin-bottom: 32px;
+  color: var(--white-color);
+  opacity: 0.7;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  padding-bottom: 40px;
+  border-bottom: 1px solid;
+}
+
+.uspSection .uspBtn {
+  width: max-content;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.uspSection .uspRight {
+  position: relative;
+  padding-top: 1vw;
+}
+
+.uspSection .uspSwiper {
+  width: 100%;
+  height: 500px;
+  padding: 25px 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uspSection .uspSlide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  height: auto !important;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.uspSection .uspItem {
+  background: transparent;
+  border-radius: 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--white-color);
+  min-width: 0;
+  flex: 1;
+  position: relative;
+}
+
+.uspSection .uspNumber {
+  position: absolute;
+  top: -2.5vw;
+  left: -1.5vw;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #b2e6d4;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.uspSection .uspIconCircle {
+  background: #baefd4;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.uspSection .uspIcon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.uspSection .uspItemTitle {
+  font-size: 1vw;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--white-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.uspSection .uspItemDesc {
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  color: var(--white-color);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.uspSection .uspScrollbar {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.uspSection .uspScrollbar :global(.swiper-scrollbar-drag) {
+  background: #fff;
+}
+
+@media (max-width: 1280px) {
+  .uspSection .uspDesc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .uspSection {
+    max-width: 90vw;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .uspSection .uspLeft {
+    flex: none;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    min-width: 100%;
+  }
+
+  .uspSection .uspTitle {
+    font-size: 1.4rem;
+  }
+
+  .uspSection .uspSubtitle,
+  .uspSection .uspNumber {
+    display: none;
+  }
+
+  .uspSection .uspDesc {
+    font-size: 1rem;
+    border: none;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    opacity: 0.8 !important;
+  }
+
+  .uspSection .uspGrid {
+    gap: 30px 40px;
+  }
+
+  .uspSection .uspItem {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding-bottom: 30px;
+  }
+
+  .uspSection .uspIconCircle {
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+
+  .uspSection .uspIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .uspSection .uspContent {
+    width: 80%;
+  }
+
+  .uspSection .uspItemTitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .uspSection {
+    max-width: 95vw;
+  }
+
+  .uspSection .uspLeft span:before,
+  .uspSection .uspLeft span:after {
+    width: 10px;
+  }
+
+  .uspSection .uspSwiper {
+    padding: 20px;
+  }
+
+  .uspSection .uspGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .uspSection .uspSlide:last-child .uspItem:last-child {
+    border: none;
+  }
+
+  .uspSwiper {
+    height: 400px;
+  }
+
+  .uspSection .uspSlide {
+    margin-bottom: 20px !important;
+  }
+
+  .uspSection .uspItem {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .uspSection .uspSlide {
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .uspSection .uspSwiper {
+    padding: 0;
+  }
+
+  .uspRight {
+    padding-top: 30px;
+  }
+
+  .uspSection .uspItem {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding-bottom: 30px;
+  }
+
+  /* This is good for the very last item: */
+  .uspSection .uspSlide:last-child .uspItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    /* Make sure the very last item doesn't have excess padding */
+  }
+}

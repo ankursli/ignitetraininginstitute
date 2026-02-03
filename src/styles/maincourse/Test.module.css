@@ -1,0 +1,540 @@
+/* Test Section 1 - Local Class: .testSection1 */
+.testSection1 {
+  padding: 20px 0;
+  background: #fff;
+}
+
+.testHeadings {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.testSubheading {
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+/* This is defined twice in your original CSS, consolidating here */
+.testTitle {
+  font-weight: 700;
+  color: var(--blue-color);
+  margin: 40px auto;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-size: 2rem;
+  max-width: 60%;
+}
+
+.testCardsRow {
+  margin-top: 40px;
+}
+
+/* Desktop Card Styles */
+.testCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+  position: relative;
+  border-radius: 0;
+  padding: 0;
+}
+
+.cardImageArea {
+  position: relative;
+  width: 100%;
+  height: 25vw;
+  background-size: cover;
+  background-position: center;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+}
+
+.activeImageArea {
+  height: 15vw;
+}
+
+.activeImageArea .cardTitle {
+  width: 100px;
+  left: 20%;
+  transform: translateX(-50%) !important;
+  margin-bottom: 0;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 20%) 60%, rgb(0 0 0 / 80%) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.7;
+  z-index: 2;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  line-height: 1;
+  transition: 0.3s all;
+}
+
+.activeImageArea .cardNumber {
+  font-size: 1.8rem;
+  opacity: 1;
+}
+
+.cardTitle {
+  position: absolute;
+  left: 10vw;
+  bottom: 2vw;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  z-index: 2;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  line-height: 1;
+  opacity: 0.85;
+  transition: 0.4s all;
+  margin-bottom: 0;
+}
+
+.cardContentArea {
+  margin-top: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: auto;
+  z-index: 1;
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  position: relative;
+  bottom: 0%;
+  transform: translateY(-30px);
+  transition: opacity 0.8s, max-height 0.8s, transform 0.8s;
+}
+
+.showContent {
+  opacity: 1;
+  max-height: 12vw;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hideContent {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  transform: translateY(-150px);
+}
+
+.cardLabel {
+  font-weight: 700;
+  color: var(--blue-color);
+  margin-bottom: 0.5vw;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1vw;
+}
+
+.cardDetails {
+  font-size: 1vw;
+  color: var(--blue-color);
+  margin-bottom: 1vw;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.cardDetails :global(p) {
+  margin: 0;
+}
+
+.cardBtn {
+  font-size: 1vw;
+  font-weight: 500;
+  width: 100%;
+  padding: 0.5vw 1vw;
+}
+
+.cardBtn :global(img) {
+  width: 30px;
+}
+
+/* Desktop Media Queries */
+@media (max-width: 1440px) {
+  .cardImageArea {
+    height: 480px;
+  }
+
+  .cardLabel {
+    font-size: 20px;
+  }
+
+  .cardDetails {
+    font-size: 1rem;
+  }
+
+  .activeImageArea {
+    height: 300px;
+  }
+
+  .cardLabel,
+  .cardDetails {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .cardLabel {
+    font-size: 20px;
+  }
+
+  .cardDetails {
+    font-size: 1rem;
+  }
+
+  .cardBtn {
+    padding: 10px 30px;
+  }
+
+  .cardBtn :global(img) {
+    width: 30px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .cardLabel {
+    font-size: 18px;
+  }
+
+  .cardTitle {
+    left: 25%;
+    margin-bottom: 0;
+  }
+
+  .testCard :global(p) {
+    padding: 0 10px !important;
+  }
+
+  .cardImageArea {
+    height: 400px;
+  }
+
+  .activeImageArea {
+    height: 225px;
+  }
+
+  .cardDetails {
+    margin-bottom: 15px;
+  }
+
+  .cardDetails :global(p) {
+    margin: 0;
+  }
+}
+
+/* Mobile Specific Styles (Swiper) */
+@media (max-width: 991px) {
+  .testSection1 {
+    padding: 0 0 30px 0;
+  }
+
+  .testTitle {
+    max-width: 600px;
+    font-size: 1.5rem;
+    margin: 20px auto;
+  }
+
+  /* Target Swiper Global elements with local context */
+  .testMobileSwiper :global(.swiper-pagination) {
+    display: none;
+  }
+
+  .testMobileSwiper {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .testMobileSwiper :global(.swiper-slide) {
+    width: calc(100vw - 40px);
+    margin-right: 20px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .testMobileSwiper :global(.swiper-slide:not(.swiper-slide-active)) .testCardMobile {
+    opacity: 0.5;
+    transition: opacity 0.4s ease-in-out;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .testMobileSwiper :global(.swiper-slide-active) .testCardMobile {
+    opacity: 1;
+  }
+
+  /* Mobile Card Structure for Swiper Slides */
+  .testCardMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .testCardImageWrap {
+    border-radius: 24px;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Active Image Area for Mobile */
+  .mobileActiveImageArea {
+    height: 180px;
+  }
+
+  .testCardImageWrap::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgb(0 0 0 / 20%) 0%, rgb(0 0 0 / 80%) 100%);
+    z-index: 0;
+  }
+
+  .testCardNumber {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 3rem;
+    line-height: 1;
+    color: #fff;
+    opacity: 0.9;
+    font-weight: 700;
+    z-index: 2;
+    transition: 0.3s all;
+  }
+
+  .mobileActiveNumber {
+    font-size: 2.5rem;
+    top: 15px;
+    left: 15px;
+    opacity: 1;
+  }
+
+  .testCardTitle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    z-index: 2;
+    transition: 0.4s all;
+  }
+
+  .mobileActiveTitle {
+    left: 20%;
+    transform: translateX(-50%) !important;
+    font-size: 1.8rem;
+    bottom: 15px;
+  }
+
+  /* Mobile Content Area */
+  .testCardDetailsWrap {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.8s, max-height 0.8s, transform 0.8s;
+    pointer-events: none;
+    transform: translateY(-30px);
+  }
+
+  .mobileShowContent {
+    opacity: 1;
+    max-height: 500px;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobileHideContent {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+    transform: translateY(-150px);
+  }
+
+  .testCardLabel {
+    color: var(--blue-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .testCardDetails {
+    color: var(--blue-color);
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .testCardDetails :global(span):first-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .testCardBtnMobile {
+    width: 100%;
+    font-weight: 500;
+  }
+}
+
+/* Further Mobile Adjustments */
+@media (max-width: 900px) {
+
+  /* These apply to the desktop static cards when breakpoint is hit */
+  .testCardsRow {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .testCard {
+    max-width: 95vw;
+    min-width: 220px;
+    width: 100%;
+  }
+
+  /* Desktop card sizing within this breakpoint */
+  .cardImageArea {
+    border-radius: 18px;
+    height: 160px;
+  }
+
+  .activeImageArea {
+    height: 90px;
+  }
+
+  .cardContentArea {
+    padding: 24px 16px 16px 16px;
+    border-radius: 18px;
+    margin-top: 12px;
+  }
+
+  .cardTitle {
+    font-size: 1.3rem;
+    left: 18px;
+    bottom: 18px;
+    margin-bottom: 0;
+  }
+
+  .cardNumber {
+    font-size: 1.5rem;
+    top: 14px;
+    left: 14px;
+  }
+
+  /* Mobile Swiper-specific overrides for smaller screens */
+  .testMobileSwiper :global(.swiper-slide) {
+    display: flex;
+    justify-content: center;
+  }
+
+  .testMobileSwiper .testCardMobile {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .testMobileSwiper .testCardImageWrap {
+    height: 490px;
+  }
+
+  .testMobileSwiper .mobileActiveImageArea {
+    height: 300px;
+  }
+}
+
+@media (max-width: 575px) {
+  .testSubheading {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .testSection1 {
+    padding: 0;
+  }
+
+  .testTitle {
+    font-size: 20.4px !important;
+    line-height: 23px;
+  }
+
+  .testSection1 :global(p) {
+    font-size: 14px;
+  }
+
+  .cardTitle {
+    font-size: 3rem;
+  }
+
+  .testCardTitle {
+    font-size: 2.5rem;
+  }
+
+  .mobileActiveTitle {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none !important;
+  }
+}
