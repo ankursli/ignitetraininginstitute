@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-// import SEO from "@/components/SEO";
-// import SEOHead from "@/components/SEOHead";
-// import Hero from "@/components/homeCopy/Hero";
+import SEO from "@/components/SEO";
+import SEOHead from "@/components/SEOHead";
+import Hero from "@/components/homeCopy/Hero";
+
 // import Course from "@/components/homeCopy/Course";
 // import dynamic from "next/dynamic";
 
@@ -19,10 +20,46 @@ const HomeCopy = ({ headerHeight }) => {
     // const [active, setActive] = useState(1);
 
     return (
-        <div style={{ paddingTop: `${headerHeight}px`, minHeight: '100vh', padding: '20px' }}>
-            <h1>Baseline LCP Test</h1>
-            <p>This is a minimal page to test global bottleneck.</p>
-        </div>
+        <>
+            <SEO
+                title="Ignite Training Institute - Tutors In UAE For Exam Success"
+                description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
+                preloadImages={[
+                    {
+                        src: "/images/banner-bg-mobile.webp",
+                        type: "image/webp",
+                        media: "(max-width: 767px)"
+                    },
+                    {
+                        src: "/images/banner-bg.webp",
+                        type: "image/webp",
+                        media: "(min-width: 768px)"
+                    }
+                ]}
+            />
+            <div className="homeCopy" style={{ paddingTop: `${headerHeight}px` }}>
+                <Hero />
+
+                {/* <Course />
+                <section data-scroll-section>
+                    <MarqueeBanner />
+                </section>
+                <About />
+                <Test
+                    setActive={setActive}
+                    active={active}
+                />
+                <Subjects />
+                <section data-scroll-section>
+                    <Usps />
+                </section>
+                <section data-scroll-section>
+                    <Trainers />
+                </section>
+                <Testimonial />
+                <Blog /> */}
+            </div>
+        </>
     );
 };
 
