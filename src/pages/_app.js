@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import "@/styles/critical.css";
 import "@/styles/globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import SEOHead from '../components/SEOHead';
 import Header from "../components/Header";
@@ -16,9 +16,9 @@ import DelayedPopup from "../components/DelayedPopup";
 
 import "@/styles/DelayedPopup.css";
 
-const LocomotiveScrollProvider = dynamic(() => import('../components/LocomotiveScrollProvider'), {
-    ssr: false,
-});
+// const LocomotiveScrollProvider = dynamic(() => import('../components/LocomotiveScrollProvider'), {
+//     ssr: false,
+// });
 
 const isPageSpeedInsights = () => {
     if (typeof navigator === 'undefined') return false;
@@ -79,24 +79,24 @@ const PopupProvider = ({ children }) => {
 
 export default function MyApp({ Component, pageProps }) {
     const router = useRouter();
-    const [headerHeight, setHeaderHeight] = useState(100);
+    const [headerHeight, setHeaderHeight] = useState(0); // Default to 0 since header is removed
     const [showButton, setShowButton] = useState(false);
     const [stylesLoaded, setStylesLoaded] = useState(false);
-    const [shouldLoadLocomotiveScroll, setShouldLoadLocomotiveScroll] = useState(false);
+    // const [shouldLoadLocomotiveScroll, setShouldLoadLocomotiveScroll] = useState(false);
 
     const mobileBreakpoint = 2600;
 
     useEffect(() => {
-        const isMobile = isMobileDevice();
+        // const isMobile = isMobileDevice();
         // const isPageSpeed = isPageSpeedInsights(); // Only needed if you have special logic for bots
 
         // Ensure Locomotive Scroll is disabled for ALL mobile devices
-        if (isMobile) {
-            console.log('Locomotive Scroll disabled for mobile');
-            setShouldLoadLocomotiveScroll(false);
-        } else {
-            setShouldLoadLocomotiveScroll(true);
-        }
+        // if (isMobile) {
+        //     console.log('Locomotive Scroll disabled for mobile');
+        //     setShouldLoadLocomotiveScroll(false);
+        // } else {
+        //     setShouldLoadLocomotiveScroll(true);
+        // }
     }, []);
 
     useEffect(() => {
@@ -134,8 +134,9 @@ export default function MyApp({ Component, pageProps }) {
         };
     }, []);
 
+    // Minimal Return for Debugging
     return (
-        <PopupProvider>
+        <>
             {/* <Script
                 id="gtm-script"
                 strategy="lazyOnload"
@@ -147,41 +148,14 @@ export default function MyApp({ Component, pageProps }) {
           })(window,document,'script','dataLayer','GTM-PMG2GSQ');`,
                 }}
             /> */}
-            {shouldLoadLocomotiveScroll ? (
-                <LocomotiveScrollProvider>
-                    <SEOHead />
-                    <div className={`${montserrat.className} ${montserrat.variable}`}>
-                        {/* <Header setHeaderHeight={setHeaderHeight} /> */}
-                        <Component {...pageProps} headerHeight={headerHeight} />
-                        {/* <Footer />
-                        <DelayedPopup /> */}
-                    </div>
-                    {showButton && (
-                        <Link href="/join-free-demo-class" passHref legacyBehavior>
-                            <a className="sticky-demo-button" aria-label="Go to Free Demo Class page">
-                                Get a Free Demo
-                            </a>
-                        </Link>
-                    )}
-                </LocomotiveScrollProvider>
-            ) : (
-                <>
-                    <SEOHead />
-                    <div className={`${montserrat.className} ${montserrat.variable}`}>
-                        {/* <Header setHeaderHeight={setHeaderHeight} /> */}
-                        <Component {...pageProps} headerHeight={headerHeight} />
-                        {/* <Footer />
-                        <DelayedPopup /> */}
-                    </div>
-                    {showButton && (
-                        <Link href="/join-free-demo-class" passHref legacyBehavior>
-                            <a className="sticky-demo-button" aria-label="Go to Free Demo Class page">
-                                Get a Free Demo
-                            </a>
-                        </Link>
-                    )}
-                </>
-            )}
-        </PopupProvider>
+
+            <SEOHead />
+            <div className={`${montserrat.className} ${montserrat.variable}`}>
+                {/* <Header setHeaderHeight={setHeaderHeight} /> */}
+                <Component {...pageProps} headerHeight={headerHeight} />
+                {/* <Footer /> */}
+                {/* <DelayedPopup /> */}
+            </div>
+        </>
     );
 }
