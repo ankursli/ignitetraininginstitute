@@ -151,10 +151,10 @@ export default function MyApp({ Component, pageProps }) {
                 <LocomotiveScrollProvider>
                     <SEOHead />
                     <div className={`${montserrat.className} ${montserrat.variable}`}>
-                        <Header setHeaderHeight={setHeaderHeight} />
+                        {/* <Header setHeaderHeight={setHeaderHeight} /> */}
                         <Component {...pageProps} headerHeight={headerHeight} />
-                        <Footer />
-                        <DelayedPopup />
+                        {/* <Footer />
+                        <DelayedPopup /> */}
                     </div>
                     {showButton && (
                         <Link href="/join-free-demo-class" passHref legacyBehavior>
@@ -168,10 +168,10 @@ export default function MyApp({ Component, pageProps }) {
                 <>
                     <SEOHead />
                     <div className={`${montserrat.className} ${montserrat.variable}`}>
-                        <Header setHeaderHeight={setHeaderHeight} />
+                        {/* <Header setHeaderHeight={setHeaderHeight} /> */}
                         <Component {...pageProps} headerHeight={headerHeight} />
-                        <Footer />
-                        <DelayedPopup />
+                        {/* <Footer />
+                        <DelayedPopup /> */}
                     </div>
                     {showButton && (
                         <Link href="/join-free-demo-class" passHref legacyBehavior>
