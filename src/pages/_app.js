@@ -136,7 +136,7 @@ export default function MyApp({ Component, pageProps }) {
 
     // Minimal Return for Debugging
     return (
-        <>
+        <PopupProvider>
             {/* <Script
                 id="gtm-script"
                 strategy="lazyOnload"
@@ -151,11 +151,11 @@ export default function MyApp({ Component, pageProps }) {
 
             <SEOHead />
             <div className={`${montserrat.className} ${montserrat.variable}`}>
-                {/* <Header setHeaderHeight={setHeaderHeight} /> */}
+                <Header setHeaderHeight={setHeaderHeight} />
                 <Component {...pageProps} headerHeight={headerHeight} />
-                {/* <Footer /> */}
-                {/* <DelayedPopup /> */}
+                <Footer />
+                <DelayedPopup />
             </div>
-        </>
+        </PopupProvider>
     );
 }
