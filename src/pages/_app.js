@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import "@/styles/critical.css";
 import "@/styles/globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import SEOHead from '../components/SEOHead';
 import Header from "../components/Header";
