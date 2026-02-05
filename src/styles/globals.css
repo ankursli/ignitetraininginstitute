@@ -465,3 +465,28 @@ option {
     clip-path: inset(0 0% 0 0);
   }
 }
+
+/* --- STRUCTURAL FIX: Fixed Header Padding --- */
+/* Ensures content starts below the fixed header without JS calculation */
+.page-content-padding {
+  padding-top: max(120px, 6vw) !important;
+  /* Increased to prevent desktop overlap */
+}
+
+@media (max-width: 1280px) {
+  .page-content-padding {
+    padding-top: 90px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-content-padding {
+    padding-top: 80px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .page-content-padding {
+    padding-top: 72px !important;
+  }
+}

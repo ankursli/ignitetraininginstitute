@@ -50,9 +50,8 @@ const IBDP = ({ headerHeight }) => {
       </Head>
       <div
         // Removed: ref={scrollRef}
-        className='overflow-hidden innerpage'
-        // Removed: data-scroll-container
-        style={{ paddingTop: `${headerHeight}px` }}
+        className='overflow-hidden innerpage page-content-padding'
+      // Removed: data-scroll-container
       >
         <section className="hero-section">
           <div className="hero-container">
