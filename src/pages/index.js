@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LazySection from "@/components/LazySection";
 
 import SEO from "@/components/SEO";
 import SEOHead from "@/components/SEOHead";
@@ -45,24 +46,50 @@ const HomeCopy = ({ headerHeight }) => {
             <div className="homeCopy" style={{ paddingTop: `${headerHeight}px` }}>
                 <Hero />
 
-                <Course />
-                <section data-scroll-section>
-                    <MarqueeBanner />
-                </section>
-                <About />
-                <Test
-                    setActive={setActive}
-                    active={active}
-                />
-                <Subjects />
-                <section data-scroll-section>
-                    <Usps />
-                </section>
-                <section data-scroll-section>
-                    <Trainers />
-                </section>
-                <Testimonial />
-                <Blog />
+                <LazySection>
+                    <Course />
+                </LazySection>
+
+                <LazySection>
+                    <section data-scroll-section>
+                        <MarqueeBanner />
+                    </section>
+                </LazySection>
+
+                <LazySection>
+                    <About />
+                </LazySection>
+
+                <LazySection>
+                    <Test
+                        setActive={setActive}
+                        active={active}
+                    />
+                </LazySection>
+
+                <LazySection>
+                    <Subjects />
+                </LazySection>
+
+                <LazySection>
+                    <section data-scroll-section>
+                        <Usps />
+                    </section>
+                </LazySection>
+
+                <LazySection>
+                    <section data-scroll-section>
+                        <Trainers />
+                    </section>
+                </LazySection>
+
+                <LazySection>
+                    <Testimonial />
+                </LazySection>
+
+                <LazySection>
+                    <Blog />
+                </LazySection>
             </div>
         </>
     );
