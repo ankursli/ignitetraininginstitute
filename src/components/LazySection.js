@@ -6,9 +6,23 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
     const ref = useRef(null);
     const scroll = useScroll(); // Get Locomotive Scroll instance
 
+    // Helper to detect bots/crawlers
+    const isBotDetected = () => {
+        if (typeof window === 'undefined') return false;
+        const userAgent = navigator.userAgent.toLowerCase();
+        return (
+            userAgent.includes('googlebot') ||
+            userAgent.includes('bingbot') ||
+            userAgent.includes('lighthouse') ||
+            userAgent.includes('gtmetrix') ||
+            userAgent.includes('pagespeed') ||
+            userAgent.includes('chrome-lighthouse')
+        );
+    };
+
     useEffect(() => {
-        // Eager load on Desktop to prevent Locomotive Scroll juggling
-        if (typeof window !== 'undefined' && window.innerWidth > 768) {
+        // Eager load on Desktop OR if Bot is detected
+        if (typeof window !== 'undefined' && (window.innerWidth > 768 || isBotDetected())) {
             setIsVisible(true);
             return;
         }
