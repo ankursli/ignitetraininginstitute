@@ -176,6 +176,7 @@ export default function InfoCard() {
           fill
           priority
           fetchPriority="high"
+          unoptimized
           sizes="95vw"
           style={{
             objectFit: "cover",
