@@ -170,15 +170,18 @@ export default function InfoCard() {
         }}
       >
 
-        <Image
+        <img
           src="/assets/ibdp_bg_main.webp"
           alt="IBDP Tutors Background"
-          fill
-          priority
-          fetchPriority="high"
-          unoptimized
-          sizes="95vw"
+          fetchPriority="high" // Explicitly hint priority to browser
+          width="1200" // Explicit attributes to help layout engine (assuming landscape)
+          height="800"
           style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
             objectFit: "cover",
             objectPosition: "center",
             borderRadius: "1.5rem",

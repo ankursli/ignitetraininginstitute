@@ -1,5 +1,6 @@
 // import MovingBanner from '@/components/home/MovingBanner';
 import LazySection from "@/components/LazySection";
+import Head from "next/head";
 // import Testimonial from '@/components/home/Testimonial';
 import Accordion from '@/components/ibdp/accordian';
 import Blog from "@/components/ibdp/Blog";
@@ -29,6 +30,14 @@ const IBDP = ({ headerHeight }) => {
         title="IBDP Tutors In Dubai, UAE | IB Diploma Coaching Support"
         description="Ace your training & exam preparation with IBDP tutors in Dubai. Our specialized IB Diploma trainers help you achieve top scores with the right guidance"
       />
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/ibdp_bg_main.webp"
+          as="image"
+          fetchPriority="high"
+        />
+      </Head>
       <div
         // Removed: ref={scrollRef}
         className='overflow-hidden innerpage'
