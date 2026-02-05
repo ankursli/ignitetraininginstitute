@@ -408,7 +408,7 @@ export default function InfoCard() {
               style={{ animationDelay: "0.6s" }}
             >
               {/* Rectangle background images positioned within form section */}
-              <img
+              {/* <img
                 src="/assets/rect1.webp"
                 alt="ibdp tutor in dubai"
                 className="testimonialRect rect-1"
@@ -428,23 +428,23 @@ export default function InfoCard() {
                 className="testimonialRect rect-3"
                 width={309}
                 height={170}
-              />
+              /> */}
 
               <div
                 className="w-100 text-white form-container"
-                style={{
-                  borderRadius: "40px",
-                  backgroundImage: "url('/assets/idbprect.webp')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  minHeight: "550px",
-                  gap: "5px",
-                  minWidth: "550px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
+              // style={{
+              //   borderRadius: "40px",
+              //   backgroundImage: "url('/assets/idbprect.webp')",
+              //   backgroundSize: "cover",
+              //   backgroundPosition: "center",
+              //   backgroundRepeat: "no-repeat",
+              //   minHeight: "550px",
+              //   gap: "5px",
+              //   minWidth: "550px",
+              //   display: "flex",
+              //   flexDirection: "column",
+              //   justifyContent: "center",
+              // }}
               >
                 <form onSubmit={handleSubmit}>
 
@@ -1164,21 +1164,21 @@ export default function InfoCard() {
           .form-bg {
             position: relative;
           }
-          .form-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-              to top,
-              rgba(0, 164, 145, 0.95) 0%,
-              rgba(22, 22, 100, 1) 60%,
-              rgba(22, 22, 100, 1) 80%,
-              rgba(22, 22, 100, 0.5) 90%,
-              rgba(22, 22, 100, 0) 100%
-            );
-            mix-blend-mode: multiply;
-            z-index: 0;
-          }
+          // .form-bg::before {
+          //   content: "";
+          //   position: absolute;
+          //   inset: 0;
+          //   background: linear-gradient(
+          //     to top,
+          //     rgba(0, 164, 145, 0.95) 0%,
+          //     rgba(22, 22, 100, 1) 60%,
+          //     rgba(22, 22, 100, 1) 80%,
+          //     rgba(22, 22, 100, 0.5) 90%,
+          //     rgba(22, 22, 100, 0) 100%
+          //   );
+          //   mix-blend-mode: multiply;
+          //   z-index: 0;
+          // }
 
           /* make form content sit above overlay */
           .form-container {
@@ -1190,6 +1190,7 @@ export default function InfoCard() {
             padding-top: 5rem !important;
             width: 100% !important;
             margin-left: 0 !important;
+            box-shadow: none !important;
           }
 
 
