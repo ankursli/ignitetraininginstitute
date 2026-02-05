@@ -72,7 +72,7 @@ function generateSiteMap(posts, categories) {
      ${posts.map(({ slug, modified_gmt }) => `
        <url>
            <loc>${BASE_URL}/blog/${slug}</loc>
-           
+           <lastmod>${modified_gmt}</lastmod>
        </url>`).join('')}
    </urlset>`
 }
