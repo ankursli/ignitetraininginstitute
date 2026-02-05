@@ -7,11 +7,11 @@ import Hero from "@/components/homeCopy/Hero";
 
 // Dynamic imports
 // Dynamic imports switched to static for SSR (kept static for LCP/ATF components)
-import Course from "@/components/homeCopy/Course";
-// Dynamic imports moved below
+// import Course from "@/components/homeCopy/Course"; // Moving to dynamic
 
 // Dynamic imports for below-the-fold components
 import dynamic from "next/dynamic";
+const Course = dynamic(() => import("@/components/homeCopy/Course"));
 const MarqueeBanner = dynamic(() => import("@/components/homeCopy/MarqueeBanner"));
 const About = dynamic(() => import("@/components/homeCopy/About"));
 const Test = dynamic(() => import("@/components/homeCopy/Test"));
