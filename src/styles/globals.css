@@ -487,6 +487,6 @@ option {
 
 @media (max-width: 425px) {
   .page-content-padding {
-    padding-top: 72px !important;
+    padding-top: 100px !important;
   }
 }
