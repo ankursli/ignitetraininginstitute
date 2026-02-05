@@ -4,20 +4,25 @@ import SEO from "@/components/SEO";
 import SEOHead from "@/components/SEOHead";
 import Hero from "@/components/homeCopy/Hero";
 
-// import Course from "@/components/homeCopy/Course";
-// import dynamic from "next/dynamic";
 
-// const MarqueeBanner = dynamic(() => import("@/components/homeCopy/MarqueeBanner"));
-// const About = dynamic(() => import("@/components/homeCopy/About"));
-// const Test = dynamic(() => import("@/components/homeCopy/Test"));
-// const Subjects = dynamic(() => import("@/components/homeCopy/Subjects"));
-// const Usps = dynamic(() => import("@/components/homeCopy/Usps"));
-// const Trainers = dynamic(() => import("@/components/homeCopy/Trainers"));
-// const Testimonial = dynamic(() => import("@/components/homeCopy/Testimonial"));
-// const Blog = dynamic(() => import("@/components/homeCopy/Blog"));
+// Dynamic imports
+// Dynamic imports switched to static for SSR (kept static for LCP/ATF components)
+import Course from "@/components/homeCopy/Course";
+// Dynamic imports moved below
+
+// Dynamic imports for below-the-fold components
+import dynamic from "next/dynamic";
+const MarqueeBanner = dynamic(() => import("@/components/homeCopy/MarqueeBanner"));
+const About = dynamic(() => import("@/components/homeCopy/About"));
+const Test = dynamic(() => import("@/components/homeCopy/Test"));
+const Subjects = dynamic(() => import("@/components/homeCopy/Subjects"));
+const Usps = dynamic(() => import("@/components/homeCopy/Usps"));
+const Trainers = dynamic(() => import("@/components/homeCopy/Trainers"));
+const Testimonial = dynamic(() => import("@/components/homeCopy/Testimonial"));
+const Blog = dynamic(() => import("@/components/homeCopy/Blog"));
 
 const HomeCopy = ({ headerHeight }) => {
-    // const [active, setActive] = useState(1);
+    const [active, setActive] = useState(1);
 
     return (
         <>
@@ -40,7 +45,7 @@ const HomeCopy = ({ headerHeight }) => {
             <div className="homeCopy" style={{ paddingTop: `${headerHeight}px` }}>
                 <Hero />
 
-                {/* <Course />
+                <Course />
                 <section data-scroll-section>
                     <MarqueeBanner />
                 </section>
@@ -57,7 +62,7 @@ const HomeCopy = ({ headerHeight }) => {
                     <Trainers />
                 </section>
                 <Testimonial />
-                <Blog /> */}
+                <Blog />
             </div>
         </>
     );
