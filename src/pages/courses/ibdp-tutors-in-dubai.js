@@ -33,8 +33,18 @@ const IBDP = ({ headerHeight }) => {
       <Head>
         <link
           rel="preload"
+          href="/assets/ib-bg.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
           href="/assets/ibdp_bg_main.webp"
           as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
           fetchPriority="high"
         />
       </Head>
