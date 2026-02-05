@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
@@ -199,41 +200,61 @@ const HomeSchooling = ({ headerHeight }) => {
         </section>
 
 
-        <section data-scroll-section>
-          <Curriculum />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Curriculum />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <CourseCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <CourseCard />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <Advantages />
-        </section>
-        <section data-scroll-section>
-          <MarqueeBanner />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Advantages />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <MarqueeBanner />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <HomeschoolingMindset />
-        </section>
-        <section data-scroll-section>
-          <ReviewsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <HomeschoolingMindset />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <ReviewsSection />
+          </section>
+        </LazySection>
 
-        <WhatWeOfferSection />
+        <LazySection>
+          <WhatWeOfferSection />
+        </LazySection>
 
 
-        <section data-scroll-section>
-          <FAQSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <FAQSection />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <Blog />
-        </section>
-        <section data-scroll-section>
-          <Accordion />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Blog />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <Accordion />
+          </section>
+        </LazySection>
       </div>
     </>
   );

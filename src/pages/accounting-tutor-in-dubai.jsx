@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
@@ -173,45 +174,63 @@ const AccountingTutorsInDubai = ({ headerHeight }) => {
                     <AccountingTutorsStudentAchievements />
                 </section> */}
 
-                <section data-scroll-section>
-                    <MarqueeBanner />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <MarqueeBanner />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <AccountingTutorsChooseApp />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <AccountingTutorsChooseApp />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <AccountingTutorsACT />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <AccountingTutorsACT />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <ReviewsSection />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <ReviewsSection />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <Trainers />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <Trainers />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <AccountingTutorsIgniteAchievements />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <AccountingTutorsIgniteAchievements />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <AccountingTutorsUsps />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <AccountingTutorsUsps />
+                    </section>
+                </LazySection>
 
                 {/* <section data-scroll-section>
                     <AccountingTutorsLifeAtIgniteCarousel />
                 </section> */}
 
-                <section data-scroll-section>
-                    <AccountingTutorsFAQSection />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <AccountingTutorsFAQSection />
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <Accordion />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <Accordion />
+                    </section>
+                </LazySection>
             </div>
         </>
     );

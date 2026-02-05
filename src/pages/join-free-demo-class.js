@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import LazySection from "@/components/LazySection";
 import Image from "next/image";
 
 import "swiper/css";
@@ -116,192 +117,204 @@ const FreeDemo = ({ headerHeight }) => {
                     <InfoCard />
                 </section>
 
-                <section className={achievementStyles.achievementsSection} >
-                    <div className={styles.container}>
+                <LazySection>
+                    <section className={achievementStyles.achievementsSection} >
+                        <div className={styles.container}>
 
-                        <div className="text-center mb-md-5 mb-4 fade-in-section"
-                            data-scroll
-                            data-scroll-class="is-inview"
-                            data-scroll-repeat
-                            style={{ animationDelay: "0.2s" }}>
-                            <div className="testHeadings">
-                                <div
-                                    data-scroll
-                                    data-scroll-class="is-inview"
-                                    data-scroll-repeat="true"
-                                    className="fade-in-section"
-                                    style={{ animationDelay: "0.1s" }}
-                                >
-                                    <h2 className="SubHeading testSubheading">CURRICULUMS & STANDARDISED TESTS</h2>
+                            <div className="text-center mb-md-5 mb-4 fade-in-section"
+                                data-scroll
+                                data-scroll-class="is-inview"
+                                data-scroll-repeat
+                                style={{ animationDelay: "0.2s" }}>
+                                <div className="testHeadings">
+                                    <div
+                                        data-scroll
+                                        data-scroll-class="is-inview"
+                                        data-scroll-repeat="true"
+                                        className="fade-in-section"
+                                        style={{ animationDelay: "0.1s" }}
+                                    >
+                                        <h2 className="SubHeading testSubheading">CURRICULUMS & STANDARDISED TESTS</h2>
+                                    </div>
+                                    <h3
+                                        data-scroll
+                                        data-scroll-class="is-inview"
+                                        data-scroll-repeat="true"
+                                        className="fade-in-section testTitle"
+                                        style={{ animationDelay: "0.2s", fontSize: "2rem" }}
+                                    >
+                                        Curriculum-Focused <br /> Tutoring & Exam Prep<span className="highlight"> Expertise</span>
+                                    </h3>
                                 </div>
-                                <h3
-                                    data-scroll
-                                    data-scroll-class="is-inview"
-                                    data-scroll-repeat="true"
-                                    className="fade-in-section testTitle"
-                                    style={{ animationDelay: "0.2s", fontSize: "2rem" }}
-                                >
-                                    Curriculum-Focused <br /> Tutoring & Exam Prep<span className="highlight"> Expertise</span>
-                                </h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={`${styles.container} ${styles['freedemo-curriculm']} fade-in-section`}
-                        data-scroll
-                        data-scroll-class="is-inview"
-                        data-scroll-repeat>
-                        <div className={styles.column}>
-                            <div className={styles.title}>CURRICULUMS</div>
-                            <div className={styles.cards}>
-                                <a href="/ib-curriculum-tutors-in-dubai">
-                                    <CurriculumCard defaultClass="light-green">
-                                        <span className={styles.check}>✔</span> IB (MYP & IBDP)
-                                    </CurriculumCard>
-                                </a>
-                                <a href="/courses/igcse-tutors-in-dubai">
-                                    <CurriculumCard defaultClass="light-green">
-                                        <span className={styles.check}>✔</span> IGCSE
-                                    </CurriculumCard>
-                                </a>
-                                <a href="/courses/a-level-tutors-in-dubai" className={styles.full}>
-                                    <CurriculumCard defaultClass="light-green" full>
-                                        <span className={styles.check}>✔</span> A Levels
-                                    </CurriculumCard>
-                                </a>
-                                <a href="/courses/homeschooling-tutors-in-dubai" className={styles.full}>
-                                    <CurriculumCard defaultClass="light-green" full>
-                                        <span className={styles.check}>✔</span> Private Candidate (Homeschooling)
-                                    </CurriculumCard>
-                                </a>
-                            </div>
-                        </div>
-                        <div className={styles.column}>
-                            <div className={`${styles.title} ${styles.tests}`}>STANDARDISED TESTS</div>
-                            <div className={styles.cards}>
-                                <a href="/act-tutors-in-dubai">
-                                    <CurriculumCard defaultClass="light-blue">
-                                        <span className={styles.check}>✔</span> ACT
-                                    </CurriculumCard>
-                                </a>
-                                <a href="/advanced-placements-tutors-in-dubai">
-                                    <CurriculumCard defaultClass="light-blue">
-                                        <span className={styles.check}>✔</span> AP
-                                    </CurriculumCard>
-                                </a>
-                                <a href="#" className={styles.full}>
-                                    <CurriculumCard defaultClass="light-blue" full>
-                                        <span className={styles.check}>✔</span> UCAT
-                                    </CurriculumCard>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section >
-
-                <section data-scroll-section>
-                    <SubjectsCard />
-                </section>
-
-                <section className={achievementStyles.achievementsSection}>
-                    <div className={styles.container}>
-
-                        <div className="text-center mb-md-5 mb-4 fade-in-section"
+                        <div className={`${styles.container} ${styles['freedemo-curriculm']} fade-in-section`}
                             data-scroll
                             data-scroll-class="is-inview"
-                            data-scroll-repeat
-                            style={{ animationDelay: "0.2s" }}>
-                            <div className="testHeadings">
-                                <div
-                                    data-scroll
-                                    data-scroll-class="is-inview"
-                                    data-scroll-repeat="true"
-                                    className="fade-in-section"
-                                    style={{ animationDelay: "0.1s" }}
-                                >
-                                    <h2 className="SubHeading testSubheading">WHAT MORE DO WE OFFER?</h2>
+                            data-scroll-repeat>
+                            <div className={styles.column}>
+                                <div className={styles.title}>CURRICULUMS</div>
+                                <div className={styles.cards}>
+                                    <a href="/ib-curriculum-tutors-in-dubai">
+                                        <CurriculumCard defaultClass="light-green">
+                                            <span className={styles.check}>✔</span> IB (MYP & IBDP)
+                                        </CurriculumCard>
+                                    </a>
+                                    <a href="/courses/igcse-tutors-in-dubai">
+                                        <CurriculumCard defaultClass="light-green">
+                                            <span className={styles.check}>✔</span> IGCSE
+                                        </CurriculumCard>
+                                    </a>
+                                    <a href="/courses/a-level-tutors-in-dubai" className={styles.full}>
+                                        <CurriculumCard defaultClass="light-green" full>
+                                            <span className={styles.check}>✔</span> A Levels
+                                        </CurriculumCard>
+                                    </a>
+                                    <a href="/courses/homeschooling-tutors-in-dubai" className={styles.full}>
+                                        <CurriculumCard defaultClass="light-green" full>
+                                            <span className={styles.check}>✔</span> Private Candidate (Homeschooling)
+                                        </CurriculumCard>
+                                    </a>
                                 </div>
-                                <h3
-                                    data-scroll
-                                    data-scroll-class="is-inview"
-                                    data-scroll-repeat="true"
-                                    className="fade-in-section testTitle"
-                                    style={{ animationDelay: "0.2s", fontSize: "2rem" }}
-                                >
-                                    Comprehensive Guidance For Every Academic <span className="highlight"> Milestone</span>
-                                </h3>
+                            </div>
+                            <div className={styles.column}>
+                                <div className={`${styles.title} ${styles.tests}`}>STANDARDISED TESTS</div>
+                                <div className={styles.cards}>
+                                    <a href="/act-tutors-in-dubai">
+                                        <CurriculumCard defaultClass="light-blue">
+                                            <span className={styles.check}>✔</span> ACT
+                                        </CurriculumCard>
+                                    </a>
+                                    <a href="/advanced-placements-tutors-in-dubai">
+                                        <CurriculumCard defaultClass="light-blue">
+                                            <span className={styles.check}>✔</span> AP
+                                        </CurriculumCard>
+                                    </a>
+                                    <a href="#" className={styles.full}>
+                                        <CurriculumCard defaultClass="light-blue" full>
+                                            <span className={styles.check}>✔</span> UCAT
+                                        </CurriculumCard>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section >
+                </LazySection>
 
-                    <div className={`${styles.container} ${styles['what-we-offer']}`}>
-                        <div className={`${styles.step} fade-in-section`}
-                            data-scroll
-                            data-scroll-class="is-inview"
-                            data-scroll-repeat="true"
-                            style={{ animationDelay: "0.1s" }}
-                        >
-                            <div className={styles['icon-wrap']} data-step="01">
-                                <img src="/images/school.webp" alt="School Options" width={134} height={134} />
+                <LazySection>
+                    <section data-scroll-section>
+                        <SubjectsCard />
+                    </section>
+                </LazySection>
+
+                <LazySection>
+                    <section className={achievementStyles.achievementsSection}>
+                        <div className={styles.container}>
+
+                            <div className="text-center mb-md-5 mb-4 fade-in-section"
+                                data-scroll
+                                data-scroll-class="is-inview"
+                                data-scroll-repeat
+                                style={{ animationDelay: "0.2s" }}>
+                                <div className="testHeadings">
+                                    <div
+                                        data-scroll
+                                        data-scroll-class="is-inview"
+                                        data-scroll-repeat="true"
+                                        className="fade-in-section"
+                                        style={{ animationDelay: "0.1s" }}
+                                    >
+                                        <h2 className="SubHeading testSubheading">WHAT MORE DO WE OFFER?</h2>
+                                    </div>
+                                    <h3
+                                        data-scroll
+                                        data-scroll-class="is-inview"
+                                        data-scroll-repeat="true"
+                                        className="fade-in-section testTitle"
+                                        style={{ animationDelay: "0.2s", fontSize: "2rem" }}
+                                    >
+                                        Comprehensive Guidance For Every Academic <span className="highlight"> Milestone</span>
+                                    </h3>
+                                </div>
                             </div>
-                            <h3 className={`${styles['step-title']} mb-0`}>SCHOOL OPTIONS</h3>
-                            <div className={styles['step-desc']}>Discover schools that align with your core strengths & goals.</div>
                         </div>
 
-                        <div className={`${styles.step} fade-in-section`}
-                            data-scroll
-                            data-scroll-class="is-inview"
-                            data-scroll-repeat="true"
-                            style={{ animationDelay: "0.2s" }}
-                        >
-                            <div className={styles['icon-wrap']} data-step="02">
-                                <img src="/images/idealcur.webp" alt="Ideal Curriculum" width={134} height={134} />
+                        <div className={`${styles.container} ${styles['what-we-offer']}`}>
+                            <div className={`${styles.step} fade-in-section`}
+                                data-scroll
+                                data-scroll-class="is-inview"
+                                data-scroll-repeat="true"
+                                style={{ animationDelay: "0.1s" }}
+                            >
+                                <div className={styles['icon-wrap']} data-step="01">
+                                    <img src="/images/school.webp" alt="School Options" width={134} height={134} />
+                                </div>
+                                <h3 className={`${styles['step-title']} mb-0`}>SCHOOL OPTIONS</h3>
+                                <div className={styles['step-desc']}>Discover schools that align with your core strengths & goals.</div>
                             </div>
-                            <h3 className={`${styles['step-title']} mb-0`}>IDEAL CURRICULUM</h3>
-                            <div className={styles['step-desc']}>Choose the right-fit curriculum for lasting academic success.</div>
-                        </div>
 
-                        <div className={`${styles.step} fade-in-section`}
-                            data-scroll
-                            data-scroll-class="is-inview"
-                            data-scroll-repeat="true"
-                            style={{ animationDelay: "0.3s" }}
-                        >
-                            <div className={styles['icon-wrap']} data-step="03">
-                                <img src="/images/subject.webp" alt="Subject Choices" width={134} height={134} />
+                            <div className={`${styles.step} fade-in-section`}
+                                data-scroll
+                                data-scroll-class="is-inview"
+                                data-scroll-repeat="true"
+                                style={{ animationDelay: "0.2s" }}
+                            >
+                                <div className={styles['icon-wrap']} data-step="02">
+                                    <img src="/images/idealcur.webp" alt="Ideal Curriculum" width={134} height={134} />
+                                </div>
+                                <h3 className={`${styles['step-title']} mb-0`}>IDEAL CURRICULUM</h3>
+                                <div className={styles['step-desc']}>Choose the right-fit curriculum for lasting academic success.</div>
                             </div>
-                            <h3 className={`${styles['step-title']} mb-0`}>SUBJECT CHOICES</h3>
-                            <div className={styles['step-desc']}>Choose subjects that match your career & higher education goals.</div>
-                        </div>
 
-                        <div className={`${styles.step} fade-in-section`}
-                            data-scroll
-                            data-scroll-class="is-inview"
-                            data-scroll-repeat="true"
-                            style={{ animationDelay: "0.4s" }}
-                        >
-                            <div className={styles['icon-wrap']} data-step="04">
-                                <img src="/images/universitypath.webp" alt="University Pathways" width={134} height={134} />
+                            <div className={`${styles.step} fade-in-section`}
+                                data-scroll
+                                data-scroll-class="is-inview"
+                                data-scroll-repeat="true"
+                                style={{ animationDelay: "0.3s" }}
+                            >
+                                <div className={styles['icon-wrap']} data-step="03">
+                                    <img src="/images/subject.webp" alt="Subject Choices" width={134} height={134} />
+                                </div>
+                                <h3 className={`${styles['step-title']} mb-0`}>SUBJECT CHOICES</h3>
+                                <div className={styles['step-desc']}>Choose subjects that match your career & higher education goals.</div>
                             </div>
-                            <h3 className={`${styles['step-title']} mb-0`}>UNIVERSITY PATHWAYS</h3>
-                            <div className={styles['step-desc']}>Map a clear, strategic path to top international universities.</div>
+
+                            <div className={`${styles.step} fade-in-section`}
+                                data-scroll
+                                data-scroll-class="is-inview"
+                                data-scroll-repeat="true"
+                                style={{ animationDelay: "0.4s" }}
+                            >
+                                <div className={styles['icon-wrap']} data-step="04">
+                                    <img src="/images/universitypath.webp" alt="University Pathways" width={134} height={134} />
+                                </div>
+                                <h3 className={`${styles['step-title']} mb-0`}>UNIVERSITY PATHWAYS</h3>
+                                <div className={styles['step-desc']}>Map a clear, strategic path to top international universities.</div>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </LazySection>
 
-                <section data-scroll-section>
-                    <MarqueeBanner />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <MarqueeBanner />
+                    </section>
+                </LazySection>
 
-                <Testimonial />
+                <LazySection>
+                    <Testimonial />
+                </LazySection>
 
                 {/* <section data-scroll-section>
                     <TrainersMessage />
                 </section> */}
 
-                <section data-scroll-section>
-                    <CallToAction />
-                </section>
+                <LazySection>
+                    <section data-scroll-section>
+                        <CallToAction />
+                    </section>
+                </LazySection>
             </div >
         </>
     );

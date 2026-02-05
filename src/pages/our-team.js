@@ -1,4 +1,5 @@
 'use client';
+import LazySection from "@/components/LazySection";
 
 import { useState, useEffect } from 'react';
 import SEO from "@/components/SEO";
@@ -207,134 +208,144 @@ const OurTeam = ({ headerHeight }) => {
                 <TeamBanner />
 
                 {/* --- Section 1: Co-Founders --- */}
-                <section className={styles['meet-out-team']} data-scroll-section>
-                    <div className="container">
-                        <div className="text-center mb-5">
-                            <div className={styles['meet-team-Headings']}>
-                                <div data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={styles['fade-in-section']} style={{ animationDelay: "0.1s" }}>
-                                    <h2 className="SubHeading">MEET OUR TEAM</h2>
+                <LazySection>
+                    <section className={styles['meet-out-team']} data-scroll-section>
+                        <div className="container">
+                            <div className="text-center mb-5">
+                                <div className={styles['meet-team-Headings']}>
+                                    <div data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={styles['fade-in-section']} style={{ animationDelay: "0.1s" }}>
+                                        <h2 className="SubHeading">MEET OUR TEAM</h2>
+                                    </div>
+                                    <h3 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${styles['fade-in-section']} ${styles.meetTitle}`} style={{ animationDelay: "0.2s" }}>
+                                        Dedicated Ignite Trainers Shaping Bright<span className={styles.highlight}> Futures </span>
+                                    </h3>
+                                    <h2 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${styles['fade-in-section']} ${styles.cofounderTitle}`} style={{ animationDelay: "0.2s" }}>
+                                        CO-FOUNDERS
+                                    </h2>
                                 </div>
-                                <h3 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${styles['fade-in-section']} ${styles.meetTitle}`} style={{ animationDelay: "0.2s" }}>
-                                    Dedicated Ignite Trainers Shaping Bright<span className={styles.highlight}> Futures </span>
-                                </h3>
-                                <h2 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${styles['fade-in-section']} ${styles.cofounderTitle}`} style={{ animationDelay: "0.2s" }}>
-                                    CO-FOUNDERS
-                                </h2>
                             </div>
-                        </div>
-                        <div className={styles['meet-team-cards']}>
-                            {coFoundersData.map((founder, index) => {
-                                const key = `founder-${index}`;
-                                const isExpanded = expandedCards[key];
-                                return (
-                                    <div className={styles['team-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                                        <div className={styles['team-card-image']}>
-                                            <img src={founder.image} alt={founder.name} width={founder.width} height={founder.height} />
-                                        </div>
-                                        <div className={styles['team-card-info']}>
-                                            <div className={styles['team-card-name']}><h3>{founder.name}</h3></div>
-                                            <div className={styles['team-card-content']}>
-                                                <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
-                                                    {isExpanded ? founder.description : sliceByWordCount(founder.description, 16)}
-                                                </p>
-                                                <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
-                                                    {isExpanded ? "Read Less" : "Read More"}
-                                                </a>
+                            <div className={styles['meet-team-cards']}>
+                                {coFoundersData.map((founder, index) => {
+                                    const key = `founder-${index}`;
+                                    const isExpanded = expandedCards[key];
+                                    return (
+                                        <div className={styles['team-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                                            <div className={styles['team-card-image']}>
+                                                <img src={founder.image} alt={founder.name} width={founder.width} height={founder.height} />
+                                            </div>
+                                            <div className={styles['team-card-info']}>
+                                                <div className={styles['team-card-name']}><h3>{founder.name}</h3></div>
+                                                <div className={styles['team-card-content']}>
+                                                    <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
+                                                        {isExpanded ? founder.description : sliceByWordCount(founder.description, 16)}
+                                                    </p>
+                                                    <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
+                                                        {isExpanded ? "Read Less" : "Read More"}
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </LazySection>
 
                 {/* --- Section 2: Student Success Managers --- */}
-                <section className={styles['admin-staff']} data-scroll-section>
-                    <div className="container">
-                        <div className={styles['meet-team-Headings']}>
-                            <h2 className={styles.cofounderTitle}>STUDENT SUCCESS MANAGERS</h2>
+                <LazySection>
+                    <section className={styles['admin-staff']} data-scroll-section>
+                        <div className="container">
+                            <div className={styles['meet-team-Headings']}>
+                                <h2 className={styles.cofounderTitle}>STUDENT SUCCESS MANAGERS</h2>
+                            </div>
+                            <div className={styles['admin-staff-cards']}>
+                                {adminStaffData.map((admin, index) => {
+                                    const key = `admin-${index}`;
+                                    const isExpanded = expandedCards[key];
+                                    return (
+                                        <div className={styles['admin-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                                            <div className={styles['admin-card-image']}><img src={admin.image} alt={admin.name} width={admin.width} height={admin.height} /></div>
+                                            <div className={styles['admin-card-info']}>
+                                                <div className={styles['admin-card-content']}>
+                                                    <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
+                                                        {isExpanded ? admin.description : sliceByWordCount(admin.description, 8)}
+                                                    </p>
+                                                    <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
+                                                        {isExpanded ? "Read Less" : "Read More"}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
-                        <div className={styles['admin-staff-cards']}>
-                            {adminStaffData.map((admin, index) => {
-                                const key = `admin-${index}`;
-                                const isExpanded = expandedCards[key];
-                                return (
-                                    <div className={styles['admin-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                                        <div className={styles['admin-card-image']}><img src={admin.image} alt={admin.name} width={admin.width} height={admin.height} /></div>
-                                        <div className={styles['admin-card-info']}>
-                                            <div className={styles['admin-card-content']}>
+                    </section>
+                </LazySection>
+
+                <LazySection>
+                    <MarqueeBanner />
+                </LazySection>
+
+                {/* --- Section 3: Trainers --- */}
+                <LazySection>
+                    <section className={styles['trainer-section']} data-scroll-section>
+                        <div className="container">
+                            <div className={styles['meet-team-Headings']}>
+                                <h2 className={styles.cofounderTitle}>Trainers</h2>
+                            </div>
+                            <div className={styles['trainer-cards']}>
+                                {trainersData.map((trainer, index) => {
+                                    const key = `trainer-${index}`;
+                                    const isExpanded = expandedCards[key];
+                                    return (
+                                        <div className={styles['trainer-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
+                                            <div className={styles['trainer-name']}><h3>{trainer.name}</h3></div>
+                                            <div className={styles['trainer-image']}><img src={trainer.image} alt={trainer.name} width={trainer.width} height={trainer.height} /></div>
+                                            <div className={styles['trainer-info']}>
                                                 <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
-                                                    {isExpanded ? admin.description : sliceByWordCount(admin.description, 8)}
+                                                    {isExpanded ? trainer.description : trainer.description.slice(0, 150) + "..."}
                                                 </p>
                                                 <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
                                                     {isExpanded ? "Read Less" : "Read More"}
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <MarqueeBanner />
-
-                {/* --- Section 3: Trainers --- */}
-                <section className={styles['trainer-section']} data-scroll-section>
-                    <div className="container">
-                        <div className={styles['meet-team-Headings']}>
-                            <h2 className={styles.cofounderTitle}>Trainers</h2>
-                        </div>
-                        <div className={styles['trainer-cards']}>
-                            {trainersData.map((trainer, index) => {
-                                const key = `trainer-${index}`;
-                                const isExpanded = expandedCards[key];
-                                return (
-                                    <div className={styles['trainer-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
-                                        <div className={styles['trainer-name']}><h3>{trainer.name}</h3></div>
-                                        <div className={styles['trainer-image']}><img src={trainer.image} alt={trainer.name} width={trainer.width} height={trainer.height} /></div>
-                                        <div className={styles['trainer-info']}>
-                                            <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
-                                                {isExpanded ? trainer.description : trainer.description.slice(0, 150) + "..."}
-                                            </p>
-                                            <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
-                                                {isExpanded ? "Read Less" : "Read More"}
-                                            </a>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                </LazySection>
 
                 {/* --- Section 4: CTA --- */}
-                <section className={styles['cta-section']} data-scroll-section>
-                    <div className={`${styles['call-to-action']} ${styles.teams} container`}>
-                        <div className={styles['cta-container']}>
-                            <div className={styles['cta-content']}>
-                                <h2>Meet The Dedicated Educators {!isMobileDevice && <br />} Driving Student Success</h2>
-                                <p>Get to know the passionate experts whose knowledge, guidance, & commitment inspire students to achieve their full potential.</p>
-                                <div className={styles['cta-buttons']}>
-                                    <a href="/our-team">
-                                        <button className={styles['cta-button']}>
-                                            <span>Join Our Team</span>
-                                            <div className={styles.buttonIcon}><ArrowRight size={20} /></div>
-                                        </button>
-                                    </a>
-                                    <a href="/join-free-demo-class">
-                                        <button className={styles['cta-button']}>
-                                            <span>Join a Free Demo</span>
-                                            <div className={styles.buttonIcon}><ArrowRight size={20} /></div>
-                                        </button>
-                                    </a>
+                <LazySection>
+                    <section className={styles['cta-section']} data-scroll-section>
+                        <div className={`${styles['call-to-action']} ${styles.teams} container`}>
+                            <div className={styles['cta-container']}>
+                                <div className={styles['cta-content']}>
+                                    <h2>Meet The Dedicated Educators {!isMobileDevice && <br />} Driving Student Success</h2>
+                                    <p>Get to know the passionate experts whose knowledge, guidance, & commitment inspire students to achieve their full potential.</p>
+                                    <div className={styles['cta-buttons']}>
+                                        <a href="/our-team">
+                                            <button className={styles['cta-button']}>
+                                                <span>Join Our Team</span>
+                                                <div className={styles.buttonIcon}><ArrowRight size={20} /></div>
+                                            </button>
+                                        </a>
+                                        <a href="/join-free-demo-class">
+                                            <button className={styles['cta-button']}>
+                                                <span>Join a Free Demo</span>
+                                                <div className={styles.buttonIcon}><ArrowRight size={20} /></div>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </LazySection>
             </div>
         </>
     );

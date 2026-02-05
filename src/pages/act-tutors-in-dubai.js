@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import LazySection from '@/components/LazySection';
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
@@ -205,49 +206,69 @@ const act = ({ headerHeight }) => {
           <InfoCard />
         </section>
 
-        <section data-scroll-section>
-          <IgniteAboutCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <IgniteAboutCard />
+          </section>
+        </LazySection>
         {/* <section data-scroll-section>
             <StudentAchievements />
           </section> */}
 
-        <section data-scroll-section>
-          <CourseCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <CourseCard />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <SubjectsCard />
-        </section>
-        <section data-scroll-section>
-          <SubjectsCard1 />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <SubjectsCard />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <SubjectsCard1 />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <UspsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <UspsSection />
+          </section>
+        </LazySection>
 
         {/* <section data-scroll-section>
             <LifeAtIgniteCarousel />
           </section> */}
 
-        <section data-scroll-section>
-          <ReviewsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <ReviewsSection />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <FAQSection />
-        </section>
-        <section data-scroll-section>
-          <MarqueeBanner />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <FAQSection />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <MarqueeBanner />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section className='actblogs'>
-          <Blog />
-        </section>
-        <section data-scroll-section>
-          <Accordion />
-        </section>
+        <LazySection>
+          <section data-scroll-section className='actblogs'>
+            <Blog />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <Accordion />
+          </section>
+        </LazySection>
       </div>
     </>
   );

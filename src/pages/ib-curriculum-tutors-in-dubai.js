@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 // import MovingBanner from '@/components/home/MovingBanner';
@@ -197,57 +198,81 @@ const IBC = ({ headerHeight }) => {
           <InfoCard />
         </section>
 
-        <section data-scroll-section>
-          <IgniteAboutCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <IgniteAboutCard />
+          </section>
+        </LazySection>
 
         {/* <section data-scroll-section>
                     <StudentAchievements />
                 </section> */}
 
-        <section data-scroll-section>
-          <IBCurriculumStages />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <IBCurriculumStages />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <SubjectsCard />
-        </section>
-        <section data-scroll-section>
-          <MarqueeBanner />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <SubjectsCard />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <MarqueeBanner />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <ReviewsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <ReviewsSection />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <Trainers />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Trainers />
+          </section>
+        </LazySection>
 
-        <WhatWeOfferSection />
+        <LazySection>
+          <WhatWeOfferSection />
+        </LazySection>
 
-        <section data-scroll-section>
-          <IgniteAchievements />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <IgniteAchievements />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <UspsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <UspsSection />
+          </section>
+        </LazySection>
 
         {/* <section data-scroll-section>
                     <LifeAtIgniteCarousel />
                 </section> */}
 
-        <section data-scroll-section>
-          <FAQSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <FAQSection />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <Blog />
-        </section>
-        <section data-scroll-section>
-          <Accordion />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Blog />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <Accordion />
+          </section>
+        </LazySection>
       </div>
     </>
   );

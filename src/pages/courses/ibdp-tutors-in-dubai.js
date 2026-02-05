@@ -1,4 +1,5 @@
 // import MovingBanner from '@/components/home/MovingBanner';
+import LazySection from "@/components/LazySection";
 // import Testimonial from '@/components/home/Testimonial';
 import Accordion from '@/components/ibdp/accordian';
 import Blog from "@/components/ibdp/Blog";
@@ -38,62 +39,86 @@ const IBDP = ({ headerHeight }) => {
           <InfoCard />
         </section>
 
-        <section data-scroll-section>
-          <IgniteAboutCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <IgniteAboutCard />
+          </section>
+        </LazySection>
 
         {/* <section data-scroll-section>
         <StudentAchievements />
       </section> */}
 
-        <section data-scroll-section>
-          <CourseCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <CourseCard />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <SubjectsCard />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <SubjectsCard />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <ReviewsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <ReviewsSection />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <Trainers />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Trainers />
+          </section>
+        </LazySection>
 
         {/* what we offer Start */}
-        <WhatWeOfferSection />
+        <LazySection>
+          <WhatWeOfferSection />
+        </LazySection>
 
 
         {/* What We Offer End */}
 
-        <section data-scroll-section>
-          <IgniteAchievements />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <IgniteAchievements />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <MarqueeBanner />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <MarqueeBanner />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <UspsSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <UspsSection />
+          </section>
+        </LazySection>
 
         {/* <section data-scroll-section>
         <LifeAtIgniteCarousel />
       </section> */}
 
-        <section data-scroll-section>
-          <FAQSection />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <FAQSection />
+          </section>
+        </LazySection>
 
-        <section data-scroll-section>
-          <Blog />
-        </section>
-        <section data-scroll-section>
-          <Accordion />
-        </section>
+        <LazySection>
+          <section data-scroll-section>
+            <Blog />
+          </section>
+        </LazySection>
+        <LazySection>
+          <section data-scroll-section>
+            <Accordion />
+          </section>
+        </LazySection>
       </div>
     </>
   );

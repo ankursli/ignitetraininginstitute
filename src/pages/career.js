@@ -3,6 +3,7 @@ import CareerForm from '@/components/career/CareerForm';
 import IgniteCareerCard from '@/components/career/IgniteCareerCard';
 import { useEffect, useRef } from 'react';
 import SEO from "@/components/SEO";
+import LazySection from "@/components/LazySection";
 // 1. ACCEPT the headerHeight prop
 const act = ({ headerHeight }) => {
   const scrollRef = useRef(null);
@@ -53,12 +54,18 @@ const act = ({ headerHeight }) => {
         <section data-scroll-section>
           <CareersBanner />
         </section>
-        <section data-scroll-section>
-          <IgniteCareerCard />
-        </section>
-        <section data-scroll-section>
-          <CareerForm />
-        </section>
+
+        <LazySection>
+          <section data-scroll-section>
+            <IgniteCareerCard />
+          </section>
+        </LazySection>
+
+        <LazySection>
+          <section data-scroll-section>
+            <CareerForm />
+          </section>
+        </LazySection>
       </div>
     </>
   );
