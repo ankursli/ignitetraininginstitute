@@ -35,7 +35,7 @@ const IBDP = ({ headerHeight }) => {
         // Removed: data-scroll-container
         style={{ paddingTop: `${headerHeight}px` }}
       >
-        <section data-scroll-section>
+        <section>
           <InfoCard />
         </section>
 

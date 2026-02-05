@@ -161,15 +161,7 @@ export default function InfoCard() {
     }
   };
   return (
-    <div
-      className=""
-      style={{
-        maxWidth: isMobile ? "95vw" : "90vw",
-        marginInline: "auto",
-        marginBlock: isMobile ? "0" : "0",
-        animationDelay: "0.1s",
-      }}
-    >
+    <div className="info-card-container">
       <div
         className="position-relative overflow-hidden"
         style={{
@@ -630,6 +622,17 @@ export default function InfoCard() {
       </div>
 
       <style jsx>{`
+        .info-card-container {
+          max-width: 90vw;
+          margin-inline: auto;
+          margin-block: 0;
+          animation-delay: 0.1s;
+        }
+        @media (max-width: 1100px) {
+          .info-card-container {
+            max-width: 95vw;
+          }
+        }
         .form-control::placeholder {
           color: #ffffff !important;
           opacity: 0.5;
