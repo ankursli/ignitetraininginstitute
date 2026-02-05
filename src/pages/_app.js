@@ -137,7 +137,7 @@ export default function MyApp({ Component, pageProps }) {
     // Minimal Return for Debugging
     return (
         <PopupProvider>
-            {/* <Script
+            <Script
                 id="gtm-script"
                 strategy="lazyOnload"
                 dangerouslySetInnerHTML={{
@@ -147,7 +147,7 @@ export default function MyApp({ Component, pageProps }) {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-PMG2GSQ');`,
                 }}
-            /> */}
+            />
 
             {shouldLoadLocomotiveScroll ? (
                 <LocomotiveScrollProvider>
