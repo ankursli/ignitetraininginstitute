@@ -7,13 +7,19 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
     const scroll = useScroll(); // Get Locomotive Scroll instance
 
     useEffect(() => {
+        // Eager load on Desktop to prevent Locomotive Scroll juggling
+        if (typeof window !== 'undefined' && window.innerWidth > 768) {
+            setIsVisible(true);
+            return;
+        }
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
                     observer.disconnect();
 
-                    // Directly update Locomotive Scroll instance
+                    // Directly update Locomotive Scroll instance (only for mobile if somehow active)
                     if (scroll) {
                         setTimeout(() => {
                             scroll.update();
