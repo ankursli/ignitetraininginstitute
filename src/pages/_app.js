@@ -95,7 +95,10 @@ export default function MyApp({ Component, pageProps }) {
             console.log('Locomotive Scroll disabled for mobile');
             setShouldLoadLocomotiveScroll(false);
         } else {
-            setShouldLoadLocomotiveScroll(true);
+            // Temporarily disabled for LCP debugging
+            console.log('Locomotive Scroll disabled for debugging');
+            setShouldLoadLocomotiveScroll(false);
+            // setShouldLoadLocomotiveScroll(true);
         }
     }, []);
 
