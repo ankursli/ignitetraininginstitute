@@ -63,6 +63,7 @@ const IBDP = ({ headerHeight }) => {
                 src="/assets/ibdp_bg_main.webp"
                 alt="IBDP Tutors Background"
                 fetchPriority="high"
+                decoding="sync"
                 width="1200"
                 height="800"
                 className="hero-img"
