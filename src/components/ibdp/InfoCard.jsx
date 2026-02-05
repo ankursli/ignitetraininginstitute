@@ -175,6 +175,7 @@ export default function InfoCard() {
           alt="IBDP Tutors Background"
           fill
           priority
+          fetchPriority="high"
           sizes="95vw"
           style={{
             objectFit: "cover",
