@@ -54,8 +54,56 @@ const IBDP = ({ headerHeight }) => {
         // Removed: data-scroll-container
         style={{ paddingTop: `${headerHeight}px` }}
       >
-        <section>
-          <InfoCard />
+        <section className="hero-section">
+          <div className="hero-container">
+            {/* LCP Image moved here for immediate painting (SSR) */}
+            <picture className="hero-bg">
+              <source media="(max-width: 768px)" srcSet="/assets/ib-bg.webp" />
+              <img
+                src="/assets/ibdp_bg_main.webp"
+                alt="IBDP Tutors Background"
+                fetchPriority="high"
+                width="1200"
+                height="800"
+                className="hero-img"
+              />
+            </picture>
+
+            {/* Interactive Content */}
+            <InfoCard />
+          </div>
+
+          <style jsx>{`
+            .hero-container {
+              position: relative;
+              max-width: 90vw;
+              margin-inline: auto;
+              margin-block: 0;
+              min-height: 750px;
+              border-radius: 1.5rem;
+              overflow: hidden;
+              isolation: isolate; /* Creates stacking context */
+            }
+            .hero-bg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+            .hero-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
+            @media (max-width: 1100px) {
+              .hero-container {
+                max-width: 95vw;
+              }
+            }
+          `}</style>
         </section>
 
         <LazySection>

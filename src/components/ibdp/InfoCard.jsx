@@ -165,37 +165,11 @@ export default function InfoCard() {
       <div
         className="position-relative overflow-hidden"
         style={{
-          minHeight: "750px",
-          borderRadius: "1.5rem"
+          height: "100%", // Fill the parent height
         }}
       >
 
-        <picture style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-          borderRadius: "1.5rem",
-          overflow: "hidden"
-        }}>
-          <source media="(max-width: 768px)" srcSet="/assets/ib-bg.webp" />
-          <img
-            src="/assets/ibdp_bg_main.webp"
-            alt="IBDP Tutors Background"
-            fetchPriority="high"
-            width="1200"
-            height="800"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center",
-              borderRadius: "1.5rem"
-            }}
-          />
-        </picture>
+        {/* Background Image moved to parent page for LCP optimization */}
 
 
 
@@ -636,15 +610,8 @@ export default function InfoCard() {
 
       <style jsx>{`
         .info-card-container {
-          max-width: 90vw;
-          margin-inline: auto;
-          margin-block: 0;
-          animation-delay: 0.1s;
-        }
-        @media (max-width: 1100px) {
-          .info-card-container {
-            max-width: 95vw;
-          }
+          width: 100%;
+          height: 100%;
         }
         .form-control::placeholder {
           color: #ffffff !important;
