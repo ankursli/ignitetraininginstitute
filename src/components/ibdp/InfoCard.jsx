@@ -190,15 +190,12 @@ export default function InfoCard() {
                   fontSize: "2.6rem",
                 }}
               >
-                {isMobile ? (
-                  <>
-                    IBDP Tutors In Dubai, UAE For Curriculum Excellence
-                  </>
-                ) : (
-                  <>
-                    IBDP Tutors in Dubai,<br /> UAE Helping You Excel
-                  </>
-                )}
+                <span className="mobile-text">
+                  IBDP Tutors In Dubai, UAE For Curriculum Excellence
+                </span>
+                <span className="desktop-text">
+                  IBDP Tutors in Dubai,<br /> UAE Helping You Excel
+                </span>
               </h1>
               <div className="divider fade-in-section"
                 data-scroll
@@ -260,9 +257,10 @@ export default function InfoCard() {
                     <Image
                       src="/assets/medal.webp"
                       alt="Grade Support"
-                      width={isMobile ? 20 : 32}
-                      height={isMobile ? 30 : 45}
+                      width={32}
+                      height={45}
                       className="icon-img"
+                      style={{ width: "auto", height: "auto", maxHeight: "45px", maxWidth: "32px" }}
                     />
                   </span>
                   Grade 11<br />& 12 Support
@@ -319,7 +317,7 @@ export default function InfoCard() {
               </div>
 
               <p
-                className={`fade-in-section text-white mb-4 ${isMobile ? 'pt-3' : ''}`}
+                className="fade-in-section text-white mb-4 pt-3 pt-md-4"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -329,7 +327,7 @@ export default function InfoCard() {
                   lineHeight: "1.8",
                   fontWeight: "500",
                   opacity: "0.9",
-                  marginTop: isMobile ? "0" : "20px!important",
+                  // marginTop: isMobile ? "0" : "20px!important", Handled by pt-3 pt-md-4
                 }}
               >
                 We specialize in expert tutoring support for the IB Diploma Programme across all subject groups. Our structured approach combines in-depth resources, focused training, & rigorous testing for consistent results.
@@ -746,9 +744,7 @@ export default function InfoCard() {
             padding: 8px 10px !important;
           }
 
-          textarea.form-control {
-            padding: 10px !important;
-          }
+
 
           .form-container .btn {
             font-size: 0.8rem !important;
@@ -1375,6 +1371,23 @@ export default function InfoCard() {
           }
         }
 
+        /* --- GLOBAL CUSTOM BREAKPOINTS --- */
+        /* Custom Breakpoint Logic to match original design (1100px) */
+        .mobile-text { display: none; }
+        .desktop-text { display: block; }
+
+        @media (max-width: 1100px) {
+          .mobile-text { display: block; }
+          .desktop-text { display: none; }
+          
+          /* Resize icons to match original mobile sizes */
+          .icon-img {
+            max-width: 22px !important; 
+            max-height: 30px !important;
+            width: auto !important; 
+            height: auto !important;
+          }
+        }
       `}</style>
     </div>
   );
