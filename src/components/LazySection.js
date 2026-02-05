@@ -10,6 +10,13 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
                     observer.disconnect();
+
+                    // Trigger resize event to update Locomotive Scroll
+                    setTimeout(() => {
+                        if (typeof window !== 'undefined') {
+                            window.dispatchEvent(new Event('resize'));
+                        }
+                    }, 200);
                 }
             },
             {
