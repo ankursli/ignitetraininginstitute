@@ -173,25 +173,23 @@ export default function InfoCard() {
       <div
         className="position-relative overflow-hidden"
         style={{
-          backgroundImage: "url('/assets/1stcard.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           borderRadius: "1.5rem",
           minHeight: "750px",
         }}
       >
-        {/* Dark overlay */}
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100 fade-in-section"
-          data-scroll
-          data-scroll-class="is-inview"
-          data-scroll-repeat
+        <Image
+          src="/assets/myp_bg_main.webp"
+          alt="MYP Tutors Background"
+          fill
+          priority
+          sizes="95vw"
           style={{
-            background: "rgba(0, 0, 0, 0.6)",
+            objectFit: "cover",
+            objectPosition: "center",
             borderRadius: "1.5rem",
-            animationDelay: "0.15s",
+            zIndex: -1
           }}
-        ></div>
+        />
 
         {/* Content container */}
         <div className="position-relative h-100" style={{ zIndex: 1 }}>
