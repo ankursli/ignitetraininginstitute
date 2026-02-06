@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Head from "next/head";
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
@@ -181,21 +182,69 @@ const BC = ({ headerHeight }) => {
   return (
     <>
       <SEO
-        title="British Curriculum Tutors For IGCSE/GCSE & AS & A-Levels"
         description="Seek full guidance for the British Curriculum in the UAE. Learn from expert A-Level & IGCSE tutors to strengthen academics & boost performance"
       />
-      {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
-      <JsonLd schema={bcSchema} />
 
-      {/* 3. APPLY the style for paddingTop to the scroll container */}
+      <Head>
+        <link rel="preload" href="/assets/bc_bg_main.webp" as="image" fetchPriority="high" />
+      </Head>
+
+      {/* LCP Optimization: Lifted Image */}
       <div
         ref={scrollRef}
-        className='overflow-hidden innerpage'
+        className='overflow-hidden innerpage page-content-padding'
         data-scroll-container
-        style={{ paddingTop: `${headerHeight}px` }} // <--- THE STICKY HEADER FIX
       >
-        <section data-scroll-section>
-          <InfoCard />
+        <section data-scroll-section className="hero-section">
+          <div className="hero-container">
+            {/* LCP Image moved here for immediate painting (SSR) */}
+            <picture className="hero-bg">
+              <source media="(max-width: 768px)" srcSet="/assets/ib-bg.webp" />
+              <img
+                src="/assets/bc_bg_main.webp"
+                alt="British Curriculum Tutors Background"
+                fetchpriority="high"
+                decoding="sync"
+                width="1200"
+                height="800"
+                className="hero-img"
+              />
+            </picture>
+
+            <InfoCard />
+          </div>
+
+          <style jsx>{`
+            .hero-container {
+              position: relative;
+              max-width: 90vw;
+              margin-inline: auto;
+              margin-block: 0;
+              min-height: 750px;
+              border-radius: 1.5rem;
+              overflow: hidden;
+              isolation: isolate;
+            }
+            .hero-bg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+            .hero-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
+            @media (max-width: 1100px) {
+              .hero-container {
+                max-width: 95vw;
+              }
+            }
+          `}</style>
         </section>
 
         <LazySection>
