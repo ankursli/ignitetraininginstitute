@@ -195,7 +195,7 @@ export default function InfoCard() {
                 }}
               >
                 <span className="mobile-text">
-                  IGCSE Tutors In Dubai, UAE For Assured Results
+                  IGCSE Tutors In Dubai, UAE For <br /> Assured Results
                 </span>
                 <span className="desktop-text">
                   IGCSE Tutors In Dubai, <br />UAE For Student Success

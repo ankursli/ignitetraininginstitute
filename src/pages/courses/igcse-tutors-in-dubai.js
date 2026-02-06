@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import LazySection from "@/components/LazySection";
-// 1. Import the reusable schema component
+import React, { useRef, useEffect } from 'react';
+import Head from "next/head";
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
-import Head from "next/head";
+import LazySection from "@/components/LazySection";
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
 import Accordion from '@/components/igcse/accordian';
@@ -217,7 +216,7 @@ const IGCSE = ({ headerHeight }) => {
             <picture className="hero-bg">
               <source media="(max-width: 768px)" srcSet="/assets/igcse.webp" />
               <img
-                src="/assets/igcse_bg_main.webp"
+                src="/assets/myp_bg_main.webp"
                 alt="IGCSE Tutors Background"
                 fetchPriority="high"
                 decoding="sync"
