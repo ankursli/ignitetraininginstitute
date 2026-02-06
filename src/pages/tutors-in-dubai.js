@@ -159,8 +159,56 @@ const Tutors = ({ headerHeight }) => {
         data-scroll-container
         style={{ paddingTop: `${headerHeight}px` }} // <--- THE STICKY HEADER FIX
       >
-        <section data-scroll-section>
-          <InfoCard />
+        <section data-scroll-section className="hero-section">
+          <div className="hero-container">
+            {/* LCP Image moved here for immediate painting (SSR) */}
+            <picture className="hero-bg">
+              <source media="(max-width: 768px)" srcSet="/assets/motutors.webp" />
+              <img
+                src="/assets/tutors.webp"
+                alt="Tutors in Dubai"
+                fetchpriority="high"
+                decoding="sync"
+                width="1200"
+                height="800"
+                className="hero-img"
+              />
+            </picture>
+
+            <InfoCard />
+          </div>
+
+          <style jsx>{`
+            .hero-container {
+              position: relative;
+              max-width: 90vw;
+              margin-inline: auto;
+              margin-block: 0;
+              min-height: 750px;
+              border-radius: 1.5rem;
+              overflow: hidden;
+              isolation: isolate;
+            }
+            .hero-bg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+            .hero-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center 35%; 
+            }
+            @media (max-width: 1100px) {
+              .hero-container {
+                max-width: 95vw;
+              }
+            }
+          `}</style>
         </section>
 
         {/* <section data-scroll-section>
