@@ -7,9 +7,7 @@ const images = [
     { p: 'public/assets/ib-bg.webp', q: 65 },       // Aggressive mobile compression
     { p: 'public/assets/ibdp_bg_main.webp', q: 75 }, // Moderate desktop compression
     { p: 'public/assets/bc_bg_main.webp', q: 75 },
-    { p: 'public/assets/igcse_bg_main.webp', q: 75 },
-    { p: 'public/assets/myp_bg_main.webp', q: 75 },
-    { p: 'public/assets/myp_bg_mobile.webp', q: 65 }
+    { p: 'public/assets/igcse_bg_main.webp', q: 75 }
 ];
 
 async function optimize() {
