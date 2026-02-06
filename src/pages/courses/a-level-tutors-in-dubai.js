@@ -3,6 +3,7 @@ import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
+import Head from "next/head";
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
 import Accordion from '@/components/a-level/accordian';
@@ -181,6 +182,26 @@ const ALEVEL = ({ headerHeight }) => {
         title="UAE's Leading A-Level, AS-Level Tutors For All Subjects"
         description="Learn from the best A-Level tutors In UAE with assured grade improvement. Choose a personalized tutoring plan with subjects of your choice."
       />
+
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/alevel.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/alevel_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
+
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={aLevelSchema} />
 
@@ -191,8 +212,24 @@ const ALEVEL = ({ headerHeight }) => {
         data-scroll-container
         style={{ paddingTop: `${headerHeight}px` }} // <--- THE FIX
       >
-        <section data-scroll-section>
-          <InfoCard />
+        <section data-scroll-section className="hero-section">
+          <div className="hero-container">
+            {/* LCP Image moved here for immediate painting (SSR) */}
+            <picture className="hero-bg">
+              <source media="(max-width: 768px)" srcSet="/assets/alevel.webp" />
+              <img
+                src="/assets/alevel_bg_main.webp"
+                alt="A Level Tutors Background"
+                fetchPriority="high"
+                decoding="sync"
+                width="1200"
+                height="800"
+                className="hero-img"
+              />
+            </picture>
+
+            <InfoCard />
+          </div>
         </section>
 
         <LazySection>
@@ -282,6 +319,38 @@ const ALEVEL = ({ headerHeight }) => {
           </section>
         </LazySection>
       </div>
+      <style jsx>{`
+            .hero-container {
+              position: relative;
+              max-width: 90vw;
+              margin-inline: auto;
+              margin-block: 0;
+              min-height: 750px;
+              border-radius: 1.5rem;
+              overflow: hidden;
+              isolation: isolate;
+            }
+            .hero-bg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+            .hero-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
+            @media (max-width: 768px) {
+              .hero-container {
+                max-width: 95vw;
+                min-height: 650px;
+              }
+            }
+      `}</style>
     </>
   );
 };
