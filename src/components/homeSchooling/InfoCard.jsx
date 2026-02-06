@@ -1121,7 +1121,7 @@ export default function InfoCard() {
         @media (max-width: 991.98px) {
           .position-relative.overflow-hidden {
             position: relative;
-            background-image: url("/assets/ib-bg.webp") !important;
+            background-image: url("/assets/homeschooling-bg.webp") !important;
             background-size: cover !important;
             background-position: top !important;
             background-repeat: no-repeat;
