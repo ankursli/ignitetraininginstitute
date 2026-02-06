@@ -3,6 +3,7 @@ import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
+import Head from "next/head";
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
 import Accordion from '@/components/igcse/accordian';
@@ -182,18 +183,52 @@ const IGCSE = ({ headerHeight }) => {
         title="IGCSE Tutors In Dubai, UAE | Expert Coaching & Guidance"
         description="Achieve success with top IGCSE tutors in UAE. Get full prep support for IGCSE with syllabus coverage, past paper practice & exam strategies"
       />
+
+      {/* <Head>
+        <link
+          rel="preload"
+          href="/assets/igcse.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/igcse_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head> */}
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={igcseSchema} />
 
       {/* 3. APPLY the style for paddingTop */}
       <div
         ref={scrollRef}
-        className='overflow-hidden innerpage'
+        className='overflow-hidden innerpage page-content-padding'
         data-scroll-container
-        style={{ paddingTop: `${headerHeight}px` }} // <--- THE FIX
       >
-        <section data-scroll-section>
-          <InfoCard />
+        <section data-scroll-section className="hero-section">
+          <div className="hero-container">
+            {/* LCP Image moved here for immediate painting (SSR) */}
+            <picture className="hero-bg">
+              <source media="(max-width: 768px)" srcSet="/assets/igcse.webp" />
+              <img
+                src="/assets/igcse_bg_main.webp"
+                alt="IGCSE Tutors Background"
+                fetchPriority="high"
+                decoding="sync"
+                width="1200"
+                height="800"
+                className="hero-img"
+              />
+            </picture>
+
+            <InfoCard />
+          </div>
         </section>
 
         <LazySection>
@@ -284,6 +319,38 @@ const IGCSE = ({ headerHeight }) => {
           </section>
         </LazySection>
       </div>
+      <style jsx>{`
+            .hero-container {
+              position: relative;
+              max-width: 90vw;
+              margin-inline: auto;
+              margin-block: 0;
+              min-height: 750px;
+              border-radius: 1.5rem;
+              overflow: hidden;
+              isolation: isolate;
+            }
+            .hero-bg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+            .hero-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
+            @media (max-width: 768px) {
+              .hero-container {
+                max-width: 95vw;
+                min-height: 650px;
+              }
+            }
+      `}</style>
     </>
   );
 };

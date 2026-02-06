@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import LazySection from "@/components/LazySection";
-// 1. Import the reusable schema component
+import React, { useRef, useEffect } from 'react';
+import Head from "next/head";
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
-import Head from "next/head";
+import LazySection from "@/components/LazySection"
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
 import Accordion from '@/components/a-level/accordian';
@@ -178,29 +177,12 @@ const ALEVEL = ({ headerHeight }) => {
 
   return (
     <>
+
       <SEO
         title="UAE's Leading A-Level, AS-Level Tutors For All Subjects"
         description="Learn from the best A-Level tutors In UAE with assured grade improvement. Choose a personalized tutoring plan with subjects of your choice."
       />
 
-      <Head>
-        <link
-          rel="preload"
-          href="/assets/alevel.webp"
-          as="image"
-          type="image/webp"
-          media="(max-width: 768px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          href="/assets/alevel_bg_main.webp"
-          as="image"
-          type="image/webp"
-          media="(min-width: 769px)"
-          fetchPriority="high"
-        />
-      </Head>
 
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={aLevelSchema} />
@@ -208,9 +190,8 @@ const ALEVEL = ({ headerHeight }) => {
       {/* 3. APPLY the style for paddingTop */}
       <div
         ref={scrollRef}
-        className='overflow-hidden innerpage'
+        className='overflow-hidden innerpage page-content-padding'
         data-scroll-container
-        style={{ paddingTop: `${headerHeight}px` }} // <--- THE FIX
       >
         <section data-scroll-section className="hero-section">
           <div className="hero-container">

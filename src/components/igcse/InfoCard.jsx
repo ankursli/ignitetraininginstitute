@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import GlobalPhoneInput from '../GlobalPhoneInput';
+import dynamic from "next/dynamic";
+const GlobalPhoneInput = dynamic(() => import('../GlobalPhoneInput'), {
+  ssr: false,
+  loading: () => <div style={{ height: '50px', width: '100%', borderRadius: '40px', border: '1.5px solid rgba(255,255,255,0.3)' }} />
+});
 
 export default function InfoCard() {
   const handlePhoneChange = (value) => {
@@ -16,7 +20,6 @@ export default function InfoCard() {
   };
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileButton, setIsMobileButton] = useState(false);
-
   const [pageInfo, setPageInfo] = useState('');
   // Form Data
   const [formData, setFormData] = useState({
@@ -34,7 +37,6 @@ export default function InfoCard() {
 
   const [loading, setLoading] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(null);
-
   useEffect(() => {
     const checkDevice = () => {
       setIsMobile(window.innerWidth <= 1100);
@@ -53,7 +55,6 @@ export default function InfoCard() {
 
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
-
   const validate = () => {
     const newErrors = {};
     let isValid = true;
@@ -164,41 +165,23 @@ export default function InfoCard() {
     }
   };
   return (
-    <div
-      className=""
-      style={{
-        maxWidth: isMobile ? "95vw" : "90vw",
-        marginInline: "auto",
-        marginBlock: isMobile ? "0" : "0",
-        animationDelay: "0.1s",
-      }}
-    >
+    <div className="info-card-container">
       <div
         className="position-relative overflow-hidden"
         style={{
-          borderRadius: "1.5rem",
-          minHeight: "750px",
+          height: "100%", // Fill the parent height
         }}
       >
-        <Image
-          src="/assets/igcse_bg_main.webp"
-          alt="IGCSE Tutors Background"
-          fill
-          priority
-          sizes="95vw"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-            borderRadius: "1.5rem",
-            zIndex: -1
-          }}
-        />
+
+        {/* Background Image moved to parent page for LCP optimization */}
+
+
 
         {/* Content container */}
         <div className="position-relative h-100" style={{ zIndex: 1 }}>
           <div className="row g-0 h-100">
             {/* Left Section - Now taking 8 columns (2/3) */}
-            <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content">
+            <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content v100">
               <h1
                 className="fw-bold text-white text-uppercase mb-3 fade-in-section"
                 data-scroll
@@ -211,17 +194,12 @@ export default function InfoCard() {
                   fontSize: "2.6rem",
                 }}
               >
-                {isMobile ? (
-                  <>
-
-                    IGCSE Tutors In Dubai, UAE For <br /> Assured Results
-                  </>
-                ) : (
-                  <>
-
-                    IGCSE Tutors In Dubai, <br />UAE For Student Success
-                  </>
-                )}
+                <span className="mobile-text">
+                  IGCSE Tutors In Dubai, UAE For Assured Results
+                </span>
+                <span className="desktop-text">
+                  IGCSE Tutors In Dubai, <br />UAE For Student Success
+                </span>
               </h1>
               <div className="divider fade-in-section"
                 data-scroll
@@ -241,7 +219,6 @@ export default function InfoCard() {
                   fontWeight: "600",
                   opacity: "1",
                   animationDelay: "0.25s",
-
                   fontSize: "inherit",  // forces same size as previous p tag class
                   lineHeight: "inherit", // optional: keep same spacing
                   marginTop: "19px",
@@ -269,7 +246,6 @@ export default function InfoCard() {
 
               >
 
-                {/* ---- BLOCK 1 ---- */}
                 <h3
                   className="d-flex flex-column align-items-center text-center text-white info-col"
                   style={{
@@ -285,9 +261,10 @@ export default function InfoCard() {
                     <Image
                       src="/assets/medal.webp"
                       alt="Grade Support"
-                      width={isMobile ? 20 : 32}
-                      height={isMobile ? 30 : 45}
+                      width={32}
+                      height={45}
                       className="icon-img"
+                      style={{ width: "auto", height: "auto", maxHeight: "45px", maxWidth: "32px" }}
                     />
                   </span>
                   Year 10<br />& Year 11 Support
@@ -344,8 +321,7 @@ export default function InfoCard() {
               </div>
 
               <p
-
-                className="text-white mb-4 fade-in-section"
+                className="fade-in-section text-white mb-4 pt-3 pt-md-4"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -355,13 +331,13 @@ export default function InfoCard() {
                   lineHeight: "1.8",
                   fontWeight: "500",
                   opacity: "0.9",
-                  marginTop: isMobile ? "0" : "20px!important",
+                  // marginTop: isMobile ? "0" : "20px!important", Handled by pt-3 pt-md-4
                 }}
               >
                 We offer expert IGCSE tutoring support through personalised mentorship across core & extended curriculum subjects. Our seasoned educators are dedicated to helping students achieve academic excellence consistently.
               </p>
 
-              <div className="d-flex gap-3 fade-in-section"
+              <div className="d-flex gap-3 btnwraper fade-in-section"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat>
@@ -376,19 +352,19 @@ export default function InfoCard() {
                       color: "#273972",
                       borderRadius: "40px",
                       fontSize: "1rem",
-                      padding: "10px 14px 10px 20px",
+                      padding: "10px 15px",
                       boxShadow: "2px 4px 8px rgba(38, 66, 149, 0.5)",
                       minWidth: isMobile ? "auto" : "auto", // ensures spacing looks consistent
                       marginTop: isMobile ? "auto" : "20px",
                       gap: isMobile ? "20px" : "20px",
                     }}
                   >
-                    <span style={{ letterSpacing: isMobile ? "0px" : "0px" }}>
+                    <span style={{ letterSpacing: isMobile ? "0" : "0px" }}>
                       Get A Free Demo
                     </span>
                     <img
                       src="/assets/rar.webp"
-                      alt="right"
+                      alt="ibdp tutor in dubai"
                       className="custom-height"
                       width={35}
                       height={35}
@@ -408,43 +384,43 @@ export default function InfoCard() {
               style={{ animationDelay: "0.6s" }}
             >
               {/* Rectangle background images positioned within form section */}
-              <img
+              {/* <img
                 src="/assets/rect1.webp"
-                alt="bg-shape"
+                alt="ibdp tutor in dubai"
                 className="testimonialRect rect-1"
                 width={321}
                 height={170}
               />
               <img
                 src="/assets/rect2.webp"
-                alt="bg-shape"
+                alt="ibdp tutor in dubai"
                 className="testimonialRect rect-2"
                 width={539}
                 height={170}
               />
               <img
                 src="/assets/rect3.webp"
-                alt="bg-shape"
+                alt="ibdp tutor in dubai"
                 className="testimonialRect rect-3"
                 width={309}
                 height={170}
-              />
+              /> */}
 
               <div
                 className="w-100 text-white form-container"
-                style={{
-                  borderRadius: "40px",
-                  backgroundImage: "url('/assets/idbprect.webp')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  minHeight: "550px",
-                  gap: "5px",
-                  minWidth: "550px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
+              // style={{
+              //   borderRadius: "40px",
+              //   backgroundImage: "url('/assets/idbprect.webp')",
+              //   backgroundSize: "cover",
+              //   backgroundPosition: "center",
+              //   backgroundRepeat: "no-repeat",
+              //   minHeight: "550px",
+              //   gap: "5px",
+              //   minWidth: "550px",
+              //   display: "flex",
+              //   flexDirection: "column",
+              //   justifyContent: "center",
+              // }}
               >
                 <form onSubmit={handleSubmit}>
 
@@ -552,7 +528,6 @@ export default function InfoCard() {
                   </div>
                   {/* --- NEW GRADE FIELD HERE --- */}
 
-
                   <div
                     className="mb-3 fade-in-section"
                     data-scroll
@@ -636,6 +611,10 @@ export default function InfoCard() {
       </div>
 
       <style jsx>{`
+        .info-card-container {
+          width: 100%;
+          height: 100%;
+        }
         .form-control::placeholder {
           color: #ffffff !important;
           opacity: 0.5;
@@ -769,9 +748,7 @@ export default function InfoCard() {
             padding: 8px 10px !important;
           }
 
-          textarea.form-control {
-            padding: 10px !important;
-          }
+
 
           .form-container .btn {
             font-size: 0.8rem !important;
@@ -1154,21 +1131,21 @@ export default function InfoCard() {
           .form-bg {
             position: relative;
           }
-          .form-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-              to top,
-              rgba(0, 164, 145, 0.95) 0%,
-              rgba(22, 22, 100, 1) 60%,
-              rgba(22, 22, 100, 1) 80%,
-              rgba(22, 22, 100, 0.5) 90%,
-              rgba(22, 22, 100, 0) 100%
-            );
-            mix-blend-mode: multiply;
-            z-index: 0;
-          }
+          // .form-bg::before {
+          //   content: "";
+          //   position: absolute;
+          //   inset: 0;
+          //   background: linear-gradient(
+          //     to top,
+          //     rgba(0, 164, 145, 0.95) 0%,
+          //     rgba(22, 22, 100, 1) 60%,
+          //     rgba(22, 22, 100, 1) 80%,
+          //     rgba(22, 22, 100, 0.5) 90%,
+          //     rgba(22, 22, 100, 0) 100%
+          //   );
+          //   mix-blend-mode: multiply;
+          //   z-index: 0;
+          // }
 
           /* make form content sit above overlay */
           .form-container {
@@ -1180,6 +1157,7 @@ export default function InfoCard() {
             padding-top: 5rem !important;
             width: 100% !important;
             margin-left: 0 !important;
+            box-shadow: none !important;
           }
 
 
@@ -1362,6 +1340,9 @@ export default function InfoCard() {
           }
         }
         @media (min-width: 768px) {
+          .form-container {
+            padding:0;
+          }
           .cust-text {
             padding:  10px 14px 10px 20px !important;
             transition: opacity 0.3s ease !important;
@@ -1394,6 +1375,23 @@ export default function InfoCard() {
           }
         }
 
+        /* --- GLOBAL CUSTOM BREAKPOINTS --- */
+        /* Custom Breakpoint Logic to match original design (1100px) */
+        .mobile-text { display: none; }
+        .desktop-text { display: block; }
+
+        @media (max-width: 1100px) {
+          .mobile-text { display: block; }
+          .desktop-text { display: none; }
+          
+          /* Resize icons to match original mobile sizes */
+          .icon-img {
+            max-width: 22px !important; 
+            max-height: 30px !important;
+            width: auto !important; 
+            height: auto !important;
+          }
+        }
       `}</style>
     </div>
   );
