@@ -62,7 +62,7 @@ export default async function handler(req, res) {
         },
         {
             type: 'Freedemo',
-            slugs: ["/act-tutors-in-dubai", "/advanced-placements-tutors-in-dubai"],
+            slugs: ["/join-free-demo-class"],
             zohoUrl: 'https://forms.zohopublic.com/sumitignitetrain1/form/Freedemo/formperma/KAwVRrjBN9gUy9u3j43gxKyKXGIc9361RYMOFY1MlcI/htmlRecords/submit',
             fieldMap: { name: 'SingleLine', email: 'Email', phone: 'PhoneNumber_countrycode', grade: 'SingleLine1', course: 'SingleLine3', message: 'MultiLine', pageinfo: 'SingleLine2' },
             redirectUrl: '/thank-you-freedemo',
