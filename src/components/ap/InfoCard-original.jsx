@@ -1,11 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-const GlobalPhoneInput = dynamic(() => import('../GlobalPhoneInput'), {
-  ssr: false,
-  loading: () => <div style={{ height: '50px', width: '100%', borderRadius: '40px', border: '1.5px solid rgba(255,255,255,0.3)' }} />
-});
+import GlobalPhoneInput from '../GlobalPhoneInput';
 
 export default function InfoCard() {
   const handlePhoneChange = (value) => {
@@ -20,14 +16,15 @@ export default function InfoCard() {
   };
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileButton, setIsMobileButton] = useState(false);
+
   const [pageInfo, setPageInfo] = useState('');
   // Form Data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    school: "",
     grade: "",
+    school: "",
     message: "",
     formType: "Organic_Curriculum",
   });
@@ -37,6 +34,7 @@ export default function InfoCard() {
 
   const [loading, setLoading] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(null);
+
   useEffect(() => {
     const checkDevice = () => {
       setIsMobile(window.innerWidth <= 1100);
@@ -53,8 +51,10 @@ export default function InfoCard() {
       setPageInfo(`URL: ${url} | Title/Path: ${title}`);
     }
 
+
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
+
   const validate = () => {
     const newErrors = {};
     let isValid = true;
@@ -74,6 +74,11 @@ export default function InfoCard() {
       isValid = false;
     }
 
+    // --- 4. Grade Validation (New - Required) ---
+    if (!formData.grade.trim()) {
+      newErrors.grade = "Grade is required.";
+      isValid = false;
+    }
 
     // --- 3. Phone Validation (Optional, but if filled, must be 6-15 digits) ---
     // Note: We use a simple regex since Zoho handles the country code component.
@@ -86,24 +91,12 @@ export default function InfoCard() {
       newErrors.phone = "Phone number is required.";
       isValid = false;
     }
-
-    // --- 4. Grade Validation (New - Required) ---
-    if (!formData.grade.trim()) {
-      newErrors.grade = "Grade is required.";
-      isValid = false;
-    }
-
-
     if (!formData.school.trim()) {
       newErrors.school = "School name is required.";
       isValid = false;
     }
 
-    // --- 4. Course Validation (Required) ---
-    // if (!formData.course.trim()) { // <--- ADDED: Course validation
-    //   newErrors.course = "Course selection is required.";
-    //   isValid = false;
-    // }
+
     setErrors(newErrors);
     return isValid;
   };
@@ -165,23 +158,41 @@ export default function InfoCard() {
     }
   };
   return (
-    <div className="info-card-container">
+    <div
+      className=""
+      style={{
+        maxWidth: isMobile ? "95vw" : "90vw",
+        marginInline: "auto",
+        marginBlock: isMobile ? "0" : "0",
+        animationDelay: "0.1s",
+      }}
+    >
       <div
         className="position-relative overflow-hidden"
         style={{
-          height: "100%", // Fill the parent height
+          borderRadius: "1.5rem",
+          minHeight: "750px",
         }}
       >
-
-        {/* Background Image moved to parent page for LCP optimization */}
-
-
+        <Image
+          src="/assets/ap_bg_main.webp"
+          alt="AP Tutors Background"
+          fill
+          priority
+          sizes="95vw"
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            borderRadius: "1.5rem",
+            zIndex: -1
+          }}
+        />
 
         {/* Content container */}
         <div className="position-relative h-100" style={{ zIndex: 1 }}>
           <div className="row g-0 h-100">
             {/* Left Section - Now taking 8 columns (2/3) */}
-            <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content v100">
+            <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content">
               <h1
                 className="fw-bold text-white text-uppercase mb-3 fade-in-section"
                 data-scroll
@@ -194,12 +205,15 @@ export default function InfoCard() {
                   fontSize: "2.6rem",
                 }}
               >
-                <span className="mobile-text">
-                  Get Started With <br /> Advanced Placements Tutors In UAE
-                </span>
-                <span className="desktop-text">
-                  AP Tutors In Dubai, UAE <br /> For Confident Exam Prep
-                </span>
+                {isMobile ? (
+                  <>
+                    Get Started With <br /> Advanced Placements Tutors In UAE
+                  </>
+                ) : (
+                  <>
+                    AP Tutors In Dubai, UAE <br /> For Confident Exam Prep
+                  </>
+                )}
               </h1>
               <div className="divider fade-in-section"
                 data-scroll
@@ -208,6 +222,17 @@ export default function InfoCard() {
                 style={{
                   animationDelay: "0.25s",
                 }}></div>
+              {/* 
+              <p
+                className="text-white mb-4 fade-in-section responsive-title"
+                data-scroll
+                data-scroll-class="is-inview"
+                data-scroll-repeat
+                style={{
+                  marginTop: "19px"
+                }}
+              >
+              </p> */}
 
               <h2
                 className="text-white fade-in-section fs-8 fs-md-10"
@@ -219,14 +244,15 @@ export default function InfoCard() {
                   fontWeight: "600",
                   opacity: "1",
                   animationDelay: "0.25s",
+
                   fontSize: "inherit",  // forces same size as previous p tag class
                   lineHeight: "inherit", // optional: keep same spacing
                   marginTop: "19px",
                   marginBottom: "26px",
                 }}
               >
-                NEW AP BATCHES STARTS FROM
-                <span style={{ color: "#A6EAC7" }}> 22ND AUGUST, 2025</span>
+                NEW AP BATCHES STARTS FROM{" "}
+                <span style={{ color: "#A6EAC7" }}>22ND AUGUST, 2025</span>
               </h2>
 
               <div
@@ -247,6 +273,7 @@ export default function InfoCard() {
 
               >
 
+                {/* ---- BLOCK 1 ---- */}
                 <h3
                   className="d-flex flex-column align-items-center text-center text-white info-col"
                   style={{
@@ -262,10 +289,9 @@ export default function InfoCard() {
                     <Image
                       src="/assets/medal.webp"
                       alt="Grade Support"
-                      width={32}
-                      height={45}
+                      width={isMobile ? 20 : 32}
+                      height={isMobile ? 28 : 45}
                       className="icon-img"
-                      style={{ width: "auto", height: "auto", maxHeight: "45px", maxWidth: "32px" }}
                     />
                   </span>
                   Grade 11 to 12 <br /> Support
@@ -322,7 +348,8 @@ export default function InfoCard() {
               </div>
 
               <p
-                className="fade-in-section text-white mb-4 pt-3 pt-md-4"
+
+                className="text-white mb-4 fade-in-section"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -332,13 +359,13 @@ export default function InfoCard() {
                   lineHeight: "1.8",
                   fontWeight: "500",
                   opacity: "0.9",
-                  // marginTop: isMobile ? "0" : "20px!important", Handled by pt-3 pt-md-4
+                  marginTop: isMobile ? "0" : "20px!important",
                 }}
               >
                 Experience result-driven AP tutoring with programs tailored to each student’s needs. Our AP courses build subject mastery & academic excellence in an interactive environment that prepares students for college.
               </p>
 
-              <div className="d-flex gap-3 btnwraper fade-in-section"
+              <div className="d-flex gap-3 fade-in-section"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat>
@@ -353,19 +380,19 @@ export default function InfoCard() {
                       color: "#273972",
                       borderRadius: "40px",
                       fontSize: "1rem",
-                      padding: "10px 15px",
+                      padding: "10px 14px 10px 20px",
                       boxShadow: "2px 4px 8px rgba(38, 66, 149, 0.5)",
                       minWidth: isMobile ? "auto" : "auto", // ensures spacing looks consistent
                       marginTop: isMobile ? "auto" : "20px",
                       gap: isMobile ? "20px" : "20px",
                     }}
                   >
-                    <span style={{ letterSpacing: isMobile ? "0" : "0px" }}>
+                    <span style={{ letterSpacing: isMobile ? "0px" : "0px" }}>
                       Get A Free Demo
                     </span>
                     <img
                       src="/assets/rar.webp"
-                      alt="ibdp tutor in dubai"
+                      alt="right"
                       className="custom-height"
                       width={35}
                       height={35}
@@ -385,43 +412,43 @@ export default function InfoCard() {
               style={{ animationDelay: "0.6s" }}
             >
               {/* Rectangle background images positioned within form section */}
-              {/* <img
+              <img
                 src="/assets/rect1.webp"
-                alt="ibdp tutor in dubai"
+                alt="bg-shape"
                 className="testimonialRect rect-1"
                 width={321}
                 height={170}
               />
               <img
                 src="/assets/rect2.webp"
-                alt="ibdp tutor in dubai"
+                alt="bg-shape"
                 className="testimonialRect rect-2"
                 width={539}
                 height={170}
               />
               <img
                 src="/assets/rect3.webp"
-                alt="ibdp tutor in dubai"
+                alt="bg-shape"
                 className="testimonialRect rect-3"
                 width={309}
                 height={170}
-              /> */}
+              />
 
               <div
                 className="w-100 text-white form-container"
-              // style={{
-              //   borderRadius: "40px",
-              //   backgroundImage: "url('/assets/idbprect.webp')",
-              //   backgroundSize: "cover",
-              //   backgroundPosition: "center",
-              //   backgroundRepeat: "no-repeat",
-              //   minHeight: "550px",
-              //   gap: "5px",
-              //   minWidth: "550px",
-              //   display: "flex",
-              //   flexDirection: "column",
-              //   justifyContent: "center",
-              // }}
+                style={{
+                  borderRadius: "40px",
+                  backgroundImage: "url('/assets/apform.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  minHeight: "550px",
+                  gap: "5px",
+                  minWidth: "550px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
               >
                 <form onSubmit={handleSubmit}>
 
@@ -554,6 +581,7 @@ export default function InfoCard() {
                   </div>
 
 
+
                   <div
                     className="mb-4 fade-in-section"
                     data-scroll
@@ -612,10 +640,6 @@ export default function InfoCard() {
       </div>
 
       <style jsx>{`
-        .info-card-container {
-          width: 100%;
-          height: 100%;
-        }
         .form-control::placeholder {
           color: #ffffff !important;
           opacity: 0.5;
@@ -636,6 +660,15 @@ export default function InfoCard() {
           );
           mask-repeat: no-repeat;
           mask-size: "100% 100%";
+        }
+        .responsive-title {
+          line-height: 45px;
+          opacity: 0.8;
+          max-width: 600px !important;
+          font-weight: 700;
+          max-width: 50rem;
+          font-size: 35px; /* default for desktop */
+          animation-delay: 0.25s;
         }
 
         /* Mobile fix */
@@ -749,7 +782,9 @@ export default function InfoCard() {
             padding: 8px 10px !important;
           }
 
-
+          textarea.form-control {
+            padding: 10px !important;
+          }
 
           .form-container .btn {
             font-size: 0.8rem !important;
@@ -833,7 +868,8 @@ export default function InfoCard() {
         @media (max-width: 768px) {
           .responsive-title {
             line-height: 1 !important;
-            font-size: 40px !important;
+            font-size: 23px !important;
+            margin-bottom:1.5rem !important;
           }
           .form-container{
             min-width:auto !important;
@@ -1015,6 +1051,15 @@ export default function InfoCard() {
             margin-block: 20px !important;
             padding: 1.2rem 1.7rem !important;
           }
+          .responsive-title {
+            line-height: 45px;
+            opacity: 0.8;
+            max-width: 600px !important;
+            font-weight: 700;
+            max-width: 50rem;
+            font-size: 35px; /* default for desktop */
+            animation-delay: 0.25s;
+          }
           .left-content h1 {
             font-size: 2rem !important;
             max-width: 90% !important;
@@ -1042,6 +1087,15 @@ export default function InfoCard() {
           .position-relative.overflow-hidden {
             min-height: 600px !important;
           }
+          .responsive-title {
+            line-height: 40px;
+            opacity: 0.8;
+            max-width: 600px !important;
+            font-weight: 700;
+            max-width: 50rem;
+            font-size: 35px; /* default for desktop */
+            animation-delay: 0.25s;
+          }
           .btng{
             margin-top:7px !important;
           }
@@ -1066,6 +1120,7 @@ export default function InfoCard() {
           }
 
           .left-content p {
+            /* This rule was missing in the original, pulled from 1200-1535 block for consistency */
             font-size: 1rem !important;
             max-width: 90% !important;
             line-height: 1.6 !important;
@@ -1122,7 +1177,7 @@ export default function InfoCard() {
         @media (max-width: 991.98px) {
           .position-relative.overflow-hidden {
             position: relative;
-            background-image: url("/assets/ib-bg.webp") !important;
+            background-image: url("/assets/moap.webp") !important;
             background-size: cover !important;
             background-position: top !important;
             background-repeat: no-repeat;
@@ -1132,21 +1187,21 @@ export default function InfoCard() {
           .form-bg {
             position: relative;
           }
-          // .form-bg::before {
-          //   content: "";
-          //   position: absolute;
-          //   inset: 0;
-          //   background: linear-gradient(
-          //     to top,
-          //     rgba(0, 164, 145, 0.95) 0%,
-          //     rgba(22, 22, 100, 1) 60%,
-          //     rgba(22, 22, 100, 1) 80%,
-          //     rgba(22, 22, 100, 0.5) 90%,
-          //     rgba(22, 22, 100, 0) 100%
-          //   );
-          //   mix-blend-mode: multiply;
-          //   z-index: 0;
-          // }
+          .form-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+              to top,
+              rgba(0, 164, 145, 0.95) 0%,
+              rgba(22, 22, 100, 1) 60%,
+              rgba(22, 22, 100, 1) 80%,
+              rgba(22, 22, 100, 0.5) 90%,
+              rgba(22, 22, 100, 0) 100%
+            );
+            mix-blend-mode: multiply;
+            z-index: 0;
+          }
 
           /* make form content sit above overlay */
           .form-container {
@@ -1158,7 +1213,6 @@ export default function InfoCard() {
             padding-top: 5rem !important;
             width: 100% !important;
             margin-left: 0 !important;
-            box-shadow: none !important;
           }
 
 
@@ -1341,9 +1395,6 @@ export default function InfoCard() {
           }
         }
         @media (min-width: 768px) {
-          .form-container {
-            padding:0;
-          }
           .cust-text {
             padding:  10px 14px 10px 20px !important;
             transition: opacity 0.3s ease !important;
@@ -1376,23 +1427,6 @@ export default function InfoCard() {
           }
         }
 
-        /* --- GLOBAL CUSTOM BREAKPOINTS --- */
-        /* Custom Breakpoint Logic to match original design (1100px) */
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
-
-        @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
-          
-          /* Resize icons to match original mobile sizes */
-          .icon-img {
-            max-width: 22px !important; 
-            max-height: 30px !important;
-            width: auto !important; 
-            height: auto !important;
-          }
-        }
       `}</style>
     </div>
   );
