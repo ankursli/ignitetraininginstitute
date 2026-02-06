@@ -185,9 +185,8 @@ const ap = ({ headerHeight }) => {
       {/* 3. APPLY the style for paddingTop to the scroll container */}
       <div
         ref={scrollRef}
-        className='overflow-hidden innerpage'
+        className='overflow-hidden innerpage page-content-padding'
         data-scroll-container
-        style={{ paddingTop: `${headerHeight}px` }} // <--- THE STICKY HEADER FIX
       >
         <section data-scroll-section className="hero-section">
           <div className="hero-container">
