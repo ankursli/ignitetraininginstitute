@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import GlobalPhoneInput from '../GlobalPhoneInput';
 
 export default function InfoCard() {
+
   const handlePhoneChange = (value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -14,19 +15,19 @@ export default function InfoCard() {
       setErrors(prevErrors => ({ ...prevErrors, phone: '' }));
     }
   };
+  // Existing state for responsiveness
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileButton, setIsMobileButton] = useState(false);
-
   const [pageInfo, setPageInfo] = useState('');
   // Form Data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    grade: "",
     school: "",
-    course: "", // <--- ADDED: Initialize the new field
     message: "",
-    formType: "Homeschooling",
+    formType: "Organic_Curriculum",
   });
 
   // New state for validation errors
@@ -34,7 +35,9 @@ export default function InfoCard() {
 
   const [loading, setLoading] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(null);
+
   useEffect(() => {
+    // ... (existing responsiveness check logic)
     const checkDevice = () => {
       setIsMobile(window.innerWidth <= 1100);
       setIsMobileButton(window.innerWidth <= 768);
@@ -52,6 +55,8 @@ export default function InfoCard() {
 
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
+
+  // Validation function
   const validate = () => {
     const newErrors = {};
     let isValid = true;
@@ -71,6 +76,12 @@ export default function InfoCard() {
       isValid = false;
     }
 
+    // --- 4. Grade Validation (New - Required) ---
+    if (!formData.grade.trim()) {
+      newErrors.grade = "Grade is required.";
+      isValid = false;
+    }
+
 
     // --- 3. Phone Validation (Optional, but if filled, must be 6-15 digits) ---
     // Note: We use a simple regex since Zoho handles the country code component.
@@ -83,16 +94,9 @@ export default function InfoCard() {
       newErrors.phone = "Phone number is required.";
       isValid = false;
     }
-    if (!formData.school.trim()) {
-      newErrors.school = "School name is required.";
-      isValid = false;
-    }
 
-    // --- 4. Course Validation (Required) ---
-    if (!formData.course.trim()) { // <--- ADDED: Course validation
-      newErrors.course = "Course selection is required.";
-      isValid = false;
-    }
+
+
     setErrors(newErrors);
     return isValid;
   };
@@ -153,6 +157,7 @@ export default function InfoCard() {
       setLoading(false);
     }
   };
+
   return (
     <div
       className=""
@@ -171,8 +176,8 @@ export default function InfoCard() {
         }}
       >
         <Image
-          src="/assets/homeschooling_bg_main.webp"
-          alt="Homeschooling Background"
+          src="/assets/act_bg_main.webp"
+          alt="ACT Tutors Background"
           fill
           priority
           sizes="95vw"
@@ -187,6 +192,7 @@ export default function InfoCard() {
         {/* Content container */}
         <div className="position-relative h-100" style={{ zIndex: 1 }}>
           <div className="row g-0 h-100">
+            {/* Left Section - Now taking 8 columns (2/3) */}
             <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content">
               <h1
                 className="fw-bold text-white text-uppercase mb-3 fade-in-section"
@@ -202,13 +208,14 @@ export default function InfoCard() {
               >
                 {isMobile ? (
                   <>
-                    Thrive Confidently As A Private Candidate In Dubai, UAE
+                    ACT Tutors In Dubai, UAE <br /> For Assured High Scores
                   </>
                 ) : (
                   <>
-                    Homeschooling In Dubai To <br />Thrive As A Private Candidate
+                    ACT Tutors In Dubai, UAE <br /> For Strategic Exam Prep
                   </>
-                )}              </h1>
+                )}
+              </h1>
               <div className="divider fade-in-section"
                 data-scroll
                 data-scroll-class="is-inview"
@@ -216,7 +223,6 @@ export default function InfoCard() {
                 style={{
                   animationDelay: "0.25s",
                 }}></div>
-
 
               <h2
                 className="text-white fade-in-section fs-8 fs-md-10"
@@ -235,7 +241,7 @@ export default function InfoCard() {
                   marginBottom: "26px",
                 }}
               >
-                IGCSE, A Levels, & AP Supported
+                Your Path To Test Success
               </h2>
 
               <div
@@ -277,7 +283,7 @@ export default function InfoCard() {
                       className="icon-img"
                     />
                   </span>
-                  Fits Learning <br /> Into Life
+                  Focused <br />ACT Prep
                 </h3>
 
                 {/* ---- BLOCK 2 ---- */}
@@ -342,10 +348,12 @@ export default function InfoCard() {
                   lineHeight: "1.8",
                   fontWeight: "500",
                   opacity: "0.9",
+                  marginTop: isMobile ? "0" : "20px!important",
                 }}
               >
-                Experience customized, expert-led support across IGCSE, A-Levels, & AP as a private candidate. We offer flexible, high-quality education tailored to your goals, ensuring every learner feels seen & empowered.
+                We offer personalized ACT tutoring tailored to each student's unique learning style. Our expert-led programs deliver targeted guidance & proven strategies to help students excel confidently in the ACT.
               </p>
+
               <div className="d-flex gap-3 fade-in-section"
                 data-scroll
                 data-scroll-class="is-inview"
@@ -362,7 +370,7 @@ export default function InfoCard() {
                       color: "#273972",
                       borderRadius: "40px",
                       fontSize: "1rem",
-                      padding: isMobile ? "10px 20px" : "10px 14px 10px 20px",
+                      padding: "10px 14px 10px 20px",
                       boxShadow: "2px 4px 8px rgba(38, 66, 149, 0.5)",
                       minWidth: isMobile ? "auto" : "auto", // ensures spacing looks consistent
                       marginTop: isMobile ? "auto" : "20px",
@@ -382,7 +390,6 @@ export default function InfoCard() {
                   </button>
                 </a>
               </div>
-
 
             </div>
 
@@ -421,7 +428,7 @@ export default function InfoCard() {
                 className="w-100 text-white form-container"
                 style={{
                   borderRadius: "40px",
-                  backgroundImage: "url('/assets/Rectangle39.webp')",
+                  backgroundImage: "url('/assets/actf.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -513,6 +520,33 @@ export default function InfoCard() {
                     </div>
                   </div>
 
+
+                  {/* --- NEW GRADE FIELD HERE --- */}
+                  <div
+                    className="mb-3 fade-in-section"
+                    data-scroll
+                    data-scroll-class="is-inview"
+                    data-scroll-repeat
+                    style={{ animationDelay: "0.77s" }}
+                  >
+                    <input
+                      type="text"
+                      name="grade"
+                      value={formData.grade}
+                      onChange={handleChange}
+                      className="form-control bg-transparent text-white fw-semibold"
+                      placeholder="GRADE"
+                      style={{
+                        border: "1.5px solid #FFFFFF",
+                        borderRadius: "40px",
+                        fontSize: "0.9rem",
+                        padding: "12px 15px",
+                      }}
+                    />
+                    {errors.grade && <div className="invalid-feedback d-block fw-bold text-warning">{errors.grade}</div>}
+                  </div>
+                  {/* --- NEW GRADE FIELD HERE --- */}
+
                   <div
                     className="mb-3 fade-in-section"
                     data-scroll
@@ -537,37 +571,7 @@ export default function InfoCard() {
                     {errors.school && <div className="invalid-feedback d-block fw-bold text-warning">{errors.school}</div>}
                   </div>
 
-                  <div
-                    className="mb-3 fade-in-section"
-                    data-scroll
-                    data-scroll-class="is-inview"
-                    data-scroll-repeat
-                    style={{ animationDelay: "0.8s" }}
-                  >
-                    {/* Assuming this maps to 'course' in your formData state */}
-                    <select
-                      name="course"
-                      value={formData.course}
-                      onChange={handleChange}
-                      className="form-control bg-transparent text-white fw-semibold"
-                      style={{
-                        border: "1.5px solid #FFFFFF",
-                        borderRadius: "40px",
-                        fontSize: "0.9rem",
-                        padding: "12px 15px",
-                      }}
-                    >
 
-                      {/* Your list of options */}
-
-                      <option value="IGCSE/GCSE">IGCSE/GCSE</option>
-                      <option value="A-Levels">A-Levels</option>
-                      <option value="Advanced Placements">Advanced Placements</option>
-                    </select>
-
-                    {/* Assuming error checking for this new field would be errors.course */}
-                    {errors.course && <div className="invalid-feedback d-block fw-bold text-warning">{errors.course}</div>}
-                  </div>
 
                   <div
                     className="mb-4 fade-in-section"
@@ -649,14 +653,14 @@ export default function InfoCard() {
           mask-size: "100% 100%";
         }
 
-        /* 🔹 Mobile fix */
+        /* Mobile fix */
         @media (max-width: 768px) {
           .info-row {
             -webkit-mask-image: linear-gradient(
               to right,
               rgba(0, 0, 0, 0),
               rgba(0, 0, 0, 1) 5%
-            ) !important; /* fade only in first 5% */
+            ) !important;
             mask-image: linear-gradient(
               to right,
               rgba(0, 0, 0, 0),
@@ -699,7 +703,7 @@ export default function InfoCard() {
             157,
             157,
             0.7
-          ); /* only background is transparent */
+          );
           backdrop-filter: blur(12px);
           position: relative;
           z-index: 10;
@@ -710,36 +714,36 @@ export default function InfoCard() {
           .position-relative.overflow-hidden {
             min-height: 650px !important;
           }
-          
+
           .left-content {
             padding: 2rem 1.5rem !important;
           }
-          
+
           .left-content h1 {
             font-size: 1.8rem !important;
             max-width: 95% !important;
           }
-          
+
           .divider {
             width: 95% !important;
           }
-          
+
           .info-row {
             max-width: 95% !important;
             padding: 1.2rem 0.8rem !important;
             font-size: 0.8rem !important;
           }
-          
+
           .left-content p {
             font-size: 0.95rem !important;
             max-width: 95% !important;
             line-height: 1.5 !important;
           }
-          
+
           .right-form {
             padding: 1rem !important;
           }
-          
+
           .form-container {
             min-height: 500px !important;
             min-width: 280px !important;
@@ -748,27 +752,27 @@ export default function InfoCard() {
             margin-block: 20px !important;
             padding: 1rem !important;
           }
-          
+
           .form-heading {
             font-size: 1.1rem !important;
             margin-bottom: 0.8rem !important;
             line-height: 1.3 !important;
           }
-          
+
           .form-control {
             font-size: 0.75rem !important;
             padding: 8px 10px !important;
           }
-          
+
           textarea.form-control {
             padding: 10px !important;
           }
-          
+
           .form-container .btn {
             font-size: 0.8rem !important;
             padding: 8px 15px !important;
           }
-          
+
           .bt-width {
             width: 70% !important;
           }
@@ -779,36 +783,36 @@ export default function InfoCard() {
           .position-relative.overflow-hidden {
             min-height: 600px !important;
           }
-          
+
           .left-content {
             padding: 2.5rem 2rem 2rem 2.5rem !important;
           }
-          
+
           .left-content h1 {
             font-size: 1.5rem !important;
             max-width: 90% !important;
           }
-          
+
           .divider {
             width: 85% !important;
           }
-          
+
           .info-row {
             max-width: 85% !important;
             padding: 1.8rem 1.2rem !important;
             font-size: 0.9rem !important;
           }
-          
+
           .left-content p {
             font-size: 1rem !important;
             max-width: 85% !important;
             line-height: 1.6 !important;
           }
-          
+
           .right-form {
             padding: 1.5rem 1rem 1.5rem 0.5rem !important;
           }
-          
+
           .form-container {
             min-height: 500px !important;
             min-width: 320px !important;
@@ -817,27 +821,27 @@ export default function InfoCard() {
             margin-block: 25px !important;
             padding: 1.4rem 1.2rem !important;
           }
-          
+
           .form-heading {
             font-size: 1.1rem !important;
             margin-bottom: 1rem !important;
             line-height: 1.3 !important;
           }
-          
+
           .form-control {
             font-size: 0.85rem !important;
             padding: 10px 12px !important;
           }
-          
+
           textarea.form-control {
             padding: 12px !important;
           }
-          
+
           .form-container .btn {
             font-size: 0.9rem !important;
             padding: 10px 18px !important;
           }
-          
+
           .bt-width {
             width: 65% !important;
           }
@@ -848,9 +852,9 @@ export default function InfoCard() {
             line-height: 1 !important;
             font-size: 40px !important;
           }
-                        .form-container{
+          .form-container{
             min-width:auto !important;
-            }
+          }
           .divider {
             height: 1px;
             width: auto !important;
@@ -910,20 +914,20 @@ export default function InfoCard() {
           }
 
           .right-form {
-            padding: 1rem 3rem 1rem 2rem !important; /* Reduced top and bottom padding */
+            padding: 1rem 3rem 1rem 2rem !important;
           }
 
           .form-container {
-            padding: 1.5rem 1.5rem !important; /* Reduced padding */
+            padding: 1.5rem 1.5rem !important;
             margin: 0 !important;
             max-width: 100%;
-            width: 110% !important; /* Increased width */
-            margin-left: -5% !important; /* Center the increased width */
+            width: 110% !important;
+            margin-left: -5% !important;
           }
 
           .form-heading {
-            font-size: 1.2rem !important; /* Increased font size */
-            text-align: center !important; /* Center align */
+            font-size: 1.2rem !important;
+            text-align: center !important;
             line-height: 1.3 !important;
             margin-bottom: 1.5rem !important;
           }
@@ -948,24 +952,24 @@ export default function InfoCard() {
           .left-content {
             padding: 4rem 2.5rem 4rem 4rem !important;
           }
-                    .bt-width{
-                    font-size:16px;
-                    letter-spacing:3px;
-          width:65%
-        }
+          .bt-width{
+            font-size:16px;
+            letter-spacing:3px;
+            width:65%
+          }
 
           .right-form {
-            padding: 1.5rem 4rem 1.5rem 2.5rem !important; /* Reduced top and bottom padding */
+            padding: 1.5rem 4rem 1.5rem 2.5rem !important;
           }
 
           .form-container {
-            padding: 1.8rem 2rem !important; /* Reduced padding */
-            width: 108% !important; /* Slightly less width increase on larger screens */
-            margin-left: -4% !important; /* Center adjustment */
+            padding: 1.8rem 2rem !important;
+            width: 108% !important;
+            margin-left: -4% !important;
           }
 
           .form-heading {
-            font-size: 1.3rem !important; /* Slightly larger font */
+            font-size: 1.3rem !important;
             line-height: 1.4 !important;
           }
 
@@ -992,17 +996,17 @@ export default function InfoCard() {
           }
 
           .right-form {
-            padding: 3rem 5rem 3rem 3rem!important; /* Reduced top and bottom padding */
+            padding: 3rem 5rem 3rem 3rem!important;
           }
 
           .form-container {
-            padding: 2rem 2.5rem !important; /* Reduced padding */
-            width: 105% !important; /* Less width increase on very large screens */
-            margin-left: -2.5% !important; /* Center adjustment */
+            padding: 2rem 2.5rem !important;
+            width: 105% !important;
+            margin-left: -2.5% !important;
           }
 
           .form-heading {
-            font-size: 1.8rem !important; /* Even larger font */
+            font-size: 1.8rem !important;
           }
 
           .form-control {
@@ -1019,103 +1023,103 @@ export default function InfoCard() {
             padding:14px 11px 14px 22px!important
           }
         }
-                @media (min-width: 1200px) and (max-width: 1535px) {
-                          .form-container {
-        min-height: 535px !important;
-        min-width: 380px !important;
-        width: 105% !important;
-        margin-left: -2.5% !important;
-        margin-block: 20px !important;
-        padding: 1.2rem 1.7rem !important;
+        @media (min-width: 1200px) and (max-width: 1535px) {
+          .form-container {
+            min-height: 535px !important;
+            min-width: 380px !important;
+            width: 105% !important;
+            margin-left: -2.5% !important;
+            margin-block: 20px !important;
+            padding: 1.2rem 1.7rem !important;
           }
-                      .left-content h1 {
-            font-size: 2rem !important;
-            max-width: 90% !important;
-          }
-                      .position-relative.overflow-hidden {
-            min-height: 600px !important;
-          }
-                      .divider {
-            width: 70% !important;
-          }
-                      .left-content p {
-            font-size: 1rem !important;
-            max-width: 90% !important;
-            line-height: 1.6 !important;
-          }
-            
-          .form-container .btn {
-        font-size: 1rem !important;
-        padding: 10px 9px 10px 10px !important;
-        width: 243px;
-          }
-      }
-        /* NEW: Laptop-specific adjustments (1200px - 1919px) */
-        @media (min-width: 1536px) and (max-width: 1919px) {
-          .position-relative.overflow-hidden {
-            min-height: 600px !important;
-          }
-            .btng{
-            margin-top:7px !important;
-            }
-          
-          .left-content {
-            padding: 2rem 1.5rem 2rem 2.5rem !important;
-          }
-          
           .left-content h1 {
             font-size: 2rem !important;
             max-width: 90% !important;
           }
-          
+          .position-relative.overflow-hidden {
+            min-height: 600px !important;
+          }
           .divider {
-            width: 90% !important;
+            width: 70% !important;
           }
-          
-          .info-row {
-            max-width: 90% !important;
-            padding: 1.5rem 1rem !important;
-            font-size: 0.85rem !important;
-          }
-          
           .left-content p {
             font-size: 1rem !important;
             max-width: 90% !important;
             line-height: 1.6 !important;
           }
-          
+
+          .form-container .btn {
+            font-size: 1rem !important;
+            padding: 10px 9px 10px 10px !important;
+            width: 243px;
+          }
+        }
+        /* NEW: Laptop-specific adjustments (1200px - 1919px) */
+        @media (min-width: 1536px) and (max-width: 1919px) {
+          .position-relative.overflow-hidden {
+            min-height: 600px !important;
+          }
+          .btng{
+            margin-top:7px !important;
+          }
+
+          .left-content {
+            padding: 2rem 1.5rem 2rem 2.5rem !important;
+          }
+
+          .left-content h1 {
+            font-size: 2rem !important;
+            max-width: 90% !important;
+          }
+
+          .divider {
+            width: 90% !important;
+          }
+
+          .info-row {
+            max-width: 90% !important;
+            padding: 1.5rem 1rem !important;
+            font-size: 0.85rem !important;
+          }
+
+          .left-content p {
+            font-size: 1rem !important;
+            max-width: 90% !important;
+            line-height: 1.6 !important;
+          }
+
           .right-form {
             padding: 1rem 2rem 1rem 1.5rem !important;
           }
-          
+
           .form-container {
             min-height: 535px !important;
             min-width: 420px !important;
             width: 105% !important;
             margin-left: -2.5% !important;
-margin-block: 30px !important;
+            margin-block: 30px !important;
             padding: 1.2rem 1.7rem !important;
           }
-          
+
           .form-heading {
             font-size: 1.5rem !important;
             margin-bottom: 1rem !important;
           }
-          
+
           .form-control {
             font-size: 0.8rem !important;
             padding: 13px 12px !important;
           }
-          
+
           textarea.form-control {
             padding: 12px 12px !important;
           }
-          
+
           .form-container .btn {
             font-size: 0.85rem !important;
             padding: 10px 10px 10px 14px!important;
           }
-          
+
           .bt-width {
             width: 60% !important;
           }
@@ -1135,13 +1139,13 @@ margin-block: 30px !important;
         @media (max-width: 991.98px) {
           .position-relative.overflow-hidden {
             position: relative;
-            background-image: url("/assets/moap.webp") !important;
+            background-image: url("/assets/mobileact.webp") !important;
             background-size: cover !important;
             background-position: top !important;
             background-repeat: no-repeat;
           }
 
-          /* 🔹 instead of solid background, add gradient overlay that blends with parent */
+          /* instead of solid background, add gradient overlay that blends with parent */
           .form-bg {
             position: relative;
           }
@@ -1157,7 +1161,7 @@ margin-block: 30px !important;
               rgba(22, 22, 100, 0.5) 90%,
               rgba(22, 22, 100, 0) 100%
             );
-            mix-blend-mode: multiply; /* ✅ makes it blend with bg image */
+            mix-blend-mode: multiply;
             z-index: 0;
           }
 
@@ -1169,8 +1173,8 @@ margin-block: 30px !important;
             opacity: 1 !important;
             backdrop-filter: none !important;
             padding-top: 5rem !important;
-            width: 100% !important; /* Reset width for mobile */
-            margin-left: 0 !important; /* Reset margin for mobile */
+            width: 100% !important;
+            margin-left: 0 !important;
           }
 
 
@@ -1185,10 +1189,10 @@ margin-block: 30px !important;
             z-index: 1;
           }
 
-.position-absolute.top-0.start-0.w-100.h-100 {
-  display: block !important;
-  background: transparent !important; /* no background */
-}
+          .position-absolute.top-0.start-0.w-100.h-100 {
+            display: block !important;
+            background: transparent !important;
+          }
 
           .row.g-0.h-100 {
             flex-direction: column !important;
@@ -1323,67 +1327,67 @@ margin-block: 30px !important;
             justify-content: space-between !important;
           }
         }
-         }
+
         @media (max-width: 575px) {
-        .text-white.mb-4:last-of-type {
-          padding: 1rem !important;
-          line-height: 1.6 !important;
-        }
+          .text-white.mb-4:last-of-type {
+            padding: 1rem !important;
+            line-height: 1.6 !important;
+          }
           .info-row{
             margin-top:1rem !important;
           }
-  .cust-text {
-   padding: 8px 15px 8px 15px !important;
-    border: none !important;
-    -webkit-transition: opacity .3s ease !important;
-    -moz-transition: opacity.3s ease!important;
-    -o-transition: opacity.3s ease!important;
-    transition: opacity .3s ease !important;
-    letter-spacing: 1px !important;
-    font-size: 1rem !important;
-    margin:10px auto!important;
-    min-width: auto !important;
-}
+          .cust-text {
+            padding: 8px 15px 8px 15px !important;
+            border: none !important;
+            -webkit-transition: opacity .3s ease !important;
+            -moz-transition: opacity.3s ease!important;
+            -o-transition: opacity.3s ease!important;
+            transition: opacity .3s ease !important;
+            letter-spacing: 1px !important;
+            font-size: 1rem !important;
+            margin:10px auto!important;
+            min-width: auto !important;
+          }
 
-  .custom-height {
-    width: 30px !important;
-    height: 30px !important;
-    animation-delay: 0.75s !important;
-    margin-left: 1rem !important;
-  }
-}
+          .custom-height {
+            width: 30px !important;
+            height: 30px !important;
+            animation-delay: 0.75s !important;
+            margin-left: 1rem !important;
+          }
+        }
         @media (min-width: 768px) {
-  .cust-text {
-    padding:  10px 14px 10px 20px !important;
-    transition: opacity 0.3s ease !important;
-    letter-spacing: 1px !important;
-    font-size: clamp(1rem, 1.1vw, 1.1rem) !important;
-  }
+          .cust-text {
+            padding:  10px 14px 10px 20px !important;
+            transition: opacity 0.3s ease !important;
+            letter-spacing: 1px !important;
+            font-size: clamp(1rem, 1.1vw, 1.1rem) !important;
+          }
 
-  .custom-height {
-    width: 40px !important;
-    height: 40px !important;
-    animation-delay: 0.75s !important;
-    margin-left: 1rem !important;
-  }
-}
-          @media (max-width: 380px) {
-                .info-col {
+          .custom-height {
+            width: 40px !important;
+            height: 40px !important;
+            animation-delay: 0.75s !important;
+            margin-left: 1rem !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .info-col {
             border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
             padding-right: 0.8rem !important;
             flex: 1 !important;
             font-size: 0.6rem !important;
             line-height: 1.2 !important;
           }
-                      .icon-img {
+          .icon-img {
             width: 15px !important;
             height: 15px !important;
           }
-            .fontd{
-                        font-size: 0.6rem !important;
+          .fontd{
+            font-size: 0.6rem !important;
             line-height: 1.2 !important;
-            }
-      }
+          }
+        }
 
       `}</style>
     </div>
