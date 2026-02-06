@@ -194,9 +194,62 @@ const IBC = ({ headerHeight }) => {
         data-scroll-container
         style={{ paddingTop: `${headerHeight}px` }} // <--- THE STICKY HEADER FIX
       >
-        <section data-scroll-section>
+        <div className="hero-section" data-scroll-section>
+          {/* LCP Optimization: Background Image handled here */}
+          <div className="hero-bg-wrapper">
+            <picture>
+              <source media="(max-width: 768px)" srcSet="/assets/ibc_bg_main.webp" />
+              <img
+                src="/assets/ibc_bg_main.webp"
+                alt="IB Curriculum Tutors"
+                className="hero-bg-img"
+                fetchPriority="high" // ⚡ LCP Boost
+              />
+            </picture>
+          </div>
           <InfoCard />
-        </section>
+        </div>
+
+        <style jsx>{`
+          .hero-section {
+             position: relative;
+             width: 100%;
+             /* min-height: 800px;  Adjust based on design needs */
+             overflow: hidden;
+             border-radius: 1.5rem; /* Matches InfoCard border radius */
+             margin-inline: auto;
+             max-width: 90vw; /* Desktop width constraint */
+          }
+          
+          .hero-bg-wrapper {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: -1;
+          }
+          
+          .hero-bg-img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             object-position: center;
+             border-radius: 1.5rem;
+          }
+
+          /* Mobile Adjustments */
+          @media (max-width: 768px) {
+             .hero-section {
+                max-width: 95vw; /* Wider on mobile */
+                border-radius: 1.5rem;
+                /* min-height: auto; Allow content to dictate height */
+             }
+             .hero-bg-img {
+                object-position: center; /* Adjust if mobile needs different focus */
+             }
+          }
+        `}</style>
 
         <LazySection>
           <section data-scroll-section>
