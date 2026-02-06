@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import GlobalPhoneInput from '../GlobalPhoneInput';
+import dynamic from "next/dynamic";
+const GlobalPhoneInput = dynamic(() => import('../GlobalPhoneInput'), {
+  ssr: false,
+  loading: () => <div style={{ height: '50px', width: '100%', borderRadius: '40px', border: '1.5px solid rgba(255,255,255,0.3)' }} />
+});
 
 export default function InfoCard() {
   const handlePhoneChange = (value) => {
