@@ -8,6 +8,13 @@ import Link from 'next/link';
 import "@/styles/critical.css";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/ibdp/Ibdp.css";
+import "@/styles/home-copy/Blog.css";
+import "@/styles/blog/Blogpg.css";
+import "@/styles/slug/slug.css";
+import "@/styles/bloginnerpage.css";
+import "@/styles/team/team.css";
+import "@/styles/contact/contact.css";
 
 import SEOHead from '../components/SEOHead';
 import Header from "../components/Header";
@@ -40,15 +47,7 @@ const isMobileDevice = () => {
     );
 };
 
-const loadStyles = () => {
-    import("@/styles/home-copy/Blog.css");
-    import("@/styles/blog/Blogpg.css");
-    import("@/styles/slug/slug.css");
-    import("@/styles/ibdp/Ibdp.css");
-    import("@/styles/bloginnerpage.css");
-    import("@/styles/team/team.css");
-    import("@/styles/contact/contact.css");
-};
+
 
 const montserrat = Montserrat({
     weight: ['400', '700'],
@@ -99,12 +98,7 @@ export default function MyApp({ Component, pageProps }) {
         }
     }, []);
 
-    useEffect(() => {
-        if (!stylesLoaded) {
-            loadStyles();
-            setStylesLoaded(true);
-        }
-    }, [stylesLoaded]);
+
 
     useEffect(() => {
         const handleScroll = () => {

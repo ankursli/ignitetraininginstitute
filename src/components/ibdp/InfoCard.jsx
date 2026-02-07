@@ -1121,7 +1121,7 @@ export default function InfoCard() {
         @media (max-width: 991.98px) {
           .position-relative.overflow-hidden {
             position: relative;
-            background-image: url("/assets/ib-bg.webp") !important;
+            background-image: none !important;
             background-size: cover !important;
             background-position: top !important;
             background-repeat: no-repeat;
@@ -1390,6 +1390,15 @@ export default function InfoCard() {
             max-height: 30px !important;
             width: auto !important; 
             height: auto !important;
+          }
+
+          /* Bypass animations on mobile for better LCP */
+          .fade-in-section {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            transition: none !important;
+            animation: none !important;
           }
         }
       `}</style>
