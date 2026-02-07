@@ -155,37 +155,16 @@ export default function InfoCard() {
     }
   };
   return (
-    <div
-      className=""
-      style={{
-        maxWidth: isMobile ? "95vw" : "90vw",
-        marginInline: "auto",
-        marginBlock: isMobile ? "0" : "0",
-        animationDelay: "0.1s",
-      }}
-    >
+    <>
+
       <div
         className="position-relative overflow-hidden"
         style={{
-          backgroundImage: "url('/assets/subject-tutoring.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 35%",
-          borderRadius: "1.5rem",
-          minHeight: "750px",
+          // background removed - handled by parent
+          height: "100%",
         }}
       >
-        {/* Dark overlay */}
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100 fade-in-section"
-          data-scroll
-          data-scroll-class="is-inview"
-          data-scroll-repeat
-          style={{
-            background: "rgba(0, 0, 0, 0.6)",
-            borderRadius: "1.5rem",
-            animationDelay: "0.15s",
-          }}
-        ></div>
+
 
         {/* Content container */}
         <div className="position-relative h-100" style={{ zIndex: 1 }}>
@@ -389,27 +368,7 @@ export default function InfoCard() {
               style={{ animationDelay: "0.6s" }}
             >
               {/* Rectangle background images positioned within form section */}
-              <img
-                src="/assets/rect1.webp"
-                alt="bg-shape"
-                className="testimonialRect rect-1"
-                width={321}
-                height={170}
-              />
-              <img
-                src="/assets/rect2.webp"
-                alt="bg-shape"
-                className="testimonialRect rect-2"
-                width={539}
-                height={170}
-              />
-              <img
-                src="/assets/rect3.webp"
-                alt="bg-shape"
-                className="testimonialRect rect-3"
-                width={309}
-                height={170}
-              />
+
 
               <div
                 className="w-100 text-white form-container"
@@ -857,36 +816,7 @@ export default function InfoCard() {
           }
         }
         /* Rectangle positioning */
-        .testimonialRect {
-          position: absolute;
-          opacity: 1;
-          pointer-events: none;
-          z-index: 2;
-        }
 
-        .rect-1 {
-          top: 3%;
-          left: 10%;
-          width: 80px;
-          height: 30px;
-          display: none !important;
-        }
-
-        .rect-2 {
-          top: 5%;
-          right: 10%;
-          width: 50px;
-          height: 25px;
-          display: none !important;
-        }
-
-        .rect-3 {
-          bottom: 20%;
-          right: 15%;
-          width: 55px;
-          height: 28px;
-          display: none !important;
-        }
 
         /* Adjust column proportions for true 2/3 and 1/3 */
         @media (min-width: 992px) {
@@ -1264,32 +1194,7 @@ margin-block: 30px !important;
             justify-content: center !important;
           }
 
-          .rect-1 {
-            top: 4%;
-            left: -3%;
-            width: 27vw;
-            height: 7vh;
-            opacity: 1;
-            display: block !important;
-          }
 
-          .rect-2 {
-            top: 9.7%;
-            right: -3%;
-            width: 35vw;
-            height: 7vh;
-            opacity: 1;
-            display: block !important;
-          }
-
-          .rect-3 {
-            bottom: 9%;
-            right: -3%;
-            width: 25vw;
-            height: 7vh;
-            opacity: 1;
-            display: block !important;
-          }
 
           .form-container h2 {
             font-size: 1.2rem !important;
@@ -1383,6 +1288,7 @@ margin-block: 30px !important;
       }
 
       `}</style>
-    </div>
+
+    </>
   );
 }
