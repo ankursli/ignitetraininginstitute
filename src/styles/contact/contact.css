@@ -104,6 +104,11 @@
          font-size: 4.08vw !important;
          margin: 0 !important;
      }
+
+     .fade-in-section {
+         opacity: 1 !important;
+         transform: none !important;
+     }
  }
 
  .team-banner {
@@ -115,15 +120,29 @@
      margin: auto;
      border-radius: 12px;
      overflow: hidden;
-     background-image: url("/images/ourteam-desktop.webp");
      background-size: cover;
      background-position: center;
+ }
+
+ .team-banner .desktop-banner-img {
+     display: block;
+ }
+
+ .team-banner .mobile-banner-img {
+     display: none;
  }
 
  @media (max-width: 768px) {
      .team-banner {
          height: 90vw;
-         background-image: url("/images/ourteam-mobile.webp");
+     }
+
+     .team-banner .desktop-banner-img {
+         display: none;
+     }
+
+     .team-banner .mobile-banner-img {
+         display: block;
      }
 
      .team-banner .heading {

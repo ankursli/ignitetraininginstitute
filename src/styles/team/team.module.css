@@ -70,12 +70,7 @@
         line-height: 36px !important;
     }
 
-    .careers-banner p {
-        /* margin: 0 !important;
-        font-size: 4.08vw !important;
-        font-weight: 800 !important;
-        opacity: 0.8 !important; */
-    }
+
 }
 
 
@@ -252,6 +247,11 @@
 
     .admin-card-info p {
         padding-left: 20px;
+    }
+
+    .fade-in-section {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
 

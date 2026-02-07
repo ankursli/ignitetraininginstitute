@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function TeamBanner() {
   return (
     <section
@@ -11,6 +13,22 @@ export default function TeamBanner() {
         animationDelay: "0.3s",
       }}
     >
+      <Image
+        src="/images/ourteam-desktop.webp"
+        alt="Our Team Desktop"
+        fill
+        priority
+        className="desktop-banner-img"
+        style={{ objectFit: 'cover' }}
+      />
+      <Image
+        src="/images/ourteam-mobile.webp"
+        alt="Our Team Mobile"
+        fill
+        priority
+        className="mobile-banner-img"
+        style={{ objectFit: 'cover' }}
+      />
       {/* Dark overlay */}
       <div className="dark-overlay"></div>
 
