@@ -144,7 +144,7 @@ const trainersData = [
 const coFoundersData = [
     {
         name: "Sumit Advani",
-        image: "/images/sumit.webp",
+        image: "/images/sumit-team.webp",
         width: 546,
         height: 534,
         description: "Sumit, Co-Founder of Ignite Training Institute, holds a B.Sc. in IT along with a Diploma in Advertising & PR. With over 10 years of experience in the UAE’s education industry, he specializes in designing tailored academic programs that align with each student’s unique goals. Beyond academics, Sumit actively oversees the institute’s infrastructure & spearheads marketing initiatives, ensuring Ignite continues to deliver excellence both inside & outside the classroom.",
