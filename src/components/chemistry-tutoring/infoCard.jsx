@@ -164,37 +164,14 @@ export default function InfoCard() {
   };
 
   return (
-    <div
-      className=""
-      style={{
-        maxWidth: isMobile ? "95vw" : "90vw",
-        marginInline: "auto",
-        marginBlock: isMobile ? "0" : "0",
-        animationDelay: "0.1s",
-      }}
-    >
+    <>
       <div
         className="position-relative overflow-hidden"
         style={{
-          backgroundImage: "url('/assets/subject-tutoring.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 35%",
-          borderRadius: "1.5rem",
-          minHeight: "750px",
+          height: "100%",
         }}
       >
-        {/* Dark overlay */}
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100 fade-in-section"
-          data-scroll
-          data-scroll-class="is-inview"
-          data-scroll-repeat
-          style={{
-            background: "rgba(0, 0, 0, 0.6)",
-            borderRadius: "1.5rem",
-            animationDelay: "0.15s",
-          }}
-        ></div>
+
 
         {/* Content container */}
         <div className="position-relative h-100" style={{ zIndex: 1 }}>
@@ -398,27 +375,7 @@ export default function InfoCard() {
               style={{ animationDelay: "0.6s" }}
             >
               {/* Rectangle background images positioned within form section */}
-              <img
-                src="/assets/rect1.webp"
-                alt="bg-shape"
-                className="testimonialRect rect-1"
-                width={321}
-                height={170}
-              />
-              <img
-                src="/assets/rect2.webp"
-                alt="bg-shape"
-                className="testimonialRect rect-2"
-                width={539}
-                height={170}
-              />
-              <img
-                src="/assets/rect3.webp"
-                alt="bg-shape"
-                className="testimonialRect rect-3"
-                width={309}
-                height={170}
-              />
+              {/* Rectangle background images positioned within form section - REMOVED */}
 
               <div
                 className="w-100 text-white form-container"
@@ -1411,6 +1368,6 @@ margin-block: 30px !important;
       }
 
       `}</style>
-    </div>
+    </>
   );
 }
