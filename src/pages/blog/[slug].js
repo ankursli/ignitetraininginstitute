@@ -755,7 +755,7 @@ export default function PostDetail({ initialPost }) {
                             {/* --- END UPDATED: Like/Dislike Block --- */}
                             <div className="author-bio-section">
                                 <div className="author-bio-image">
-                                    <img src="/images/Sumit.webp" alt="Author image" />
+                                    <img src="/images/sumit.webp" alt="Author image" />
                                 </div>
 
                                 <div className="author-bio-content">
