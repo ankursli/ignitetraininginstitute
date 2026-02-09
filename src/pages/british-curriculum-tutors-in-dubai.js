@@ -186,7 +186,22 @@ const BC = ({ headerHeight }) => {
       />
 
       <Head>
-        <link rel="preload" href="/assets/bc_bg_main.webp" as="image" fetchPriority="high" />
+        <link
+          rel="preload"
+          href="/assets/ib-bg.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/bc_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
       </Head>
 
       {/* LCP Optimization: Lifted Image */}
@@ -203,11 +218,11 @@ const BC = ({ headerHeight }) => {
               <img
                 src="/assets/bc_bg_main.webp"
                 alt="British Curriculum Tutors Background"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
