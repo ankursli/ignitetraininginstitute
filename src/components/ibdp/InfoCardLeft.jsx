@@ -1,20 +1,14 @@
-
+"use client";
 import Image from "next/image";
 
 export default function InfoCardLeft() {
     return (
         <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content v100">
             <h1
-                className="fw-bold text-white text-uppercase mb-3 fade-in-section"
+                className="fw-bold text-white text-uppercase mb-3 fade-in-section hero-h1"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
-                style={{
-                    lineHeight: "1.2",
-                    maxWidth: "863px",
-                    animationDelay: "0.2s",
-                    fontSize: "2.6rem",
-                }}
             >
                 <span className="mobile-text">
                     IBDP Tutors In Dubai, UAE For Curriculum Excellence
@@ -32,20 +26,10 @@ export default function InfoCardLeft() {
                 }}></div>
 
             <h2
-                className="text-white fade-in-section fs-8 fs-md-10"
+                className="text-white fade-in-section fs-8 fs-md-10 hero-h2"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
-                style={{
-                    letterSpacing: "0.2em",
-                    fontWeight: "600",
-                    opacity: "1",
-                    animationDelay: "0.25s",
-                    fontSize: "inherit",
-                    lineHeight: "inherit",
-                    marginTop: "19px",
-                    marginBottom: "26px",
-                }}
             >
                 Max Out To 45 Scores In IBDP
             </h2>
@@ -220,8 +204,25 @@ export default function InfoCardLeft() {
           transform: translateY(0);
         }
 
-        /* --- Converted JS Styles to CSS --- */
+        /* --- Converted JS Styles AND Inline Styles to CSS --- */
         
+        .hero-h1 {
+            line-height: 1.2;
+            max-width: 863px;
+            animation-delay: 0.2s;
+            font-size: 2.6rem;
+        }
+        .hero-h2 {
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            opacity: 1;
+            animation-delay: 0.25s;
+            font-size: inherit;
+            line-height: inherit;
+            margin-top: 19px;
+            margin-bottom: 26px;
+        }
+
         /* 1. Column Padding Handling (isMobile <= 1100px) */
         .info-col-1 { padding-right: 3.7rem; }
         .info-col-2 { padding-right: 4rem; }
@@ -232,14 +233,10 @@ export default function InfoCardLeft() {
         }
 
         /* 2. Icon Sizing (isMobile <= 1100px) */
-        /* Block 2 Icon */
-        /* original: width={isMobile ? 20 : 30} height={isMobile ? 30 : 45} */
         .icon-img-2 {
             width: 30px;
             height: 45px;
         }
-        /* Block 3 Icon */
-        /* original: width={isMobile ? 22 : 32} height={isMobile ? 30 : 42} */
         .icon-img-3 {
             width: 32px;
             height: 42px;
@@ -257,7 +254,6 @@ export default function InfoCardLeft() {
         }
         
         /* 3. Button Margins (isMobile <= 1100px) */
-        /* original: marginTop: isMobile ? "auto" : "20px" */
         .left-btn {
             margin-top: 20px !important;
         }
@@ -268,24 +264,13 @@ export default function InfoCardLeft() {
          }
 
 
-        /* --- Original Media Queries --- */
+        /* --- Original Media Queries with H1 updates --- */
 
         @media (max-width: 768px) {
           .info-row {
             -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 5%) !important;
             mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 5%) !important;
           }
-          .icon-img {
-             /* Original overrides from InfoCard.jsx */
-            /* width: 20px !important; height: 20px !important; removed to let specific classes handle or keep if needed */
-          }
-          .custom-height {
-            margin-left: 1rem !important;
-            /* width: 30px !important; height: 30px !important; handled below */
-          }
-           .cust-text {
-            /* padding: 8px 15px 8px 15px !important; */
-           }
         }
         
         /* iPad Mini */
@@ -334,7 +319,6 @@ export default function InfoCardLeft() {
         
         @media (max-width: 576px) {
           .info-row { font-size: 0.75rem !important; }
-           /* .icon-img { width: 20px !important; height: 20px !important; }  */
            /* Overriding the icon-img sizes for mobile specifically */
            .icon-img, .icon-img-2, .icon-img-3 {
                width: 20px !important;
@@ -351,7 +335,7 @@ export default function InfoCardLeft() {
                 gap:0.1rem;
             }
              h1 {
-                font-size: 20px !important;
+                font-size: 20px !important; 
                 line-height: 1.2 !important;
                 text-align: center !important;
                 margin-bottom: 1rem !important;
