@@ -83,6 +83,7 @@ export default function InfoCardLeft() {
                             alt="Grade Support"
                             width={32}
                             height={45}
+                            priority
                             className="icon-img"
                             style={{ width: "auto", height: "auto", maxHeight: "45px", maxWidth: "32px" }}
                         />
@@ -107,6 +108,7 @@ export default function InfoCardLeft() {
                             alt="Learning Mode"
                             width={30}
                             height={45}
+                            priority
                             className="icon-img icon-img-2"
                         />
                     </span>
@@ -129,6 +131,7 @@ export default function InfoCardLeft() {
                             alt="Location"
                             width={32}
                             height={42}
+                            priority
                             className="icon-img icon-img-3"
                         />
                     </span>
@@ -185,6 +188,7 @@ export default function InfoCardLeft() {
                             className="custom-height"
                             width={35}
                             height={35}
+                            fetchPriority="high"
                         />
                     </button>
                 </a>
