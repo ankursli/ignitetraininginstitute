@@ -5,7 +5,7 @@ export default function InfoCardLeft() {
     return (
         <div className="col-lg-8 d-flex flex-column justify-content-center pe-lg-4 p-4 left-content v100">
             <h1
-                className="fw-bold text-white text-uppercase mb-3 fade-in-section hero-h1"
+                className="fw-bold text-white text-uppercase mb-3 desktop-fade-in hero-h1"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -17,7 +17,7 @@ export default function InfoCardLeft() {
                     IBDP Tutors in Dubai,<br /> UAE Helping You Excel
                 </span>
             </h1>
-            <div className="divider fade-in-section"
+            <div className="divider desktop-fade-in"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -26,7 +26,7 @@ export default function InfoCardLeft() {
                 }}></div>
 
             <h2
-                className="text-white fade-in-section fs-8 fs-md-10 hero-h2"
+                className="text-white desktop-fade-in fs-8 fs-md-10 hero-h2"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -35,7 +35,7 @@ export default function InfoCardLeft() {
             </h2>
 
             <div
-                className="d-flex flex-wrap justify-content-evenly p-4 mb-4 fw-semibold fade-in-section info-row"
+                className="d-flex flex-wrap justify-content-evenly p-4 mb-4 fw-semibold desktop-fade-in info-row"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -127,7 +127,7 @@ export default function InfoCardLeft() {
             </div>
 
             <p
-                className="fade-in-section text-white mb-4 pt-3 pt-md-4"
+                className="desktop-fade-in text-white mb-4 pt-3 pt-md-4"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat
@@ -142,7 +142,7 @@ export default function InfoCardLeft() {
                 We specialize in expert tutoring support for the IB Diploma Programme across all subject groups. Our structured approach combines in-depth resources, focused training, & rigorous testing for consistent results.
             </p>
 
-            <div className="d-flex gap-3 btnwraper fade-in-section"
+            <div className="d-flex gap-3 btnwraper desktop-fade-in"
                 data-scroll
                 data-scroll-class="is-inview"
                 data-scroll-repeat>
@@ -194,14 +194,20 @@ export default function InfoCardLeft() {
           border-radius: 5px;
           background-color: gray;
         }
-        .fade-in-section {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-        .fade-in-section.is-inview {
-          opacity: 1;
-          transform: translateY(0);
+
+        /* --- DESKTOP ANIMATION ONLY --- */
+        /* By default (Mobile), no animation properties exist on .desktop-fade-in */
+        
+        @media (min-width: 1101px) {
+          .desktop-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+          }
+          .desktop-fade-in.is-inview {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         /* --- Converted JS Styles AND Inline Styles to CSS --- */
@@ -458,13 +464,7 @@ export default function InfoCardLeft() {
               height: auto !important;
           }
           
-          .fade-in-section {
-            opacity: 1 !important;
-            visibility: visible !important;
-            transform: none !important;
-            transition: none !important;
-            animation: none !important;
-          }
+           /* NO ANIMATION OVERRIDE NEEDED - CLASS DOESNT EXIST ON MOBILE */
         }
 
       `}</style>
