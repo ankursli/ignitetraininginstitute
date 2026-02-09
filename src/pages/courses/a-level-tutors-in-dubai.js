@@ -183,6 +183,25 @@ const ALEVEL = ({ headerHeight }) => {
         description="Learn from the best A-Level tutors In UAE with assured grade improvement. Choose a personalized tutoring plan with subjects of your choice."
       />
 
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/alevel_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/alevel_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
+
 
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={aLevelSchema} />
@@ -202,10 +221,10 @@ const ALEVEL = ({ headerHeight }) => {
                 src="/assets/alevel_bg_main.webp"
                 alt="A Level Tutors Background"
                 fetchPriority="high"
-                decoding="sync"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
