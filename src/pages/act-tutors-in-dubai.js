@@ -186,7 +186,22 @@ const act = ({ headerHeight }) => {
       <Head>
         <link rel="stylesheet" href="/styles/home/MovingBanner.css" />
         <link rel="stylesheet" href="/styles/home/Subjects.css" />
-        <link rel="preload" as="image" href="/assets/act.webp" />
+        <link
+          rel="preload"
+          href="/assets/mobileact.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/act_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
       </Head>
       <SEO
         title="ACT Subject Tests Prep With Focused Courses & Tutors In UAE"
@@ -205,15 +220,15 @@ const act = ({ headerHeight }) => {
           <div className="hero-container">
             {/* LCP Image moved here for immediate painting (SSR) */}
             <picture className="hero-bg">
-              <source media="(max-width: 768px)" srcSet="/assets/act_bg_main.webp" />
+              <source media="(max-width: 768px)" srcSet="/assets/mobileact.webp" />
               <img
                 src="/assets/act_bg_main.webp"
                 alt="ACT Tutors Background"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
