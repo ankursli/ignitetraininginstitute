@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Head from 'next/head';
 import LazySection from '@/components/LazySection';
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
@@ -179,6 +180,24 @@ const ap = ({ headerHeight }) => {
         title="AP Tutors In Dubai | Best AP Prep Classes In UAE"
         description="Experience result-driven AP tutoring with programs tailored to match each student’s learning needs. Get practice tests, tailored strategies, & resources"
       />
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/homeschooling-bg.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/ap_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={apSchema} />
 
@@ -192,16 +211,15 @@ const ap = ({ headerHeight }) => {
           <div className="hero-container">
             {/* LCP Image moved here for immediate painting (SSR) */}
             <picture className="hero-bg">
-              {/* Using homeschooling image as requested by user */}
-              <source media="(max-width: 768px)" srcSet="/assets/homeschooling_bg_main.webp" />
+              <source media="(max-width: 768px)" srcSet="/assets/homeschooling-bg.webp" />
               <img
-                src="/assets/homeschooling_bg_main.webp"
+                src="/assets/ap_bg_main.webp"
                 alt="Advanced Placements Background"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
