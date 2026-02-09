@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Head from 'next/head';
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
@@ -185,6 +186,25 @@ const HomeSchooling = ({ headerHeight }) => {
         title="Homeschooling In Dubai | Support For Private Candidates"
         description="Join homeschooling in Dubai, UAE for IGCSE, A-Levels & AP as private candidates. Get personalized learning support to excel academically & beyond"
       />
+
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/homeschooling_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/homeschooling_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={homeschoolingSchema} />
 
@@ -204,11 +224,11 @@ const HomeSchooling = ({ headerHeight }) => {
               <img
                 src="/assets/homeschooling_bg_main.webp"
                 alt="Homeschooling Tutors Background"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
