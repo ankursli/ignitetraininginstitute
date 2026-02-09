@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Head from 'next/head';
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
@@ -183,6 +184,25 @@ const IBC = ({ headerHeight }) => {
         title="IB Tutors In Dubai For Exam Success I IB Coaching In UAE"
         description="Get dedicated learning support for IB coaching in Dubai. Our expert IB tutors in the UAE are equipped with the right approach, strategies & resources"
       />
+
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/ib-bg.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/ibc_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       {/* The JsonLd component will correctly stringify and inject this valid JSON-LD array */}
       <JsonLd schema={ibcSchema} />
@@ -198,12 +218,15 @@ const IBC = ({ headerHeight }) => {
           {/* LCP Optimization: Background Image handled here */}
           <div className="hero-bg-wrapper">
             <picture>
-              <source media="(max-width: 768px)" srcSet="/assets/ibc_bg_main.webp" />
+              <source media="(max-width: 768px)" srcSet="/assets/ib-bg.webp" />
               <img
                 src="/assets/ibc_bg_main.webp"
                 alt="IB Curriculum Tutors"
                 className="hero-bg-img"
-                fetchPriority="high" // ⚡ LCP Boost
+                fetchPriority="high"
+                width="1200"
+                height="800"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
           </div>

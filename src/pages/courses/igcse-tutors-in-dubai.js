@@ -183,6 +183,25 @@ const IGCSE = ({ headerHeight }) => {
         description="Achieve success with top IGCSE tutors in UAE. Get full prep support for IGCSE with syllabus coverage, past paper practice & exam strategies"
       />
 
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/ib-bg.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/myp_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
+
       {/* <Head>
         <link
           rel="preload"
@@ -214,15 +233,15 @@ const IGCSE = ({ headerHeight }) => {
           <div className="hero-container">
             {/* LCP Image moved here for immediate painting (SSR) */}
             <picture className="hero-bg">
-              <source media="(max-width: 768px)" srcSet="/assets/igcse.webp" />
+              <source media="(max-width: 768px)" srcSet="/assets/ib-bg.webp" />
               <img
                 src="/assets/myp_bg_main.webp"
                 alt="IGCSE Tutors Background"
                 fetchPriority="high"
-                decoding="sync"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
