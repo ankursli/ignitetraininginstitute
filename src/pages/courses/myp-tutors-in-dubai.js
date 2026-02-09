@@ -183,6 +183,25 @@ const IBDP = ({ headerHeight }) => {
         title="One-On-One Interactive Tutoring Classes For IB MYP In UAE"
         description="Improve grades with top IB MYP tutors in the UAE. Get subject-specific support, interactive lessons & tailored study plans from certified MYP trainers"
       />
+
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/myp_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/myp_bg_main.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
       {/* 3. APPLY the style for paddingTop */}
       <div
         ref={scrollRef}
@@ -197,11 +216,11 @@ const IBDP = ({ headerHeight }) => {
               <img
                 src="/assets/myp_bg_main.webp"
                 alt="MYP Tutors Background"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
