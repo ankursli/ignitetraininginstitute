@@ -452,7 +452,6 @@ export default function InfoCardForm() {
               max-width: 100%;
               width: 110% !important;
               margin-left: -5% !important;
-              border-radius: 40px; /* Force border radius as it was in original */
            }
            .form-heading {
              font-size: 1.2rem !important;

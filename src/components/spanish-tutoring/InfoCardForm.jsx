@@ -413,10 +413,10 @@ export default function InfoCardForm() {
             margin-block: 20px !important;
             padding: 1rem !important;
           }
-           .form-heading { font-size: 1.1rem !important; margin-bottom: 0.8rem !important; line-height: 1.3 !important; }
-           .form-control { font-size: 0.75rem !important; padding: 8px 10px !important; }
-           .form-container .btn { font-size: 0.8rem !important; padding: 8px 15px !important; }
-           .bt-width { width: 70% !important; }
+          .form-heading { font-size: 1.1rem !important; margin-bottom: 0.8rem !important; line-height: 1.3 !important; }
+          .form-control { font-size: 0.75rem !important; padding: 8px 10px !important; }
+          .form-container .btn { font-size: 0.8rem !important; padding: 8px 15px !important; }
+          .bt-width { width: 70% !important; }
         }
 
         /* iPad Pro */
@@ -450,7 +450,6 @@ export default function InfoCardForm() {
               max-width: 100%;
               width: 110% !important;
               margin-left: -5% !important;
-              border-radius: 40px; /* Force border radius as it was in original */
            }
            .form-heading {
              font-size: 1.2rem !important;
@@ -468,8 +467,9 @@ export default function InfoCardForm() {
             .form-container { padding: 1.8rem 2rem !important; width: 108% !important; margin-left: -4% !important; }
             .form-heading { font-size: 1.3rem !important; line-height: 1.4 !important; }
             .form-control { font-size: 0.9rem !important; padding: 12px 18px !important; }
-            textarea.form-control { pattern: 16px 18px !important; }
+            textarea.form-control { padding: 16px 18px !important; }
             .form-container .btn { font-size: 0.95rem !important; padding: 12px 30px !important; }
+            .bt-width { font-size:16px; letter-spacing:3px; width:65%; }
         }
 
         @media (min-width: 1920px) {
@@ -481,6 +481,40 @@ export default function InfoCardForm() {
              .form-container .btn { font-size: 1rem !important; padding: 14px 11px 14px 22px !important }
         }
 
+        @media (min-width: 1200px) and (max-width: 1535px) {
+            .form-container {
+                min-height: 535px !important;
+                min-width: 380px !important;
+                width: 105% !important;
+                margin-left: -2.5% !important;
+                margin-block: 20px !important;
+                padding: 1.2rem 1.7rem !important;
+            }
+            .form-container .btn {
+                font-size: 1rem !important;
+                padding: 10px 9px 10px 10px !important;
+                width: 243px;
+            }
+        }
+        
+        @media (min-width: 1536px) and (max-width: 1919px) {
+             .right-form { padding: 1rem 2rem 1rem 1.5rem !important; }
+             .form-container {
+                min-height: 535px !important;
+                min-width: 420px !important;
+                width: 105% !important;
+                margin-left: -2.5% !important;
+                margin-block: 30px !important;
+                padding: 1.2rem 1.7rem !important;
+             }
+             .form-heading { font-size: 1.5rem !important; margin-bottom: 1rem !important; }
+             .form-control { font-size: 0.8rem !important; padding: 13px 12px !important; }
+             textarea.form-control { padding: 12px 12px !important; }
+             .form-container .btn { font-size: 0.85rem !important; padding: 10px 10px 10px 14px!important; }
+             .bt-width { width: 60% !important; }
+        }
+
+        /* Mobile */
         @media (max-width: 991.98px) {
              .form-bg { position: relative; }
              .form-container {
