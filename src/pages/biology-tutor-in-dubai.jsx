@@ -199,6 +199,7 @@ const BiologyTutorsInDubai = ({ headerHeight }) => {
                                 width="1200"
                                 height="800"
                                 className="hero-img"
+                                style={{ opacity: 1, visibility: 'visible' }}
                             />
                         </picture>
 
