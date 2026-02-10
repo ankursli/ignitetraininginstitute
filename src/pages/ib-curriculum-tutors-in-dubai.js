@@ -210,9 +210,8 @@ const IBC = ({ headerHeight }) => {
       {/* 3. APPLY the style for paddingTop to the scroll container */}
       <div
         ref={scrollRef}
-        className='overflow-hidden innerpage'
+        className='overflow-hidden innerpage page-content-padding'
         data-scroll-container
-        style={{ paddingTop: `${headerHeight}px` }} // <--- THE STICKY HEADER FIX
       >
         <div className="hero-section" data-scroll-section>
           {/* LCP Optimization: Background Image handled here */}

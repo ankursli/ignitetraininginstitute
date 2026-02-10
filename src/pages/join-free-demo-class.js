@@ -127,10 +127,7 @@ const FreeDemo = ({ headerHeight }) => {
                 />
             </Head>
             <div
-                // Removed: ref={scrollRef}
-                className='overflow-hidden innerpage'
-                // Removed: data-scroll-container
-                style={{ paddingTop: `${headerHeight}px` }}
+                className='overflow-hidden innerpage page-content-padding'
             >
                 <section data-scroll-section className="hero-section">
                     <div className="hero-container">

@@ -182,9 +182,8 @@ const BiologyTutorsInDubai = ({ headerHeight }) => {
 
             <div
                 ref={scrollRef}
+                className="overflow-hidden innerpage page-content-padding"
                 data-scroll-container
-                style={{ paddingTop: `${headerHeight}px` }}
-                className=" innerpage"
             >
                 <section className="hero-section" data-scroll-section>
                     <div className="hero-container">
