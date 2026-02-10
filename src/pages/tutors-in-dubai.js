@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Head from "next/head";
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
@@ -149,6 +150,24 @@ const Tutors = ({ headerHeight }) => {
         title="Tutors In Dubai - IB, IGCSE, A-Levels, AP, & More"
         description="Gain academic efficiency with the tutors in Dubai - IB, IGCSE, A-Levels, AP, & more, Our expert tutors offer tailored support for curriculums"
       />
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/motutors.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/tutors.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={tutorsSchema} />
 
@@ -166,11 +185,11 @@ const Tutors = ({ headerHeight }) => {
               <img
                 src="/assets/tutors.webp"
                 alt="Tutors in Dubai"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
