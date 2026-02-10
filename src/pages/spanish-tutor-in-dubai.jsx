@@ -157,6 +157,7 @@ const SpanishTutorsInDubai = ({ headerHeight }) => {
             <SEO
                 title="Best Spanish Tutors In Dubai - IB, IGCSE, A-Level Support"
                 description="We provide expert Spanish coaching in Dubai for IB, IGCSE, & A-Levels, helping students master the language & achieve top exam results"
+                url="https://ignitetraininginstitute.com/spanish-tutor-in-dubai"
             />
             <Head>
                 <link

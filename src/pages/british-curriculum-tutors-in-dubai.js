@@ -182,7 +182,9 @@ const BC = ({ headerHeight }) => {
   return (
     <>
       <SEO
+        title="British Curriculum Tutors For IGCSE/GCSE & AS & A-Levels"
         description="Seek full guidance for the British Curriculum in the UAE. Learn from expert A-Level & IGCSE tutors to strengthen academics & boost performance"
+        url="https://ignitetraininginstitute.com/british-curriculum-tutors-in-dubai"
       />
 
       <Head>

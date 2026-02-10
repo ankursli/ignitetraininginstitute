@@ -157,6 +157,7 @@ const ComputerTutorsInDubai = ({ headerHeight }) => {
             <SEO
                 title="Computer Science Tutors In Dubai - IB, IGCSE, A-Level, & AP"
                 description="Upgrade your grades with the best Computer Science tutors in Dubai. We specialize in IB, IGCSE, A-Levels, & AP, offering thorough preparation"
+                url="https://ignitetraininginstitute.com/computer-science-tutor-in-dubai"
             />
             <Head>
                 <link

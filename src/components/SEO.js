@@ -1,7 +1,7 @@
 // src/components/SEO.js
 import Head from 'next/head';
 
-const SEO = ({ title, description, url, image, preloadImages }) => {
+const SEO = ({ title, description, url, image, keywords, preloadImages }) => {
     // 1. We use the provided title directly (no global site name appended).
     const pageTitle = title || 'Ignite Training Institute';
 
@@ -31,6 +31,7 @@ const SEO = ({ title, description, url, image, preloadImages }) => {
                 content={description || "Discover the best courses and expert trainers for your career growth."}
                 key="desc"
             />
+            {keywords && <meta name="keywords" content={keywords} key="keywords" />}
 
             {/* Canonical URL (Highly Recommended) */}
             {url && <link rel="canonical" href={url} />}

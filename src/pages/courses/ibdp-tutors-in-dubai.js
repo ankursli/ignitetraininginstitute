@@ -29,6 +29,7 @@ const IBDP = ({ headerHeight }) => {
       <SEO
         title="IBDP Tutors In Dubai, UAE | IB Diploma Coaching Support"
         description="Ace your training & exam preparation with IBDP tutors in Dubai. Our specialized IB Diploma trainers help you achieve top scores with the right guidance"
+        url="https://ignitetraininginstitute.com/courses/ibdp-tutors-in-dubai"
       />
       <Head>
         <link

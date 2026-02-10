@@ -157,7 +157,8 @@ const Contact = ({ headerHeight }) => {
     return (
         <>
             <SEO title="Contact Us"
-                description="Get in touch with our academic experts to clearly understand the tutoring process & successfully kickstart your academic journey today!" />
+                description="Get in touch with our academic experts to clearly understand the tutoring process & successfully kickstart your academic journey today!"
+                url="https://ignitetraininginstitute.com/contact-us" />
             {/* 燥 SCHEMA INJECTION: Use the reusable component here */}
             <JsonLd schema={educationalOrganizationSchema} />
 

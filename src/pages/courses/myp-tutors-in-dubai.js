@@ -182,6 +182,7 @@ const IBDP = ({ headerHeight }) => {
       <SEO
         title="One-On-One Interactive Tutoring Classes For IB MYP In UAE"
         description="Improve grades with top IB MYP tutors in the UAE. Get subject-specific support, interactive lessons & tailored study plans from certified MYP trainers"
+        url="https://ignitetraininginstitute.com/courses/myp-tutors-in-dubai"
       />
 
       <Head>

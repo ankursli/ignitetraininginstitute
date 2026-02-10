@@ -202,6 +202,7 @@ const OurTeam = ({ headerHeight }) => {
             <SEO
                 title="Meet Our Expert Trainers | Know Our Team Better"
                 description="Get to know Ignite Training Institute’s expert mentors in the UAE, shaping bright futures with 2000+ trained students & remarkable academic results"
+                url="https://ignitetraininginstitute.com/our-team"
             />
 
             <div style={{ paddingTop: `${headerHeight}px` }} className="innerpage">

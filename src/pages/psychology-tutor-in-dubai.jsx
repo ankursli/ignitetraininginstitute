@@ -156,6 +156,7 @@ const PsychologyTutorsInDubai = ({ headerHeight }) => {
             <SEO
                 title="Psychology Tutors In Dubai - IGCSE, A-Level, & AP Support"
                 description="Find expert Psychology tutors in Dubai for IGCSE, A-Level, & AP. We offer personalized tutoring, exam preparation support to help students excel"
+                url="https://ignitetraininginstitute.com/psychology-tutor-in-dubai"
             />
             <Head>
                 <link

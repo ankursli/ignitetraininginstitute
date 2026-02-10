@@ -185,6 +185,7 @@ const HomeSchooling = ({ headerHeight }) => {
       <SEO
         title="Homeschooling In Dubai | Support For Private Candidates"
         description="Join homeschooling in Dubai, UAE for IGCSE, A-Levels & AP as private candidates. Get personalized learning support to excel academically & beyond"
+        url="https://ignitetraininginstitute.com/courses/homeschooling-tutors-in-dubai"
       />
 
       <Head>

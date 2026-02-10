@@ -180,7 +180,8 @@ const ALEVEL = ({ headerHeight }) => {
 
       <SEO
         title="UAE's Leading A-Level, AS-Level Tutors For All Subjects"
-        description="Learn from the best A-Level tutors In UAE with assured grade improvement. Choose a personalized tutoring plan with subjects of your choice."
+        description="Learn from the best A-Level tutors In UAE with assured grade improvement. Choose a personalized tutoring plan with subjects of your choice"
+        url="https://ignitetraininginstitute.com/courses/a-level-tutors-in-dubai"
       />
 
       <Head>

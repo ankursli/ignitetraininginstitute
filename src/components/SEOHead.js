@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export default function SEOHead({
     title = "Ignited Training Institute",
-    description = "Expert tutoring in Dubai",
+    description = "As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP",
     preloadImages = [],
     preloadVideos = [],
 }) {

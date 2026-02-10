@@ -157,6 +157,7 @@ const BusinessTutorsInDubai = ({ headerHeight }) => {
             <SEO
                 title="Business Studies Tutors In Dubai - IB, IGCSE, & A-Level"
                 description="Unlock exam success with Business Studies tutors in Dubai, catering to IB, IGCSE, & A-Level. Get personalized guidance to strengthen your concepts"
+                url="https://ignitetraininginstitute.com/business-studies-tutor-in-dubai"
             />
             <Head>
                 <link

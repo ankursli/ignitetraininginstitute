@@ -30,6 +30,7 @@ const HomeCopy = ({ headerHeight }) => {
             <SEO
                 title="Ignite Training Institute - Tutors In UAE For Exam Success"
                 description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
+                url="https://ignitetraininginstitute.com"
                 preloadImages={[
                     {
                         src: "/images/banner-bg-mobile.webp",

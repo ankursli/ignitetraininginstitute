@@ -154,7 +154,7 @@ const EnglishTutorsInDubai = ({ headerHeight }) => {
 
     return (
         <>
-            <SEO title="Best English Tutors In Dubai - IB, IGCSE, A-Level, & AP" description="Acquire language efficiency with top-rated English tutors in Dubai for IB, IGCSE, A-Level, & AP exam prep. Learn with 1K+ advanced resources" />
+            <SEO title="Best English Tutors In Dubai - IB, IGCSE, A-Level, & AP" description="Acquire language efficiency with top-rated English tutors in Dubai for IB, IGCSE, A-Level, & AP exam prep. Learn with 1K+ advanced resources" url="https://ignitetraininginstitute.com/english-tutor-in-dubai" />
             <Head>
                 <link
                     rel="preload"

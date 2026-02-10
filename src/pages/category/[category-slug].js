@@ -81,66 +81,87 @@ const categorySeoMap = {
     'a-levels': {
         title: "A Levels Blogs - Curriculum Insights & Student Resources",
         description: "Browse in-depth A Level blogs covering subject choices, study strategies, & exam success tips. Ideal for students & parents navigating A Levels",
+        keywords: "A Levels, academic guidance, curriculum insights, study strategies, exam success, student resources",
     },
     'advanced-placements': {
         title: "AP (Advanced Placements) Blogs - Insights & Prep Tips",
         description: "Explore extensive AP blogs covering course choices, exam preparation, & scoring insights. A helpful guide for anybody confidently navigating AP",
+        keywords: "AP, Advanced Placements, exam preparation, scoring insights, course choices, academic support",
     },
     'american-curriculum': {
         title: "American Curriculum Blogs - Grading System & Key Features",
         description: "Learn about the American Curriculum through Ignite blogs. Get to know the framework, grading, AP options, global schools, & college preparation",
+        keywords: "American Curriculum, grading system, AP options, schools in UAE, college preparation, academic framework",
     },
     'british-curriculum': {
         title: "British Curriculum Blogs - Pathways & Key Insights",
         description: "These blogs cover the British Curriculum & offer a clear look at academic stages, subject focus, progression routes, & student learning outcomes",
+        keywords: "British Curriculum, GCSE, A Levels, academic pathways, subject focus, progression routes",
     },
     'gcse': {
         title: "GCSE Blogs - Curriculum Insights & Exam Prep Tips",
         description: "Stay informed with insightful blogs on GCSE subjects, grading systems, & exam formats, perfect for students & parents navigating their GCSE journey",
+        keywords: "GCSE, curriculum insights, exam prep, grading systems, student guidance",
     },
     'homeschooling': {
         title: "Homeschooling Blogs - Guidance & Student Resources",
         description: "Homeschooling blogs offer structured guidance and subject planning tips, making them an essential resource for navigating the homeschooling journey",
+        keywords: "Homeschooling, educational guidance, subject planning, student resources, homeschool Dubai",
     },
     'ibdp': {
         title: "IB Diploma Programme Blogs - Curriculum Insights & Tips",
         description: "Navigate the IBDP journey with blogs covering core components, subject groups, CAS, EE, TOK, & exam prep, making it a go-to guide for students",
+        keywords: "IBDP, IB Diploma, CAS, EE, TOK, curriculum tips, exam preparation",
     },
     'igcse': {
         title: "IGCSE Blogs - Curriculum Insights & Study Resources",
         description: "Explore the IGCSE structure, key subjects, grading system, & expert prep tips through our blogs, designed for navigating IGCSE in Dubai & beyond",
+        keywords: "IGCSE, curriculum structure, study resources, grading system, exam prep",
     },
     'international-baccalaureate': {
         title: "IB Blogs - Curriculum Insights & Exam Prep Strategies",
         description: "Navigate the International Baccalaureate (IB) with expert blogs on subjects, assessments, & learning pathways, trusted by students & parents worldwide",
+        keywords: "International Baccalaureate, IB, learning pathways, exam strategies, academic insights",
     },
     'myp': {
         title: "IB MYP Programme Blogs - Curriculum Insights & Tips",
         description: "Understand the IB MYP better with blogs on subjects, skills, & projects, your complete go-to guide to the curriculum & IB MYP learning journey",
+        keywords: "IB MYP, Middle Years Programme, curriculum guide, learning skills, project-based learning",
     },
     'schools': {
         title: "Top Schools In The UAE: Insightful Blogs & Reviews",
         description: "Explore insightful blogs on top UAE schools covering quality of education, reviews, & more to help parents & students make informed decisions",
+        keywords: "UAE schools, top schools Dubai, school reviews, education quality, parent guide",
     },
     'standardized-tests': {
         title: "Standardized Tests Blogs - Prep Guidance & Key Insights",
         description: "Navigate the landscape of standardized testing with blogs offering expert prep tips, grading insights & exam formats for students & learners worldwide",
+        keywords: "standardized tests, exam formats, test preparation, grading insights, SAT, ACT",
     },
     'study-tips': {
         title: "Study Tips – Proven Strategies & Insights For Students",
         description: "Master your learning journey with study tips blogs packed with focus techniques, revision strategies & smart learning hacks for strong academic growth.",
+        keywords: "study tips, revision strategies, learning hacks, focus techniques, academic growth",
     },
     'subject-choices': {
         title: "Subject Choices Blogs - Expert Guidance & Real Insights",
         description: "Gain clear guidance on subject choices through insightful blogs covering academic pathways, stream selection, & comprehensive curricula advice",
+        keywords: "subject choices, academic pathways, stream selection, curricula advice, student guidance",
     },
     'tutoring': {
         title: "Tutoring Insights - Get Academic Support With Ignite",
         description: "Discover tutoring blogs filled with subject-specific strategies & academic growth tips, ideal for students in Dubai & parents seeking trusted support",
+        keywords: "tutoring Dubai, academic support, subject strategies, learning growth, Ignite Training",
     },
     'universities': {
         title: "University Insights - Blogs On Admissions & Career Pathway",
         description: "Browse expert university blogs packed with insights on admissions & global rankings acting as an essential guide for those navigating global pathways",
+        keywords: "universities, admissions guide, career pathways, global rankings, higher education",
+    },
+    'news-mentions': {
+        title: "Ignite In The News - Media Mentions & Press Coverage",
+        description: "Stay updated with Ignite Training Institute's latest media appearances, press mentions, and news coverage in Dubai's education sector.",
+        keywords: "Ignite Training Institute news, press coverage, media mentions, Dubai education news",
     }
 
 
@@ -279,11 +300,19 @@ const CategoryPage = ({ headerHeight }) => {
 
     if (router.isFallback || !categorySlug || !currentCategory && !categoryError) {
         return (
-            <div className="d-flex justify-content-center align-items-center py-5" style={{ minHeight: '300px' }}>
-                <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">Loading...</span>
+            <>
+                <SEO
+                    title={`${categorySlug ? categorySlug.toUpperCase().replace(/-/g, ' ') : 'Category'} - Ignite Training Institute Blog`}
+                    description="Explore expert insights, study strategies, and academic guidance from Ignite Training Institute. We cover IB, IGCSE, A Levels, AP, and more."
+                    url={`https://ignitetraininginstitute.com/category/${categorySlug}`}
+                    keywords={`${categorySlug ? categorySlug.toUpperCase().replace(/-/g, ' ') : 'Category'}, Ignite Training Institute, Blog, Education, Dubai`}
+                />
+                <div className="d-flex justify-content-center align-items-center py-5" style={{ minHeight: '300px' }}>
+                    <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 
@@ -313,6 +342,7 @@ const CategoryPage = ({ headerHeight }) => {
 
     // --- START: NEW SEO IMPLEMENTATION LOGIC ---
     const currentSlug = categorySlug;
+    const currentUrl = `https://ignitetraininginstitute.com/category/${currentSlug}`;
 
     // 1. Look up the custom SEO data using the slug
     const customSeoData = categorySeoMap[currentSlug];
@@ -328,6 +358,9 @@ const CategoryPage = ({ headerHeight }) => {
 
     // 4. Clean up any residual HTML and truncate the description (max 160 chars)
     const cleanMetaDescription = metaDescription.replace(/<[^>]*>/g, '').substring(0, 160);
+    // 5. Set the final Meta Keywords
+    const metaKeywords = customSeoData?.keywords
+        || `${currentCategoryName}, Igniteblog, Education, Dubai, Curriculum Insights`;
     // --- END: NEW SEO IMPLEMENTATION LOGIC ---
 
 
@@ -338,6 +371,8 @@ const CategoryPage = ({ headerHeight }) => {
                 title={metaTitle}
                 // Use the dynamically determined and cleaned description
                 description={cleanMetaDescription}
+                url={currentUrl}
+                keywords={metaKeywords}
             />
             <JsonLd schema={categorySchema} />
 
