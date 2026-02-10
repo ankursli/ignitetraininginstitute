@@ -47,7 +47,20 @@ const Hero = () => {
     return (
         <>
             <Head>
-                <link rel="preload" as="image" href="/images/video-cover.webp" fetchPriority="high" />
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/images/video-cover.webp"
+                    media="(min-width: 768px)"
+                    fetchPriority="high"
+                />
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/images/video-cover-mobile.webp"
+                    media="(max-width: 767px)"
+                    fetchPriority="high"
+                />
             </Head>
 
             <div className={styles.heroSectionWrapper}>
@@ -91,7 +104,9 @@ const Hero = () => {
                                         preload="metadata"
                                         poster="/images/video-cover.webp"
                                         fetchPriority="high"
-                                    ></video>
+                                    >
+                                        <source src="/videos/hero-banner-video2.mp4" type="video/mp4" />
+                                    </video>
                                 </div>
 
                                 <div className={styles.buttonGroup}>

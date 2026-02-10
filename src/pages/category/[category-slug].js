@@ -304,7 +304,7 @@ const CategoryPage = ({ headerHeight }) => {
                 <SEO
                     title={`${categorySlug ? categorySlug.toUpperCase().replace(/-/g, ' ') : 'Category'} - Ignite Training Institute Blog`}
                     description="Explore expert insights, study strategies, and academic guidance from Ignite Training Institute. We cover IB, IGCSE, A Levels, AP, and more."
-                    url={`https://ignitetraininginstitute.com/category/${categorySlug}`}
+                    url={categorySlug ? `https://ignitetraininginstitute.com/category/${categorySlug}` : null}
                     keywords={`${categorySlug ? categorySlug.toUpperCase().replace(/-/g, ' ') : 'Category'}, Ignite Training Institute, Blog, Education, Dubai`}
                 />
                 <div className="d-flex justify-content-center align-items-center py-5" style={{ minHeight: '300px' }}>
