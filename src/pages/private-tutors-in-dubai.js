@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Head from "next/head";
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
@@ -150,6 +151,24 @@ const PrivateTutorsDubai = ({ headerHeight }) => {
         title="Best Private Tutors In Dubai, UAE - IB, IGCSE, A-Levels, & AP"
         description="Achieve academic excellence with Ignite’s private tutors in Dubai, UAE, offering support for IB, IGCSE, A-Level, AP, & Homeschooling (private candidates)"
       />
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/motutors.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/assets/tutors.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+      </Head>
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={privateTutorsSchema} />
 
@@ -167,11 +186,11 @@ const PrivateTutorsDubai = ({ headerHeight }) => {
               <img
                 src="/assets/tutors.webp"
                 alt="Private Tutors in Dubai"
-                fetchpriority="high"
-                decoding="sync"
+                fetchPriority="high"
                 width="1200"
                 height="800"
                 className="hero-img"
+                style={{ opacity: 1, visibility: 'visible' }}
               />
             </picture>
 
