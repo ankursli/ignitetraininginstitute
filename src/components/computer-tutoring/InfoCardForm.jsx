@@ -16,6 +16,7 @@ export default function InfoCardForm() {
         email: "",
         phone: "",
         grade: "",
+        school: "",
         course: "",
         message: "",
         type: 'Organic_Subject',
@@ -91,6 +92,10 @@ export default function InfoCardForm() {
 
         if (!formData.grade.trim()) {
             newErrors.grade = "Grade is required.";
+            isValid = false;
+        }
+        if (!formData.school.trim()) {
+            newErrors.school = "School name is required.";
             isValid = false;
         }
 
@@ -254,26 +259,50 @@ export default function InfoCardForm() {
                             {errors.grade && <div className="invalid-feedback d-block fw-bold text-warning">{errors.grade}</div>}
                         </div>
                         <div className="col-8">
-                            <select
-                                name="course"
-                                value={formData.course}
+                            <input
+                                type="text"
+                                name="school"
+                                value={formData.school}
                                 onChange={handleChange}
                                 className="form-control bg-transparent text-white fw-semibold"
+                                placeholder="SCHOOL"
                                 style={{
                                     border: "1.5px solid #FFFFFF",
                                     borderRadius: "40px",
                                     fontSize: "0.9rem",
                                     padding: "12px 15px",
                                 }}
-                            >
-                                <option value="" disabled selected={!formData.course}>SELECT YOUR COURSE</option>
-                                <option value="International Baccalaureate (IB)">International Baccalaureate (IB)</option>
-                                <option value="IGCSE/GCSE">IGCSE/GCSE</option>
-                                <option value="A-Levels">A-Levels</option>
-                                <option value="Advanced Placements (AP)">Advanced Placements (AP)</option>
-                            </select>
-                            {errors.course && <div className="invalid-feedback d-block fw-bold text-warning">{errors.course}</div>}
+                            />
+                            {errors.school && <div className="invalid-feedback d-block fw-bold text-warning">{errors.school}</div>}
                         </div>
+                    </div>
+
+                    <div
+                        className="mb-3 fade-in-section"
+                        data-scroll
+                        data-scroll-class="is-inview"
+                        data-scroll-repeat
+                        style={{ animationDelay: "0.8s" }}
+                    >
+                        <select
+                            name="course"
+                            value={formData.course}
+                            onChange={handleChange}
+                            className="form-control bg-transparent text-white fw-semibold"
+                            style={{
+                                border: "1.5px solid #FFFFFF",
+                                borderRadius: "40px",
+                                fontSize: "0.9rem",
+                                padding: "12px 15px",
+                            }}
+                        >
+                            <option value="" disabled selected={!formData.course}>SELECT YOUR COURSE</option>
+                            <option value="International Baccalaureate (IB)">International Baccalaureate (IB)</option>
+                            <option value="IGCSE/GCSE">IGCSE/GCSE</option>
+                            <option value="A-Levels">A-Levels</option>
+                            <option value="Advanced Placements (AP)">Advanced Placements (AP)</option>
+                        </select>
+                        {errors.course && <div className="invalid-feedback d-block fw-bold text-warning">{errors.course}</div>}
                     </div>
 
                     <div
