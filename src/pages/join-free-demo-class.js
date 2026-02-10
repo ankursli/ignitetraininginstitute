@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Head from "next/head";
 import LazySection from "@/components/LazySection";
 import Image from "next/image";
 
@@ -107,6 +108,24 @@ const FreeDemo = ({ headerHeight }) => {
                 title="Free Demo Class At Ignite Training Institute | Join Today"
                 description="Experience Ignite’s expert tutoring with a free demo class. Explore IB, IGCSE, A-Levels, AP & more with certified trainers in Dubai, UAE"
             />
+            <Head>
+                <link
+                    rel="preload"
+                    href="/assets/mobileact.webp"
+                    as="image"
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    fetchPriority="high"
+                />
+                <link
+                    rel="preload"
+                    href="/assets/act_bg_main.webp"
+                    as="image"
+                    type="image/webp"
+                    media="(min-width: 769px)"
+                    fetchPriority="high"
+                />
+            </Head>
             <div
                 // Removed: ref={scrollRef}
                 className='overflow-hidden innerpage'
@@ -117,15 +136,15 @@ const FreeDemo = ({ headerHeight }) => {
                     <div className="hero-container">
                         {/* LCP Image moved here for immediate painting (SSR) */}
                         <picture className="hero-bg">
-                            <source media="(max-width: 768px)" srcSet="/assets/act_bg_main.webp" />
+                            <source media="(max-width: 768px)" srcSet="/assets/mobileact.webp" />
                             <img
                                 src="/assets/act_bg_main.webp"
                                 alt="Private Tutors in Dubai"
-                                fetchpriority="high"
-                                decoding="sync"
+                                fetchPriority="high"
                                 width="1200"
                                 height="800"
                                 className="hero-img"
+                                style={{ opacity: 1, visibility: 'visible' }}
                             />
                         </picture>
 
