@@ -206,6 +206,7 @@ const act = ({ headerHeight }) => {
       <SEO
         title="ACT Subject Tests Prep With Focused Courses & Tutors In UAE"
         description="Ignite Training Institute can support you as the best ACT tutors in Dubai through our comprehensive guidance & ACT-specific tutoring strategies"
+        url="https://ignitetraininginstitute.com/act-tutors-in-dubai"
       />
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={actSchema} />

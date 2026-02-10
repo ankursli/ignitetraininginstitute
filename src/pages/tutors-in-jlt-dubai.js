@@ -149,6 +149,7 @@ const Tutors = ({ headerHeight }) => {
       <SEO
         title="Best Tutors In JLT, Dubai - IB, IGCSE, A-Levels, AP Support"
         description="Enhance your learning with expert tutors in JLT Dubai for IB, IGCSE, A-Levels, & AP. Get dedicated support tailored to help students achieve their goals"
+        url="https://ignitetraininginstitute.com/tutors-in-jlt-dubai"
       />
       <Head>
         <link

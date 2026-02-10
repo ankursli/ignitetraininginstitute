@@ -179,6 +179,7 @@ const ap = ({ headerHeight }) => {
       <SEO
         title="AP Tutors In Dubai | Best AP Prep Classes In UAE"
         description="Experience result-driven AP tutoring with programs tailored to match each student’s learning needs. Get practice tests, tailored strategies, & resources"
+        url="https://ignitetraininginstitute.com/advanced-placements-tutors-in-dubai"
       />
       <Head>
         <link
