@@ -64,7 +64,7 @@ function generateSiteMap(posts, categories) {
            <priority>0.9</priority>
        </url>`).join('')}
 
-     ${categories.map(({ slug }) => `
+     ${categories.map(({ slug }) => `igni
        <url>
            <loc>${BASE_URL}/category/${slug}</loc>
        </url>`).join('')}

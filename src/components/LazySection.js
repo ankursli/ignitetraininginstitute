@@ -10,14 +10,11 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
     const isBotDetected = () => {
         if (typeof window === 'undefined') return false;
         const userAgent = navigator.userAgent.toLowerCase();
-        return (
-            userAgent.includes('googlebot') ||
-            userAgent.includes('bingbot') ||
-            userAgent.includes('lighthouse') ||
-            userAgent.includes('gtmetrix') ||
-            userAgent.includes('pagespeed') ||
-            userAgent.includes('chrome-lighthouse')
-        );
+
+        // Comprehensive regex for Search Engines, AI Bots, Performance Tools, and Social Previews
+        const botPattern = /googlebot|bingbot|applebot|slurp|baiduspider|duckduckbot|google-inspectiontool|chrome-lighthouse|lighthouse|gtmetrix|pagespeed|headlesschrome|gptbot|oai-searchbot|claudebot|perplexitybot|amazonbot|bytespider|ccbot|facebookexternalhit|twitterbot|linkedinbot|slackbot|discordbot|whatsapp/;
+
+        return botPattern.test(userAgent);
     };
 
     useEffect(() => {
