@@ -64,7 +64,7 @@ function generateSiteMap(posts, categories) {
            <priority>0.9</priority>
        </url>`).join('')}
 
-     ${categories.map(({ slug }) => `igni
+     ${categories.map(({ slug }) => `
        <url>
            <loc>${BASE_URL}/category/${slug}</loc>
        </url>`).join('')}
@@ -72,7 +72,7 @@ function generateSiteMap(posts, categories) {
      ${posts.map(({ slug, modified_gmt }) => `
        <url>
            <loc>${BASE_URL}/blog/${slug}</loc>
-           <lastmod>${modified_gmt}</lastmod>
+           <lastmod>${modified_gmt}+04:00</lastmod>
        </url>`).join('')}
    </urlset>`
 }
