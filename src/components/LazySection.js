@@ -17,8 +17,9 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
         return botPattern.test(userAgent);
     };
 
+    // Unified effect for visibility and scroll updates
     useEffect(() => {
-        // Eager load on Desktop OR if Bot is detected
+        // Eager load logic
         if (typeof window !== 'undefined' && (window.innerWidth > 768 || isBotDetected())) {
             setIsVisible(true);
             return;
@@ -29,20 +30,9 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
                     observer.disconnect();
-
-                    // Directly update Locomotive Scroll instance (only for mobile if somehow active)
-                    if (scroll) {
-                        setTimeout(() => {
-                            scroll.update();
-                            console.log('Locomotive Scroll Updated via LazySection');
-                        }, 200);
-                    }
                 }
             },
-            {
-                threshold,
-                rootMargin
-            }
+            { threshold, rootMargin }
         );
 
         if (ref.current) {
@@ -55,6 +45,23 @@ const LazySection = ({ children, threshold = 0.1, rootMargin = "200px" }) => {
             }
         };
     }, [threshold, rootMargin]);
+
+    // Separate effect to handle ResizeObserver when content becomes visible
+    useEffect(() => {
+        if (!isVisible || !ref.current || !scroll) return;
+
+        const resizeObserver = new ResizeObserver(() => {
+            if (scroll && typeof scroll.update === 'function') {
+                scroll.update();
+            }
+        });
+
+        resizeObserver.observe(ref.current);
+
+        return () => {
+            resizeObserver.disconnect();
+        };
+    }, [isVisible, scroll]);
 
     return (
         <div ref={ref} style={{ minHeight: '100px' }}>
