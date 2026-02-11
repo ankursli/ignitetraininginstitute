@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    IGCSE Tutors In Dubai, UAE For <br /> Assured Results
-                </span>
-                <span className="desktop-text">
-                    IGCSE Tutors In Dubai, <br />UAE For Student Success
-                </span>
+                IGCSE Tutors In Dubai, UAE For<br /> Assured Results
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll

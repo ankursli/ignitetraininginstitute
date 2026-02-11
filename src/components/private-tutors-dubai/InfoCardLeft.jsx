@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    Private Tutors In Dubai <br /> For Academic Success
-                </span>
-                <span className="desktop-text">
-                    Expert Private Tutors In Dubai <br /> Driving Real Results
-                </span>
+                Expert Private Tutors In Dubai <br /> Driving Real Results
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
@@ -428,11 +423,7 @@ export default function InfoCardLeft() {
            } 
         }
         
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
         @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
           
           .icon-img, .icon-img-2, .icon-img-3 {
               max-width: 22px !important;

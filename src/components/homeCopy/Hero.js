@@ -73,12 +73,7 @@ const Hero = () => {
                                 </div>
 
                                 <h2 className={styles.heroTitle}>
-                                    <span className={styles.heroTitleDesktop}>
-                                        Ignite Your Path To Top <span className="highlight">Academic</span> Performance
-                                    </span>
-                                    <span className={styles.heroTitleMobile}>
-                                        Empower Your Academic Goals With <span className="highlight">Ignite's</span> Tutors
-                                    </span>
+                                    Empower Your Academic Goals With <span className="highlight">Ignite's</span> Tutors
                                 </h2>
 
                                 <div className={styles.heroParagraph}>

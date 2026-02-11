@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    ACT Tutors In Dubai, UAE <br /> For Assured High Scores
-                </span>
-                <span className="desktop-text">
-                    ACT Tutors In Dubai, UAE <br /> For Strategic Exam Prep
-                </span>
+                ACT Tutors In Dubai, UAE <br /> For Assured High Scores
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
@@ -428,11 +423,7 @@ export default function InfoCardLeft() {
            } 
         }
         
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
         @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
           
           .icon-img, .icon-img-2, .icon-img-3 {
               max-width: 22px !important;

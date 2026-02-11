@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    Thrive Confidently As A Private Candidate In Dubai, UAE
-                </span>
-                <span className="desktop-text">
-                    Homeschooling In Dubai To <br />Thrive As A Private Candidate
-                </span>
+                Homeschooling In Dubai To<br /> Thrive As A Private Candidate
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll

@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    IB Tutors In Dubai,<br /> UAE For Academic Excellence
-                </span>
-                <span className="desktop-text">
-                    IB Tutors In Dubai, UAE<br /> For Student Success
-                </span>
+                IB Tutors In Dubai, UAE<br /> For Academic Excellence
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
@@ -458,12 +453,7 @@ export default function InfoCardLeft() {
            } 
         }
         
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
         @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
-          
           .icon-img, .icon-img-2, .icon-img-3 {
               max-width: 22px !important;
               max-height: 30px !important;

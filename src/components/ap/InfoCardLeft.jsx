@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    Get Started With <br /> Advanced Placements Tutors In UAE
-                </span>
-                <span className="desktop-text">
-                    AP Tutors In Dubai, UAE <br /> For Confident Exam Prep
-                </span>
+                AP Tutors In Dubai, UAE <br /> For Confident Exam Prep
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
@@ -428,11 +423,7 @@ export default function InfoCardLeft() {
            } 
         }
         
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
         @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
           
           .icon-img, .icon-img-2, .icon-img-3 {
               max-width: 22px !important;

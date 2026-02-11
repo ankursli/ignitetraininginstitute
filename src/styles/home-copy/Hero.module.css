@@ -72,9 +72,6 @@
 
 .heroTitle {
   margin: 40px 0 50px 0;
-}
-
-.heroTitleDesktop {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -83,13 +80,7 @@
   color: var(--blue-color);
 }
 
-.heroTitleMobile {
-  display: none;
-  font-weight: 700;
-  line-height: 1.1;
-  text-transform: uppercase;
-  color: var(--blue-color);
-}
+
 
 .heroParagraph {
   padding-top: 30px;
@@ -437,20 +428,12 @@
     padding: 20px 0;
     border-bottom: 1px solid #CCCCCC;
     max-width: 90vw;
-  }
-
-  .heroTitleDesktop {
-    display: none;
-  }
-
-  .heroTitleMobile {
-    display: block;
     line-height: 23px;
     font-size: 20.4px;
     text-align: center;
   }
 
-  .heroLeft .heroTitleMobile :global(span) {
+  .heroTitle :global(span) {
     display: inline-block;
   }
 
@@ -598,12 +581,12 @@
     font-size: 0.9rem;
   }
 
-  .heroLeft .heroTitleMobile {
+  .heroLeft .heroTitle {
     font-size: 1.2rem;
     text-align: center;
   }
 
-  .heroLeft .heroTitleMobile :global(span) {
+  .heroLeft .heroTitle :global(span) {
     display: inline-block;
   }
 

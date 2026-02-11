@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    IBDP Tutors In Dubai, UAE For Curriculum Excellence
-                </span>
-                <span className="desktop-text">
-                    IBDP Tutors in Dubai,<br /> UAE Helping You Excel
-                </span>
+                IBDP Tutors In Dubai, UAE<br /> For Curriculum Excellence
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
@@ -447,11 +442,7 @@ export default function InfoCardLeft() {
         }
         
         /* Mobile Text Toggle */
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
         @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
           
           .icon-img, .icon-img-2, .icon-img-3 {
               max-width: 22px !important;

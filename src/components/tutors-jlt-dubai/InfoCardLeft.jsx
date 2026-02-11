@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    Expert Tutors In JLT Dubai <br />For Student Progress
-                </span>
-                <span className="desktop-text">
-                    Trusted Tutors In JLT Dubai<br />For Academic Growth
-                </span>
+                Expert Tutors In JLT Dubai <br />For Academic Growth
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
@@ -428,11 +423,7 @@ export default function InfoCardLeft() {
            } 
         }
         
-        .mobile-text { display: none; }
-        .desktop-text { display: block; }
         @media (max-width: 1100px) {
-          .mobile-text { display: block; }
-          .desktop-text { display: none; }
           
           .icon-img, .icon-img-2, .icon-img-3 {
               max-width: 22px !important;

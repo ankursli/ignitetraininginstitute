@@ -10,12 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                <span className="mobile-text">
-                    Excel With AS & A Level<br /> Tutors In Dubai, UAE
-                </span>
-                <span className="desktop-text">
-                    AS & A Level Tutors In Dubai<br /> For Exam Success
-                </span>
+                AS & A Level Tutors In Dubai<br /> For Exam Success
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
