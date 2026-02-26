@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Script from "next/script";
 // 1. Import the reusable JsonLd component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
@@ -78,6 +79,10 @@ const About = ({ headerHeight }) => {
     <>
       <SEO title="About Ignite Training Institute: Expert Tutors In Dubai"
         description="Learn about Ignite Training Institute, Dubai's leading tutoring center for IB, IGCSE, A-Levels, & AP. Our experienced tutors and proven methodology ensure academic success." />
+      {/* Event snippet for Sign-up - new website main form conversion page */}
+      <Script id="google-conversion-tracking" strategy="afterInteractive">
+        {`gtag('event', 'conversion', {'send_to': 'AW-844959495/6OBkCIqSlP4bEIee9JID'});`}
+      </Script>
       {/* 2. RENDER the JsonLd component and pass the schema data */}
       <JsonLd schema={educationalOrganizationSchema} />
 

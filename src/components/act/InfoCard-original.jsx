@@ -959,7 +959,7 @@ export default function InfoCard() {
           }
 
           .right-form {
-            padding: 1.5rem 4rem 1.5rem 2.5rem !important;
+            padding: 1.5rem 0rem 1.5rem 2.5rem  !important;
           }
 
           .form-container {
@@ -996,7 +996,7 @@ export default function InfoCard() {
           }
 
           .right-form {
-            padding: 3rem 5rem 3rem 3rem!important;
+            padding: 3rem 0rem 3rem 3rem  !important;
           }
 
           .form-container {
@@ -1089,7 +1089,7 @@ export default function InfoCard() {
           }
 
           .right-form {
-            padding: 1rem 2rem 1rem 1.5rem !important;
+            padding: 1rem 0rem 1rem 1.5rem  !important;
           }
 
           .form-container {

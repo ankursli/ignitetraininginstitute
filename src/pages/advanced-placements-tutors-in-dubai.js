@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import LazySection from '@/components/LazySection';
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
-import Accordion from '@/components/ap/accrodian';
-import Blog from "@/components/ap/Blog";
-import APBenefits from '@/components/ap/chooseApp';
-import CourseCard from '@/components/ap/CourseCard';
-import FAQSection from '@/components/ap/FaqSection';
-import IgniteAchievements from '@/components/ap/IgniteAchievements';
+const Accordion = dynamic(() => import('@/components/ap/accrodian'));
+const Blog = dynamic(() => import('@/components/ap/Blog'));
+const APBenefits = dynamic(() => import('@/components/ap/chooseApp'));
+const CourseCard = dynamic(() => import('@/components/ap/CourseCard'));
+const FAQSection = dynamic(() => import('@/components/ap/FaqSection'));
+const IgniteAchievements = dynamic(() => import('@/components/ap/IgniteAchievements'));
 import InfoCard from '@/components/ap/InfoCard';
-import IgniteAboutCard from "@/components/ap/IgniteAboutCard";
-import Trainers from "@/components/ap/Trainers";
-import WhatWeOfferSection from '@/components/ap/WhatWeOfferSection';
-import LifeAtIgniteCarousel from '@/components/ap/LifeAtIgniteCarousel';
-import MarqueeBanner from '@/components/ap/MarqueeBanner';
-import ReviewsSection from '@/components/ap/ReviewsSection';
-import StudentAchievements from '@/components/ap/StudentAchivement';
-import SubjectsCard1 from '@/components/ap/SubjectCard1';
-import UspsSection from '@/components/ap/UspsSection';
+const IgniteAboutCard = dynamic(() => import('@/components/ap/IgniteAboutCard'));
+const Trainers = dynamic(() => import('@/components/ap/Trainers'));
+const WhatWeOfferSection = dynamic(() => import('@/components/ap/WhatWeOfferSection'));
+const LifeAtIgniteCarousel = dynamic(() => import('@/components/ap/LifeAtIgniteCarousel'));
+const MarqueeBanner = dynamic(() => import('@/components/ap/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/ap/ReviewsSection'));
+const StudentAchievements = dynamic(() => import('@/components/ap/StudentAchivement'));
+const SubjectsCard1 = dynamic(() => import('@/components/ap/SubjectCard1'));
+const UspsSection = dynamic(() => import('@/components/ap/UspsSection'));
 
 // 1. ACCEPT the headerHeight prop
 const ap = ({ headerHeight }) => {

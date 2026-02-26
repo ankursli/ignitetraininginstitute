@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
-import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
+const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-import Accordion from '@/components/english-tutoring/accordian';
+const Accordion = dynamic(() => import('@/components/english-tutoring/accordian'));
 import EnglishTutorsInfoCard from '@/components/english-tutoring/infoCard';
-import EnglishTutorsChooseApp from '@/components/english-tutoring/choose-app';
-import EnglishTutorsACT from '@/components/english-tutoring/ACT';
-import EnglishTutorsUsps from "@/components/english-tutoring/Usps";
-import Trainers from "@/components/english-tutoring/Trainers";
-import EnglishTutorsIgniteAchievements from '@/components/english-tutoring/IgniteAchievements';
-import EnglishTutorsLifeAtIgniteCarousel from '@/components/english-tutoring/LifeAtIgniteCarousel';
-import EnglishTutorsFAQSection from '@/components/english-tutoring/FaqSection';
-import EnglishTutorsStudentAchievements from '@/components/english-tutoring/StudentAchivement';
+const EnglishTutorsChooseApp = dynamic(() => import('@/components/english-tutoring/choose-app'));
+const EnglishTutorsACT = dynamic(() => import('@/components/english-tutoring/ACT'));
+const EnglishTutorsUsps = dynamic(() => import('@/components/english-tutoring/Usps'));
+const Trainers = dynamic(() => import('@/components/english-tutoring/Trainers'));
+const EnglishTutorsIgniteAchievements = dynamic(() => import('@/components/english-tutoring/IgniteAchievements'));
+const EnglishTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/english-tutoring/LifeAtIgniteCarousel'));
+const EnglishTutorsFAQSection = dynamic(() => import('@/components/english-tutoring/FaqSection'));
+const EnglishTutorsStudentAchievements = dynamic(() => import('@/components/english-tutoring/StudentAchivement'));
 
 //comment
 // Renamed main component: SubjectTutoring -> EnglishTutorsInDubai

@@ -12,6 +12,7 @@ const STATIC_ROOT_PAGES = [
   'biology-tutor-in-dubai',
   'blog',
   'british-curriculum-tutors-in-dubai',
+  'british-curriculum-tutors-in-dubai-copy',
   'business-studies-tutor-in-dubai',
   'career',
   'chemistry-tutor-in-dubai',
@@ -24,6 +25,7 @@ const STATIC_ROOT_PAGES = [
   'ib-curriculum-tutors-in-dubai',
   'index',
   'join-free-demo-class',
+  'join-free-demo-class-copy',
   'maths-tutor-in-dubai',
   'our-team',
   'physics-tutor-in-dubai',
@@ -33,15 +35,15 @@ const STATIC_ROOT_PAGES = [
   'thank-you-blog',
   'thank-you-career',
   'thank-you-contact',
-  'thank-you-curriculum',
-  'thank-you-freedemo',
   'thank-you-homeschooling',
+  'thank-you-newsletter',
+  'thank-you-organic',
+  'thank-you-organic-copy',
   'thank-you-popup',
   'thank-you-subject',
   'thank-you-tutor',
   'tutors-in-dubai',
   'tutors-in-jlt-dubai',
-  'thank-you-newsletter',
 ];
 
 // STATIC PAGES LIST (Courses Folder - 5 pages)
@@ -85,6 +87,14 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'inline',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.ignitetraininginstitute.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 
   compress: true,
@@ -175,7 +185,7 @@ const nextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://ignitetraininginstitute.com https://api.ignitetraininginstitute.com https://flagcdn.com; connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://api.ignitetraininginstitute.com https://cdn.jsdelivr.net https://www.clarity.ms; frame-src 'self' https://www.youtube.com https://www.google.com;"
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://www.clarity.ms https://connect.facebook.net https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://ignitetraininginstitute.com https://api.ignitetraininginstitute.com https://flagcdn.com https://www.facebook.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://stats.g.doubleclick.net https://bat.bing.com; connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://api.ignitetraininginstitute.com https://cdn.jsdelivr.net https://www.clarity.ms https://www.facebook.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://analytics.google.com; frame-src 'self' https://www.youtube.com https://www.google.com https://td.doubleclick.net https://bid.g.doubleclick.net;"
           },
         ],
       },

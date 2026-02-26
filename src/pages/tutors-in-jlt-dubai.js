@@ -1,23 +1,24 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Head from "next/head";
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/tutors-jlt-dubai/MarqueeBanner';
-import ReviewsSection from '@/components/tutors-jlt-dubai/ReviewsSection';
-import StudentAchievements from '@/components/tutors-jlt-dubai/StudentAchivement';
-import CurriculumTestsComponent from '@/components/tutors-jlt-dubai/curriculum';
+const MarqueeBanner = dynamic(() => import('@/components/tutors-jlt-dubai/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/tutors-jlt-dubai/ReviewsSection'));
+const StudentAchievements = dynamic(() => import('@/components/tutors-jlt-dubai/StudentAchivement'));
+const CurriculumTestsComponent = dynamic(() => import('@/components/tutors-jlt-dubai/curriculum'));
 import InfoCard from '@/components/tutors-jlt-dubai/infoCard';
-import OurTrainers from '@/components/tutors-jlt-dubai/ourTrainers';
-import SubjectsCard1 from '@/components/tutors-jlt-dubai/SubjectCard1';
-import IgniteAchievements from '@/components/tutors-jlt-dubai/igniteAchivement';
-import Blog from "@/components/tutors-jlt-dubai/Blog";
-import UpsSection from '@/components/tutors-jlt-dubai/UspsSection';
-import Accordion from '@/components/tutors-jlt-dubai/accordian';
-import FAQSection from '@/components/tutors-jlt-dubai/FaqSection';
-import LifeAtIgniteCarousel from '@/components/tutors-jlt-dubai/LifeAtIgniteCarousel';
+const OurTrainers = dynamic(() => import('@/components/tutors-jlt-dubai/ourTrainers'));
+const SubjectsCard1 = dynamic(() => import('@/components/tutors-jlt-dubai/SubjectCard1'));
+const IgniteAchievements = dynamic(() => import('@/components/tutors-jlt-dubai/igniteAchivement'));
+const Blog = dynamic(() => import('@/components/tutors-jlt-dubai/Blog'));
+const UpsSection = dynamic(() => import('@/components/tutors-jlt-dubai/UspsSection'));
+const Accordion = dynamic(() => import('@/components/tutors-jlt-dubai/accordian'));
+const FAQSection = dynamic(() => import('@/components/tutors-jlt-dubai/FaqSection'));
+const LifeAtIgniteCarousel = dynamic(() => import('@/components/tutors-jlt-dubai/LifeAtIgniteCarousel'));
 
 
 // 1. ACCEPT the headerHeight prop

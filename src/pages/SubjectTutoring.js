@@ -1,16 +1,17 @@
 import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Head from "next/head";
-import Accordion from '@/components/ibdp/accordian';
-import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
-import ReviewsSection from '@/components/ibdp/ReviewsSection';
+const Accordion = dynamic(() => import('@/components/ibdp/accordian'));
+const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/ibdp/ReviewsSection'));
 import InfoCard from '@/components/subject-tutoring/infoCard';
-import ChhoseApp from '@/components/subject-tutoring/choose-app';
-import ACT from '@/components/subject-tutoring/ACT';
-import Usps from "@/components/homeCopy/Usps";
-import IgniteAchievements from '@/components/subject-tutoring/IgniteAchievements';
-import LifeAtIgniteCarousel from '@/components/subject-tutoring/LifeAtIgniteCarousel';
-import FAQSection from '@/components/subject-tutoring/FaqSection';
-import StudentAchievements from '@/components/subject-tutoring/StudentAchivement';
+const ChhoseApp = dynamic(() => import('@/components/subject-tutoring/choose-app'));
+const ACT = dynamic(() => import('@/components/subject-tutoring/ACT'));
+const Usps = dynamic(() => import('@/components/homeCopy/Usps'));
+const IgniteAchievements = dynamic(() => import('@/components/subject-tutoring/IgniteAchievements'));
+const LifeAtIgniteCarousel = dynamic(() => import('@/components/subject-tutoring/LifeAtIgniteCarousel'));
+const FAQSection = dynamic(() => import('@/components/subject-tutoring/FaqSection'));
+const StudentAchievements = dynamic(() => import('@/components/subject-tutoring/StudentAchivement'));
 // import Hero from '@/components/home/Hero';
 
 // 1. ACCEPT the headerHeight prop

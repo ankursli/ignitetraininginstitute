@@ -1122,7 +1122,7 @@ export default function InfoCard() {
           }
           
           .right-form {
-            padding: 1rem 2rem 1rem 1.5rem !important;
+            padding: 1rem 0rem 1rem 1.5rem !important;
           }
           
           .form-container {

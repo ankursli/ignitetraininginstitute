@@ -5,10 +5,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body {
-  /* font-family: var(--font-montserrat) !important; */
-}
-
 body.is-bot-detected * {
   /* Immediately stop all transitions and animations */
   transition: none !important;
@@ -475,7 +471,7 @@ option {
 
 @media (max-width: 1280px) {
   .page-content-padding {
-    padding-top: 90px !important;
+    padding-top: 130px !important;
   }
 }
 

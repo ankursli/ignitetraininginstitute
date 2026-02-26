@@ -78,7 +78,7 @@ const PopupProvider = ({ children }) => {
 
 export default function MyApp({ Component, pageProps }) {
     const router = useRouter();
-    const [headerHeight, setHeaderHeight] = useState(0); // Default to 0 since header is removed
+    const [headerHeight, setHeaderHeight] = useState(102); // Default to approx header height to prevent CLS
     const [showButton, setShowButton] = useState(false);
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [shouldLoadLocomotiveScroll, setShouldLoadLocomotiveScroll] = useState(false);
@@ -128,6 +128,29 @@ export default function MyApp({ Component, pageProps }) {
         };
     }, []);
 
+    // --- Google Ads Click Conversion Tracking for "Get a Free Demo" ---
+    const handleDemoClick = (e) => {
+        e.preventDefault();
+        const url = '/join-free-demo-class';
+
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-844959495/i6DpCNnjiP4bEIee9JID',
+                'event_callback': function () {
+                    window.location.href = url;
+                }
+            });
+
+            // Fallback in case the callback doesn't fire
+            setTimeout(() => {
+                window.location.href = url;
+            }, 500);
+        } else {
+            // If gtag isn't loaded, just perform the regular navigation
+            window.location.href = url;
+        }
+    };
+
     // Minimal Return for Debugging
     return (
         <PopupProvider>
@@ -142,6 +165,44 @@ export default function MyApp({ Component, pageProps }) {
           })(window,document,'script','dataLayer','GTM-PMG2GSQ');`,
                 }}
             />
+            {/* Google Tag (gtag.js) */}
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=AW-844959495"
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'AW-844959495');
+                `}
+            </Script>
+
+            {/* Meta Pixel Code */}
+            <Script id="meta-pixel" strategy="afterInteractive">
+                {`
+                    !function(f,b,e,v,n,t,s)
+                    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                    n.queue=[];t=b.createElement(e);t.async=!0;
+                    t.src=v;s=b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)}(window, document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                    fbq('init', '1590586591378731');
+                    fbq('track', 'PageView');
+                `}
+            </Script>
+            <noscript>
+                <img
+                    height="1"
+                    width="1"
+                    style={{ display: 'none' }}
+                    src="https://www.facebook.com/tr?id=1590586591378731&ev=PageView&noscript=1"
+                    alt=""
+                />
+            </noscript>
 
             {shouldLoadLocomotiveScroll ? (
                 <LocomotiveScrollProvider>
@@ -153,11 +214,14 @@ export default function MyApp({ Component, pageProps }) {
                         <DelayedPopup />
                     </div>
                     {showButton && (
-                        <Link href="/join-free-demo-class" passHref legacyBehavior>
-                            <a className="sticky-demo-button" aria-label="Go to Free Demo Class page">
-                                Get a Free Demo
-                            </a>
-                        </Link>
+                        <a
+                            href="/join-free-demo-class"
+                            onClick={handleDemoClick}
+                            className="sticky-demo-button"
+                            aria-label="Go to Free Demo Class page"
+                        >
+                            Get a Free Demo
+                        </a>
                     )}
                 </LocomotiveScrollProvider>
             ) : (
@@ -170,11 +234,14 @@ export default function MyApp({ Component, pageProps }) {
                         <DelayedPopup />
                     </div>
                     {showButton && (
-                        <Link href="/join-free-demo-class" passHref legacyBehavior>
-                            <a className="sticky-demo-button" aria-label="Go to Free Demo Class page">
-                                Get a Free Demo
-                            </a>
-                        </Link>
+                        <a
+                            href="/join-free-demo-class"
+                            onClick={handleDemoClick}
+                            className="sticky-demo-button"
+                            aria-label="Go to Free Demo Class page"
+                        >
+                            Get a Free Demo
+                        </a>
                     )}
                 </>
             )}

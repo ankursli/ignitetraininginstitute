@@ -99,6 +99,7 @@ export default function SidebarForm({ pageInfo, formType }) {
     return (
         // Uses the exact containers and classes from your original HTML
         <div className="form-container blog-container">
+            <p className="text-center" style={{ color: '#161664', fontSize: '12px' }}><strong>Ignite Brings Dubai’s Best Tutors To You</strong></p>
             <h2>Get a Free Demo Class +<br />Free Study Resources</h2>
 
             {/* Submission Status Feedback */}
@@ -189,7 +190,19 @@ export default function SidebarForm({ pageInfo, formType }) {
                     className="submit-btn blog-submit-btn"
                 >
                     {loading ? 'Submitting...' : 'Submit'}
-                    <span className="arrow">→</span>
+                    <div
+                        className="custom-height rounded-circle d-flex align-items-center justify-content-center"
+
+                        style={{
+                            width: "2rem",
+                            height: "2rem",
+                            background: "linear-gradient(90deg, #E7F6FF, #A3CAF5)",
+                            animationDelay: "0.75s",
+                            marginLeft: "2.1rem "
+                        }}
+                    >
+                        <img src="/assets/arrowright.webp" alt="ibdp tutor in dubai" width={16} height={16} />
+                    </div>
                 </button>
             </form>
         </div>

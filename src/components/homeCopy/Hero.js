@@ -6,17 +6,22 @@ import styles from '@/styles/home-copy/Hero.module.css';
 const Hero = () => {
     const videoRef = useRef(null);
     const [videoLoaded, setVideoLoaded] = useState(false);
+    const isVideoLoadingRef = useRef(false);
 
 
     useEffect(() => {
         const loadVideo = () => {
-            if (videoRef.current && !videoLoaded) {
-                const source = document.createElement('source');
-                source.src = '/videos/hero-banner-video2.mp4';
-                source.type = 'video/mp4';
-                videoRef.current.appendChild(source);
+            if (videoRef.current && !isVideoLoadingRef.current) {
+                isVideoLoadingRef.current = true;
+                // Only append source if not already present (since we added one in JSX)
+                if (videoRef.current.getElementsByTagName('source').length === 0) {
+                    const source = document.createElement('source');
+                    source.src = '/videos/hero-banner-video2.mp4';
+                    source.type = 'video/mp4';
+                    videoRef.current.appendChild(source);
+                }
                 videoRef.current.load();
-                setVideoLoaded(true);
+                // setVideoLoaded(true); // Moved to onCanPlay
             }
         };
 
@@ -89,6 +94,17 @@ const Hero = () => {
 
                             <div className={`col-12 col-lg-5 col-xl-5 ${styles.heroRight}`}>
                                 <div className={styles.videoContainer}>
+                                    <div className={`${styles.posterOverlay} ${videoLoaded ? styles.posterHidden : ''}`}>
+                                        <picture>
+                                            <source media="(max-width: 767px)" srcSet="/images/video-cover-mobile.webp" />
+                                            <img
+                                                src="/images/video-cover.webp"
+                                                alt="Video Poster"
+                                                className={styles.posterImage}
+                                                fetchPriority="high"
+                                            />
+                                        </picture>
+                                    </div>
                                     <video
                                         ref={videoRef}
                                         className={styles.heroVideo}
@@ -97,10 +113,8 @@ const Hero = () => {
                                         loop
                                         playsInline
                                         preload="metadata"
-                                        poster="/images/video-cover.webp"
-                                        fetchPriority="high"
+                                        onCanPlay={() => setVideoLoaded(true)}
                                     >
-                                        <source src="/videos/hero-banner-video2.mp4" type="video/mp4" />
                                     </video>
                                 </div>
 

@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
-import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
+const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-import Accordion from '@/components/french-tutoring/accordian';
+const Accordion = dynamic(() => import('@/components/french-tutoring/accordian'));
 import FrenchTutorsInfoCard from '@/components/french-tutoring/infoCard';
-import FrenchTutorsChooseApp from '@/components/french-tutoring/choose-app';
-import FrenchTutorsACT from '@/components/french-tutoring/ACT';
-import FrenchTutorsUsps from "@/components/french-tutoring/Usps";
-import Trainers from "@/components/french-tutoring/Trainers";
-import FrenchTutorsIgniteAchievements from '@/components/french-tutoring/IgniteAchievements';
-import FrenchTutorsLifeAtIgniteCarousel from '@/components/french-tutoring/LifeAtIgniteCarousel';
-import FrenchTutorsFAQSection from '@/components/french-tutoring/FaqSection';
-import FrenchTutorsStudentAchievements from '@/components/french-tutoring/StudentAchivement';
+const FrenchTutorsChooseApp = dynamic(() => import('@/components/french-tutoring/choose-app'));
+const FrenchTutorsACT = dynamic(() => import('@/components/french-tutoring/ACT'));
+const FrenchTutorsUsps = dynamic(() => import('@/components/french-tutoring/Usps'));
+const Trainers = dynamic(() => import('@/components/french-tutoring/Trainers'));
+const FrenchTutorsIgniteAchievements = dynamic(() => import('@/components/french-tutoring/IgniteAchievements'));
+const FrenchTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/french-tutoring/LifeAtIgniteCarousel'));
+const FrenchTutorsFAQSection = dynamic(() => import('@/components/french-tutoring/FaqSection'));
+const FrenchTutorsStudentAchievements = dynamic(() => import('@/components/french-tutoring/StudentAchivement'));
 
 //comment
 // Renamed main component: SubjectTutoring -> FrenchTutorsInDubai

@@ -1,8 +1,28 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../styles/Footer.module.css';
 import Image from '@/components/CustomImageWrapper';
 
 const Footer = () => {
+  const router = useRouter();
+
+  const copyPages = [
+    '/courses/ibdp-tutors-in-dubai-copy',
+    '/british-curriculum-tutors-in-dubai-copy',
+    '/courses/myp-tutors-in-dubai-copy',
+    '/courses/igcse-tutors-in-dubai-copy',
+    '/courses/a-level-tutors-in-dubai-copy',
+    '/join-free-demo-class-copy'
+  ];
+  const isCopyPage = copyPages.includes(router.pathname);
+  const phoneNumberObj = {
+    href: isCopyPage ? 'tel:+971588589958' : 'tel:+971568357374',
+    display: isCopyPage ? '+971 58 858 9958' : '+971568357374'
+  };
+  const emailObj = {
+    href: isCopyPage ? 'mailto:connect@ignitetraininginstitute.com' : 'mailto:hello@ignitetraininginstitute.com',
+    display: isCopyPage ? 'connect@ignitetraininginstitute.com' : 'hello@ignitetraininginstitute.com'
+  };
   // --- START: Newsletter Integration ---
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -44,6 +64,29 @@ const Footer = () => {
     }
   };
   // --- END: Newsletter Integration ---
+
+  // --- Google Ads Click Conversion Tracking for "Call" Contact Link ---
+  const handleCallClick = (e) => {
+    e.preventDefault();
+    const url = phoneNumberObj.href;
+
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-844959495/LGsACP7qiP4bEIee9JID',
+        'event_callback': function () {
+          window.location.href = url;
+        }
+      });
+
+      // Fallback in case the callback doesn't fire
+      setTimeout(() => {
+        window.location.href = url;
+      }, 500);
+    } else {
+      // If gtag isn't loaded, just perform the regular navigation
+      window.location.href = url;
+    }
+  };
 
   return (
     <footer
@@ -221,9 +264,9 @@ const Footer = () => {
           style={{ animationDelay: "0.8s" }}>
           <div className={styles.footerContactLabel}>CONTACT</div>
           <div className={styles.footerContact}>
-            <span><a href="tel:+971568357374">+971568357374</a></span>
+            <span><a href={phoneNumberObj.href} onClick={handleCallClick}>{phoneNumberObj.display}</a></span>
             <br />
-            <span><a href="mailto:hello@ignitetraininginstitute.com">hello@ignitetraininginstitute.com</a></span>
+            <span><a href={emailObj.href}>{emailObj.display}</a></span>
           </div>
         </div>
       </div>

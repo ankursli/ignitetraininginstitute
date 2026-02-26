@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
-import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
+const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-import Accordion from '@/components/economics-tutoring/accordian';
+const Accordion = dynamic(() => import('@/components/economics-tutoring/accordian'));
 import EconomicsTutorsInfoCard from '@/components/economics-tutoring/infoCard';
-import EconomicsTutorsChooseApp from '@/components/economics-tutoring/choose-app';
-import EconomicsTutorsACT from '@/components/economics-tutoring/ACT';
-import EconomicsTutorsUsps from "@/components/economics-tutoring/Usps";
-import Trainers from "@/components/economics-tutoring/Trainers";
-import EconomicsTutorsIgniteAchievements from '@/components/economics-tutoring/IgniteAchievements';
-import EconomicsTutorsLifeAtIgniteCarousel from '@/components/economics-tutoring/LifeAtIgniteCarousel';
-import EconomicsTutorsFAQSection from '@/components/economics-tutoring/FaqSection';
-import EconomicsTutorsStudentAchievements from '@/components/economics-tutoring/StudentAchivement';
+const EconomicsTutorsChooseApp = dynamic(() => import('@/components/economics-tutoring/choose-app'));
+const EconomicsTutorsACT = dynamic(() => import('@/components/economics-tutoring/ACT'));
+const EconomicsTutorsUsps = dynamic(() => import('@/components/economics-tutoring/Usps'));
+const Trainers = dynamic(() => import('@/components/economics-tutoring/Trainers'));
+const EconomicsTutorsIgniteAchievements = dynamic(() => import('@/components/economics-tutoring/IgniteAchievements'));
+const EconomicsTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/economics-tutoring/LifeAtIgniteCarousel'));
+const EconomicsTutorsFAQSection = dynamic(() => import('@/components/economics-tutoring/FaqSection'));
+const EconomicsTutorsStudentAchievements = dynamic(() => import('@/components/economics-tutoring/StudentAchivement'));
 
 //comment
 // Renamed main component: SubjectTutoring -> EconomicsTutorsInDubai

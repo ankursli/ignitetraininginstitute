@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { useRef, useState, useContext, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import SidebarForm from '@/components/SidebarForm';
 import { useMemo } from "react";
 import { PopupContext } from '../../pages/_app';
@@ -14,15 +15,16 @@ import SEO from "@/components/SEO";
 // to your `pages/_app.js` file to avoid a build error.
 
 // --- API Endpoints ---
-const VOTE_API_URL = '/api/mpl/vote';
-// --- NEW API Endpoint ---
-// --- NEW API Endpoint ---
+const VOTE_API_URL = '/api/vote';
 const POSTS_API_BASE_URL = '/api/wp/posts';
 
 // Fetcher function for SWR to handle API requests
 const fetcher = async (url) => {
     try {
-        const res = await fetch(url);
+        // Append unique timestamp so the Next.js API Proxy doesn't return stale 0-votes,
+        // without mutating the stable `url` SWR key which causes infinite React renders.
+        const bustUrl = url.includes('?') ? `${url}&_t=${Date.now()}` : `${url}?_t=${Date.now()}`;
+        const res = await fetch(bustUrl);
         if (!res.ok) {
             const error = new Error('Failed to fetch data');
             try {
@@ -57,26 +59,27 @@ const slugify = (text) => {
         .replace(/-+$/, '');
 };
 
-const getSidebarHtmlImage = () => {
-    return `
-        <div class="sidebar-image mb-3 sticky-gif">
-        <a href="/join-free-demo-class/">
-            <img
-                src="/images/blog-sidebar.webp"
-                alt="Get a Free Counseling"
-                class="img-fluid gif-3 w-100 rounded"
-            />
-        </a>
-        </div>
-    `;
-};
+// const getSidebarHtmlImage = () => {
+//     return `
+//         <div class="sidebar-image mb-3 sticky-gif">
+//         <a href="/join-free-demo-class/">
+//             <img
+//                 src="/images/blog-sidebar.webp"
+//                 alt="Get a Free Counseling"
+//                 class="img-fluid gif-3 w-100 rounded"
+//             />
+//         </a>
+//         </div>
+//     `;
+// };
 
 const getSidebarHtmlStaticMobile = () => {
     return `
         <div class="sticky-sidebar-wrapper">
-            ${getSidebarHtmlImage()}
-            <div class="form-container blog-container">
-                <p>Get a Free Demo Class +<br />Free Study Resources</p>
+ 
+            <div class="form-container blog-container blog-sidebar-form-mobile">
+               <p class="pre-h"><strong>Ignite Brings Dubai’s Best Tutors To You</strong></p>
+                <p class="main-h">Get a Free Demo Class +Free Study Resources</p>
                 <form>
                     <div class="form-row">
                         <div class="form-group">
@@ -113,6 +116,7 @@ const getSidebarHtmlStaticMobile = () => {
                     <button type="submit" class="submit-btn blog-submit-btn">
                         Submit
                         <span class="blogReadMoreArrow"><img alt="arrow" width="20" height="20" src="/images/right-arrow-blue.webp"></span>
+                        
                     </button>
                 </form>
             </div>
@@ -158,15 +162,30 @@ const TOCPostContent = ({ content, toc }) => {
             firstH2.parentNode.insertBefore(tocWrapper, firstH2);
         }
 
+        const needsCollapse = toc.length > 3;
+        const initialListClass = needsCollapse ? 'toc-list collapsed' : 'toc-list';
+
+        const tocToggleBtnHtml = needsCollapse ? `
+            <div class="toc-toggle-wrapper">
+                <button type="button" class="toc-toggle-btn m-0 p-0 border-0 bg-transparent d-flex align-items-center justify-content-end w-100 mt-2">
+                    <span class="btn-text" style="font-weight:600; font-size: 16px; color:#161616;">Open</span>
+                    <svg class="btn-icon ms-1" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition: transform 0.3s ease;">
+                        <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#161616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        ` : '';
+
         const tocHtml = `
-            <div class="my-4">
+            <div class="my-4 toc-outer-container">
                 <div class="card-body">
                     <h5 class="toc-title">Table of Contents</h5>
                     <nav>
-                        <ul class="list-unstyled mb-0 toc-list">
+                        <ul class="list-unstyled mb-0 ${initialListClass}">
                             ${toc.map(({ text, id }) => `<li class="toc-item py-1"><a href="#${id}" class="text-decoration-none">${text}</a></li>`).join('')}
                         </ul>
                     </nav>
+                    ${tocToggleBtnHtml}
                 </div>
             </div>
             <div class="d-lg-none">
@@ -175,7 +194,7 @@ const TOCPostContent = ({ content, toc }) => {
         `;
 
         const video1Html = `
-            <div class="blog-video-wrapper my-5">
+            <div class="blog-video-wrapper my-5 highlight-on-scroll" data-scroll data-scroll-call="video-highlight" data-scroll-repeat="true">
                 <a href="/join-free-demo-class/" style="display: block; line-height: 0;">
                     <video
                         class="img-fluid gif-1 w-100 rounded"
@@ -193,7 +212,7 @@ const TOCPostContent = ({ content, toc }) => {
         `;
 
         const video2Html = `
-            <div class="blog-video-wrapper my-5 ${gif2PlaceholderClass}">
+            <div class="blog-video-wrapper my-5 ${gif2PlaceholderClass} highlight-on-scroll" data-scroll data-scroll-call="video-highlight" data-scroll-repeat="true">
                 <a href="/join-free-demo-class/" style="display: block; line-height: 0;">
                     <video
                         class="img-fluid gif-2 w-100 rounded"
@@ -210,14 +229,14 @@ const TOCPostContent = ({ content, toc }) => {
             </div>
         `;
 
-        const fourthH2 = allH2s[3];
+        const fourthH2 = allH2s[4];
         if (fourthH2) {
             const gif2TempDiv = document.createElement('div');
             gif2TempDiv.innerHTML = video2Html.trim();
             fourthH2.parentNode.insertBefore(gif2TempDiv.firstChild, fourthH2);
         }
 
-        const thirdH2 = allH2s[2];
+        const thirdH2 = allH2s[3];
         if (thirdH2) {
             const video1TempDiv = document.createElement('div');
             video1TempDiv.innerHTML = video1Html.trim();
@@ -234,20 +253,95 @@ const TOCPostContent = ({ content, toc }) => {
 
     }, [content, toc]);
 
-    // --- Event Delegation Logic ---
+    // --- BoundingClientRect Polling Logic for Spotlight ---
+    useEffect(() => {
+        let animationFrameId;
+
+        const checkHighlight = () => {
+            const wrapperElements = contentRef.current?.querySelectorAll('.highlight-on-scroll');
+            let currentlyHighlightedCount = 0;
+
+            if (wrapperElements) {
+                const wh = window.innerHeight;
+
+                wrapperElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    // Check if the center of the element is within the middle 60% of the screen
+                    const elementCenter = rect.top + (rect.height / 2);
+                    const isVisible = elementCenter > (wh * 0.2) && elementCenter < (wh * 0.8);
+
+                    if (isVisible) {
+                        if (!el.classList.contains('is-highlighted')) {
+                            el.classList.add('is-highlighted');
+                        }
+                        currentlyHighlightedCount++;
+                    } else {
+                        if (el.classList.contains('is-highlighted')) {
+                            el.classList.remove('is-highlighted');
+                        }
+                    }
+                });
+            }
+
+            if (currentlyHighlightedCount > 0) {
+                document.body.classList.add('has-highlighted-video');
+            } else {
+                document.body.classList.remove('has-highlighted-video');
+            }
+
+            animationFrameId = requestAnimationFrame(checkHighlight);
+        };
+
+        // Start polling
+        animationFrameId = requestAnimationFrame(checkHighlight);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+            document.body.classList.remove('has-highlighted-video');
+
+            if (contentRef.current) {
+                const highlighted = contentRef.current.querySelectorAll('.is-highlighted');
+                highlighted.forEach(el => el.classList.remove('is-highlighted'));
+            }
+        };
+
+    }, [displayContent]);
+
+    // --- Event Delegation Logic for GIF Popup & TOC Toggle ---
     useEffect(() => {
         const rootElement = contentRef.current;
-        if (!rootElement || !openManualPopup) return;
+        if (!rootElement) return;
 
         // Use event delegation on the root element
         const handleClick = (event) => {
-            // Check if the clicked element (or an ancestor) has the trigger class
-            const triggerElement = event.target.closest(`.${gif2PlaceholderClass}`);
-
-            if (triggerElement) {
+            // Check for GIF popup click
+            const gifElement = event.target.closest(`.${gif2PlaceholderClass}`);
+            if (openManualPopup && gifElement) {
                 console.log('Popup: Delegated click caught. Opening popup.');
                 event.preventDefault(); // Stop any default link behavior
                 openManualPopup();
+                return;
+            }
+
+            // Check for TOC Toggle button click
+            const toggleElement = event.target.closest('.toc-toggle-btn');
+            if (toggleElement) {
+                const navElement = toggleElement.closest('.card-body').querySelector('nav');
+                const listElement = navElement.querySelector('.toc-list');
+                const textSpan = toggleElement.querySelector('.btn-text');
+                const iconSvg = toggleElement.querySelector('.btn-icon');
+
+                if (listElement && listElement.classList.contains('collapsed')) {
+                    // Expand
+                    listElement.classList.remove('collapsed');
+                    textSpan.textContent = 'Close';
+                    iconSvg.style.transform = 'rotate(180deg)';
+                } else if (listElement) {
+                    // Collapse
+                    listElement.classList.add('collapsed');
+                    textSpan.textContent = 'Open';
+                    iconSvg.style.transform = 'rotate(0deg)';
+                }
             }
         };
 
@@ -318,7 +412,7 @@ export default function PostDetail({ initialPost }) {
     // --- State for Like/Dislike functionality ---
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
-    const [userVoteStatus, setUserVoteStatus] = useState(false);
+    const [hasVoted, setHasVoted] = useState(false);
     // --------------------------------------------
 
     // --- NEW: State for Related Posts ---
@@ -336,13 +430,25 @@ export default function PostDetail({ initialPost }) {
 
 
     // --- Function to handle the vote submission ---
-    // pages/[slug].js (Inside PostDetail function)
-
     const handleVote = async (voteType) => {
-        if (!post) return;
+        if (!post || hasVoted) return;
 
-        const clientUuid = getClientUUID();
+        // Synchronously block rapid double clicks before React state flushes
+        if (sessionStorage.getItem(`voting_lock_${post.id}`)) return;
+        sessionStorage.setItem(`voting_lock_${post.id}`, 'true');
 
+        const prevLikes = likes;
+        const prevDislikes = dislikes;
+
+        // 1. Optimistic UI update
+        if (voteType === 'like') {
+            setLikes(l => l + 1);
+        } else {
+            setDislikes(d => d + 1);
+        }
+        setHasVoted(true);
+
+        // 2. Network Request
         try {
             const response = await fetch(VOTE_API_URL, {
                 method: 'POST',
@@ -350,47 +456,43 @@ export default function PostDetail({ initialPost }) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    post_id: post.id,
+                    post_id: post?.id,
                     vote_type: voteType,
-                    // --- CRITICAL FIX: INCLUDE client_uuid ---
-                    client_uuid: clientUuid,
                 }),
+            }).catch(e => {
+                // Manually catch TypeErrors to prevent Next.js from surfacing it 
+                // as an unhandled boundary error.
+                return { ok: false, status: 503, json: async () => ({ success: false, message: 'Network disconnected' }) };
             });
 
             if (!response.ok) {
-                // Safety check: Attempt to parse error data, but handle non-JSON 500 errors
-                let errorInfo = 'Unknown server error.';
-                try {
-                    const errorData = await response.json();
-                    errorInfo = errorData.message || errorData.code || JSON.stringify(errorData);
-                } catch (e) {
-                    // If parsing fails (common with 500 error), use the status text
-                    errorInfo = `Server returned status ${response.status}. Check backend logs.`;
-                }
-                console.error('API Voting Error:', errorInfo);
-                alert('Failed to record vote. You may have already voted or there was a server error.');
-                return;
+                throw new Error('Voting API failed to respond properly');
             }
 
             const data = await response.json();
 
-            if (data.success) {
-                setLikes(data.data.likes);
-                setDislikes(data.data.dislikes);
+            if (data?.success) {
+                // Sync with server source of truth
+                setLikes(data.likes);
+                setDislikes(data.dislikes);
 
-                let newStatus = voteType;
-                if (userVoteStatus === voteType) {
-
-                    newStatus = userVoteStatus;
-                } else {
-                    newStatus = voteType;
-                }
-
-                setUserVoteStatus(newStatus);
+                // Only persist into localStorage on complete success
+                localStorage.setItem(`ignite_vote_${post.id}`, voteType);
+                sessionStorage.removeItem(`voting_lock_${post.id}`);
+                return; // Exit point on success
             }
+            throw new Error(data?.message || 'API returned unsuccessful response');
         } catch (error) {
-            console.error('Network or Parse Error during voting:', error);
-            alert('A network error occurred while submitting your vote.');
+            // Intentionally omit console.error(error) to prevent Next.js Error Overlay hijacking
+            console.warn('API Interaction warning:', error.message);
+
+            // Revert on failure
+            setLikes(prevLikes);
+            setDislikes(prevDislikes);
+            setHasVoted(false);
+            sessionStorage.removeItem(`voting_lock_${post.id}`);
+
+            alert(`Could not submit vote: ${error.message || 'Network error'}`);
         }
     };
     // --------------------------------------------------
@@ -488,6 +590,7 @@ export default function PostDetail({ initialPost }) {
                 lerp: 0.1,
             });
             scrollInstanceRef.current = scroll;
+            window.locomotiveScrollInstance = scroll; // Make scroll instance globally available for the inner component
         };
 
         if (typeof window !== "undefined") {
@@ -497,6 +600,9 @@ export default function PostDetail({ initialPost }) {
         return () => {
             scrollInstanceRef.current?.destroy();
             scrollInstanceRef.current = null;
+            if (typeof window !== "undefined") {
+                delete window.locomotiveScrollInstance;
+            }
         };
     }, []);
 
@@ -525,13 +631,18 @@ export default function PostDetail({ initialPost }) {
     // --- Initialization of Likes/Dislikes state and NEW Related Posts Fetch ---
     useEffect(() => {
         if (post) {
-            // Check for the custom fields added by register_rest_field
-            const initialCounts = post.mpl_counts || { likes: 0, dislikes: 0 };
-            const initialVoteStatus = post.mpl_user_vote || false;
-
+            // Check for the custom fields added by register_rest_field from the new WP API
+            const initialCounts = post.ignite_vote_counts || { likes: 0, dislikes: 0 };
             setLikes(initialCounts.likes);
             setDislikes(initialCounts.dislikes);
-            setUserVoteStatus(initialVoteStatus);
+
+            // Check if user has already voted on this device
+            const storedVote = localStorage.getItem(`ignite_vote_${post.id}`);
+            if (storedVote) {
+                setHasVoted(true);
+            } else {
+                setHasVoted(false);
+            }
 
             // Set page info (existing logic)
             if (typeof window !== 'undefined') {
@@ -582,25 +693,12 @@ export default function PostDetail({ initialPost }) {
     const publishedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A';
     const updatedDate = post.modified ? new Date(post.modified).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
 
-    const postUrl = typeof window !== 'undefined' ? window.location.href : '';
+    // Ensure server/client match perfectly to avoid Hydration Mismatches
+    const postUrl = `https://ignitetraininginstitute.com${router.asPath}`;
     const postTitle = post.title.rendered.replace(/<\/?[^>]+(>|$)/g, "");
 
     // --- Styling Classes for Buttons ---
-    const likeButtonClasses = `border-0 background-none 
-        flex items-center justify-center transition ${userVoteStatus === 'like'
-            ? 'like'
-            : 'dislike'
-        }`;
-
-    const dislikeButtonClasses = `border-0 background-none
-        flex items-center justify-center transition ${userVoteStatus === 'dislike'
-            ? 'dislike'
-            : 'like'
-        }`;
-
-    const likeIconColor = userVoteStatus === 'like' ? '#fff' : '#1c3664';
-    const dislikeIconColor = userVoteStatus === 'dislike' ? '#fff' : '#1c3664';
-    // -----------------------------------
+    // (Removed legacy SVG button CSS generators)
 
     const postTags = post._embedded?.['wp:term']?.find(term => term[0]?.taxonomy === 'post_tag') || [];
     const keywordsArray = postTags.map(tag => tag.name);
@@ -631,65 +729,105 @@ export default function PostDetail({ initialPost }) {
             <section className="post-detail-section py-5" data-scroll data-scroll-section>
                 <div className="container blog-detail-container" >
                     <h1 className="mb-4 display-4 main-title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                    <div className="mb-2 post-date">
-                        <span>Published on {publishedDate} </span>
-                        <span className="post-date-separator">|</span>
-                        {updatedDate && (
-                            <span>Updated on {updatedDate}</span>
+                    <div className="post-meta-wrapper mb-4">
+                        <div className="meta-col-left">
+                            <div className="meta-item meta-published">
+                                <span>Published on {publishedDate}</span>
+                            </div>
+                            {updatedDate && (
+                                <>
+                                    <span className="post-date-separator mx-2 d-none d-md-inline">|</span>
+                                    <div className="meta-item meta-updated">
+                                        <span>Updated on {updatedDate}</span>
+                                    </div>
+                                </>
+                            )}
+                            <div className="meta-item d-md-none meta-author mt-2">
+                                <span>By <a href="#author-part" style={{ color: "#233467", textDecoration: "underline" }}>{authorName}</a></span>
+                            </div>
+                        </div>
+                        <span className="post-date-separator mx-2 d-none d-md-inline">|</span>
+
+                        {post.reading_time && (
+                            <div className="post-reading-time desktop-only text-start text-md-center" style={{ fontWeight: "600", color: "#233467" }}>
+                                <span style={{ textTransform: 'capitalize' }}>⏱ {post.reading_time}</span>
+                            </div>
                         )}
+                        <span className="post-date-separator mx-2 d-none d-md-inline">|</span>
+
+                        <div className="meta-col-right flex-md-row align-items-md-center">
+                            <div className="meta-item meta-author d-none d-md-block">
+                                <span>By <a href="#author-part" style={{ color: "#233467", textDecoration: "underline" }}>{authorName}</a></span>
+                            </div>
+
+                            {post.reading_time && (
+                                <div className="post-reading-time d-block d-md-none mb-2" style={{ fontSize: "12px", fontWeight: "600", color: "#233467" }}>
+                                    <span style={{ textTransform: 'capitalize' }}>⏱ {post.reading_time}</span>
+                                </div>
+                            )}
+
+                            <div className="meta-item meta-share d-flex align-items-center gap-2">
+                                {/* ... (Existing share icons) ... */}
+                                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener noreferrer">
+
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 1.19995C-4.26814 2.02795 -7.15102 41.6942 20.4192 46.8H24H27.5808C55.1573 41.6894 52.2619 2.02507 24 1.19995Z" fill="#1877F2" />
+                                        <path d="M27.5807 30.7699H32.9207L33.9369 24.1392H27.5807V19.836C27.5807 18.0221 28.4687 16.2538 31.3156 16.2538H34.2057V10.6085C28.0166 9.49343 20.5809 9.83279 20.4191 19.0853V24.1392H14.6001V30.7699H20.4191V46.8H23.9999H27.5807V30.7699Z" fill="#F1F1F1" />
+                                    </svg>
+
+                                </a>
+                                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`} target="_blank" rel="noopener noreferrer">
+
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clipPath="url(#clip0_7_16)">
+                                            <path d="M24 0C10.7456 0 0 10.7456 0 24C0 37.2544 10.7456 48 24 48C37.2544 48 48 37.2544 48 24C48 10.7456 37.2544 0 24 0Z" fill="black" />
+                                            <path d="M26.6257 21.8281L36.8998 9.88525H34.4652L25.5441 20.2551L18.419 9.88525H10.2009L20.9756 25.5662L10.2009 38.0901H12.6357L22.0565 27.1392L29.5812 38.0901H37.7993L26.6251 21.8281H26.6257ZM13.513 11.7181H17.2526L34.4663 36.3406H30.7266L13.513 11.7181Z" fill="white" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_7_16">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </a>
+                                <a href={`mailto:?subject=${encodeURIComponent(postTitle)}&body=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener noreferrer">
+
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clipPath="url(#clip0_7_13)">
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M24.008 0.0078125C37.2627 0.0078125 48.008 10.7503 48.008 24.0111C48.008 37.2652 37.2628 48.0077 24.008 48.0077C10.7531 48.0077 0.00805664 37.2657 0.00805664 24.0111C0.00805664 10.7503 10.7532 0.0078125 24.008 0.0078125ZM38.8883 14.8716L25.7709 25.7709C25.2776 26.1868 24.6531 26.4149 24.0078 26.4149C23.3626 26.4149 22.7381 26.1868 22.2447 25.7709L9.1274 14.8716C9.04812 15.0744 9.00761 15.2904 9.00796 15.5082V32.5071C9.00903 32.9736 9.19478 33.4208 9.52461 33.7507C9.85444 34.0806 10.3015 34.2666 10.768 34.2678H37.2476C37.7142 34.2666 38.1613 34.0808 38.4912 33.7508C38.8211 33.4208 39.0069 32.9737 39.008 32.5071V15.5082C39.0082 15.2904 38.9676 15.0744 38.8883 14.8716Z" fill="#4CAF50" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_7_13">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div className="mb-2 post-author">
-                        <span>By {authorName}</span>
-                    </div>
 
-                    <div className="post-share-icons mb-4">
-                        {/* ... (Existing share icons) ... */}
-                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener noreferrer">
 
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 1.19995C-4.26814 2.02795 -7.15102 41.6942 20.4192 46.8H24H27.5808C55.1573 41.6894 52.2619 2.02507 24 1.19995Z" fill="#1877F2" />
-                                <path d="M27.5807 30.7699H32.9207L33.9369 24.1392H27.5807V19.836C27.5807 18.0221 28.4687 16.2538 31.3156 16.2538H34.2057V10.6085C28.0166 9.49343 20.5809 9.83279 20.4191 19.0853V24.1392H14.6001V30.7699H20.4191V46.8H23.9999H27.5807V30.7699Z" fill="#F1F1F1" />
-                            </svg>
-
-                        </a>
-                        <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`} target="_blank" rel="noopener noreferrer">
-
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#clip0_7_16)">
-                                    <path d="M24 0C10.7456 0 0 10.7456 0 24C0 37.2544 10.7456 48 24 48C37.2544 48 48 37.2544 48 24C48 10.7456 37.2544 0 24 0Z" fill="black" />
-                                    <path d="M26.6257 21.8281L36.8998 9.88525H34.4652L25.5441 20.2551L18.419 9.88525H10.2009L20.9756 25.5662L10.2009 38.0901H12.6357L22.0565 27.1392L29.5812 38.0901H37.7993L26.6251 21.8281H26.6257ZM13.513 11.7181H17.2526L34.4663 36.3406H30.7266L13.513 11.7181Z" fill="white" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_7_16">
-                                        <rect width="48" height="48" fill="white" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-
-                        </a>
-                        <a href={`mailto:?subject=${encodeURIComponent(postTitle)}&body=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener noreferrer">
-
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clipPath="url(#clip0_7_13)">
-                                    <path fillRule="evenodd" clipRule="evenodd" d="M24.008 0.0078125C37.2627 0.0078125 48.008 10.7503 48.008 24.0111C48.008 37.2652 37.2628 48.0077 24.008 48.0077C10.7531 48.0077 0.00805664 37.2657 0.00805664 24.0111C0.00805664 10.7503 10.7532 0.0078125 24.008 0.0078125ZM38.8883 14.8716L25.7709 25.7709C25.2776 26.1868 24.6531 26.4149 24.0078 26.4149C23.3626 26.4149 22.7381 26.1868 22.2447 25.7709L9.1274 14.8716C9.04812 15.0744 9.00761 15.2904 9.00796 15.5082V32.5071C9.00903 32.9736 9.19478 33.4208 9.52461 33.7507C9.85444 34.0806 10.3015 34.2666 10.768 34.2678H37.2476C37.7142 34.2666 38.1613 34.0808 38.4912 33.7508C38.8211 33.4208 39.0069 32.9737 39.008 32.5071V15.5082C39.0082 15.2904 38.9676 15.0744 38.8883 14.8716Z" fill="#4CAF50" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_7_13">
-                                        <rect width="48" height="48" fill="white" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-
-                        </a>
-                    </div>
 
                     {featuredImage && (
-                        <div className="text-center mb-5 image-feature">
-                            <img
+                        <div className="text-center image-feature w-100">
+                            <Image
                                 src={featuredImage}
                                 alt={post.title.rendered}
                                 className="img-fluid gif-4"
-                                style={{ objectFit: 'cover' }}
+                                style={{
+                                    width: 'auto',
+                                    height: 'auto',
+                                    maxHeight: '800px',
+                                    maxWidth: '100%',
+                                    borderRadius: '8px'
+                                }}
+                                width={1200}
+                                height={800}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 1200px"
+                                priority
                             />
                         </div>
                     )}
@@ -707,59 +845,61 @@ export default function PostDetail({ initialPost }) {
                             <TOCPostContent content={post.content.rendered} toc={toc} />
 
                             {/* --- UPDATED: Like/Dislike Block --- */}
-                            <div className="helpful-block">
-                                <span className="">
-                                    Was This Page Helpful
-                                </span>
+                            <div className="helpful-block d-flex align-items-center flex-wrap mt-4 mb-4 gap-3 bg-light p-3 rounded shadow-sm border" id='author-part'>
+                                <span className="fw-bold text-dark me-2" style={{ fontSize: '18px' }}>Was This Page Helpful?</span>
 
-                                {/* Like Button with dynamic class and count */}
+                                {/* Like Button */}
                                 <button
-                                    className={likeButtonClasses}
                                     onClick={() => handleVote('like')}
-                                    disabled={!post} // Disable if post data is not yet loaded
+                                    disabled={!post || hasVoted}
+                                    style={{
+                                        cursor: (!post || hasVoted) ? 'not-allowed' : 'pointer',
+                                        opacity: (!post || hasVoted) ? 0.6 : 1,
+                                        backgroundColor: '#A3CAF5',
+                                        border: '1px solid #1f2d61',
+                                        color: '#1f2d61',
+                                        fontWeight: '600',
+                                        padding: '8px 16px',
+                                        borderRadius: '24px',
+                                        transition: 'all 0.2s',
+                                        outline: 'none'
+                                    }}
+                                    onMouseOver={(e) => { if (!hasVoted) e.currentTarget.style.backgroundColor = '#82b5eb' }}
+                                    onMouseOut={(e) => { if (!hasVoted) e.currentTarget.style.backgroundColor = '#A3CAF5' }}
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="29" stroke="url(#paint0_linear_61_5)" strokeWidth="2" />
-                                        <circle cx="30" cy="30" r="29" stroke="black" strokeOpacity="0.2" strokeWidth="2" />
-                                        <path d="M29.1068 39.8317H39.4548C40.231 39.8317 41.7004 40.0103 41.7004 39.0129L41.7262 36.1797C42.2488 36.1797 43.1284 36.1152 43.1284 35.4503C43.1284 33.9617 43.1336 33.3266 43.1336 31.848C43.4751 31.848 43.7441 31.4858 43.7441 31.1732V28.5731C43.7441 28.2605 43.5165 27.7395 43.1336 27.7395V24.554C43.1336 23.5914 41.6124 23.4128 40.8777 23.4128H33.8979C33.1322 23.4128 32.6044 22.7082 32.8166 22.0135L33.8462 17.136C33.9186 16.7837 33.7893 15.9798 33.5668 15.1959C33.4271 14.7096 33.2408 13.9355 32.7803 13.6279C32.2681 13.2806 31.5075 13.0722 30.897 13.2012L30.0174 17.2749C29.976 17.4783 29.8777 17.657 29.7432 17.7959L24.4243 24.157V34.7804C24.4243 35.7877 24.595 36.8446 25.0917 37.7427C25.9247 39.2561 27.4149 39.8317 29.1068 39.8317ZM22.1684 24.8567L16.4873 24.8219C15.3335 24.812 15.2611 25.07 15.2611 26.1319V38.482C15.2611 39.4694 15.2973 39.8317 16.3993 39.8317H22.1684V24.8567ZM24.4243 40.4023V40.9183C24.4243 41.5137 23.9172 42 23.2963 42H16.3993C13.9882 42 13 40.6702 13 38.482V26.1319C13 23.8841 14.04 22.6536 16.4976 22.6685L22.7582 22.7032L27.8598 16.6001L28.7032 12.5561C28.7601 12.2683 28.8998 12.0054 29.0964 11.787C30.3382 10.4275 33.0546 11.0328 34.3532 12.0699L34.4309 12.1294C34.9586 12.576 35.4346 13.5832 35.7347 14.6252C36.04 15.6921 36.19 16.8879 36.0503 17.5577L35.2742 21.2444H40.8777C43.0042 21.2444 45.3895 22.1971 45.3895 24.554V25.1048C45.3895 25.6158 45.317 26.0723 45.1515 26.4643C45.6947 27.0498 46 27.7842 46 28.5731V31.1732C46 31.9472 45.6896 32.6319 45.1256 33.1827C45.317 33.6541 45.3843 34.2148 45.3843 34.8152V35.4503C45.3843 36.269 45.0428 37.058 44.3029 37.6186L43.9045 37.8767C43.9718 38.2538 43.9563 38.6358 43.9563 39.0129C43.9563 41.6824 41.6693 42 39.4548 42H29.1068C27.3942 42 25.7074 41.5237 24.4243 40.4023Z" fill="url(#paint1_linear_61_5)" />
-                                        <path d="M29.1068 39.8317H39.4548C40.231 39.8317 41.7004 40.0103 41.7004 39.0129L41.7262 36.1797C42.2488 36.1797 43.1284 36.1152 43.1284 35.4503C43.1284 33.9617 43.1336 33.3266 43.1336 31.848C43.4751 31.848 43.7441 31.4858 43.7441 31.1732V28.5731C43.7441 28.2605 43.5165 27.7395 43.1336 27.7395V24.554C43.1336 23.5914 41.6124 23.4128 40.8777 23.4128H33.8979C33.1322 23.4128 32.6044 22.7082 32.8166 22.0135L33.8462 17.136C33.9186 16.7837 33.7893 15.9798 33.5668 15.1959C33.4271 14.7096 33.2408 13.9355 32.7803 13.6279C32.2681 13.2806 31.5075 13.0722 30.897 13.2012L30.0174 17.2749C29.976 17.4783 29.8777 17.657 29.7432 17.7959L24.4243 24.157V34.7804C24.4243 35.7877 24.595 36.8446 25.0917 37.7427C25.9247 39.2561 27.4149 39.8317 29.1068 39.8317ZM22.1684 24.8567L16.4873 24.8219C15.3335 24.812 15.2611 25.07 15.2611 26.1319V38.482C15.2611 39.4694 15.2973 39.8317 16.3993 39.8317H22.1684V24.8567ZM24.4243 40.4023V40.9183C24.4243 41.5137 23.9172 42 23.2963 42H16.3993C13.9882 42 13 40.6702 13 38.482V26.1319C13 23.8841 14.04 22.6536 16.4976 22.6685L22.7582 22.7032L27.8598 16.6001L28.7032 12.5561C28.7601 12.2683 28.8998 12.0054 29.0964 11.787C30.3382 10.4275 33.0546 11.0328 34.3532 12.0699L34.4309 12.1294C34.9586 12.576 35.4346 13.5832 35.7347 14.6252C36.04 15.6921 36.19 16.8879 36.0503 17.5577L35.2742 21.2444H40.8777C43.0042 21.2444 45.3895 22.1971 45.3895 24.554V25.1048C45.3895 25.6158 45.317 26.0723 45.1515 26.4643C45.6947 27.0498 46 27.7842 46 28.5731V31.1732C46 31.9472 45.6896 32.6319 45.1256 33.1827C45.317 33.6541 45.3843 34.2148 45.3843 34.8152V35.4503C45.3843 36.269 45.0428 37.058 44.3029 37.6186L43.9045 37.8767C43.9718 38.2538 43.9563 38.6358 43.9563 39.0129C43.9563 41.6824 41.6693 42 39.4548 42H29.1068C27.3942 42 25.7074 41.5237 24.4243 40.4023Z" fill="black" fillOpacity="0.2" />
-                                        <defs>
-                                            <linearGradient id="paint0_linear_61_5" x1="64.2646" y1="58.5955" x2="-15.2113" y2="36.2351" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.00638475" stopColor="#3F88BA" />
-                                                <stop offset="1" stopColor="#161664" />
-                                            </linearGradient>
-                                            <linearGradient id="paint1_linear_61_5" x1="48.3455" y1="41.2743" x2="5.05671" y2="28.3094" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.00638475" stopColor="#3F88BA" />
-                                                <stop offset="1" stopColor="#161664" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                                    👍 {likes} {likes === 1 ? 'Like' : 'Likes'}
                                 </button>
-                                <span className="text-lg font-semibold text-[#1c3664]">{likes}</span>
 
-                                {/* Dislike Button with dynamic class and count */}
+                                {/* Dislike Button */}
                                 <button
-                                    className={dislikeButtonClasses}
                                     onClick={() => handleVote('dislike')}
-                                    disabled={!post} // Disable if post data is not yet loaded
+                                    disabled={!post || hasVoted}
+                                    style={{
+                                        cursor: (!post || hasVoted) ? 'not-allowed' : 'pointer',
+                                        opacity: (!post || hasVoted) ? 0.6 : 1,
+                                        backgroundColor: '#E7F6FF',
+                                        border: '1px solid #1f2d61',
+                                        color: '#1f2d61',
+                                        fontWeight: '600',
+                                        padding: '8px 16px',
+                                        borderRadius: '24px',
+                                        transition: 'all 0.2s',
+                                        outline: 'none'
+                                    }}
+                                    onMouseOver={(e) => { if (!hasVoted) e.currentTarget.style.backgroundColor = '#cce7fb' }}
+                                    onMouseOut={(e) => { if (!hasVoted) e.currentTarget.style.backgroundColor = '#E7F6FF' }}
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="url(#paint0_linear_61_9)" />
-                                        <circle cx="30" cy="30" r="30" fill="black" fillOpacity="0.2" />
-                                        <path d="M30.3813 20.1683H20.3468C19.5942 20.1683 18.1693 19.9897 18.1693 20.9871L18.1442 23.8203C17.6375 23.8203 16.7846 23.8848 16.7846 24.5497C16.7846 26.0383 16.7796 26.6734 16.7796 28.152C16.4484 28.152 16.1875 28.5142 16.1875 28.8268V31.4269C16.1875 31.7395 16.4083 32.2605 16.7796 32.2605V35.446C16.7796 36.4086 18.2546 36.5872 18.9671 36.5872H25.7353C26.4779 36.5872 26.9897 37.2918 26.7839 37.9865L25.7855 42.864C25.7153 43.2163 25.8407 44.0202 26.0564 44.8041C26.1919 45.2904 26.3725 46.0645 26.8191 46.3721C27.3158 46.7194 28.0533 46.9278 28.6453 46.7988L29.4983 42.7251C29.5384 42.5217 29.6337 42.343 29.7642 42.2041L34.9219 35.843V25.2196C34.9219 24.2123 34.7564 23.1554 34.2747 22.2573C33.4669 20.7439 32.022 20.1683 30.3813 20.1683ZM37.1094 35.1433L42.6184 35.1781C43.7372 35.188 43.8075 34.93 43.8075 33.8681V21.518C43.8075 20.5306 43.7723 20.1683 42.7037 20.1683H37.1094V35.1433ZM34.9219 19.5977V19.0817C34.9219 18.4863 35.4136 18 36.0157 18H42.7037C45.0417 18 46 19.3298 46 21.518V33.8681C46 36.1159 44.9915 37.3464 42.6083 37.3315L36.5375 37.2968L31.5905 43.3999L30.7727 47.4439C30.7175 47.7317 30.582 47.9946 30.3913 48.213C29.1872 49.5725 26.5532 48.9672 25.2938 47.9301L25.2186 47.8706C24.7068 47.424 24.2452 46.4168 23.9542 45.3748C23.6582 44.3079 23.5127 43.1121 23.6482 42.4423L24.4008 38.7556H18.9671C16.905 38.7556 14.592 37.8029 14.592 35.446V34.8952C14.592 34.3842 14.6623 33.9277 14.8228 33.5357C14.296 32.9502 14 32.2158 14 31.4269V28.8268C14 28.0528 14.301 27.3681 14.8479 26.8173C14.6623 26.3459 14.5971 25.7852 14.5971 25.1848V24.5497C14.5971 23.731 14.9282 22.942 15.6457 22.3814L16.032 22.1233C15.9668 21.7462 15.9818 21.3642 15.9818 20.9871C15.9818 18.3176 18.1994 18 20.3468 18H30.3813C32.042 18 33.6776 18.4763 34.9219 19.5977Z" fill="white" />
-                                        <defs>
-                                            <linearGradient id="paint0_linear_61_9" x1="64.2646" y1="58.5955" x2="-15.2113" y2="36.2351" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.00638475" stopColor="#3F88BA" />
-                                                <stop offset="1" stopColor="#161664" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                                    👎 {dislikes} {dislikes === 1 ? 'Dislike' : 'Dislikes'}
                                 </button>
-                                {/* <span className="text-lg font-semibold text-[#1c3664]">{dislikes}</span> */}
 
+                                {hasVoted && (
+                                    <span className="ms-auto text-success" style={{ fontSize: '14px', fontWeight: '500', color: '#4CAF50' }}>
+                                        Thanks for your feedback!
+                                    </span>
+                                )}
                             </div>
                             {/* --- END UPDATED: Like/Dislike Block --- */}
-                            <div className="author-bio-section">
+                            <div className="author-bio-section" >
                                 <div className="author-bio-image">
                                     <img src="/images/sumit.webp" alt="Author image" />
                                 </div>
@@ -815,7 +955,7 @@ export default function PostDetail({ initialPost }) {
                             <div className="sticky-sidebar-wrapper">
 
                                 {/* 1. RENDER STATIC IMAGE PART */}
-                                <div dangerouslySetInnerHTML={{ __html: getSidebarHtmlImage() }} />
+                                {/* <div dangerouslySetInnerHTML={{ __html: getSidebarHtmlImage() }} /> */}
 
                                 {/* 2. RENDER FUNCTIONAL REACT FORM (replaces the old static form HTML) */}
                                 <SidebarForm

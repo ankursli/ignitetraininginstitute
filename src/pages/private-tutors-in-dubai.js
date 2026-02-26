@@ -1,23 +1,24 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Head from "next/head";
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/private-tutors-dubai/MarqueeBanner';
-import ReviewsSection from '@/components/private-tutors-dubai/ReviewsSection';
-import StudentAchievements from '@/components/private-tutors-dubai/StudentAchivement';
-import CurriculumTestsComponent from '@/components/private-tutors-dubai/curriculum';
+const MarqueeBanner = dynamic(() => import('@/components/private-tutors-dubai/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/private-tutors-dubai/ReviewsSection'));
+const StudentAchievements = dynamic(() => import('@/components/private-tutors-dubai/StudentAchivement'));
+const CurriculumTestsComponent = dynamic(() => import('@/components/private-tutors-dubai/curriculum'));
 import InfoCard from '@/components/private-tutors-dubai/infoCard';
-import OurTrainers from '@/components/private-tutors-dubai/ourTrainers';
-import SubjectsCard1 from '@/components/private-tutors-dubai/SubjectCard1';
-import IgniteAchievements from '@/components/private-tutors-dubai/igniteAchivement';
-import Blog from "@/components/private-tutors-dubai/Blog";
-import UpsSection from '@/components/private-tutors-dubai/UspsSection';
-import Accordion from '@/components/private-tutors-dubai/accordian';
-import FAQSection from '@/components/private-tutors-dubai/FaqSection';
-import LifeAtIgniteCarousel from '@/components/private-tutors-dubai/LifeAtIgniteCarousel';
+const OurTrainers = dynamic(() => import('@/components/private-tutors-dubai/ourTrainers'));
+const SubjectsCard1 = dynamic(() => import('@/components/private-tutors-dubai/SubjectCard1'));
+const IgniteAchievements = dynamic(() => import('@/components/private-tutors-dubai/igniteAchivement'));
+const Blog = dynamic(() => import('@/components/private-tutors-dubai/Blog'));
+const UpsSection = dynamic(() => import('@/components/private-tutors-dubai/UspsSection'));
+const Accordion = dynamic(() => import('@/components/private-tutors-dubai/accordian'));
+const FAQSection = dynamic(() => import('@/components/private-tutors-dubai/FaqSection'));
+const LifeAtIgniteCarousel = dynamic(() => import('@/components/private-tutors-dubai/LifeAtIgniteCarousel'));
 
 
 // 1. ACCEPT the headerHeight prop

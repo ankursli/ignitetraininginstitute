@@ -1,22 +1,23 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import LazySection from '@/components/LazySection';
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
-import Accordion from '@/components/act/accrodian';
-import Blog from "@/components/act/Blog";
-import CourseCard from '@/components/act/CourseCard';
-import FAQSection from '@/components/act/FaqSection';
-import IgniteAchievements from '@/components/act/IgniteAchievements';
+const Accordion = dynamic(() => import('@/components/act/accrodian'));
+const Blog = dynamic(() => import('@/components/act/Blog'));
+const CourseCard = dynamic(() => import('@/components/act/CourseCard'));
+const FAQSection = dynamic(() => import('@/components/act/FaqSection'));
+const IgniteAchievements = dynamic(() => import('@/components/act/IgniteAchievements'));
 import InfoCard from '@/components/act/InfoCard';
-import IgniteAboutCard from "@/components/act/IgniteAboutCard";
-import LifeAtIgniteCarousel from '@/components/act/LifeAtIgniteCarousel';
-import MarqueeBanner from '@/components/act/MarqueeBanner';
-import ReviewsSection from '@/components/act/ReviewsSection';
-import StudentAchievements from '@/components/act/StudentAchivement';
-import SubjectsCard from '@/components/act/SubjectCard';
-import SubjectsCard1 from '@/components/act/SubjectCard1';
-import UspsSection from '@/components/act/UspsSection';
+const IgniteAboutCard = dynamic(() => import('@/components/act/IgniteAboutCard'));
+const LifeAtIgniteCarousel = dynamic(() => import('@/components/act/LifeAtIgniteCarousel'));
+const MarqueeBanner = dynamic(() => import('@/components/act/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/act/ReviewsSection'));
+const StudentAchievements = dynamic(() => import('@/components/act/StudentAchivement'));
+const SubjectsCard = dynamic(() => import('@/components/act/SubjectCard'));
+const SubjectsCard1 = dynamic(() => import('@/components/act/SubjectCard1'));
+const UspsSection = dynamic(() => import('@/components/act/UspsSection'));
 import Head from 'next/head';
 
 // 1. ACCEPT the headerHeight prop

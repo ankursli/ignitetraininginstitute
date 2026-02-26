@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
-import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
+const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-import Accordion from '@/components/computer-tutoring/accordian';
+const Accordion = dynamic(() => import('@/components/computer-tutoring/accordian'));
 import ComputerTutorsInfoCard from '@/components/computer-tutoring/infoCard';
-import ComputerTutorsChooseApp from '@/components/computer-tutoring/choose-app';
-import ComputerTutorsACT from '@/components/computer-tutoring/ACT';
-import ComputerTutorsUsps from "@/components/computer-tutoring/Usps";
-import Trainers from "@/components/computer-tutoring/Trainers";
-import ComputerTutorsIgniteAchievements from '@/components/computer-tutoring/IgniteAchievements';
-import ComputerTutorsLifeAtIgniteCarousel from '@/components/computer-tutoring/LifeAtIgniteCarousel';
-import ComputerTutorsFAQSection from '@/components/computer-tutoring/FaqSection';
-import ComputerTutorsStudentAchievements from '@/components/computer-tutoring/StudentAchivement';
+const ComputerTutorsChooseApp = dynamic(() => import('@/components/computer-tutoring/choose-app'));
+const ComputerTutorsACT = dynamic(() => import('@/components/computer-tutoring/ACT'));
+const ComputerTutorsUsps = dynamic(() => import('@/components/computer-tutoring/Usps'));
+const Trainers = dynamic(() => import('@/components/computer-tutoring/Trainers'));
+const ComputerTutorsIgniteAchievements = dynamic(() => import('@/components/computer-tutoring/IgniteAchievements'));
+const ComputerTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/computer-tutoring/LifeAtIgniteCarousel'));
+const ComputerTutorsFAQSection = dynamic(() => import('@/components/computer-tutoring/FaqSection'));
+const ComputerTutorsStudentAchievements = dynamic(() => import('@/components/computer-tutoring/StudentAchivement'));
 
 //comment
 // Renamed main component: SubjectTutoring -> ComputerTutorsInDubai

@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
 // Assuming shared components are kept in their original path
-import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
-import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
+const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-import Accordion from '@/components/chemistry-tutoring/accordian';
+const Accordion = dynamic(() => import('@/components/chemistry-tutoring/accordian'));
 import ChemistryTutorsInfoCard from '@/components/chemistry-tutoring/infoCard';
-import ChemistryTutorsChooseApp from '@/components/chemistry-tutoring/choose-app';
-import ChemistryTutorsACT from '@/components/chemistry-tutoring/ACT';
-import ChemistryTutorsUsps from "@/components/chemistry-tutoring/Usps";
-import Trainers from "@/components/chemistry-tutoring/Trainers";
-import ChemistryTutorsIgniteAchievements from '@/components/chemistry-tutoring/IgniteAchievements';
-import ChemistryTutorsLifeAtIgniteCarousel from '@/components/chemistry-tutoring/LifeAtIgniteCarousel';
-import ChemistryTutorsFAQSection from '@/components/chemistry-tutoring/FaqSection';
-import ChemistryTutorsStudentAchievements from '@/components/chemistry-tutoring/StudentAchivement';
+const ChemistryTutorsChooseApp = dynamic(() => import('@/components/chemistry-tutoring/choose-app'));
+const ChemistryTutorsACT = dynamic(() => import('@/components/chemistry-tutoring/ACT'));
+const ChemistryTutorsUsps = dynamic(() => import('@/components/chemistry-tutoring/Usps'));
+const Trainers = dynamic(() => import('@/components/chemistry-tutoring/Trainers'));
+const ChemistryTutorsIgniteAchievements = dynamic(() => import('@/components/chemistry-tutoring/IgniteAchievements'));
+const ChemistryTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/chemistry-tutoring/LifeAtIgniteCarousel'));
+const ChemistryTutorsFAQSection = dynamic(() => import('@/components/chemistry-tutoring/FaqSection'));
+const ChemistryTutorsStudentAchievements = dynamic(() => import('@/components/chemistry-tutoring/StudentAchivement'));
 
 //comment
 // Renamed main component: SubjectTutoring -> ChemistryTutorsInDubai

@@ -1,25 +1,26 @@
 import React, { useRef, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Head from "next/head";
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 import LazySection from "@/components/LazySection"
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
-import Accordion from '@/components/a-level/accordian';
-import Blog from "@/components/a-level/Blog";
-import CourseCard from '@/components/a-level/CourseCard';
-import FAQSection from '@/components/a-level/FaqSection';
-import IgniteAchievements from '@/components/a-level/IgniteAchievements';
+const Accordion = dynamic(() => import('@/components/a-level/accordian'));
+const Blog = dynamic(() => import('@/components/a-level/Blog'));
+const CourseCard = dynamic(() => import('@/components/a-level/CourseCard'));
+const FAQSection = dynamic(() => import('@/components/a-level/FaqSection'));
+const IgniteAchievements = dynamic(() => import('@/components/a-level/IgniteAchievements'));
 import InfoCard from '@/components/a-level/InfoCard';
-import IgniteAboutCard from "@/components/a-level/IgniteAboutCard";
-import Trainers from "@/components/a-level/Trainers";
-import WhatWeOfferSection from '@/components/a-level/WhatWeOfferSection';
-import LifeAtIgniteCarousel from '@/components/a-level/LifeAtIgniteCarousel';
-import MarqueeBanner from '@/components/a-level/MarqueeBanner';
-import ReviewsSection from '@/components/a-level/ReviewsSection';
-import StudentAchievements from '@/components/a-level/StudentAchivement';
-import SubjectsCard from '@/components/a-level/SubjectCard';
-import UspsSection from '@/components/a-level/UspsSection';
+const IgniteAboutCard = dynamic(() => import('@/components/a-level/IgniteAboutCard'));
+const Trainers = dynamic(() => import('@/components/a-level/Trainers'));
+const WhatWeOfferSection = dynamic(() => import('@/components/a-level/WhatWeOfferSection'));
+const LifeAtIgniteCarousel = dynamic(() => import('@/components/a-level/LifeAtIgniteCarousel'));
+const MarqueeBanner = dynamic(() => import('@/components/a-level/MarqueeBanner'));
+const ReviewsSection = dynamic(() => import('@/components/a-level/ReviewsSection'));
+const StudentAchievements = dynamic(() => import('@/components/a-level/StudentAchivement'));
+const SubjectsCard = dynamic(() => import('@/components/a-level/SubjectCard'));
+const UspsSection = dynamic(() => import('@/components/a-level/UspsSection'));
 import UniImagesCard from '@/components/a-level/universityCrad';
 
 // 1. ACCEPT the headerHeight prop

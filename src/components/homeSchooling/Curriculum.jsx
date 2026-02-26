@@ -34,7 +34,7 @@ export default function Curriculum() {
         {/* IGCSE */}
         <div className="curriculum-card">
           <img
-            src="/assets/igcse.webp"
+            src="/assets/homeschooling-igcse.webp"
             alt="IGCSE"
             className="curriculum-img"
             width={600}
@@ -52,7 +52,7 @@ export default function Curriculum() {
         {/* A-Levels */}
         <div className="curriculum-card">
           <img
-            src="/assets/alevel.webp"
+            src="/assets/homeschooling-a-level.webp"
             alt="A-Levels"
             className="curriculum-img"
             width={600}

@@ -463,7 +463,7 @@ export default function InfoCardForm() {
         }
 
         @media (min-width: 1400px) {
-            .right-form { padding: 1.5rem 4rem 1.5rem 2.5rem !important; }
+            .right-form { padding: 1.5rem 0rem 1.5rem 2.5rem  !important; }
             .form-container { padding: 1.8rem 2rem !important; width: 108% !important; margin-left: -4% !important; }
             .form-heading { font-size: 1.3rem !important; line-height: 1.4 !important; }
             .form-control { font-size: 0.9rem !important; padding: 12px 18px !important; }
@@ -473,7 +473,7 @@ export default function InfoCardForm() {
         }
 
         @media (min-width: 1920px) {
-             .right-form { padding: 3rem 5rem 3rem 3rem!important; }
+             .right-form { padding: 3rem 0rem 3rem 3rem  !important; }
              .form-container { padding: 2rem 2.5rem !important; width: 105% !important; margin-left: -2.5% !important; }
              .form-heading { font-size: 1.8rem !important; }
              .form-control { font-size: 0.95rem !important; padding: 21px 20px !important; }
@@ -498,7 +498,7 @@ export default function InfoCardForm() {
         }
         
         @media (min-width: 1536px) and (max-width: 1919px) {
-             .right-form { padding: 1rem 2rem 1rem 1.5rem !important; }
+             .right-form { padding: 1rem 0rem 1rem 1.5rem  !important; }
              .form-container {
                 min-height: 535px !important;
                 min-width: 420px !important;
