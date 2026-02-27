@@ -10,7 +10,7 @@ export default function InfoCardLeft() {
                 data-scroll-class="is-inview"
                 data-scroll-repeat
             >
-                IBDP Tutors In Dubai, UAE<br /> For Curriculum Excellence
+                IBDP Tutors In Dubai, UAE<br /> For Curriculum Excellence...
             </h1>
             <div className="divider desktop-fade-in"
                 data-scroll
