@@ -74,8 +74,8 @@
 }
 
 .homeCopy .blogSection .blogImg {
-  width: 15vw;
-  height: auto !important;
+  width: 300px;
+  height: 250px;
   object-fit: cover;
   border-radius: 24px;
 }
@@ -90,18 +90,17 @@
 }
 
 .homeCopy .blogSection .blogCardTitle {
-  font-size: 1vw;
+  font-size: 1.5vw;
   font-weight: 700;
   color: var(--blue-color);
   margin-bottom: 4px;
-  line-height: 1.2;
+  letter-spacing: 1px;
 }
 
 .homeCopy .blogSection .blogCardDesc {
-  font-size: 0.8vw;
+  font-size: 1vw;
   color: #7a8ca3;
   opacity: 0.9;
-  line-height: 1.2;
 }
 
 .homeCopy .blogSection .blogCardLine {
@@ -114,7 +113,6 @@
 .homeCopy .blogSection .blogReadMoreBtn {
   font-size: 1rem;
   font-weight: 700;
-  padding: 5px 20px;
 }
 
 .homeCopy .blogSection .blogReadMoreBtn:hover {
@@ -232,6 +230,6 @@
 
   .homeCopy .blogSection .blogImg {
     width: 100%;
-    height: auto;
+    height: 200px;
   }
 }

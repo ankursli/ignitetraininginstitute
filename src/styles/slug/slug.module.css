@@ -4,17 +4,12 @@
     margin-top: 4vw;
 }
 
-.post-detail-section {
-    padding-bottom: 0 !important;
-}
-
 h1.main-title {
     font-weight: 700 !important;
     line-height: 1;
     text-transform: uppercase;
     background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
     padding: 0 40px;
@@ -42,12 +37,13 @@ h1.main-title {
 }
 
 .post-author span {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
-    color: #23346782;
+    color: rgba(35, 52, 103, 0.51);
+    text-transform: uppercase;
 }
 
-.post-share-icons {
+.post-share-icons.mb-4 {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -61,8 +57,7 @@ h1.main-title {
 }
 
 .post-content img {
-    max-width: 400px;
-    height: auto !important;
+    max-width: 100%;
 }
 
 .post-content .wp-block-list,
@@ -70,7 +65,6 @@ h1.main-title {
     color: #161616;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.5;
 }
 
 /* Sticky sidebar styling using native CSS */
@@ -88,7 +82,6 @@ h1.main-title {
     text-transform: uppercase;
     background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 20px 0px;
     position: relative;
@@ -104,7 +97,6 @@ h1.main-title {
     /* text-transform: uppercase; */
     background: linear-gradient(to left, var(--green-color), var(--lightgreen-color));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 20px 0px;
     position: relative;
@@ -121,7 +113,6 @@ h1.main-title {
     text-transform: uppercase;
     background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 10px 0px;
     position: relative;
@@ -277,7 +268,6 @@ h1.main-title {
     line-height: 3rem;
     background: linear-gradient(285.71deg, #3F88BA -4.32%, #161664 106.53%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
 }
@@ -355,64 +345,18 @@ button.dislike {
     color: #0f2d75;
 }
 
-.key-features {
-    padding: 15px;
-    border-radius: 20px;
-    background: linear-gradient(90deg, rgba(163, 202, 245, 1) 0%, rgba(231, 246, 255, 1) 100%);
-    margin-bottom: 20px;
-}
-
-.key-features h3 {
-    text-transform: uppercase;
-    background: linear-gradient(to left, var(--skyblue-color), var(--blue-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    padding: 10px 0;
-    font-size: 32px;
-    line-height: 1.2;
-
-    font-weight: 700 !important;
-}
 
 /* Media Queries for Mobile Responsiveness */
-@media (max-width: 1400px) {
-
-    .post-date span,
-    .post-author span,
-    .post-date-separator {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 1024px) {
-
-    .post-date span,
-    .post-author span {
-        font-size: 18px;
-    }
-
-    .post-share-icons svg {
-        width: 38px;
-        height: 38px;
-    }
-}
-
 @media (max-width: 768px) {
     h1.main-title {
         font-size: 32px;
-        padding: 0;
+        padding: 0 10px;
         text-align: left;
     }
 
     .post-date span,
     .post-author span {
-        font-size: 14px;
-    }
-
-    .post-content img {
-        max-width: 90%;
+        font-size: 16px;
     }
 
     .image-feature img {
@@ -422,15 +366,14 @@ button.dislike {
 
     .post-author {
         justify-content: flex-start;
-        padding: 0;
-        line-height: 30px;
+        padding: 0 10px;
     }
 
     .post-date {
         flex-direction: column;
         align-items: left;
         gap: 5px;
-        padding: 0;
+        padding: 0 10px;
     }
 
     .post-date-separator {
@@ -483,11 +426,6 @@ button.dislike {
     .sticky-sidebar-wrapper {
         position: static;
         top: auto;
-    }
-
-    .post-share-icons svg {
-        width: 24px;
-        height: 24px;
     }
 }
 
@@ -557,22 +495,6 @@ button.dislike {
         padding-bottom: 20px;
     }
 
-    .blog-sidebar-form-mobile p.pre-h {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .blog-sidebar-form-mobile p.main-h {
-        font-size: 18px;
-        text-align: center;
-        color: #fff;
-        font-weight: 800;
-    }
-
-    .post-content .key-features h3 {
-        font-size: 22px;
-        ;
-    }
 }
 
 @media (max-width: 480px) {
@@ -582,7 +504,7 @@ button.dislike {
 
     .post-date span,
     .post-author span {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .post-content .wp-block-list,
@@ -618,280 +540,5 @@ button.dislike {
     .submit-btn {
         font-size: 18px;
         padding: 6px 15px;
-    }
-}
-
-/* Spotlight Effect on Scroll */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    visibility: hidden;
-    z-index: 9998;
-    /* Just below highlight target */
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    pointer-events: none;
-    /* Let clicks pass through */
-}
-
-body.has-highlighted-video::before {
-    opacity: 1;
-    visibility: visible;
-}
-
-.highlight-on-scroll {
-    transition: transform 0.5s ease-in-out, z-index 0s;
-}
-
-.highlight-on-scroll.is-highlighted {
-    position: relative;
-    z-index: 9999;
-    /* Above the dark overlay */
-}
-
-/* Expandable Table of Contents Styles */
-.toc-react-container {
-    background: #fff;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.toc-react-container nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.toc-react-container nav ul li {
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    background: transparent;
-    transition: background-color 0.2s ease;
-}
-
-.toc-react-container nav ul li:hover {
-    background: #f8fafc;
-}
-
-.toc-react-container nav ul li a {
-    color: #334155;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.toc-react-container nav ul li a::before {
-    content: "•";
-    color: #94a3b8;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* 3rd item fade effect when collapsed */
-.toc-item-fade {
-    position: relative;
-    /* Create a gradient overlay to blend into the background */
-    background: linear-gradient(180deg, #334155 0%, rgba(51, 65, 85, 0) 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-}
-
-.toc-item-fade::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, #ffffff);
-    pointer-events: none;
-}
-
-/* Hide items beyond index 2 initially */
-.toc-item-hidden {
-    display: none !important;
-}
-
-.toc-toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    background: none;
-    border: none;
-    color: #0f172a;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 0 0 0;
-    cursor: pointer;
-    margin-top: 8px;
-}
-
-.toc-toggle-btn svg {
-    margin-left: 6px;
-    transition: transform 0.3s ease;
-}
-
-.toc-toggle-btn.expanded svg {
-    transform: rotate(180deg);
-}
-
-
-/* --- Table of Contents Expand/Collapse Styles --- */
-
-.toc-outer-container nav {
-    position: relative;
-}
-
-.toc-list {
-    overflow: hidden;
-    /* transition: max-height 0.3s ease-out; */
-    max-height: 2000px;
-    /* A safe max-height for expanded state to animate to */
-    transition: max-height 0.4s ease-in-out;
-}
-
-/* Base collapsed state max height to fit ~3 elements perfectly */
-/* Each element is standard padding + text height, approx ~60px each */
-.toc-list.collapsed {
-    max-height: 160px;
-}
-
-/* Gradient Fade Effect */
-/* When it's collapsed, create a pseudo-element overlay on the nav */
-/* that fades from transparent (top) to the background color (bottom) */
-.toc-list.collapsed::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    /* Gradient height covers the last visible item */
-    height: 60px;
-    pointer-events: none;
-    background: linear-gradient(to bottom,
-            rgba(243, 250, 255, 0) 0%,
-            rgba(215, 233, 251, 1) 100%);
-    transition: opacity 0.4s ease-in-out;
-    opacity: 1;
-}
-
-.toc-list:not(.collapsed)::after {
-    opacity: 0;
-}
-
-.toc-toggle-btn {
-    cursor: pointer;
-}
-
-.toc-toggle-btn:hover .btn-text {
-    opacity: 0.8;
-}
-
-@media (max-width: 575px) {
-    .toc-list.collapsed {
-        max-height: 140px;
-    }
-}
-
-/* --- Responsive Meta Flex Layout --- */
-.post-meta-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.meta-col-left,
-.meta-col-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.meta-col-right {
-    gap: 16px;
-}
-
-.meta-item {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    font-weight: 600;
-}
-
-.meta-author {
-    font-weight: 600;
-}
-
-.meta-share svg {
-    width: 32px;
-    height: 32px;
-}
-
-.mobile-only {
-    display: none;
-}
-
-@media (max-width: 767px) {
-    .post-meta-wrapper {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 0 5px;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .meta-col-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding-top: 7px;
-    }
-
-    .meta-col-right {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 8px;
-    }
-
-    .meta-item {
-        font-size: 12px;
-        margin: 0 !important;
-        white-space: nowrap;
-    }
-
-    .meta-share svg {
-        width: 25px !important;
-        height: 25px !important;
-    }
-
-    .post-date-separator {
-        display: none !important;
-    }
-
-    .mobile-only {
-        display: flex;
-    }
-
-    .desktop-only {
-        display: none;
     }
 }

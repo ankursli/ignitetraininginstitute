@@ -155,9 +155,15 @@ export default function IgniteCareerCard() {
       </div>
 
       <style jsx>{`
+      @font-face {
+          font-family: 'Monstra';
+          src: url('/fonts/Monstra.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+        }
 
         .my-text {
-          font-family: 'Montserrat', sans-serif;
+          font-family: 'Monstra', sans-serif;
         }
         .icon-height{
         width: 30px;

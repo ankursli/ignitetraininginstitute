@@ -209,9 +209,15 @@ export default function IgniteAboutCard() {
       </div>
 
       <style jsx>{`
+        @font-face {
+          font-family: "Monstra";
+          src: url("/fonts/Monstra.ttf") format("truetype");
+          font-weight: normal;
+          font-style: normal;
+        }
 
         .my-text {
-          font-family: inherit;
+          font-family: "Monstra", sans-serif;
         }
 
          .testimonialRect {
@@ -429,7 +435,7 @@ background: linear-gradient(269.51deg, rgba(231, 246, 255, 0) -9.55%, rgba(163, 
         }
 
         .heading-title {
-          font-family: inherit;
+          font-family: "Monstra", sans-serif;
           font-weight: bolder;
           font-size: 33px;
           text-align: center;
@@ -654,7 +660,7 @@ top: 5%;
     
 
 .heading-title {
-    font-family: inherit;
+    font-family: "Monstra", sans-serif;
     font-weight: bolder;
     font-size: 25px;
     text-align: center;
@@ -759,7 +765,7 @@ bottom: 5%;
         height: 60px;
         }
         .heading-title {
-    font-family: inherit;
+    font-family: "Monstra", sans-serif;
     font-weight: bolder;
     font-size: 22px;
     text-align: center;

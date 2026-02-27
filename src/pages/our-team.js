@@ -7,6 +7,7 @@ import TeamBanner from "@/components/team/Banner";
 import MarqueeBanner from '@/components/a-level/MarqueeBanner';
 import { ArrowRight } from 'lucide-react';
 // Correct import for the CSS Module
+import styles from '@/styles/team/team.module.css';
 
 
 const trainersData = [
@@ -209,34 +210,34 @@ const OurTeam = ({ headerHeight }) => {
 
                 {/* --- Section 1: Co-Founders --- */}
                 <LazySection>
-                    <section className={"meet-out-team"} data-scroll-section>
+                    <section className={styles['meet-out-team']} data-scroll-section>
                         <div className="container">
                             <div className="text-center mb-5">
-                                <div className={"meet-team-Headings"}>
-                                    <div data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={"fade-in-section"} style={{ animationDelay: "0.1s" }}>
+                                <div className={styles['meet-team-Headings']}>
+                                    <div data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={styles['fade-in-section']} style={{ animationDelay: "0.1s" }}>
                                         <h2 className="SubHeading">MEET OUR TEAM</h2>
                                     </div>
-                                    <h3 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${"fade-in-section"} ${"meetTitle"}`} style={{ animationDelay: "0.2s" }}>
-                                        Dedicated Ignite Trainers Shaping Bright<span className={"highlight"}> Futures </span>
+                                    <h3 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${styles['fade-in-section']} ${styles.meetTitle}`} style={{ animationDelay: "0.2s" }}>
+                                        Dedicated Ignite Trainers Shaping Bright<span className={styles.highlight}> Futures </span>
                                     </h3>
-                                    <h2 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${"fade-in-section"} ${"cofounderTitle"}`} style={{ animationDelay: "0.2s" }}>
+                                    <h2 data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" className={`${styles['fade-in-section']} ${styles.cofounderTitle}`} style={{ animationDelay: "0.2s" }}>
                                         CO-FOUNDERS
                                     </h2>
                                 </div>
                             </div>
-                            <div className={"meet-team-cards"}>
+                            <div className={styles['meet-team-cards']}>
                                 {coFoundersData.map((founder, index) => {
                                     const key = `founder-${index}`;
                                     const isExpanded = expandedCards[key];
                                     return (
-                                        <div className={"team-card"} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                                            <div className={"team-card-image"}>
+                                        <div className={styles['team-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                                            <div className={styles['team-card-image']}>
                                                 <img src={founder.image} alt={founder.name} width={founder.width} height={founder.height} />
                                             </div>
-                                            <div className={"team-card-info"}>
-                                                <div className={"team-card-name"}><h3>{founder.name}</h3></div>
-                                                <div className={"team-card-content"}>
-                                                    <p className={`${"description"} ${isExpanded ? "expanded" : ""}`}>
+                                            <div className={styles['team-card-info']}>
+                                                <div className={styles['team-card-name']}><h3>{founder.name}</h3></div>
+                                                <div className={styles['team-card-content']}>
+                                                    <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
                                                         {isExpanded ? founder.description : sliceByWordCount(founder.description, 16)}
                                                     </p>
                                                     <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
@@ -254,21 +255,21 @@ const OurTeam = ({ headerHeight }) => {
 
                 {/* --- Section 2: Student Success Managers --- */}
                 <LazySection>
-                    <section className={"admin-staff"} data-scroll-section>
+                    <section className={styles['admin-staff']} data-scroll-section>
                         <div className="container">
-                            <div className={"meet-team-Headings"}>
-                                <h2 className={"cofounderTitle"}>STUDENT SUCCESS MANAGERS</h2>
+                            <div className={styles['meet-team-Headings']}>
+                                <h2 className={styles.cofounderTitle}>STUDENT SUCCESS MANAGERS</h2>
                             </div>
-                            <div className={"admin-staff-cards"}>
+                            <div className={styles['admin-staff-cards']}>
                                 {adminStaffData.map((admin, index) => {
                                     const key = `admin-${index}`;
                                     const isExpanded = expandedCards[key];
                                     return (
-                                        <div className={"admin-card"} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                                            <div className={"admin-card-image"}><img src={admin.image} alt={admin.name} width={admin.width} height={admin.height} /></div>
-                                            <div className={"admin-card-info"}>
-                                                <div className={"admin-card-content"}>
-                                                    <p className={`${"description"} ${isExpanded ? "expanded" : ""}`}>
+                                        <div className={styles['admin-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                                            <div className={styles['admin-card-image']}><img src={admin.image} alt={admin.name} width={admin.width} height={admin.height} /></div>
+                                            <div className={styles['admin-card-info']}>
+                                                <div className={styles['admin-card-content']}>
+                                                    <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
                                                         {isExpanded ? admin.description : sliceByWordCount(admin.description, 8)}
                                                     </p>
                                                     <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
@@ -290,21 +291,21 @@ const OurTeam = ({ headerHeight }) => {
 
                 {/* --- Section 3: Trainers --- */}
                 <LazySection>
-                    <section className={"trainer-section"} data-scroll-section>
+                    <section className={styles['trainer-section']} data-scroll-section>
                         <div className="container">
-                            <div className={"meet-team-Headings"}>
-                                <h2 className={"cofounderTitle"}>Trainers</h2>
+                            <div className={styles['meet-team-Headings']}>
+                                <h2 className={styles.cofounderTitle}>Trainers</h2>
                             </div>
-                            <div className={"trainer-cards"}>
+                            <div className={styles['trainer-cards']}>
                                 {trainersData.map((trainer, index) => {
                                     const key = `trainer-${index}`;
                                     const isExpanded = expandedCards[key];
                                     return (
-                                        <div className={"trainer-card"} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
-                                            <div className={"trainer-name"}><h3>{trainer.name}</h3></div>
-                                            <div className={"trainer-image"}><img src={trainer.image} alt={trainer.name} width={trainer.width} height={trainer.height} /></div>
-                                            <div className={"trainer-info"}>
-                                                <p className={`${"description"} ${isExpanded ? "expanded" : ""}`}>
+                                        <div className={styles['trainer-card']} key={key} data-scroll data-scroll-class="is-inview" data-scroll-repeat="true" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
+                                            <div className={styles['trainer-name']}><h3>{trainer.name}</h3></div>
+                                            <div className={styles['trainer-image']}><img src={trainer.image} alt={trainer.name} width={trainer.width} height={trainer.height} /></div>
+                                            <div className={styles['trainer-info']}>
+                                                <p className={`${styles.description} ${isExpanded ? styles.expanded : ""}`}>
                                                     {isExpanded ? trainer.description : trainer.description.slice(0, 150) + "..."}
                                                 </p>
                                                 <a href="#" onClick={(e) => { e.preventDefault(); toggleReadMore(key); }}>
@@ -321,23 +322,23 @@ const OurTeam = ({ headerHeight }) => {
 
                 {/* --- Section 4: CTA --- */}
                 <LazySection>
-                    <section className={"cta-section"} data-scroll-section>
-                        <div className={`${"call-to-action"} ${"teams"} container`}>
-                            <div className={"cta-container"}>
-                                <div className={"cta-content"}>
+                    <section className={styles['cta-section']} data-scroll-section>
+                        <div className={`${styles['call-to-action']} ${styles.teams} container`}>
+                            <div className={styles['cta-container']}>
+                                <div className={styles['cta-content']}>
                                     <h2>Meet The Dedicated Educators {!isMobileDevice && <br />} Driving Student Success</h2>
                                     <p>Get to know the passionate experts whose knowledge, guidance, & commitment inspire students to achieve their full potential.</p>
-                                    <div className={"cta-buttons"}>
+                                    <div className={styles['cta-buttons']}>
                                         <a href="/our-team">
-                                            <button className={"cta-button"}>
+                                            <button className={styles['cta-button']}>
                                                 <span>Join Our Team</span>
-                                                <div className={"buttonIcon"}><ArrowRight size={20} /></div>
+                                                <div className={styles.buttonIcon}><ArrowRight size={20} /></div>
                                             </button>
                                         </a>
                                         <a href="/join-free-demo-class">
-                                            <button className={"cta-button"}>
+                                            <button className={styles['cta-button']}>
                                                 <span>Join a Free Demo</span>
-                                                <div className={"buttonIcon"}><ArrowRight size={20} /></div>
+                                                <div className={styles.buttonIcon}><ArrowRight size={20} /></div>
                                             </button>
                                         </a>
                                     </div>

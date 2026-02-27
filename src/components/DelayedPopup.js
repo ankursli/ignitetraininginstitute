@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from "next/navigation";
 import { PopupContext } from '../pages/_app';
 import Image from '@/components/CustomImageWrapper';
-import GlobalPhoneInput from './GlobalPhoneInput';
+import GlobalPhoneInput from './GlobalPhoneInput'; // Ensure the path to your new component is correct
 
 const POPUP_DELAY_MS = 15000;
 const HAS_SEEN_POPUP_KEY = 'hasSeenPopupSession';

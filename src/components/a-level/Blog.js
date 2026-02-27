@@ -1,11 +1,10 @@
 import React from "react";
 import SharedBlog from "../SharedBlog";
 
-const Blog = ({ blogData }) => {
+const Blog = () => {
     return (
         <SharedBlog
             title="Study Smarter With Resources, Tips & Student Stories"
-            blogData={blogData}
         />
     );
 };

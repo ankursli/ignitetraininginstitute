@@ -1,53 +1,92 @@
-import React, { useEffect } from "react";
+import React from "react";
 import he from "he";
+import { useEffect } from "react";
 import { useScroll } from "./LocomotiveScrollProvider";
 
-const SharedBlog = ({ title, blogData: initialBlogData, locoScroll }) => {
-    const [blogData, setBlogData] = React.useState(initialBlogData || []);
+const fetchBlogs = async () => {
+    const res = await fetch(
+        "https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed"
+    );
+    const data = await res.json();
+    return data;
+};
+
+// create javascript object for blog data
+const createBlogData = async () => {
+    const data = await fetchBlogs();
+
+    const formattedBlogs = data.map((post) => {
+        // Strip HTML tags
+        const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, "");
+        const rawTitle = post.title.rendered.replace(/<[^>]*>?/gm, "");
+
+        // Decode HTML entities (&amp;, &#8217;, etc.)
+        const decodedExcerpt = he.decode(rawExcerpt);
+        const decodedTitle = he.decode(rawTitle);
+
+        // Trim to ~100 chars without cutting words
+        const trimmedExcerpt =
+            decodedExcerpt.length > 80
+                ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) +
+                "..."
+                : decodedExcerpt;
+
+        return {
+            img:
+                post._embedded["wp:featuredmedia"]?.[0]?.source_url ||
+                "/images/blog-placeholder.webp",
+            title: decodedTitle,
+            desc: trimmedExcerpt,
+            link: post.slug,
+        };
+    });
+
+    return formattedBlogs;
+};
+
+const staticBlogs = [
+    {
+        img: "/images/blogImage1.webp",
+        title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        desc: "Choosing us means partnering with experienced coaches who are...",
+        link: "/blogs",
+        width: 500,
+        height: 750,
+    },
+    {
+        img: "/images/blogImage2.webp",
+        title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        desc: "Choosing us means partnering with experienced coaches who are...",
+        link: "/blogs",
+        width: 1200,
+        height: 673,
+    },
+    {
+        img: "/images/blogImage3.webp",
+        title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        desc: "Choosing us means partnering with experienced coaches who are...",
+        link: "/blogs",
+        width: 1200,
+        height: 800,
+    },
+];
+
+const SharedBlog = ({ title, locoScroll }) => {
+    const [blogData, setBlogData] = React.useState(staticBlogs);
     const contextScroll = useScroll();
     const scrollInstance = locoScroll || contextScroll;
 
-    // Optional: If initialBlogData is not provided (shouldn't happen with SSR), fetch on client
     useEffect(() => {
-        if (!initialBlogData || initialBlogData.length === 0) {
-            const fetchData = async () => {
-                try {
-                    // Use internal API proxy (/api/wp/...) to avoid CORS / "Failed to fetch" on client side
-                    const res = await fetch("/api/wp/posts?per_page=3&_embed");
-                    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
-                    const data = await res.json();
-                    if (!Array.isArray(data)) return;
-
-                    const formatted = data.map((post) => {
-                        const rawExcerpt = post.excerpt?.rendered?.replace(/<[^>]*>?/gm, "") || "";
-                        const rawTitle = post.title?.rendered?.replace(/<[^>]*>?/gm, "") || "";
-                        const decodedExcerpt = he.decode(rawExcerpt);
-                        const decodedTitle = he.decode(rawTitle);
-                        const trimmedExcerpt = decodedExcerpt.length > 80
-                            ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
-                            : decodedExcerpt;
-
-                        return {
-                            img: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
-                            title: decodedTitle,
-                            desc: trimmedExcerpt,
-                            link: post.slug,
-                        };
-                    });
-                    setBlogData(formatted);
-                } catch (error) {
-                    console.error("SharedBlog: Client-side fetch failed:", error);
-                    // Silently fail or set empty data to avoid crashing the whole page
-                    setBlogData([]);
-                }
-            };
-            fetchData();
-        }
-    }, [initialBlogData]);
+        const fetchData = async () => {
+            const data = await createBlogData();
+            setBlogData(data);
+        };
+        fetchData();
+    }, []);
 
     useEffect(() => {
         if (blogData.length > 0 && scrollInstance) {
+            // Handle both direct instance and object wrapper cases
             if (typeof scrollInstance.update === 'function') {
                 scrollInstance.update();
             } else if (scrollInstance.scroll && typeof scrollInstance.scroll.update === 'function') {

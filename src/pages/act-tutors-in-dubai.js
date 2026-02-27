@@ -20,7 +20,7 @@ import UspsSection from '@/components/act/UspsSection';
 import Head from 'next/head';
 
 // 1. ACCEPT the headerHeight prop
-const act = ({ headerHeight, blogData }) => {
+const act = ({ headerHeight }) => {
 
   // ----------------------------------------------------
   // 👇 COMBINED JSON-LD SCHEMAS DEFINITION FOR THIS PAGE
@@ -184,6 +184,8 @@ const act = ({ headerHeight, blogData }) => {
   return (
     <>
       <Head>
+        <link rel="stylesheet" href="/styles/home/MovingBanner.css" />
+        <link rel="stylesheet" href="/styles/home/Subjects.css" />
         <link
           rel="preload"
           href="/assets/mobileact.webp"
@@ -322,7 +324,7 @@ const act = ({ headerHeight, blogData }) => {
 
         <LazySection>
           <section data-scroll-section className='actblogs'>
-            <Blog blogData={blogData} />
+            <Blog />
           </section>
         </LazySection>
         <LazySection>
@@ -334,44 +336,5 @@ const act = ({ headerHeight, blogData }) => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  try {
-    const res = await fetch("https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed");
-    const data = await res.json();
-
-    const he = (await import("he")).default;
-
-    const blogData = data.map((post) => {
-      const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, "");
-      const rawTitle = post.title.rendered.replace(/<[^>]*>?/gm, "");
-      const decodedExcerpt = he.decode(rawExcerpt);
-      const decodedTitle = he.decode(rawTitle);
-      const trimmedExcerpt = decodedExcerpt.length > 80
-        ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
-        : decodedExcerpt;
-
-      return {
-        img: post._embedded["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
-        title: decodedTitle,
-        desc: trimmedExcerpt,
-        link: post.slug,
-      };
-    });
-
-    return {
-      props: {
-        blogData,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching blogs for ACT SSR:", error);
-    return {
-      props: {
-        blogData: [],
-      },
-    };
-  }
-}
 
 export default act;
