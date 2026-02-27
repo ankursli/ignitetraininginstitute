@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/accounting-tutoring/accordian'));
+import Accordion from '@/components/accounting-tutoring/accordian';
 import AccountingTutorsInfoCard from '@/components/accounting-tutoring/infoCard';
-const AccountingTutorsChooseApp = dynamic(() => import('@/components/accounting-tutoring/choose-app'));
-const AccountingTutorsACT = dynamic(() => import('@/components/accounting-tutoring/ACT'));
-const AccountingTutorsUsps = dynamic(() => import('@/components/accounting-tutoring/Usps'));
-const Trainers = dynamic(() => import('@/components/accounting-tutoring/Trainers'));
-const AccountingTutorsIgniteAchievements = dynamic(() => import('@/components/accounting-tutoring/IgniteAchievements'));
-const AccountingTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/accounting-tutoring/LifeAtIgniteCarousel'));
-const AccountingTutorsFAQSection = dynamic(() => import('@/components/accounting-tutoring/FaqSection'));
-const AccountingTutorsStudentAchievements = dynamic(() => import('@/components/accounting-tutoring/StudentAchivement'));
+import AccountingTutorsChooseApp from '@/components/accounting-tutoring/choose-app';
+import AccountingTutorsACT from '@/components/accounting-tutoring/ACT';
+import AccountingTutorsUsps from "@/components/accounting-tutoring/Usps";
+import Trainers from "@/components/accounting-tutoring/Trainers";
+import AccountingTutorsIgniteAchievements from '@/components/accounting-tutoring/IgniteAchievements';
+import AccountingTutorsLifeAtIgniteCarousel from '@/components/accounting-tutoring/LifeAtIgniteCarousel';
+import AccountingTutorsFAQSection from '@/components/accounting-tutoring/FaqSection';
+import AccountingTutorsStudentAchievements from '@/components/accounting-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> AccountingTutorsInDubai

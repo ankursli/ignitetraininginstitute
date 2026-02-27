@@ -1,23 +1,22 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
-const Advantages = dynamic(() => import('@/components/homeSchooling/Advantages'));
-const Curriculum = dynamic(() => import('@/components/homeSchooling/Curriculum'));
-const CourseCard = dynamic(() => import('@/components/homeSchooling/CourseCard'));
-const FAQSection = dynamic(() => import('@/components/homeSchooling/FaqSection'));
+import Advantages from '@/components/homeSchooling/Advantages';
+import Curriculum from '@/components/homeSchooling/Curriculum';
+import CourseCard from '@/components/homeSchooling/CourseCard';
+import FAQSection from '@/components/homeSchooling/FaqSection';
 import InfoCard from '@/components/homeSchooling/InfoCard';
-const LifeAtIgniteCarousel = dynamic(() => import('@/components/homeSchooling/LifeAtIgniteCarousel'));
-const MarqueeBanner = dynamic(() => import('@/components/homeSchooling/MarqueeBanner'));
-const HomeschoolingMindset = dynamic(() => import('@/components/homeSchooling/mindset'));
-const WhatWeOfferSection = dynamic(() => import('@/components/homeSchooling/WhatWeOfferSection'));
-const Accordion = dynamic(() => import('@/components/homeSchooling/accrodian'));
-const Blog = dynamic(() => import('@/components/homeSchooling/Blog'));
-const ReviewsSection = dynamic(() => import('@/components/homeSchooling/ReviewsSection'));
-const StudentAchievements = dynamic(() => import('@/components/ibdp/StudentAchivement'));
+import LifeAtIgniteCarousel from '@/components/homeSchooling/LifeAtIgniteCarousel';
+import MarqueeBanner from '@/components/homeSchooling/MarqueeBanner';
+import HomeschoolingMindset from '@/components/homeSchooling/mindset';
+import WhatWeOfferSection from '@/components/homeSchooling/WhatWeOfferSection';
+import Accordion from '@/components/homeSchooling/accrodian';
+import Blog from "@/components/homeSchooling/Blog";
+import ReviewsSection from '@/components/homeSchooling/ReviewsSection';
+import StudentAchievements from '@/components/ibdp/StudentAchivement';
 
 
 // 1. ACCEPT the headerHeight prop

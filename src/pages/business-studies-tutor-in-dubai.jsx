@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/business-tutoring/accordian'));
+import Accordion from '@/components/business-tutoring/accordian';
 import BusinessTutorsInfoCard from '@/components/business-tutoring/infoCard';
-const BusinessTutorsChooseApp = dynamic(() => import('@/components/business-tutoring/choose-app'));
-const BusinessTutorsACT = dynamic(() => import('@/components/business-tutoring/ACT'));
-const BusinessTutorsUsps = dynamic(() => import('@/components/business-tutoring/Usps'));
-const Trainers = dynamic(() => import('@/components/business-tutoring/Trainers'));
-const BusinessTutorsIgniteAchievements = dynamic(() => import('@/components/business-tutoring/IgniteAchievements'));
-const BusinessTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/business-tutoring/LifeAtIgniteCarousel'));
-const BusinessTutorsFAQSection = dynamic(() => import('@/components/business-tutoring/FaqSection'));
-const BusinessTutorsStudentAchievements = dynamic(() => import('@/components/business-tutoring/StudentAchivement'));
+import BusinessTutorsChooseApp from '@/components/business-tutoring/choose-app';
+import BusinessTutorsACT from '@/components/business-tutoring/ACT';
+import BusinessTutorsUsps from "@/components/business-tutoring/Usps";
+import Trainers from "@/components/business-tutoring/Trainers";
+import BusinessTutorsIgniteAchievements from '@/components/business-tutoring/IgniteAchievements';
+import BusinessTutorsLifeAtIgniteCarousel from '@/components/business-tutoring/LifeAtIgniteCarousel';
+import BusinessTutorsFAQSection from '@/components/business-tutoring/FaqSection';
+import BusinessTutorsStudentAchievements from '@/components/business-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> BusinessTutorsInDubai

@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/physics-tutoring/accordian'));
+import Accordion from '@/components/physics-tutoring/accordian';
 import PhysicsTutorsInfoCard from '@/components/physics-tutoring/infoCard';
-const PhysicsTutorsChooseApp = dynamic(() => import('@/components/physics-tutoring/choose-app'));
-const PhysicsTutorsACT = dynamic(() => import('@/components/physics-tutoring/ACT'));
-const PhysicsTutorsUsps = dynamic(() => import('@/components/physics-tutoring/Usps'));
-const Trainers = dynamic(() => import('@/components/physics-tutoring/Trainers'));
-const PhysicsTutorsIgniteAchievements = dynamic(() => import('@/components/physics-tutoring/IgniteAchievements'));
-const PhysicsTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/physics-tutoring/LifeAtIgniteCarousel'));
-const PhysicsTutorsFAQSection = dynamic(() => import('@/components/physics-tutoring/FaqSection'));
-const PhysicsTutorsStudentAchievements = dynamic(() => import('@/components/physics-tutoring/StudentAchivement'));
+import PhysicsTutorsChooseApp from '@/components/physics-tutoring/choose-app';
+import PhysicsTutorsACT from '@/components/physics-tutoring/ACT';
+import PhysicsTutorsUsps from "@/components/physics-tutoring/Usps";
+import Trainers from "@/components/physics-tutoring/Trainers";
+import PhysicsTutorsIgniteAchievements from '@/components/physics-tutoring/IgniteAchievements';
+import PhysicsTutorsLifeAtIgniteCarousel from '@/components/physics-tutoring/LifeAtIgniteCarousel';
+import PhysicsTutorsFAQSection from '@/components/physics-tutoring/FaqSection';
+import PhysicsTutorsStudentAchievements from '@/components/physics-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> PhysicsTutorsInDubai

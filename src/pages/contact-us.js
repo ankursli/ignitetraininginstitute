@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 // Import the reusable schema component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
-const ContactBanner = dynamic(() => import('@/components/contact/Banner'));
+import ContactBanner from "@/components/contact/Banner";
 
 
 // 1. Accept the headerHeight prop

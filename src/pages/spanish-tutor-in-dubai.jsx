@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/spanish-tutoring/accordian'));
+import Accordion from '@/components/spanish-tutoring/accordian';
 import SpanishTutorsInfoCard from '@/components/spanish-tutoring/infoCard';
-const SpanishTutorsChooseApp = dynamic(() => import('@/components/spanish-tutoring/choose-app'));
-const SpanishTutorsACT = dynamic(() => import('@/components/spanish-tutoring/ACT'));
-const SpanishTutorsUsps = dynamic(() => import('@/components/spanish-tutoring/Usps'));
-const Trainers = dynamic(() => import('@/components/spanish-tutoring/Trainers'));
-const SpanishTutorsIgniteAchievements = dynamic(() => import('@/components/spanish-tutoring/IgniteAchievements'));
-const SpanishTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/spanish-tutoring/LifeAtIgniteCarousel'));
-const SpanishTutorsFAQSection = dynamic(() => import('@/components/spanish-tutoring/FaqSection'));
-const SpanishTutorsStudentAchievements = dynamic(() => import('@/components/spanish-tutoring/StudentAchivement'));
+import SpanishTutorsChooseApp from '@/components/spanish-tutoring/choose-app';
+import SpanishTutorsACT from '@/components/spanish-tutoring/ACT';
+import SpanishTutorsUsps from "@/components/spanish-tutoring/Usps";
+import Trainers from "@/components/spanish-tutoring/Trainers";
+import SpanishTutorsIgniteAchievements from '@/components/spanish-tutoring/IgniteAchievements';
+import SpanishTutorsLifeAtIgniteCarousel from '@/components/spanish-tutoring/LifeAtIgniteCarousel';
+import SpanishTutorsFAQSection from '@/components/spanish-tutoring/FaqSection';
+import SpanishTutorsStudentAchievements from '@/components/spanish-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> SpanishTutorsInDubai

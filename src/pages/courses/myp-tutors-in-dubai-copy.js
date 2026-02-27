@@ -1,26 +1,25 @@
 import React, { useRef, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import Head from "next/head";
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 import LazySection from "@/components/LazySection";
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
-const Accordion = dynamic(() => import('@/components/myp/accordian'));
-const Blog = dynamic(() => import('@/components/myp/Blog'));
-const CourseCard = dynamic(() => import('@/components/myp/CourseCard'));
-const FAQSection = dynamic(() => import('@/components/myp/FaqSection'));
-const IgniteAchievements = dynamic(() => import('@/components/myp/IgniteAchievements'));
+import Accordion from '@/components/myp/accordian';
+import Blog from "@/components/myp/Blog";
+import CourseCard from '@/components/myp/CourseCard';
+import FAQSection from '@/components/myp/FaqSection';
+import IgniteAchievements from '@/components/myp/IgniteAchievements';
 import InfoCard from '@/components/myp-copy/InfoCard';
-const IgniteAboutCard = dynamic(() => import('@/components/myp/IgniteAboutCard'));
-const WhatWeOfferSection = dynamic(() => import('@/components/ibdp/WhatWeOfferSection'));
-const Trainers = dynamic(() => import('@/components/myp/Trainers'));
-const LifeAtIgniteCarousel = dynamic(() => import('@/components/myp/LifeAtIgniteCarousel'));
-const MarqueeBanner = dynamic(() => import('@/components/myp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/myp/ReviewsSection'));
-const StudentAchievements = dynamic(() => import('@/components/myp/StudentAchivement'));
-const SubjectsCard = dynamic(() => import('@/components/myp/SubjectCard'));
-const UspsSection = dynamic(() => import('@/components/myp/UspsSection'));
+import IgniteAboutCard from "@/components/myp/IgniteAboutCard";
+import WhatWeOfferSection from '@/components/ibdp/WhatWeOfferSection';
+import Trainers from "@/components/myp/Trainers";
+import LifeAtIgniteCarousel from '@/components/myp/LifeAtIgniteCarousel';
+import MarqueeBanner from '@/components/myp/MarqueeBanner';
+import ReviewsSection from '@/components/myp/ReviewsSection';
+import StudentAchievements from '@/components/myp/StudentAchivement';
+import SubjectsCard from '@/components/myp/SubjectCard';
+import UspsSection from '@/components/myp/UspsSection';
 
 
 // 1. ACCEPT the headerHeight prop

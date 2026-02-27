@@ -1,24 +1,23 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import Head from "next/head";
 import LazySection from "@/components/LazySection";
 // 1. Import the reusable schema component
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/tutors/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/tutors/ReviewsSection'));
-const StudentAchievements = dynamic(() => import('@/components/tutors/StudentAchivement'));
-const CurriculumTestsComponent = dynamic(() => import('@/components/tutors/curriculum'));
+import MarqueeBanner from '@/components/tutors/MarqueeBanner';
+import ReviewsSection from '@/components/tutors/ReviewsSection';
+import StudentAchievements from '@/components/tutors/StudentAchivement';
+import CurriculumTestsComponent from '@/components/tutors/curriculum';
 import InfoCard from '@/components/tutors/infoCard';
-const OurTrainers = dynamic(() => import('@/components/tutors/ourTrainers'));
-const SubjectsCard1 = dynamic(() => import('@/components/tutors/SubjectCard1'));
-const IgniteAchievements = dynamic(() => import('@/components/tutors/igniteAchivement'));
-const Blog = dynamic(() => import('@/components/tutors/Blog'));
-const UpsSection = dynamic(() => import('@/components/tutors/UspsSection'));
-const Accordion = dynamic(() => import('@/components/tutors/accordian'));
-const FAQSection = dynamic(() => import('@/components/tutors/FaqSection'));
-const LifeAtIgniteCarousel = dynamic(() => import('@/components/tutors/LifeAtIgniteCarousel'));
+import OurTrainers from '@/components/tutors/ourTrainers';
+import SubjectsCard1 from '@/components/tutors/SubjectCard1';
+import IgniteAchievements from '@/components/tutors/igniteAchivement';
+import Blog from "@/components/tutors/Blog";
+import UpsSection from '@/components/tutors/UspsSection';
+import Accordion from '@/components/tutors/accordian';
+import FAQSection from '@/components/tutors/FaqSection';
+import LifeAtIgniteCarousel from '@/components/tutors/LifeAtIgniteCarousel';
 
 // 1. ACCEPT the headerHeight prop
 const Tutors = ({ headerHeight }) => {

@@ -1,25 +1,24 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/psychology-tutoring/accordian'));
+import Accordion from '@/components/psychology-tutoring/accordian';
 import PsychologyTutorsInfoCard from '@/components/psychology-tutoring/infoCard';
-const PsychologyTutorsChooseApp = dynamic(() => import('@/components/psychology-tutoring/choose-app'));
-const PsychologyTutorsACT = dynamic(() => import('@/components/psychology-tutoring/ACT'));
-const PsychologyTutorsUsps = dynamic(() => import('@/components/psychology-tutoring/Usps'));
-const PsychologyTutorsIgniteAchievements = dynamic(() => import('@/components/psychology-tutoring/IgniteAchievements'));
-const PsychologyTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/psychology-tutoring/LifeAtIgniteCarousel'));
-const PsychologyTutorsFAQSection = dynamic(() => import('@/components/psychology-tutoring/FaqSection'));
-const PsychologyTutorsStudentAchievements = dynamic(() => import('@/components/psychology-tutoring/StudentAchivement'));
+import PsychologyTutorsChooseApp from '@/components/psychology-tutoring/choose-app';
+import PsychologyTutorsACT from '@/components/psychology-tutoring/ACT';
+import PsychologyTutorsUsps from "@/components/psychology-tutoring/Usps";
+import PsychologyTutorsIgniteAchievements from '@/components/psychology-tutoring/IgniteAchievements';
+import PsychologyTutorsLifeAtIgniteCarousel from '@/components/psychology-tutoring/LifeAtIgniteCarousel';
+import PsychologyTutorsFAQSection from '@/components/psychology-tutoring/FaqSection';
+import PsychologyTutorsStudentAchievements from '@/components/psychology-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> PsychologyTutorsInDubai

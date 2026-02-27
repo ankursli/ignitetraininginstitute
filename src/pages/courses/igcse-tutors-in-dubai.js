@@ -1,26 +1,24 @@
 import React, { useRef, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import Head from "next/head";
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 import LazySection from "@/components/LazySection";
 // import MovingBanner from '@/components/home/MovingBanner';
 // import Testimonial from '@/components/home/Testimonial';
-const Accordion = dynamic(() => import('@/components/igcse/accordian'));
-const Blog = dynamic(() => import('@/components/igcse/Blog'));
-const CourseCard = dynamic(() => import('@/components/igcse/CourseCard'));
-const FAQSection = dynamic(() => import('@/components/igcse/FaqSection'));
-const IgniteAchievements = dynamic(() => import('@/components/igcse/IgniteAchievements'));
+import Accordion from '@/components/igcse/accordian';
+import Blog from "@/components/igcse/Blog";
+import CourseCard from '@/components/igcse/CourseCard';
+import FAQSection from '@/components/igcse/FaqSection';
+import IgniteAchievements from '@/components/igcse/IgniteAchievements';
 import InfoCard from '@/components/igcse/InfoCard';
-const IgniteAboutCard = dynamic(() => import('@/components/igcse/IgniteAboutCard'));
-const Trainers = dynamic(() => import('@/components/igcse/Trainers'));
-const WhatWeOfferSection = dynamic(() => import('@/components/igcse/WhatWeOfferSection'));
-const LifeAtIgniteCarousel = dynamic(() => import('@/components/igcse/LifeAtIgniteCarousel'));
-const MarqueeBanner = dynamic(() => import('@/components/igcse/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/igcse/ReviewsSection'));
-const StudentAchievements = dynamic(() => import('@/components/igcse/StudentAchivement'));
-const SubjectsCard = dynamic(() => import('@/components/igcse/SubjectCard'));
-const UspsSection = dynamic(() => import('@/components/igcse/UspsSection'));
+import IgniteAboutCard from "@/components/igcse/IgniteAboutCard";
+import Trainers from '@/components/igcse/Trainers';
+import WhatWeOfferSection from '@/components/igcse/WhatWeOfferSection';
+// import LifeAtIgniteCarousel from '@/components/igcse/LifeAtIgniteCarousel';
+import MarqueeBanner from '@/components/igcse/MarqueeBanner';
+import ReviewsSection from '@/components/igcse/ReviewsSection';
+// import StudentAchievements from '@/components/igcse/StudentAchivement';
+import SubjectsCard from '@/components/igcse/SubjectCard';
+import UspsSection from '@/components/igcse/UspsSection';
 import UniImagesCard from '@/components/igcse/universityCrad';
 
 
@@ -144,38 +142,7 @@ const IGCSE = ({ headerHeight }) => {
   // ----------------------------------------------------
 
 
-  const scrollRef = useRef(null);
-  const scrollInstanceRef = useRef(null);
 
-  useEffect(() => {
-    let scroll;
-
-    const initScroll = async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      if (!scrollRef.current) return;
-
-      scroll = new LocomotiveScroll({
-        el: scrollRef.current,
-        smooth: true,
-        lerp: 0.1,
-        // optional:
-        getDirection: true,
-        getSpeed: true,
-        multiplier: 1,
-      });
-
-      scrollInstanceRef.current = scroll;
-    };
-
-    if (typeof window !== "undefined") {
-      initScroll();
-    }
-
-    return () => {
-      scrollInstanceRef.current?.destroy();
-      scrollInstanceRef.current = null;
-    };
-  }, []);
 
   return (
     <>
@@ -183,26 +150,21 @@ const IGCSE = ({ headerHeight }) => {
         title="IGCSE Tutors In Dubai, UAE | Expert Coaching & Guidance"
         description="Achieve success with top IGCSE tutors in UAE. Get full prep support for IGCSE with syllabus coverage, past paper practice & exam strategies"
         url="https://ignitetraininginstitute.com/courses/igcse-tutors-in-dubai"
+        preloadImages={[
+          {
+            src: "/assets/ib-bg.webp",
+            type: "image/webp",
+            media: "(max-width: 767px)"
+          },
+          {
+            src: "/assets/myp_bg_main.webp",
+            type: "image/webp",
+            media: "(min-width: 768px)"
+          }
+        ]}
       />
 
-      <Head>
-        <link
-          rel="preload"
-          href="/assets/ib-bg.webp"
-          as="image"
-          type="image/webp"
-          media="(max-width: 768px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          href="/assets/myp_bg_main.webp"
-          as="image"
-          type="image/webp"
-          media="(min-width: 769px)"
-          fetchPriority="high"
-        />
-      </Head>
+
 
       {/* <Head>
         <link
@@ -222,24 +184,22 @@ const IGCSE = ({ headerHeight }) => {
           fetchPriority="high"
         />
       </Head> */}
+
       {/* 2. RENDER THE SCHEMA COMPONENT, passing the combined array */}
       <JsonLd schema={igcseSchema} />
 
       {/* 3. APPLY the style for paddingTop */}
-      <div
-        ref={scrollRef}
-        className='overflow-hidden innerpage page-content-padding'
-        data-scroll-container
-      >
-        <section data-scroll-section className="hero-section">
+      <div className='overflow-hidden innerpage page-content-padding'>
+        <section className="hero-section">
           <div className="hero-container">
-            {/* LCP Image moved here for immediate painting (SSR) */}
             <picture className="hero-bg">
-              <source media="(max-width: 768px)" srcSet="/assets/ib-bg.webp" />
+              <source media="(max-width: 767px)" srcSet="/assets/ib-bg.webp" />
               <img
                 src="/assets/myp_bg_main.webp"
                 alt="IGCSE Tutors Background"
                 fetchPriority="high"
+                decoding="sync"
+                loading="eager"
                 width="1200"
                 height="800"
                 className="hero-img"

@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/maths-tutoring/accordian'));
+import Accordion from '@/components/maths-tutoring/accordian';
 import MathsTutorsInfoCard from '@/components/maths-tutoring/infoCard';
-const MathsTutorsChooseApp = dynamic(() => import('@/components/maths-tutoring/choose-app'));
-const MathsTutorsACT = dynamic(() => import('@/components/maths-tutoring/ACT'));
-const MathsTutorsUsps = dynamic(() => import('@/components/maths-tutoring/Usps'));
-const Trainers = dynamic(() => import('@/components/maths-tutoring/Trainers'));
-const MathsTutorsIgniteAchievements = dynamic(() => import('@/components/maths-tutoring/IgniteAchievements'));
-const MathsTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/maths-tutoring/LifeAtIgniteCarousel'));
-const MathsTutorsFAQSection = dynamic(() => import('@/components/maths-tutoring/FaqSection'));
-const MathsTutorsStudentAchievements = dynamic(() => import('@/components/maths-tutoring/StudentAchivement'));
+import MathsTutorsChooseApp from '@/components/maths-tutoring/choose-app';
+import MathsTutorsACT from '@/components/maths-tutoring/ACT';
+import MathsTutorsUsps from "@/components/maths-tutoring/Usps";
+import Trainers from "@/components/maths-tutoring/Trainers";
+import MathsTutorsIgniteAchievements from '@/components/maths-tutoring/IgniteAchievements';
+import MathsTutorsLifeAtIgniteCarousel from '@/components/maths-tutoring/LifeAtIgniteCarousel';
+import MathsTutorsFAQSection from '@/components/maths-tutoring/FaqSection';
+import MathsTutorsStudentAchievements from '@/components/maths-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> MathsTutorsInDubai

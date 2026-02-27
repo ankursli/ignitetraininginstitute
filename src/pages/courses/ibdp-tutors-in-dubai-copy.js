@@ -1,24 +1,23 @@
-import dynamic from "next/dynamic";
 // import MovingBanner from '@/components/home/MovingBanner';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // import Testimonial from '@/components/home/Testimonial';
-const Accordion = dynamic(() => import('@/components/ibdp/accordian'));
-const Blog = dynamic(() => import('@/components/ibdp/Blog'));
-const CourseCard = dynamic(() => import('@/components/ibdp/CourseCard'));
+import Accordion from '@/components/ibdp/accordian';
+import Blog from "@/components/ibdp/Blog";
+import CourseCard from '@/components/ibdp/CourseCard';
 
-const FAQSection = dynamic(() => import('@/components/ibdp/FaqSection'));
-const IgniteAchievements = dynamic(() => import('@/components/ibdp/IgniteAchievements'));
+import FAQSection from '@/components/ibdp/FaqSection';
+import IgniteAchievements from '@/components/ibdp/IgniteAchievements';
 import InfoCard from '@/components/ibdp-copy/InfoCard';
-const IgniteAboutCard = dynamic(() => import('@/components/ibdp/IgniteAboutCard'));
-const WhatWeOfferSection = dynamic(() => import('@/components/ibdp/WhatWeOfferSection'));
-const Trainers = dynamic(() => import('@/components/ibdp/Trainers'));
+import IgniteAboutCard from "@/components/ibdp/IgniteAboutCard";
+import WhatWeOfferSection from '@/components/ibdp/WhatWeOfferSection';
+import Trainers from "@/components/ibdp/Trainers";
 // import LifeAtIgniteCarousel from '@/components/ibdp/LifeAtIgniteCarousel';
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/ibdp/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/ibdp/ReviewsSection';
 // import StudentAchievements from '@/components/ibdp/StudentAchivement';
-const SubjectsCard = dynamic(() => import('@/components/ibdp/SubjectCard'));
-const UspsSection = dynamic(() => import('@/components/ibdp/UspsSection'));
+import SubjectsCard from '@/components/ibdp/SubjectCard';
+import UspsSection from '@/components/ibdp/UspsSection';
 // Removed: { useEffect, useRef }
 import SEO from "@/components/SEO";
 

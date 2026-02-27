@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // 1. Import the reusable schema component
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 // Assuming shared components are kept in their original path
-const MarqueeBanner = dynamic(() => import('@/components/ibdp/MarqueeBanner'));
-const ReviewsSection = dynamic(() => import('@/components/english-tutoring/ReviewsSection'));
+import MarqueeBanner from '@/components/ibdp/MarqueeBanner';
+import ReviewsSection from '@/components/english-tutoring/ReviewsSection';
 // import Hero from '@/components/home/Hero';
 
 // Updated imports to new duplicated components (assuming a new folder for components)
-const Accordion = dynamic(() => import('@/components/biology-tutoring/accordian'));
+import Accordion from '@/components/biology-tutoring/accordian';
 import BiologyTutorsInfoCard from '@/components/biology-tutoring/infoCard';
-const BiologyTutorsChooseApp = dynamic(() => import('@/components/biology-tutoring/choose-app'));
-const BiologyTutorsACT = dynamic(() => import('@/components/biology-tutoring/ACT'));
-const BiologyTutorsUsps = dynamic(() => import('@/components/biology-tutoring/Usps'));
-const Trainers = dynamic(() => import('@/components/biology-tutoring/Trainers'));
-const BiologyTutorsIgniteAchievements = dynamic(() => import('@/components/biology-tutoring/IgniteAchievements'));
-const BiologyTutorsLifeAtIgniteCarousel = dynamic(() => import('@/components/biology-tutoring/LifeAtIgniteCarousel'));
-const BiologyTutorsFAQSection = dynamic(() => import('@/components/biology-tutoring/FaqSection'));
-const BiologyTutorsStudentAchievements = dynamic(() => import('@/components/biology-tutoring/StudentAchivement'));
+import BiologyTutorsChooseApp from '@/components/biology-tutoring/choose-app';
+import BiologyTutorsACT from '@/components/biology-tutoring/ACT';
+import BiologyTutorsUsps from "@/components/biology-tutoring/Usps";
+import Trainers from "@/components/biology-tutoring/Trainers";
+import BiologyTutorsIgniteAchievements from '@/components/biology-tutoring/IgniteAchievements';
+import BiologyTutorsLifeAtIgniteCarousel from '@/components/biology-tutoring/LifeAtIgniteCarousel';
+import BiologyTutorsFAQSection from '@/components/biology-tutoring/FaqSection';
+import BiologyTutorsStudentAchievements from '@/components/biology-tutoring/StudentAchivement';
 
 //comment
 // Renamed main component: SubjectTutoring -> BiologyTutorsInDubai

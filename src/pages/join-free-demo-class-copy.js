@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import dynamic from 'next/dynamic';
 import Head from "next/head";
 import LazySection from "@/components/LazySection";
 import Image from "next/image";
@@ -9,11 +8,11 @@ import "swiper/css/navigation";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation } from "swiper/modules";
 import InfoCard from '@/components/freedemo-copy/InfoCard';
-const SubjectsCard = dynamic(() => import('@/components/freedemo/SubjectCard'));
-const MarqueeBanner = dynamic(() => import('@/components/freedemo/MarqueeBanner'));
-const Testimonial = dynamic(() => import('@/components/freedemo/Testimonial'));
+import SubjectsCard from '@/components/freedemo/SubjectCard';
+import MarqueeBanner from '@/components/freedemo/MarqueeBanner';
+import Testimonial from "@/components/freedemo/Testimonial";
 // import TrainersMessage from "@/components/freedemo/videoTrainer";
-const CallToAction = dynamic(() => import('@/components/freedemo/CallToAction'));
+import CallToAction from "@/components/freedemo/CallToAction";
 import SEO from "@/components/SEO";
 
 import styles from "@/styles/freedemo/freedemo.module.css";

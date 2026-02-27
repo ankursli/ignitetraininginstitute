@@ -168,7 +168,7 @@ export default function MyApp({ Component, pageProps }) {
             {/* Google Tag (gtag.js) */}
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=AW-844959495"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
             />
             <Script id="google-analytics" strategy="afterInteractive">
                 {`
@@ -180,7 +180,7 @@ export default function MyApp({ Component, pageProps }) {
             </Script>
 
             {/* Meta Pixel Code */}
-            <Script id="meta-pixel" strategy="afterInteractive">
+            <Script id="meta-pixel" strategy="lazyOnload">
                 {`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
