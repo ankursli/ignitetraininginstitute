@@ -1,6 +1,4 @@
 // pages/[slug].js
-import "@/styles/slug/slug.css";
-import "@/styles/bloginnerpage.css";
 // 'use client';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';

@@ -9,6 +9,13 @@ import "@/styles/critical.css";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/home-copy/Blog.css";
+import "@/styles/DelayedPopup.css";
+import "@/styles/blog/Blogpg.css";
+import "@/styles/bloginnerpage.css";
+import "@/styles/slug/slug.css";
+import "@/styles/contact/contact.css";
+import "@/styles/ibdp/Ibdp.css";
+import "@/styles/team/team.css";
 
 import SEOHead from '../components/SEOHead';
 import Header from "../components/Header";

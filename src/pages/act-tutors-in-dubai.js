@@ -20,7 +20,7 @@ import UspsSection from '@/components/act/UspsSection';
 import Head from 'next/head';
 
 // 1. ACCEPT the headerHeight prop
-const act = ({ headerHeight }) => {
+const act = ({ headerHeight, blogData }) => {
 
   // ----------------------------------------------------
   // 👇 COMBINED JSON-LD SCHEMAS DEFINITION FOR THIS PAGE
@@ -324,7 +324,7 @@ const act = ({ headerHeight }) => {
 
         <LazySection>
           <section data-scroll-section className='actblogs'>
-            <Blog />
+            <Blog blogData={blogData} />
           </section>
         </LazySection>
         <LazySection>
@@ -336,5 +336,44 @@ const act = ({ headerHeight }) => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed");
+    const data = await res.json();
+
+    const he = (await import("he")).default;
+
+    const blogData = data.map((post) => {
+      const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, "");
+      const rawTitle = post.title.rendered.replace(/<[^>]*>?/gm, "");
+      const decodedExcerpt = he.decode(rawExcerpt);
+      const decodedTitle = he.decode(rawTitle);
+      const trimmedExcerpt = decodedExcerpt.length > 80
+        ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
+        : decodedExcerpt;
+
+      return {
+        img: post._embedded["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
+        title: decodedTitle,
+        desc: trimmedExcerpt,
+        link: post.slug,
+      };
+    });
+
+    return {
+      props: {
+        blogData,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching blogs for ACT SSR:", error);
+    return {
+      props: {
+        blogData: [],
+      },
+    };
+  }
+}
 
 export default act;

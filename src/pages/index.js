@@ -108,8 +108,6 @@ export async function getServerSideProps({ res }) {
                 title: decodedTitle,
                 desc: trimmedExcerpt,
                 link: post.slug,
-                width: 1200, // Default width for consistency
-                height: 800, // Default height for consistency
             };
         });
 

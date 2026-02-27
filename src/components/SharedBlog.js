@@ -11,26 +11,36 @@ const SharedBlog = ({ title, blogData: initialBlogData, locoScroll }) => {
     useEffect(() => {
         if (!initialBlogData || initialBlogData.length === 0) {
             const fetchData = async () => {
-                const res = await fetch("https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed");
-                const data = await res.json();
+                try {
+                    // Use internal API proxy (/api/wp/...) to avoid CORS / "Failed to fetch" on client side
+                    const res = await fetch("/api/wp/posts?per_page=3&_embed");
+                    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
-                const formatted = data.map((post) => {
-                    const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, "");
-                    const rawTitle = post.title.rendered.replace(/<[^>]*>?/gm, "");
-                    const decodedExcerpt = he.decode(rawExcerpt);
-                    const decodedTitle = he.decode(rawTitle);
-                    const trimmedExcerpt = decodedExcerpt.length > 80
-                        ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
-                        : decodedExcerpt;
+                    const data = await res.json();
+                    if (!Array.isArray(data)) return;
 
-                    return {
-                        img: post._embedded["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
-                        title: decodedTitle,
-                        desc: trimmedExcerpt,
-                        link: post.slug,
-                    };
-                });
-                setBlogData(formatted);
+                    const formatted = data.map((post) => {
+                        const rawExcerpt = post.excerpt?.rendered?.replace(/<[^>]*>?/gm, "") || "";
+                        const rawTitle = post.title?.rendered?.replace(/<[^>]*>?/gm, "") || "";
+                        const decodedExcerpt = he.decode(rawExcerpt);
+                        const decodedTitle = he.decode(rawTitle);
+                        const trimmedExcerpt = decodedExcerpt.length > 80
+                            ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
+                            : decodedExcerpt;
+
+                        return {
+                            img: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
+                            title: decodedTitle,
+                            desc: trimmedExcerpt,
+                            link: post.slug,
+                        };
+                    });
+                    setBlogData(formatted);
+                } catch (error) {
+                    console.error("SharedBlog: Client-side fetch failed:", error);
+                    // Silently fail or set empty data to avoid crashing the whole page
+                    setBlogData([]);
+                }
             };
             fetchData();
         }

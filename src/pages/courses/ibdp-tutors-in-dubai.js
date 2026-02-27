@@ -1,4 +1,3 @@
-import "@/styles/ibdp/Ibdp.css";
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // import Testimonial from '@/components/home/Testimonial';
@@ -22,7 +21,7 @@ import UspsSection from '@/components/ibdp/UspsSection';
 import SEO from "@/components/SEO";
 
 // The local Locomotive Scroll initialization logic has been entirely removed.
-const IBDP = ({ headerHeight }) => {
+const IBDP = ({ headerHeight, blogData }) => {
 
   return (
     <>
@@ -179,7 +178,7 @@ const IBDP = ({ headerHeight }) => {
 
         <LazySection>
           <section data-scroll-section>
-            <Blog />
+            <Blog blogData={blogData} />
           </section>
         </LazySection>
         <LazySection>
@@ -191,5 +190,44 @@ const IBDP = ({ headerHeight }) => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed");
+    const data = await res.json();
+
+    const he = (await import("he")).default;
+
+    const blogData = data.map((post) => {
+      const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, "");
+      const rawTitle = post.title.rendered.replace(/<[^>]*>?/gm, "");
+      const decodedExcerpt = he.decode(rawExcerpt);
+      const decodedTitle = he.decode(rawTitle);
+      const trimmedExcerpt = decodedExcerpt.length > 80
+        ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
+        : decodedExcerpt;
+
+      return {
+        img: post._embedded["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
+        title: decodedTitle,
+        desc: trimmedExcerpt,
+        link: post.slug,
+      };
+    });
+
+    return {
+      props: {
+        blogData,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching blogs for IBDP SSR:", error);
+    return {
+      props: {
+        blogData: [],
+      },
+    };
+  }
+}
 
 export default IBDP;

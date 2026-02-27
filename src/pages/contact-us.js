@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "@/styles/contact/contact.css";
 import LazySection from "@/components/LazySection";
 // Import the reusable schema component
 import SEO from "@/components/SEO";
