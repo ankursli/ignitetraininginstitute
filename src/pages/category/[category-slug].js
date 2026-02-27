@@ -2,6 +2,7 @@
 
 'use client';
 
+import styles from '@/styles/ibdp.module.css';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
@@ -379,7 +380,7 @@ const CategoryPage = ({ headerHeight, fallbackCategory, categorySlug, initialPos
     // Determine breadcrumb path
     const breadcrumbPath = [
         { name: 'Home', href: '/' },
-        { name: 'Blog', href: '/blog' },
+        { name: 'Category', href: '/category' },
         { name: currentCategory.name, href: router.asPath }
     ];
 
@@ -455,7 +456,7 @@ const CategoryPage = ({ headerHeight, fallbackCategory, categorySlug, initialPos
                         </p>
                     </div>
                 </section>
-                <section className="ibdpBanner container" data-scroll data-scroll-section>
+                <section className={`${styles.ibdpBanner} container`} data-scroll data-scroll-section>
 
                     {/* Loading spinner always within the container */}
                     {(isLoading || (isValidating && posts.length === 0)) && (

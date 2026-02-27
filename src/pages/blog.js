@@ -1,5 +1,6 @@
 'use client';
 
+import styles from '@/styles/ibdp.module.css';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import useSWR from 'swr';
 import SEO from "@/components/SEO";
@@ -270,7 +271,7 @@ const Blogpg = ({ headerHeight, ...props }) => {
                         <p className="subHeading">HOME // Blog</p>
                     </div>
                 </section>
-                <section className="ibdpBanner container" data-scroll data-scroll-section>
+                <section className={`${styles.ibdpBanner} container`} data-scroll data-scroll-section>
                     {/* Blog Search - ALWAYS VISIBLE */}
                     <div className="mb-4 p-4 bg-white searchBox rounded ">
                         <div className="input-group mb-3">

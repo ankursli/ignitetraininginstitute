@@ -8,7 +8,6 @@ import Link from 'next/link';
 import "@/styles/critical.css";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@/styles/ibdp/Ibdp.css";
 import "@/styles/home-copy/Blog.css";
 import "@/styles/blog/Blogpg.css";
 import "@/styles/slug/slug.css";
