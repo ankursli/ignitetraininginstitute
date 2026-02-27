@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import "@/styles/blog/Blogpg.css";
 import useSWR from 'swr';
 import SEO from "@/components/SEO";
 import Image from 'next/image';

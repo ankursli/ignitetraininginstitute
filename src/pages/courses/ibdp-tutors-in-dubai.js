@@ -1,4 +1,4 @@
-// import MovingBanner from '@/components/home/MovingBanner';
+import "@/styles/ibdp/Ibdp.css";
 import LazySection from "@/components/LazySection";
 import Head from "next/head";
 // import Testimonial from '@/components/home/Testimonial';

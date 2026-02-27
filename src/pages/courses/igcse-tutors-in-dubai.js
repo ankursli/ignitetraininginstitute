@@ -1,3 +1,4 @@
+import "@/styles/ibdp/Ibdp.css";
 import React, { useRef, useEffect } from 'react';
 import JsonLd from "@/components/JsonLd";
 import SEO from "@/components/SEO";

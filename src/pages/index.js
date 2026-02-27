@@ -26,15 +26,12 @@ const HomeCopy = ({ headerHeight, blogData }) => {
                 description="As Dubai's leading coaching institute, we empower students to embark on their academic journey by offering expert tutoring for IB, IGCSE, A Levels & AP"
                 url="https://ignitetraininginstitute.com"
                 preloadImages={[
+                    // We only preload the TRUE LCP candidate (the poster) 
+                    // Background images are discovered via CSS and are less critical.
                     {
-                        src: "/images/banner-bg-mobile.webp",
+                        src: "/images/video-cover-mobile.webp",
                         type: "image/webp",
                         media: "(max-width: 767px)"
-                    },
-                    {
-                        src: "/images/banner-bg.webp",
-                        type: "image/webp",
-                        media: "(min-width: 768px)"
                     }
                 ]}
             />
@@ -90,7 +87,9 @@ const HomeCopy = ({ headerHeight, blogData }) => {
     );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }) {
+    // Cache the entire page on the edge for 1 hour to improve TTFB
+    res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=59');
     try {
         const res = await fetch("https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed");
         const data = await res.json();
