@@ -199,17 +199,8 @@ export default function IgniteAboutCard() {
         </div> */}
 
       <style jsx>{`
-        @font-face {
-          font-family: "Monstra";
-          src: url("/fonts/Monstra.ttf") format("truetype");
-          font-weight: normal;
-          font-style: normal;
-        }
-.aboutignite-card{
-            text-align: center;
-            }
         .my-text {
-          font-family: "Monstra", sans-serif;
+          font-family: inherit;
         }
 
          .testimonialRect {

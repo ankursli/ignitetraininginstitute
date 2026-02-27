@@ -449,12 +449,6 @@ export default function CareerForm() {
           border: 1px solid #f5c6cb;
         }
 
-        @font-face {
-          font-family: 'Monstra';
-          src: url('/fonts/Monstra.ttf') format('truetype');
-          font-weight: normal;
-          font-style: normal;
-        }
 
         .career-section {
           max-width: 90vw;

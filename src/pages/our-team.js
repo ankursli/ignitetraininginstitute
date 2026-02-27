@@ -1,4 +1,5 @@
 'use client';
+import "@/styles/team/team.css";
 import LazySection from "@/components/LazySection";
 
 import { useState, useEffect } from 'react';
