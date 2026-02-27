@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import LazySection from "@/components/LazySection";
-
+import he from "he";
 import SEO from "@/components/SEO";
-import SEOHead from "@/components/SEOHead";
 import Hero from "@/components/homeCopy/Hero";
-
-
-// Dynamic imports
-// Dynamic imports switched to static for SSR (kept static for LCP/ATF components)
-// import Course from "@/components/homeCopy/Course"; // Moving to dynamic
 
 // Dynamic imports for below-the-fold components
 import dynamic from "next/dynamic";
@@ -22,7 +16,7 @@ const Trainers = dynamic(() => import("@/components/homeCopy/Trainers"));
 const Testimonial = dynamic(() => import("@/components/homeCopy/Testimonial"));
 const Blog = dynamic(() => import("@/components/homeCopy/Blog"));
 
-const HomeCopy = ({ headerHeight }) => {
+const HomeCopy = ({ headerHeight, blogData }) => {
     const [active, setActive] = useState(1);
 
     return (
@@ -89,11 +83,50 @@ const HomeCopy = ({ headerHeight }) => {
                 </LazySection>
 
                 <LazySection>
-                    <Blog />
+                    <Blog blogData={blogData} />
                 </LazySection>
             </div>
         </>
     );
 };
+
+export async function getServerSideProps() {
+    try {
+        const res = await fetch("https://api.ignitetraininginstitute.com/wp-json/wp/v2/posts?per_page=3&_embed");
+        const data = await res.json();
+
+        const blogData = data.map((post) => {
+            const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, "");
+            const rawTitle = post.title.rendered.replace(/<[^>]*>?/gm, "");
+            const decodedExcerpt = he.decode(rawExcerpt);
+            const decodedTitle = he.decode(rawTitle);
+            const trimmedExcerpt = decodedExcerpt.length > 80
+                ? decodedExcerpt.substring(0, decodedExcerpt.lastIndexOf(" ", 80)) + "..."
+                : decodedExcerpt;
+
+            return {
+                img: post._embedded["wp:featuredmedia"]?.[0]?.source_url || "/images/blog-placeholder.webp",
+                title: decodedTitle,
+                desc: trimmedExcerpt,
+                link: post.slug,
+                width: 1200, // Default width for consistency
+                height: 800, // Default height for consistency
+            };
+        });
+
+        return {
+            props: {
+                blogData,
+            },
+        };
+    } catch (error) {
+        console.error("Error fetching blogs for SSR:", error);
+        return {
+            props: {
+                blogData: [],
+            },
+        };
+    }
+}
 
 export default HomeCopy;

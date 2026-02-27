@@ -19,9 +19,10 @@ import "@/styles/contact/contact.css";
 import SEOHead from '../components/SEOHead';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import DelayedPopup from "../components/DelayedPopup";
 
-import "@/styles/DelayedPopup.css";
+const DelayedPopup = dynamic(() => import("../components/DelayedPopup"), {
+    ssr: false,
+});
 
 const LocomotiveScrollProvider = dynamic(() => import('../components/LocomotiveScrollProvider'), {
     ssr: false,

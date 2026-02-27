@@ -51,23 +51,6 @@ const Hero = () => {
 
     return (
         <>
-            <Head>
-                <link
-                    rel="preload"
-                    as="image"
-                    href="/images/video-cover.webp"
-                    media="(min-width: 768px)"
-                    fetchPriority="high"
-                />
-                <link
-                    rel="preload"
-                    as="image"
-                    href="/images/video-cover-mobile.webp"
-                    media="(max-width: 767px)"
-                    fetchPriority="high"
-                />
-            </Head>
-
             <div className={styles.heroSectionWrapper}>
                 <section className={`${styles.hero} ${styles.homeherosection}`}>
                     <div className="container">

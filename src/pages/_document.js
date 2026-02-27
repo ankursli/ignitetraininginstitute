@@ -9,6 +9,24 @@ export default function Document() {
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://ignitetraininginstitute.com" />
 
+        {/* --- CRITICAL LCP PRELOADS --- */}
+        <link
+          rel="preload"
+          href="/images/video-cover-mobile.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 767px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/images/video-cover.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 768px)"
+          fetchPriority="high"
+        />
+
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         <link
