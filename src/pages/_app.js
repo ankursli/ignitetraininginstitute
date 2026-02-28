@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { useState, createContext, useEffect } from "react";
-import Link from 'next/link';
+
 
 import "@/styles/critical.css";
 import "@/styles/globals.css";
