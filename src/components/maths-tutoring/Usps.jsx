@@ -1,85 +1,35 @@
+// Maths Usps component updated for global Locomotive Scroll
 import React from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-coverflow";
-import "swiper/css/scrollbar";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  Pagination,
-  EffectCoverflow,
-  Scrollbar,
-  Mousewheel,
-} from "swiper/modules";
 import Image from "next/image";
 import styles from '@/styles/home-copy/Usps.module.css';
 
+const useIsStickyDisabled = (breakpoint = 1100) => {
+  const [isStickyDisabled, setIsStickyDisabled] = useState(false);
+
+  const checkStickyDisabled = useCallback(() => {
+    if (typeof window !== "undefined") {
+      setIsStickyDisabled(window.innerWidth <= breakpoint);
+    }
+  }, [breakpoint]);
+
+  useEffect(() => {
+    checkStickyDisabled();
+    window.addEventListener("resize", checkStickyDisabled);
+    return () => window.removeEventListener("resize", checkStickyDisabled);
+  }, [checkStickyDisabled]);
+
+  return isStickyDisabled;
+};
+
 const uspData = [
-  {
-    number: "01",
-    icon: "/images/usp-icon1.webp",
-    title: "Profound Expertise",
-    desc: "Learn from experienced Maths tutors with in-depth subject mastery.",
-    width: 77,
-    height: 67,
-  },
-  {
-    number: "02",
-    icon: "/images/usp-icon2.webp",
-    title: "Practical Approach",
-    desc: "Apply concepts through real-world examples and logical reasoning.",
-    width: 67,
-    height: 63,
-  },
-  {
-    number: "03",
-    icon: "/images/usp-icon3.webp",
-    title: "Proven Outcomes",
-    desc: "Consistent student success across international Maths exams.",
-    width: 76,
-    height: 69,
-  },
-  {
-    number: "04",
-    icon: "/images/usp-icon4.webp",
-    title: "Interactive Sessions",
-    desc: "Engaging lessons that promote active problem-solving and thinking.",
-    width: 66,
-    height: 71,
-  },
-  {
-    number: "05",
-    icon: "/images/usp-icon5.webp",
-    title: "Adaptable Schedules",
-    desc: "Flexible timings that suit your learning pace and routine.",
-    width: 78,
-    height: 74,
-  },
-  {
-    number: "06",
-    icon: "/images/usp-icon6.webp",
-    title: "Tailored Education",
-    desc: "Curriculum-based learning paths aligned to your goals.",
-    width: 76,
-    height: 78,
-  },
-  {
-    number: "07",
-    icon: "/images/usp-icon1.webp",
-    title: "Confidence Boost",
-    desc: "Gain clarity and confidence through guided Maths practice.",
-    width: 77,
-    height: 67,
-  },
-  {
-    number: "08",
-    icon: "/images/usp-icon2.webp",
-    title: "Exam Strategies",
-    desc: "Focused techniques to tackle complex problems with accuracy.",
-    width: 67,
-    height: 63,
-  },
+  { number: "01", icon: "/images/usp-icon1.webp", title: "Profound Expertise", desc: "Learn from experienced Maths tutors with in-depth subject mastery.", width: 77, height: 67 },
+  { number: "02", icon: "/images/usp-icon2.webp", title: "Practical Approach", desc: "Apply concepts through real-world examples and logical reasoning.", width: 67, height: 63 },
+  { number: "03", icon: "/images/usp-icon3.webp", title: "Proven Outcomes", desc: "Consistent student success across international Maths exams.", width: 76, height: 69 },
+  { number: "04", icon: "/images/usp-icon4.webp", title: "Interactive Sessions", desc: "Engaging lessons that promote active problem-solving and thinking.", width: 66, height: 71 },
+  { number: "05", icon: "/images/usp-icon5.webp", title: "Adaptable Schedules", desc: "Flexible timings that suit your learning pace and routine.", width: 78, height: 74 },
+  { number: "06", icon: "/images/usp-icon6.webp", title: "Tailored Education", desc: "Curriculum-based learning paths aligned to your goals.", width: 76, height: 78 },
+  { number: "07", icon: "/images/usp-icon1.webp", title: "Confidence Boost", desc: "Gain clarity and confidence through guided Maths practice.", width: 77, height: 67 },
+  { number: "08", icon: "/images/usp-icon2.webp", title: "Exam Strategies", desc: "Focused techniques to tackle complex problems with accuracy.", width: 67, height: 63 },
 ];
 
 const uspDataRows = [];
@@ -88,20 +38,18 @@ for (let i = 0; i < uspData.length; i += 2) {
 }
 
 export default function Usps({ }) {
+
   return (
     <>
-      <div
-        className="usp-section sp-container"
-      >
+      <div className="usp-section sp-container">
         <div
-          className={`fade-in-section ${styles.uspSection}`}
           data-scroll
           data-scroll-class="is-inview"
-          data-scroll-repeat
+          className={`fade-in-section ${styles.uspSection}`}
           style={{ animationDelay: "0.2s" }}
         >
           <div className="row justify-content-between gx-5">
-            <div className="col-lg-4">
+            <div className="col-lg-4" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <div
                 className={styles.uspLeft}
                 data-scroll
@@ -152,10 +100,14 @@ export default function Usps({ }) {
                 {uspDataRows.map((row, index) => (
                   <div key={index} className={styles.uspSlide}>
                     {row.map((usp, i) => (
-                      <div key={i} className={`fade-in-section ${styles.uspItem}`}
+                      <div
+                        key={i}
+                        className={`fade-in-section ${styles.uspItem}`}
                         data-scroll
                         data-scroll-class="is-inview"
-                        data-scroll-repeat>
+                        data-scroll-repeat
+                        style={{ animationDelay: `${0.6 + i * 0.15}s` }}
+                      >
                         <div className={styles.uspNumber}>{usp.number}</div>
                         <div className={styles.uspIconCircle}>
                           <img

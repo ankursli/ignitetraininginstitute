@@ -120,38 +120,7 @@ const MathsTutorsInDubai = ({ headerHeight }) => {
     // ----------------------------------------------------
 
 
-    const scrollRef = useRef(null);
-    const scrollInstanceRef = useRef(null);
-
-    useEffect(() => {
-        let scroll;
-
-        const initScroll = async () => {
-            const LocomotiveScroll = (await import("locomotive-scroll")).default;
-            if (!scrollRef.current) return;
-
-            scroll = new LocomotiveScroll({
-                el: scrollRef.current,
-                smooth: true,
-                lerp: 0.1,
-                // optional:
-                getDirection: true,
-                getSpeed: true,
-                multiplier: 1,
-            });
-
-            scrollInstanceRef.current = scroll;
-        };
-
-        if (typeof window !== "undefined") {
-            initScroll();
-        }
-
-        return () => {
-            scrollInstanceRef.current?.destroy();
-            scrollInstanceRef.current = null;
-        };
-    }, []);
+    // Relying on global LocomotiveScrollProvider from _app.js
 
     return (
         <>
@@ -181,9 +150,8 @@ const MathsTutorsInDubai = ({ headerHeight }) => {
             <JsonLd schema={mathsTutorsSchema} />
 
             <div
-                ref={scrollRef}
-                className="overflow-hidden innerpage page-content-padding"
-                data-scroll-container
+                className="innerpage page-content-padding"
+                style={{ paddingTop: `${headerHeight}px` }}
             >
                 <section className="hero-section" data-scroll-section>
                     <div className="hero-container">

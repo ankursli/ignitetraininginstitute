@@ -1,85 +1,35 @@
+// English Usps component updated for global Locomotive Scroll
 import React from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-coverflow";
-import "swiper/css/scrollbar";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  Pagination,
-  EffectCoverflow,
-  Scrollbar,
-  Mousewheel,
-} from "swiper/modules";
 import Image from "next/image";
 import styles from '@/styles/home-copy/Usps.module.css';
 
+const useIsStickyDisabled = (breakpoint = 1100) => {
+  const [isStickyDisabled, setIsStickyDisabled] = useState(false);
+
+  const checkStickyDisabled = useCallback(() => {
+    if (typeof window !== "undefined") {
+      setIsStickyDisabled(window.innerWidth <= breakpoint);
+    }
+  }, [breakpoint]);
+
+  useEffect(() => {
+    checkStickyDisabled();
+    window.addEventListener("resize", checkStickyDisabled);
+    return () => window.removeEventListener("resize", checkStickyDisabled);
+  }, [checkStickyDisabled]);
+
+  return isStickyDisabled;
+};
+
 const uspData = [
-  {
-    number: "01",
-    icon: "/images/usp-icon1.webp",
-    title: "Language Mastery",
-    desc: "Build strong English fluency with focused skills training.",
-    width: 77,
-    height: 67,
-  },
-  {
-    number: "02",
-    icon: "/images/usp-icon2.webp",
-    title: "Personalized Approach",
-    desc: "Customized lessons that match your learning style perfectly.",
-    width: 67,
-    height: 63,
-  },
-  {
-    number: "03",
-    icon: "/images/usp-icon3.webp",
-    title: "Cultural Insights",
-    desc: "Learn language in context through global cultural relevance.",
-    width: 76,
-    height: 69,
-  },
-  {
-    number: "04",
-    icon: "/images/usp-icon4.webp",
-    title: "Proven Results",
-    desc: "Consistent academic success with top scores in English.",
-    width: 66,
-    height: 71,
-  },
-  {
-    number: "05",
-    icon: "/images/usp-icon5.webp",
-    title: "Interactive Learning",
-    desc: "Engaging sessions that truly bring language to life.",
-    width: 78,
-    height: 74,
-  },
-  {
-    number: "06",
-    icon: "/images/usp-icon6.webp",
-    title: "Flexible Sessions",
-    desc: "Online or in-person classes that perfectly fit your schedule.",
-    width: 76,
-    height: 78,
-  },
-  {
-    number: "07",
-    icon: "/images/usp-icon1.webp",
-    title: "Tailored Guidance",
-    desc: "Curriculum-specific support based on goals and abilities.",
-    width: 77,
-    height: 67,
-  },
-  {
-    number: "08",
-    icon: "/images/usp-icon2.webp",
-    title: "Exam Excellence",
-    desc: "Targeted preparation for top performance in English exams.",
-    width: 67,
-    height: 63,
-  },
+  { number: "01", icon: "/images/usp-icon1.webp", title: "Language Mastery", desc: "Build strong English fluency with focused skills training.", width: 77, height: 67 },
+  { number: "02", icon: "/images/usp-icon2.webp", title: "Personalized Approach", desc: "Customized lessons that match your learning style perfectly.", width: 67, height: 63 },
+  { number: "03", icon: "/images/usp-icon3.webp", title: "Cultural Insights", desc: "Learn language in context through global cultural relevance.", width: 76, height: 69 },
+  { number: "04", icon: "/images/usp-icon4.webp", title: "Proven Results", desc: "Consistent academic success with top scores in English.", width: 66, height: 71 },
+  { number: "05", icon: "/images/usp-icon5.webp", title: "Interactive Learning", desc: "Engaging sessions that truly bring language to life.", width: 78, height: 74 },
+  { number: "06", icon: "/images/usp-icon6.webp", title: "Flexible Sessions", desc: "Online or in-person classes that perfectly fit your schedule.", width: 76, height: 78 },
+  { number: "07", icon: "/images/usp-icon1.webp", title: "Tailored Guidance", desc: "Curriculum-specific support based on goals and abilities.", width: 77, height: 67 },
+  { number: "08", icon: "/images/usp-icon2.webp", title: "Exam Excellence", desc: "Targeted preparation for top performance in English exams.", width: 67, height: 63 },
 ];
 
 const uspDataRows = [];
@@ -88,20 +38,18 @@ for (let i = 0; i < uspData.length; i += 2) {
 }
 
 export default function Usps({ }) {
+
   return (
     <>
-      <div
-        className="usp-section sp-container"
-      >
+      <div className="usp-section sp-container">
         <div
-          className={`fade-in-section ${styles.uspSection}`}
           data-scroll
           data-scroll-class="is-inview"
-          data-scroll-repeat
+          className={`fade-in-section ${styles.uspSection}`}
           style={{ animationDelay: "0.2s" }}
         >
           <div className="row justify-content-between gx-5">
-            <div className="col-lg-4 uspwrapper">
+            <div className="col-lg-4" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <div
                 className={styles.uspLeft}
                 data-scroll
@@ -152,10 +100,14 @@ export default function Usps({ }) {
                 {uspDataRows.map((row, index) => (
                   <div key={index} className={styles.uspSlide}>
                     {row.map((usp, i) => (
-                      <div key={i} className={`fade-in-section ${styles.uspItem}`}
+                      <div
+                        key={i}
+                        className={`fade-in-section ${styles.uspItem}`}
                         data-scroll
                         data-scroll-class="is-inview"
-                        data-scroll-repeat>
+                        data-scroll-repeat
+                        style={{ animationDelay: `${0.6 + i * 0.15}s` }}
+                      >
                         <div className={styles.uspNumber}>{usp.number}</div>
                         <div className={styles.uspIconCircle}>
                           <img

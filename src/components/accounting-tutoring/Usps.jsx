@@ -130,7 +130,7 @@ export default function Usps({ }) {
                   data-scroll-repeat
                   style={{ animationDelay: "0.2s" }}
                 >
-                  What Do Students Get From Ignite's French Support?
+                  What Do Students Get From Ignite's Accounting Support?
                 </h3>
 
                 {/* The commented-out subtitle/desc elements (uspSubtitle, uspDesc) 

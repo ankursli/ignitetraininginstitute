@@ -186,8 +186,8 @@
     align-items: center;
     gap: 20px;
     min-width: 100%;
-    position: static;
-    top: auto;
+    /* position: static; */
+    /* top: auto; */
   }
 
   .uspTitle {
