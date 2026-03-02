@@ -229,6 +229,8 @@ const TOCPostContent = ({ content, toc }) => {
             </div>
         `;
 
+        // TEMPORARY REMOVAL: Gifs/Videos injected in content
+        /*
         const fourthH2 = allH2s[4];
         if (fourthH2) {
             const gif2TempDiv = document.createElement('div');
@@ -242,6 +244,7 @@ const TOCPostContent = ({ content, toc }) => {
             video1TempDiv.innerHTML = video1Html.trim();
             thirdH2.parentNode.insertBefore(video1TempDiv.firstChild, thirdH2);
         }
+        */
 
         let newContent = tempDiv.innerHTML;
         if (firstH2) {
